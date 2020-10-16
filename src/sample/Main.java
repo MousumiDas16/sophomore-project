@@ -1,19 +1,22 @@
 package sample;
 
 
+import java.util.Scanner;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+//import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.*;
-import javafx.scene.Scene;
-import javafx.scene.*;
-import javafx.stage.Stage;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 
 public class Main extends Application {
@@ -44,6 +47,20 @@ public class Main extends Application {
         root.setLeft(Left_UI);
         Left_UI.getChildren().add(Left_Rec);
 
+
+        Scanner getInput = new Scanner(System.in);
+
+
+        String heroName ;
+        do{
+            System.out.println("What is the name of your hero?");
+            //heroName = "TEMPORARY_NAME";
+            heroName = getInput.nextLine();
+
+        }while(heroName.isEmpty());
+        Player hero = new Player(heroName);
+        System.out.println("The Player's name is " + hero.getName());
+
         //TEXT AND BUTTON's
 
             Group text_Group = new Group();
@@ -63,16 +80,17 @@ public class Main extends Application {
             text4.setY(Text_coorY + 60);
             Bot_UI.getChildren().add(text_Group);
 
+            Button butt1 = new Button();
+            Button butt2 = new Button();
+            Button butt3 = new Button();
+            Button butt4 = new Button();
 
-            Button butt1 = new Button("1");
-            Button butt2 = new Button("2");
-            Button butt3 = new Button("3");
-            Button butt4 = new Button("4");
 
             butt1.setPadding(new Insets(0, 20, 0, 20));
             butt2.setPadding(new Insets(0, 20, 0, 20));
             butt3.setPadding(new Insets(0, 20, 0, 20));
             butt4.setPadding(new Insets(0, 20, 0, 20));
+
 
             Group butt_Group = new Group();
             butt_Group.getChildren().addAll(butt1,butt2,butt3,butt4);
@@ -89,12 +107,32 @@ public class Main extends Application {
             butt3.setLayoutY(Text_coorY + 40);
             butt4.setLayoutY(Text_coorY + 60);
 
+
+        butt1.setText("Wizard");
+        butt1.setOnAction(actionEvent -> hero.setClass("wizard"));
+
+        butt2.setText("Knight");
+        butt2.setOnAction(actionEvent -> hero.setClass("knight"));
+
+        butt3.setText("mercenary");
+        butt3.setOnAction(actionEvent -> hero.setClass("mercenary"));
+
+        butt4.setText("peasant");
+        butt4.setOnAction(actionEvent -> hero.setClass("peasant"));
+
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
         Image img = new Image("sample/Art/Background/Tavern.PNG", 650, 400, true, true);
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
         root.setCenter(Center_UI);
+
+
+
+
+
+
+
 
 
     }

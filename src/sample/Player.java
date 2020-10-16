@@ -1,5 +1,7 @@
 package sample;
 
+
+
 public class Player extends Entity {
 
     //Variable Initialization
@@ -76,6 +78,8 @@ public class Player extends Entity {
                 Armor = 5;//BASELINE 10
                 Speed = 10;//BASELINE 10
                 Charisma = 5;//BASELINE 10
+
+                System.out.println("The players class is " + this.Class);
                 break;
 
 
@@ -87,6 +91,7 @@ public class Player extends Entity {
                 Armor = 15;
                 Speed = 5;
                 Charisma = 10;
+                System.out.println("The players class is " + this.Class);
                 break;
 
             case "mercenary":
@@ -97,6 +102,7 @@ public class Player extends Entity {
                 Armor = 10;
                 Speed = 10;
                 Charisma = 15;
+                System.out.println("The players class is " + this.Class);
                 break;
 
             case "peasant":
@@ -107,12 +113,14 @@ public class Player extends Entity {
                 Armor = 5;
                 Speed = 15;
                 Charisma = 10;
+                System.out.println("The players class is " + this.Class);
                 break;
 
             default:
                 System.out.println("IF THIS PRINTS YOU SCREWED THE POOCH, GO CHECK PLAYER.JAVA");
                 break;
         }
+
 
 
     }
