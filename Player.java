@@ -1,6 +1,9 @@
+package sample;
+
 public class Player extends Entity {
 
     //Variable Initialization
+    private String name;
     private int Health;
     private double Money;
     private int Strength;
@@ -8,14 +11,38 @@ public class Player extends Entity {
     private int Speed;
     private int Charisma;
     private String Class;
+    private int Potions;
+    private int Statboost;
+    private int Clothes;
+    private int Food;
+  
 
-    public Player(String name) {
-        this.Name = name;
+    public Player() {
+       
     }
 
     // Get and Set Elements
+    
+    public void AddPotion(){
+        Potions++;
+        
+    }
+    public void addFood(){
+        Food++;
+    }
+    public void addStatboost(){
+        Statboost++;
+    }
+    public void addClothes(){
+        Clothes++;
+    }
 
-
+    public void SetName(String n){
+        name = n;
+    }
+    public String GetName(){
+        return name;
+    }
     public double getMoney() {
         return Money;
     }
@@ -51,7 +78,7 @@ public class Player extends Entity {
     public int getSpeed() {
         return Speed;
     }
-
+    
     public void setSpeed(int speed) {
         Speed = speed;
     }
@@ -65,7 +92,7 @@ public class Player extends Entity {
     }
 
     public void setClass(String clss) {
-        switch (clss) {
+        switch (clss.toLowerCase()) {
             case "wizard":
                 Class = "Wizard";
                 Health = 100;//BASELINE is 100
@@ -74,6 +101,8 @@ public class Player extends Entity {
                 Armor = 5;//BASELINE 10
                 Speed = 10;//BASELINE 10
                 Charisma = 5;//BASELINE 10
+                Potions = 0; // start with 0
+                Statboost = 0; // start with 0
                 break;
 
 
@@ -85,6 +114,8 @@ public class Player extends Entity {
                 Armor = 15;
                 Speed = 5;
                 Charisma = 10;
+                Potions = 0; 
+                Statboost = 0;
                 break;
 
             case "mercenary":
@@ -95,6 +126,8 @@ public class Player extends Entity {
                 Armor = 10;
                 Speed = 10;
                 Charisma = 15;
+                Potions = 0;
+                Statboost = 0;
                 break;
 
             case "peasant":
@@ -105,6 +138,8 @@ public class Player extends Entity {
                 Armor = 5;
                 Speed = 15;
                 Charisma = 10;
+                Potions = 0;
+                Statboost = 0;
                 break;
 
             default:

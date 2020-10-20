@@ -1,0 +1,50 @@
+Make town OBject
+Make array that holds towns
+MAke array that holds images
+FINISH UI(ALFONZO SHARPE)
+
+Make playable
+
+ORDER OF THE GAME
+___________________________
+
+startmenu(start.png)
+(Show open image and have intro dialouge)
+make character{DONE}
+PLAYER DESCISION(in town)(town.png)
+	(shop)
+		[healing pots
+		 stat boooooooooooooster
+		 FOOD
+		 Clothes
+		 key_item]
+		
+	check map
+	talk to rando's[random dialouge stuff[
+	leave town 
+SPRINT 2 DONE____________________________________________
+
+proceed to place 
+	(rest)(Mousumi)
+		sleep
+		check map
+		heal
+		pet mount
+		CONTINUE????
+
+	random encounter
+
+FORT/town(fort.png)
+	(shop)
+		[healing pots
+		 stat boooooooooooooster
+		 FOOD
+		 Clothes
+		 key_item]
+	check map
+	talk to rando's[random dialouge stuff]
+	leave
+
+
+	
+
