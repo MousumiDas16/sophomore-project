@@ -85,10 +85,10 @@ public class FirstTown extends Application {
 
         int Text_coorY = 10;
 
-        Text text1 = new Text("1) Lorem ipsum dolor sit amet, consectetur adipiscing elit");
-        Text text2 = new Text("2) sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
-        Text text3 = new Text("3) Ut enim ad minim veniam");
-        Text text4 = new Text("4) quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat");
+        Text text1 = new Text("1) Go to the Shop");
+        Text text2 = new Text("2)Check Map");
+        Text text3 = new Text("3) Converse With Locals");
+        Text text4 = new Text("4) Leave Town");
         text_Group.getChildren().addAll(text1, text2, text3, text4);
 
 
