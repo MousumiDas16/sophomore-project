@@ -37,6 +37,10 @@ public class Player extends Entity {
     public void addClothes(){
         Clothes++;
     }
+    public void addMoney(double cash){
+        Money += cash;
+
+    }
 
     public void SetName(String n){
         this.Name = n;
@@ -178,6 +182,8 @@ public class Player extends Entity {
 
     }
 
-
+    public int getPotions() {
+        return Potions;
+    }
 }
 

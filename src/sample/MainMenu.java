@@ -54,6 +54,7 @@ public class MainMenu extends Application {
         name.setLayoutY(y + 20);
 
 
+
         Scene scene = new Scene(root, 750, 500);
         return scene;
     }

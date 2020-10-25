@@ -29,11 +29,13 @@ import java.util.Optional;
 
 public class Main extends Application {
 
-    static private Player hero;
+    static public Player hero;
     private  Label lblHealth, lblMoney, lblStrength, lblSpeed, lblCharisma,lblPotions, lblArmor, lblClass, lblName;
     private Text lblCharacterDescription;
     private Stage appStage;
     private  ShopUI shop;
+    public static Stage mainStage;
+
 
     @Override
     public void start(Stage primaryStage) {
@@ -179,6 +181,7 @@ public class Main extends Application {
         //primaryStage.setTitle("Excalibur's Quest");
         //primaryStage.setScene(s1);
         //primaryStage.show();
+        Main.mainStage=primaryStage;
         System.out.println(("Current file: Main"));
          hero = new Player();
 
@@ -187,6 +190,7 @@ public class Main extends Application {
         primaryStage.setTitle("Excalibur's Quest");
         primaryStage.setScene(s1);
         primaryStage.show();
+
 
 
 

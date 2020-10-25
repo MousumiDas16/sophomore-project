@@ -22,6 +22,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 /**
  *
  * @author Tommy
@@ -105,7 +107,12 @@ public class FirstTown extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = Shop.main(x,hero);
+                Scene s1 = null;
+                try {
+                    s1 = ShopUI.main(x,hero);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 x.setScene(s1);
 
 

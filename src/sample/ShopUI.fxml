@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="366.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ShopUI">
+<AnchorPane prefHeight="366.0" prefWidth="656.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ShopUI">
     <children>
         <AnchorPane layoutX="6.0" layoutY="1.0" prefHeight="56.0" prefWidth="647.0">
             <children>
@@ -27,7 +27,7 @@
                 <Button layoutX="280.0" layoutY="15.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="100.0" text="Armor ($30)" />
                 <Button layoutX="410.0" layoutY="15.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="100.0" text="Cloth ($25)" />
                 <Button layoutX="540.0" layoutY="15.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="100.0" text="Map ($50)" />
-                <Button layoutX="540.0" layoutY="110.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="110.0" text="Return to Tavern" />
+                <Button layoutX="540.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleButtonReturntoTarvern" prefHeight="70.0" prefWidth="110.0" text="Return to Tavern" />
             </children>
         </AnchorPane>
     </children>
