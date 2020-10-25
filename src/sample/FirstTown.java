@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package sample;
 
 import javafx.application.Application;
@@ -44,11 +49,13 @@ public class FirstTown extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
-    /**
-     * @param args the command line arguments
-     */
+//
+   // /**
+   //  * @param args the command line arguments
+   //  */
     public static Scene main(Stage x, Player hero) {
+        System.out.println(("Current file: FirstTown"));
+
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -179,7 +186,7 @@ public class FirstTown extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Tavern.PNG", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
         root.setCenter(Center_UI);
@@ -188,3 +195,10 @@ public class FirstTown extends Application {
 
     }
 }
+    
+
+        
+        
+    
+    
+

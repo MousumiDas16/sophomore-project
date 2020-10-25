@@ -20,7 +20,7 @@ public class ShopUI extends Application {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
-        updateStats();
+        //updateStats();
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ShopUI extends Application {
         //updateStats();
     }
      public   ShopUI( ){
-        this.hero= new Player("Test");
+
         hero.setClass("knight");
 
      }
@@ -43,16 +43,16 @@ public class ShopUI extends Application {
     }
 
 
-    public  void updateStats(){
-
-        lblHealth.setText("Health: "+ hero.getHealth());
-        lblArmor.setText("Armor: "+ hero.getArmor());
-        lblPotions.setText("Potions: "+ hero.getPotions());
-        lblMoney.setText("Money: "+ hero.getMoney());
-        lblSpeed.setText("Speed: "+ hero.getSpeed());
-        lblCharisma.setText("Charisma: "+ hero.getCharisma());
-        lblStrength.setText("Strength: "+ hero.getStrength());
-
-    }
+   // public  void updateStats(){
+//
+   //     lblHealth.setText("Health: "+ hero.getHealth());
+   //     lblArmor.setText("Armor: "+ hero.getArmor());
+   //     lblPotions.setText("Potions: "+ hero.getPotions());
+   //     lblMoney.setText("Money: "+ hero.getMoney());
+   //     lblSpeed.setText("Speed: "+ hero.getSpeed());
+   //     lblCharisma.setText("Charisma: "+ hero.getCharisma());
+   //     lblStrength.setText("Strength: "+ hero.getStrength());
+//
+   // }
 
 }

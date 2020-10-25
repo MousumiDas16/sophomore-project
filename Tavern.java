@@ -74,6 +74,7 @@ public class Tavern extends Application {
             text_Group.getChildren().addAll(text1, text2, text3, text4);
 
 
+
             text1.setY(Text_coorY);
             text2.setY(Text_coorY + 20);
             text3.setY(Text_coorY + 40);

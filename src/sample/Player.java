@@ -1,10 +1,8 @@
 package sample;
 
-
-
 public class Player extends Entity {
 
-
+    //Variable Initialization
 
     private int Health;
     private double Money;
@@ -17,39 +15,36 @@ public class Player extends Entity {
     private int Statboost;
     private int Clothes;
     private int Food;
+    private String description;
+  
 
-    public String getDescription() {
-        return description;
+    public Player() {
+       
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    // Get and Set Elements
+    
+    public void AddPotion(){
+        Potions++;
+        
+    }
+    public void addFood(){
+        Food++;
+    }
+    public void addStatboost(){
+        Statboost++;
+    }
+    public void addClothes(){
+        Clothes++;
     }
 
-    private  String description;
+    public void SetName(String n){
+        this.Name = n;
 
-
-
-    public String getPlayerClass() {
-        return Class;
     }
-
-
-    public Player(String name) {
-        this.Name = name;
-    }
-
-
-    public String getPlayerName() {
+    public String GetName(){
         return Name;
     }
-
-
-    public void setPlayerName(String name) {
-        this.Name = name;
-    }
-
-
     public double getMoney() {
         return Money;
     }
@@ -85,7 +80,7 @@ public class Player extends Entity {
     public int getSpeed() {
         return Speed;
     }
-
+    
     public void setSpeed(int speed) {
         Speed = speed;
     }
@@ -98,20 +93,6 @@ public class Player extends Entity {
         Charisma = charisma;
     }
 
-    public void AddPotion(){
-        Potions++;
-
-    }
-    public void addFood(){
-        Food++;
-    }
-    public void addStatboost(){
-        Statboost++;
-    }
-    public void addClothes(){
-        Clothes++;
-    }
-
     public void setClass(String clss) {
         switch (clss.toLowerCase()) {
             case "wizard":
@@ -122,7 +103,8 @@ public class Player extends Entity {
                 Armor = 5;//BASELINE 10
                 Speed = 10;//BASELINE 10
                 Charisma = 5;//BASELINE 10
-                Potions=0;
+                Potions = 0; // start with 0
+                Statboost = 0; // start with 0
                 description=" Always an intelligent youth, you would read and reread all the books your mother could\n " +
                         "afford. After reading you studied your hometown and observed the other residents as well as\n" +
                         " listening to any traveler who came by the Brewery. You could not be satisfied with the mundane world of Donkey’s\n " +
@@ -141,7 +123,8 @@ public class Player extends Entity {
                 Armor = 15;
                 Speed = 5;
                 Charisma = 10;
-                Potions=0;
+                Potions = 0; 
+                Statboost = 0;
                 description="Always a strong and energetic child, you spent your youth training your physical prowess\n " +
                         "and sharpening your skills with a sword, until you became a squire. After an upbringing as a \n" +
                         "squire where you accompanied your mentor, Sir Reginald Fellings, you traveled the land seeking\n" +
@@ -158,7 +141,8 @@ public class Player extends Entity {
                 Armor = 10;
                 Speed = 10;
                 Charisma = 15;
-                Potions=0;
+                Potions = 0;
+                Statboost = 0;
                 description="Growing up an orphan in the slums of Donkey’s Town, you became an expert pickpocket\n " +
                         "and thief. Being self-taught your confidence grew until one day you stole from the wrong man. \n" +
                         " Edward was another thief but far more experienced, He took you under his wing and you spent \n" +
@@ -176,7 +160,8 @@ public class Player extends Entity {
                 Armor = 5;
                 Speed = 15;
                 Charisma = 10;
-                Potions=0;
+                Potions = 0;
+                Statboost = 0;
                 description="ou were born an unremarkable child of unremarkable parents. " +
                         "All your life you toiled\n away at your family's farm, learning the trade from your mother " +
                         "and father. You were faster and braver than most of your peers.\n After the passing of your " +
@@ -191,12 +176,8 @@ public class Player extends Entity {
         }
 
 
-
     }
 
 
-    public int getPotions() {
-        return  this.Potions;
-    }
 }
 
