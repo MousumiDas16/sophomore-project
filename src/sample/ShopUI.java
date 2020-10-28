@@ -45,10 +45,6 @@ public class ShopUI extends Application {
 
      }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
 
 
     public static Scene main(Stage primaryStage, Player hero) throws IOException {
