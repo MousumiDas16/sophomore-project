@@ -29,6 +29,8 @@ public class MainMenu extends Application {
 
 
     public static Scene main(Stage x, Player hero) {
+        System.out.println(("Current file: MainMenu"));
+
         int y = 0;
 
         StackPane root = new StackPane();
@@ -37,9 +39,10 @@ public class MainMenu extends Application {
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent entername)
             {
-                hero.setPlayerName(name.getText());
+                hero.setName(name.getText());
                 Scene s1 = Tavern.main(x,hero);
                 x.setScene(s1);
+                System.out.println(hero.getName());
             }
         };
         name.setOnAction(event);
@@ -49,6 +52,7 @@ public class MainMenu extends Application {
         root.getChildren().add(text);
 
         name.setLayoutY(y + 20);
+
 
 
         Scene scene = new Scene(root, 750, 500);

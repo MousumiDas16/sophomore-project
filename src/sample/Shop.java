@@ -44,9 +44,9 @@ public class Shop extends Application {
         primaryStage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
+    ///**
+    // * @param args the command line arguments
+    // */
     public static Scene main(Stage x, Player hero) {
         BorderPane root = new BorderPane();
 

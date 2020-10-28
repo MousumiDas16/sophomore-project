@@ -1,3 +1,5 @@
+
+Sprint 1 Done_______________________________
 Make town OBject
 Make array that holds towns
 MAke array that holds images
@@ -25,7 +27,7 @@ PLAYER DESCISION(in town)(town.png)
 SPRINT 2 DONE____________________________________________
 
 proceed to place 
-	(rest)(Mousumi)
+	(rest)
 		sleep
 		check map
 		heal

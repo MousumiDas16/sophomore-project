@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package sample;
 
 import javafx.application.Application;
@@ -16,6 +21,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 /**
  *
@@ -44,11 +51,13 @@ public class FirstTown extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
-    /**
-     * @param args the command line arguments
-     */
+//
+   // /**
+   //  * @param args the command line arguments
+   //  */
     public static Scene main(Stage x, Player hero) {
+        System.out.println(("Current file: FirstTown"));
+
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -78,10 +87,10 @@ public class FirstTown extends Application {
 
         int Text_coorY = 10;
 
-        Text text1 = new Text("1) Lorem ipsum dolor sit amet, consectetur adipiscing elit");
-        Text text2 = new Text("2) sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
-        Text text3 = new Text("3) Ut enim ad minim veniam");
-        Text text4 = new Text("4) quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat");
+        Text text1 = new Text("1) Go to the Shop");
+        Text text2 = new Text("2)Check Map");
+        Text text3 = new Text("3) Converse With Locals");
+        Text text4 = new Text("4) Leave Town");
         text_Group.getChildren().addAll(text1, text2, text3, text4);
 
 
@@ -98,7 +107,12 @@ public class FirstTown extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = Shop.main(x,hero);
+                Scene s1 = null;
+                try {
+                    s1 = ShopUI.main(x,hero);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 x.setScene(s1);
 
 
@@ -179,7 +193,7 @@ public class FirstTown extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Tavern.PNG", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
         root.setCenter(Center_UI);
@@ -188,3 +202,10 @@ public class FirstTown extends Application {
 
     }
 }
+    
+
+        
+        
+    
+    
+
