@@ -25,7 +25,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- *
  * @author Tommy
  */
 public class FirstTown extends Application {
@@ -51,16 +50,19 @@ public class FirstTown extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-//
-   // /**
-   //  * @param args the command line arguments
-   //  */
+
+    //
+    // /**
+    //  * @param args the command line arguments
+    //  */
     public static Scene main(Stage x, Player hero) {
         System.out.println(("Current file: FirstTown"));
 
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
+
+
 
 
         //BOTTOM RECTANGLE
@@ -72,13 +74,60 @@ public class FirstTown extends Application {
         Bot_Rec.setStroke(Color.BLACK);
 
         //LEFT RECTANGLE
+
         StackPane Left_UI = new StackPane();
         Rectangle Left_Rec = new Rectangle(100, 400, Color.rgb(211, 211, 211));
         Left_Rec.setStroke(Color.BLACK);
         root.setLeft(Left_UI);
         Left_UI.getChildren().add(Left_Rec);
 
+        //Player STATS ON Side Bar
 
+        Group Player_Stats = new Group();
+        Text NameTXT = new Text("Hero's Name");
+        Text heroName = new Text(hero.getName());
+        Text ClassTXT = new Text("Class: " + hero.getPClass());
+        Text HealthTXT = new Text("Health: " + hero.getHealth());
+        Text MoneyTxt = new Text("Money: " + hero.getMoney());
+        Text PotionsTXT = new Text("Potions: " + hero.getPotions());
+        Text StrengthTXT = new Text("Strength: " + hero.getStrength());
+        Text CharismaTXT = new Text("Charisma: " + hero.getCharisma());
+        Text ArmorTXT = new Text("Armor: " + hero.getArmor());
+        Text SpeedTXT = new Text("Speed: " + hero.getSpeed());
+
+
+        //Adding the Player Image to the Left Rectangle
+
+        ImageView heroProfile = new ImageView(hero.getImage(0));
+        heroProfile.setFitWidth(100);
+        heroProfile.setFitHeight(100);
+
+
+        //Formating the Text
+        NameTXT.setUnderline(true);
+        NameTXT.setY(10);
+        heroName.setY(NameTXT.getY() + 15);
+        ClassTXT.setY(heroName.getY() + 20);
+
+        HealthTXT.setY(ClassTXT.getY() + 40);
+        MoneyTxt.setY(HealthTXT.getY() + 10);
+        PotionsTXT.setY(MoneyTxt.getY() + 10);
+
+        StrengthTXT.setY(PotionsTXT.getY() + 40);
+        CharismaTXT.setY(StrengthTXT.getY() + 10);
+        ArmorTXT.setY(CharismaTXT.getY() + 10);
+        SpeedTXT.setY(ArmorTXT.getY() + 10);
+        //heroProfile.setY(SpeedTXT.getY() + 40);
+
+        //ADDs the Player Stats to the Scene
+        Player_Stats.getChildren().addAll(
+                NameTXT, heroName, ClassTXT, HealthTXT, MoneyTxt, PotionsTXT,
+                StrengthTXT, CharismaTXT, ArmorTXT, SpeedTXT);
+
+        Left_UI.getChildren().addAll(Player_Stats, heroProfile);
+
+        Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
+        Left_UI.setAlignment(heroProfile, Pos.BOTTOM_CENTER);
 
 
         //TEXT AND BUTTON's
@@ -109,16 +158,14 @@ public class FirstTown extends Application {
             public void handle(ActionEvent event) {
                 Scene s1 = null;
                 try {
-                    s1 = ShopUI.main(x,hero);
+                    s1 = ShopUI.main(x, hero);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 x.setScene(s1);
 
 
-
             }
-
 
 
         });
@@ -129,12 +176,11 @@ public class FirstTown extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = Shop.main(x,hero); //get a map picture pls
+                Scene s1 = Shop.main(x, hero); //get a map picture pls
                 x.setScene(s1);
 
 
             }
-
 
 
         });
@@ -145,12 +191,11 @@ public class FirstTown extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = Shop.main(x,hero); //talk to a random person pic please
+                Scene s1 = Shop.main(x, hero); //talk to a random person pic please
                 x.setScene(s1);
 
 
             }
-
 
 
         });
@@ -161,12 +206,11 @@ public class FirstTown extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = Shop.main(x,hero);// next town pic please
+                Scene s1 = Shop.main(x, hero);// next town pic please
                 x.setScene(s1);
 
 
             }
-
 
 
         });
@@ -177,13 +221,11 @@ public class FirstTown extends Application {
         b4.setPadding(new Insets(0, 20, 0, 20));
 
         Group butt_Group = new Group();
-        butt_Group.getChildren().addAll(b1,b2,b3,b4);
-
+        butt_Group.getChildren().addAll(b1, b2, b3, b4);
 
 
         Bot_UI.getChildren().add(butt_Group);
         StackPane.setAlignment(butt_Group, Pos.CENTER_RIGHT);
-
 
 
         b1.setLayoutY(Text_coorY);
@@ -197,7 +239,7 @@ public class FirstTown extends Application {
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
         root.setCenter(Center_UI);
-        Scene S2 = new Scene(root,750,500);
+        Scene S2 = new Scene(root, 750, 500);
         return S2;
 
     }

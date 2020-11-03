@@ -1,5 +1,9 @@
 package sample;
 
+import javafx.scene.image.Image;
+
+import java.util.ArrayList;
+
 public class Player extends Entity {
 
     //Variable Initialization
@@ -16,6 +20,7 @@ public class Player extends Entity {
     private int Clothes;
     private int Food;
     private String description;
+    private ArrayList<Image> Pictures = new ArrayList<>();
   
 
     public Player() {
@@ -108,12 +113,14 @@ public class Player extends Entity {
                 Speed = 10;//BASELINE 10
                 Charisma = 5;//BASELINE 10
                 Potions = 0; // start with 0
+                Pictures.add(0,(new Image("sample/Art/Characters/Profile/Wizard_profile (2).png")));
                 Statboost = 0; // start with 0
                 description=" Always an intelligent youth, you would read and reread all the books your mother could\n " +
                         "afford. After reading you studied your hometown and observed the other residents as well as\n" +
                         " listening to any traveler who came by the Brewery. You could not be satisfied with the mundane world of Donkey’s\n " +
                         "Town and traveled south to the Grand University of the Mage Guild. There you learned devastating spells but were\n " +
                         "expelled for your lack of intrigue in the academics and obsession with powerful destruction\n magic. You returned home, an outcast…";
+
 
                 System.out.println("The players class is " + this.Class);
                 break;
@@ -129,6 +136,7 @@ public class Player extends Entity {
                 Charisma = 10;
                 Potions = 0; 
                 Statboost = 0;
+                Pictures.add(0,(new Image("sample/Art/Characters/Profile/Knight_Profile (2).png")));
                 description="Always a strong and energetic child, you spent your youth training your physical prowess\n " +
                         "and sharpening your skills with a sword, until you became a squire. After an upbringing as a \n" +
                         "squire where you accompanied your mentor, Sir Reginald Fellings, you traveled the land seeking\n" +
@@ -147,6 +155,7 @@ public class Player extends Entity {
                 Charisma = 15;
                 Potions = 0;
                 Statboost = 0;
+                Pictures.add(0,(new Image("sample/Art/Characters/Profile/BH_Profile.png")));
                 description="Growing up an orphan in the slums of Donkey’s Town, you became an expert pickpocket\n " +
                         "and thief. Being self-taught your confidence grew until one day you stole from the wrong man. \n" +
                         " Edward was another thief but far more experienced, He took you under his wing and you spent \n" +
@@ -166,7 +175,8 @@ public class Player extends Entity {
                 Charisma = 10;
                 Potions = 0;
                 Statboost = 0;
-                description="ou were born an unremarkable child of unremarkable parents. " +
+                Pictures.add(0,(new Image("sample/Art/Characters/Profile/Farmer_Profile.png")));
+                description="You were born an unremarkable child of unremarkable parents. " +
                         "All your life you toiled\n away at your family's farm, learning the trade from your mother " +
                         "and father. You were faster and braver than most of your peers.\n After the passing of your " +
                         "parents you swore you would not die a lowly farmer but would leave Donkey’s Town\n" +
@@ -182,8 +192,20 @@ public class Player extends Entity {
 
     }
 
+    public String getPClass(){
+        return Class;
+    }
+
+    public Image getImage(int index){
+        return Pictures.get(index);
+    }
+
     public int getPotions() {
         return Potions;
+    }
+
+    public String getDescription(){
+        return description;
     }
 }
 

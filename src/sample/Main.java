@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Main extends Application {
 
     static public Player hero;
-    private  Label lblHealth, lblMoney, lblStrength, lblSpeed, lblCharisma,lblPotions, lblArmor, lblClass, lblName;
+    private Label lblHealth, lblMoney, lblStrength, lblSpeed, lblCharisma, lblPotions, lblArmor, lblClass, lblName;
     private Text lblCharacterDescription;
     private Stage appStage;
-    private  ShopUI shop;
+    private ShopUI shop;
     public static Stage mainStage;
 
 
@@ -62,8 +62,8 @@ public class Main extends Application {
         //StackPane right_UI = new StackPane();
         //right_UI.setMinWidth(100);
         //right_UI.setAlignment(Pos.CENTER_LEFT);
-       //// Rectangle Left_Rec = new Rectangle(200, 400, Color.rgb(211, 211, 211));
-      ////  Left_Rec.setStroke(Color.BLACK);
+        //// Rectangle Left_Rec = new Rectangle(200, 400, Color.rgb(211, 211, 211));
+        ////  Left_Rec.setStroke(Color.BLACK);
 //
         ////PLayer stats on left side
 //
@@ -181,101 +181,97 @@ public class Main extends Application {
         //primaryStage.setTitle("Excalibur's Quest");
         //primaryStage.setScene(s1);
         //primaryStage.show();
-        Main.mainStage=primaryStage;
+        Main.mainStage = primaryStage;
         System.out.println(("Current file: Main"));
-         hero = new Player();
+        hero = new Player();
 
-        Scene s1 = MainMenu.main(primaryStage,hero);
+        Scene s1 = MainMenu.main(primaryStage, hero);
 
         primaryStage.setTitle("Excalibur's Quest");
         primaryStage.setScene(s1);
         primaryStage.show();
 
 
-
-
-
-
     }
 
-  //  private void goToShop(ActionEvent event) {
-  //      //if (shop==null)
-  //         // shop=new ShopUI(hero);
-  //      //try {
-  //          //this.appStage.setScene(shop.initialize());
-  //      //} catch (IOException e) {
-  //        //  e.printStackTrace();
-  //      //}
+    //  private void goToShop(ActionEvent event) {
+    //      //if (shop==null)
+    //         // shop=new ShopUI(hero);
+    //      //try {
+    //          //this.appStage.setScene(shop.initialize());
+    //      //} catch (IOException e) {
+    //        //  e.printStackTrace();
+    //      //}
 //
-  //  }
+    //  }
 //
-  //  private void setStyle(Label label, int y, Font font, Color c) {
+    //  private void setStyle(Label label, int y, Font font, Color c) {
 //
-  //      label.setFont(font);
-  //      //Filling color to the label
-  //      label.setTextFill(c);
-  //      //Setting the position
-  //      label.setTranslateX(10);
-  //      label.setTranslateY(y);
-  //  }
+    //      label.setFont(font);
+    //      //Filling color to the label
+    //      label.setTextFill(c);
+    //      //Setting the position
+    //      label.setTranslateX(10);
+    //      label.setTranslateY(y);
+    //  }
 //
-  //  private void getHeroName() {
-  //      String heroName;
+    //  private void getHeroName() {
+    //      String heroName;
 //
-  //      TextInputDialog dialog = new TextInputDialog("Excalibur");
-  //      dialog.setTitle("Welcome");
-  //      dialog.setHeaderText("Welcome to to the quest!");
-  //      dialog.setContentText("What is the name of your hero:");
-//
-//
-  //      do{
-  //          Optional<String> result = dialog.showAndWait();
-  //          if (result.isPresent()) {
-  //              String chosenName=result.get();
-  //              if(chosenName!=null && chosenName.length()>0){
-  //                  hero = new Player(chosenName);
-  //                  System.out.println("The Player's name is: " + chosenName);
-  //              }
-  //          }
-  //      }while(hero==null);
-  //  }
-//
-  //  public  void updateStats(){
-  //      lblClass.setText("Class: "+ hero.getPlayerClass());
-  //      lblName.setText("Name: "+ hero.getPlayerName());
-  //      lblHealth.setText("Health: "+ hero.getHealth());
-  //      lblArmor.setText("Armor: "+ hero.getArmor());
-  //      lblPotions.setText("Potions: "+ hero.getPotions());
-  //      lblMoney.setText("Money: "+ hero.getMoney());
-  //      lblSpeed.setText("Speed: "+ hero.getSpeed());
-  //      lblCharisma.setText("Charisma: "+ hero.getCharisma());
-  //      lblStrength.setText("Strength: "+ hero.getStrength());
-//
-  //  }
-  //  private  void selectCharacter(){
-  //      ArrayList<String> choices = new ArrayList<String>();
-  //      choices.add("Knight");
-  //      choices.add("Wizard");
-  //      choices.add("Mercenary");
-  //      choices.add("Peasant");
-//
-  //      ChoiceDialog<String> dialog = new ChoiceDialog<String>("Knight", choices);
-  //      dialog.setTitle("Character selection");
-  //      dialog.setHeaderText("Which character do you want to be?");
-  //      dialog.setContentText("Choose your character:");
-//
-  //      do{
-  //          Optional<String> result = dialog.showAndWait();
-  //          if (result.isPresent()){
-  //              String chosenClass=result.get();
-  //              System.out.println("Your choice: " + chosenClass);
-  //              this.hero.setClass(chosenClass);
-//
-  //          }
-  //      }while (hero.getPlayerClass()==null);
+    //      TextInputDialog dialog = new TextInputDialog("Excalibur");
+    //      dialog.setTitle("Welcome");
+    //      dialog.setHeaderText("Welcome to to the quest!");
+    //      dialog.setContentText("What is the name of your hero:");
 //
 //
-  //  }
+    //      do{
+    //          Optional<String> result = dialog.showAndWait();
+    //          if (result.isPresent()) {
+    //              String chosenName=result.get();
+    //              if(chosenName!=null && chosenName.length()>0){
+    //                  hero = new Player(chosenName);
+    //                  System.out.println("The Player's name is: " + chosenName);
+    //              }
+    //          }
+    //      }while(hero==null);
+    //  }
+//
+    //  public  void updateStats(){
+    //      lblClass.setText("Class: "+ hero.getPlayerClass());
+    //      lblName.setText("Name: "+ hero.getPlayerName());
+    //      lblHealth.setText("Health: "+ hero.getHealth());
+    //      lblArmor.setText("Armor: "+ hero.getArmor());
+    //      lblPotions.setText("Potions: "+ hero.getPotions());
+    //      lblMoney.setText("Money: "+ hero.getMoney());
+    //      lblSpeed.setText("Speed: "+ hero.getSpeed());
+    //      lblCharisma.setText("Charisma: "+ hero.getCharisma());
+    //      lblStrength.setText("Strength: "+ hero.getStrength());
+//
+    //  }
+    //  private  void selectCharacter(){
+    //      ArrayList<String> choices = new ArrayList<String>();
+    //      choices.add("Knight");
+    //      choices.add("Wizard");
+    //      choices.add("Mercenary");
+    //      choices.add("Peasant");
+//
+    //      ChoiceDialog<String> dialog = new ChoiceDialog<String>("Knight", choices);
+    //      dialog.setTitle("Character selection");
+    //      dialog.setHeaderText("Which character do you want to be?");
+    //      dialog.setContentText("Choose your character:");
+//
+    //      do{
+    //          Optional<String> result = dialog.showAndWait();
+    //          if (result.isPresent()){
+    //              String chosenClass=result.get();
+    //              System.out.println("Your choice: " + chosenClass);
+    //              this.hero.setClass(chosenClass);
+//
+    //          }
+    //      }while (hero.getPlayerClass()==null);
+//
+//
+    //  }
 //
 
     public static void main(String[] args) {
