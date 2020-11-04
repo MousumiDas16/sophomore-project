@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sample;
 
 import javafx.application.Application;
@@ -23,12 +18,10 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
 /**
  * @author Tommy
  */
-public class Tavern extends Application {
+public class CharactersHouse extends Application {
 
     @Override
     public void start(Stage primaryStage) {
@@ -38,9 +31,8 @@ public class Tavern extends Application {
     ////**
     /// * @param args the command line arguments
     /// */
-    static int next = 0;
     public static Scene main(Stage x, Player hero) {
-        System.out.println(("Current file: Tavern"));
+        System.out.println(("Current file: CharactersHouse"));
 
         BorderPane root = new BorderPane();
 
@@ -100,53 +92,38 @@ public class Tavern extends Application {
         Left_UI.getChildren().add(Player_Stats);
 
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
-        //enter story here
-        ArrayList<String> words = new ArrayList<>();
-        words.add("Hi i am Jimmy cool codey guy");
-        words.add("Jimmy is now big sad boy.");
-        Text Line1 = new Text();
-        //positioning text
-
-        Bot_UI.getChildren().add(Line1);
-        Line1.setText(words.get(next));
-        Line1.setStroke(Color.BLACK);
 
 
         //TEXT AND BUTTON's
+        ComboBox<String> charClass = new ComboBox<>();
 
 
-        Button submit = new Button("NEXT");
+        charClass.getItems().addAll("Wizard", "Peasant", "Knight", "Mercenary");
+        charClass.getSelectionModel().selectFirst();
+
+        Button submit = new Button("SET CLASS");
         submit.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
-                next++;
-                if(next <= words.size() -1){
-                    Line1.setText(words.get(next));
-                }else{
-
-                    Scene s1 = CharactersHouse.main(x, hero);// next town pic please
-                    x.setScene(s1);
-                }
-
+                hero.setClass(charClass.getValue());
+                Scene s1 = FirstTown.main(x, hero);// next town pic please
+                x.setScene(s1);
 
 
             }
-
-            ;
-
         });
 
 
-        Bot_UI.getChildren().addAll(submit);
-        Bot_UI.setAlignment(submit,Pos.CENTER_RIGHT);
-//        submit.setTranslateX(charClass.getLayoutX() + 100);
+        Bot_UI.getChildren().addAll(submit, charClass);
+        //Bot_UI.setAlignment(submit,Pos.CENTER_RIGHT);
+        submit.setTranslateX(charClass.getLayoutX() + 100);
         submit.setPadding(new Insets(0, 20, 0, 20));
 
 
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Tavern.png", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Character_Select.png", 650, 400, true, true);
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
         root.setCenter(Center_UI);
@@ -160,5 +137,5 @@ public class Tavern extends Application {
 
     }
 }
-    
+
 
