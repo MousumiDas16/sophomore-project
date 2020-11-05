@@ -2,27 +2,10 @@ package sample;
 
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextInputDialog;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Optional;
 
 //import javafx.scene.control.TextField;
 
@@ -185,7 +168,7 @@ public class Main extends Application {
         System.out.println(("Current file: Main"));
         hero = new Player();
 
-        Scene s1 = Opening.main(primaryStage, hero);
+        Scene s1 = CharactersHouse.main(primaryStage, hero);
 
         primaryStage.setTitle("Excalibur's Quest");
         primaryStage.setScene(s1);

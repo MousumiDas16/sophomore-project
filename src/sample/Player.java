@@ -108,11 +108,12 @@ public class Player extends Entity {
                 Class = "Wizard";
                 Health = 100;//BASELINE is 100
                 Money = 500;//BASE LINE 300
-                Strength = 15;//BASELINE 10
+                Strength = 10;//BASELINE 10
                 Armor = 5;//BASELINE 10
                 Speed = 10;//BASELINE 10
                 Charisma = 5;//BASELINE 10
                 Potions = 0; // start with 0
+                Food = 0;
                 Pictures.add(0,(new Image("sample/Art/Characters/Profile/Wizard_profile (2).png")));
                 Statboost = 0; // start with 0
                 description=" Always an intelligent youth, you would read and reread all the books your mother could\n " +
@@ -130,11 +131,12 @@ public class Player extends Entity {
                 Class = "Knight";
                 Health = 100;
                 Money = 400;
-                Strength = 10;
+                Strength = 7;
                 Armor = 15;
                 Speed = 5;
-                Charisma = 10;
-                Potions = 0; 
+                Charisma = 7;
+                Potions = 0;
+                Food = 0;
                 Statboost = 0;
                 Pictures.add(0,(new Image("sample/Art/Characters/Profile/Knight_Profile (2).png")));
                 description="Always a strong and energetic child, you spent your youth training your physical prowess\n " +
@@ -149,11 +151,12 @@ public class Player extends Entity {
                 Class = "Mercenary";
                 Health = 100;
                 Money = 800;
-                Strength = 10;
+                Strength = 5;
                 Armor = 10;
                 Speed = 10;
                 Charisma = 15;
                 Potions = 0;
+                Food = 0;
                 Statboost = 0;
                 Pictures.add(0,(new Image("sample/Art/Characters/Profile/BH_Profile.png")));
                 description="Growing up an orphan in the slums of Donkey’s Town, you became an expert pickpocket\n " +
@@ -169,11 +172,12 @@ public class Player extends Entity {
                 Class = "peasant";
                 Health = 90;
                 Money = 300;
-                Strength = 10;
+                Strength = 4;
                 Armor = 5;
                 Speed = 15;
                 Charisma = 10;
                 Potions = 0;
+                Food = 0;
                 Statboost = 0;
                 Pictures.add(0,(new Image("sample/Art/Characters/Profile/Farmer_Profile.png")));
                 description="You were born an unremarkable child of unremarkable parents. " +
@@ -202,6 +206,17 @@ public class Player extends Entity {
 
     public int getPotions() {
         return Potions;
+    }
+    public void setPotions(int pot){
+        Potions = pot;
+
+    }
+
+    public int getFood() {
+        return Food;
+    }
+    public void setFood(int f){
+        Potions = f;
     }
 
     public String getDescription(){
