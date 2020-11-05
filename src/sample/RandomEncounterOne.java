@@ -105,12 +105,24 @@ public class RandomEncounterOne extends Application {
         Random rand = new Random();
          Enemy Goblin = new Enemy();
          Goblin.setType("goblin");
-
+        //pop up creation
 
         Text popup1 = new Text();
         Text popup2 = new Text();
         Text popup3 = new Text();
         Text popup4 = new Text();
+
+        Group popupgroup = new Group();
+        popupgroup.getChildren().addAll(popup1,popup2,popup3,popup4);
+
+        popup1.setY(Text_coorY);
+        popup2.setY(Text_coorY + 20);
+        popup3.setY(Text_coorY + 40);
+        popup4.setY(Text_coorY + 60);
+        Bot_UI.setAlignment(popupgroup, Pos.CENTER_LEFT);
+
+
+        Bot_UI.getChildren().add(popupgroup);
         //button creation
         Button b1 = new Button();
         b1.setText("1");
