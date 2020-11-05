@@ -21,7 +21,7 @@ public class Main extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws InterruptedException {
 
         //this.appStage=primaryStage;
         //BorderPane root = new BorderPane();
@@ -168,7 +168,7 @@ public class Main extends Application {
         System.out.println(("Current file: Main"));
         hero = new Player();
 
-        Scene s1 = CharactersHouse.main(primaryStage, hero);
+        Scene s1 = forest.main(primaryStage, hero);
 
         primaryStage.setTitle("Excalibur's Quest");
         primaryStage.setScene(s1);

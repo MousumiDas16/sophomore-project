@@ -83,7 +83,7 @@ public class Enemy {
 
 
             default:
-                System.out.println("IF THIS PRINTS YOU SCREWED THE POOCH, GO CHECK PLAYER.JAVA");
+                System.out.println("IF THIS PRINTS YOU SCREWED THE POOCH, GO CHECK ENEMY .JAVA");
                 break;
         }
 

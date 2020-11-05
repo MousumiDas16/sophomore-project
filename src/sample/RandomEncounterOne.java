@@ -100,6 +100,7 @@ public class RandomEncounterOne extends Application {
         Bot_UI.getChildren().add(text_Group);
 
         //Attack setup
+
         Random rand = new Random();
          Enemy Goblin = new Enemy();
          Goblin.setType("goblin");
@@ -121,7 +122,12 @@ public class RandomEncounterOne extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = forest.main(x, hero);// next town pic please
+                Scene s1 = null;// next town pic please
+                try {
+                    s1 = forest.main(x, hero);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 x.setScene(s1);
 
 
@@ -221,7 +227,7 @@ public class RandomEncounterOne extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if (hero.getCharisma()>=10){
+                if (hero.getCharisma()>=10 && Goblin.getHealth()>0){
                     popup1.setText("You have talked your way out of a fight");
                     popup2.setText("");
                     popup3.setText("");
@@ -232,16 +238,19 @@ public class RandomEncounterOne extends Application {
 
                 }
                 else{
-                    popup1.setText("You angered the Goblin.");
-                    int SneakAttack = Goblin.getAttack()  - hero.getArmor();
+                    if (Goblin.getHealth()> 0){
+                        popup1.setText("You angered the Goblin.");
+                        int SneakAttack = Goblin.getAttack()  - hero.getArmor();
 
-                    int health2 = hero.getHealth() - SneakAttack;
-                    hero.setHealth(health2);
-                    popup2.setText("The goblin smacks you and does " + SneakAttack + " damage.");
-                    if (hero.getHealth()<= 0){
-                        popup3.setText("You have died :(");
+                        int health2 = hero.getHealth() - SneakAttack;
+                        hero.setHealth(health2);
+                        popup2.setText("The goblin smacks you and does " + SneakAttack + " damage.");
+                        if (hero.getHealth()<= 0){
+                            popup3.setText("You have died :(");
+                        }
+                        popup4.setText("");
                     }
-                    popup4.setText("");
+
 
                 }
 
@@ -261,7 +270,7 @@ public class RandomEncounterOne extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if( hero.getSpeed()>Goblin.getSpeed()){
+                if( hero.getSpeed()>Goblin.getSpeed() && Goblin.getHealth()>0){
                     popup1.setText("you were fast enough to out run the goblin.");
                     popup2.setText("");
                     popup3.setText("");
@@ -271,16 +280,20 @@ public class RandomEncounterOne extends Application {
 
                 }
                 else{
-                    popup1.setText("The monster caught you");
-                    int SneakAttack = Goblin.getAttack()  - hero.getArmor();
+                    if(Goblin.getHealth()>0){
+                        popup1.setText("The monster caught you");
+                        int SneakAttack = Goblin.getAttack()  - hero.getArmor();
 
-                    int health2 = hero.getHealth() - SneakAttack;
-                    hero.setHealth(health2);
-                    popup2.setText("The goblin smacks you and does " + SneakAttack + " damage.");
-                    if (hero.getHealth()<= 0){
-                        popup3.setText("You have died :(");
+                        int health2 = hero.getHealth() - SneakAttack;
+                        hero.setHealth(health2);
+                        popup2.setText("The goblin smacks you and does " + SneakAttack + " damage.");
+                        if (hero.getHealth()<= 0){
+                            popup3.setText("You have died :(");
+                        }
+                        popup4.setText("");
+
                     }
-                    popup4.setText("");
+
                 }
 
 
@@ -288,14 +301,14 @@ public class RandomEncounterOne extends Application {
 
 
         });
-        //leave town
+        //use potion
         Button b4 = new Button();
         b4.setText("4");
         b4.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
-                if (hero.getPotions()>0){
+                if (hero.getPotions()>0 && Goblin.getHealth()>0){
                     popup1.setText("You used a potion and healed 25 health points.");
                     int pot = hero.getPotions() - 1;
                     int phealth = hero.getHealth() + 25;
@@ -303,16 +316,20 @@ public class RandomEncounterOne extends Application {
                     hero.setHealth(phealth);
                 }
                else{
-                   popup1.setText("You Do not have any potions");
-                   popup2.setText("you stand there in confusion looking for your potion");
-                    int SneakAttack = Goblin.getAttack()  - hero.getArmor();
+                   if(Goblin.getHealth()>0){
+                       popup1.setText("You Do not have any potions");
+                       popup2.setText("you stand there in confusion looking for your potion");
+                       int SneakAttack = Goblin.getAttack()  - hero.getArmor();
 
-                    int health2 = hero.getHealth() - SneakAttack;
-                    hero.setHealth(health2);
-                    popup3.setText("The goblin smacks you  and does " + SneakAttack + " damage.");
-                    if (hero.getHealth()<= 0){
-                        popup4.setText("You have died :(");
-                    }
+                       int health2 = hero.getHealth() - SneakAttack;
+                       hero.setHealth(health2);
+                       popup3.setText("The goblin smacks you  and does " + SneakAttack + " damage.");
+                       if (hero.getHealth()<= 0){
+                           popup4.setText("You have died :(");
+                       }
+
+                   }
+
 
                 }
 

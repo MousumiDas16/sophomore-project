@@ -21,6 +21,8 @@ public class Player extends Entity {
     private int Food;
     private String description;
     private ArrayList<Image> Pictures = new ArrayList<>();
+    //this is for a loop in the forest dont touch pls
+    private int loopcount;
   
 
     public Player() {
@@ -218,7 +220,14 @@ public class Player extends Entity {
     public void setFood(int f){
         Potions = f;
     }
+    // this is for forest dont touch please
+    public void setLoopcount(int loop){
+        loopcount = loop;
 
+    }
+    public int getLoopcount(){
+        return loopcount;
+    }
     public String getDescription(){
         return description;
     }
