@@ -26,6 +26,7 @@ public class RandomEncounterOne extends Application {
 
     public static Scene main(Stage x, Player hero) {
         System.out.println(("Current file: EncounterOne"));
+        hero.setHealth(50);
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -110,13 +111,39 @@ public class RandomEncounterOne extends Application {
         Text popup2 = new Text();
         Text popup3 = new Text();
         Text popup4 = new Text();
+        //button creation
         Button b1 = new Button();
         b1.setText("1");
+        Button b2 = new Button();
+        b2.setText("2");
+        Button b3 = new Button();
+        b3.setText("3");
+        Button b4 = new Button();
+        b4.setText("4");
+        //button setup
 
+        b1.setPadding(new Insets(0, 20, 0, 20));
+        b2.setPadding(new Insets(0, 20, 0, 20));
+        b3.setPadding(new Insets(0, 20, 0, 20));
+        b4.setPadding(new Insets(0, 20, 0, 20));
+
+        Group butt_Group = new Group();
+        butt_Group.getChildren().addAll(b1, b2, b3, b4);
+
+
+        Bot_UI.getChildren().add(butt_Group);
+        StackPane.setAlignment(butt_Group, Pos.CENTER_RIGHT);
+
+
+        b1.setLayoutY(Text_coorY);
+        b2.setLayoutY(Text_coorY + 20);
+        b3.setLayoutY(Text_coorY + 40);
+        b4.setLayoutY(Text_coorY + 60);
 
         //button to use to return to forest
         Button weturn = new Button();
         weturn.setText("Return to forest");
+        weturn.setPadding(new Insets(0, 20, 0, 20));
         weturn.setOnAction(new EventHandler<ActionEvent>() {
 
 
@@ -162,9 +189,11 @@ public class RandomEncounterOne extends Application {
                            hero.setMoney(gold);
                            popup4.setText("you took" + gold + " from the goblin.");
 
-
-                           Bot_UI.setAlignment(weturn, Pos.BOTTOM_CENTER);
+                           Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                           Bot_UI.setAlignment(weturn, Pos.BOTTOM_RIGHT);
                            Bot_UI.getChildren().add(weturn);
+
+
 
                        };
                        if (hero.getHealth() <= 0) {
@@ -182,7 +211,7 @@ public class RandomEncounterOne extends Application {
                        int health2 = hero.getHealth() - enemyAttack;
                        hero.setHealth(health2);
                        int health = Goblin.getHealth() - PlayerAttack;
-                       Goblin.setHealth(health);
+                       Goblin.setHealth(0);
                        popup1.setText("You did " + PlayerAttack + " damage.");
                        popup2.setText("The Goblin did " + enemyAttack + " damage." );
                        if (Goblin.getHealth() <= 0){
@@ -194,9 +223,8 @@ public class RandomEncounterOne extends Application {
 
 
 
-
-
-                           Bot_UI.setAlignment(weturn, Pos.BOTTOM_CENTER);
+                           Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                           Bot_UI.setAlignment(weturn, Pos.BOTTOM_RIGHT);
                            Bot_UI.getChildren().add(weturn);
                        }
                        if (hero.getHealth() <= 0) {
@@ -220,9 +248,8 @@ public class RandomEncounterOne extends Application {
 
 
         });
-        //Negotiate
-        Button b2 = new Button();
-        b2.setText("2");
+        //Negotiate button event
+
         b2.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -232,10 +259,9 @@ public class RandomEncounterOne extends Application {
                     popup2.setText("");
                     popup3.setText("");
                     popup4.setText("");
-
-                    Bot_UI.setAlignment(weturn, Pos.BOTTOM_CENTER);
+                    Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                    Bot_UI.setAlignment(weturn, Pos.BOTTOM_RIGHT);
                     Bot_UI.getChildren().add(weturn);
-
                 }
                 else{
                     if (Goblin.getHealth()> 0){
@@ -263,9 +289,8 @@ public class RandomEncounterOne extends Application {
 
         });
 
-        //Run AWAYYYYYYYYYYYYYYYYYY
-        Button b3 = new Button();
-        b3.setText("3");
+        //Run AWAYYYYYYYYYYYYYYYYYY button event
+
         b3.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -275,9 +300,9 @@ public class RandomEncounterOne extends Application {
                     popup2.setText("");
                     popup3.setText("");
                     popup4.setText("");
-                    Bot_UI.setAlignment(weturn, Pos.BOTTOM_CENTER);
+                    Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                    Bot_UI.setAlignment(weturn, Pos.BOTTOM_RIGHT);
                     Bot_UI.getChildren().add(weturn);
-
                 }
                 else{
                     if(Goblin.getHealth()>0){
@@ -301,9 +326,8 @@ public class RandomEncounterOne extends Application {
 
 
         });
-        //use potion
-        Button b4 = new Button();
-        b4.setText("4");
+        //use potion action handler
+
         b4.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -341,41 +365,6 @@ public class RandomEncounterOne extends Application {
 
         });
         //popup button setup
-
-
-
-        Group popupgroup = new Group();
-        popupgroup.getChildren().addAll(popup1,popup2,popup3,popup4);
-
-        popup1.setY(Text_coorY);
-        popup2.setY(Text_coorY + 20);
-        popup3.setY(Text_coorY + 40);
-        popup4.setY(Text_coorY + 60);
-        Bot_UI.setAlignment(popupgroup, Pos.CENTER_LEFT);
-
-
-        Bot_UI.getChildren().add(popupgroup);
-
-
-        //button setup
-
-        b1.setPadding(new Insets(0, 20, 0, 20));
-        b2.setPadding(new Insets(0, 20, 0, 20));
-        b3.setPadding(new Insets(0, 20, 0, 20));
-        b4.setPadding(new Insets(0, 20, 0, 20));
-
-        Group butt_Group = new Group();
-        butt_Group.getChildren().addAll(b1, b2, b3, b4);
-
-
-        Bot_UI.getChildren().add(butt_Group);
-        StackPane.setAlignment(butt_Group, Pos.CENTER_RIGHT);
-
-
-        b1.setLayoutY(Text_coorY);
-        b2.setLayoutY(Text_coorY + 20);
-        b3.setLayoutY(Text_coorY + 40);
-        b4.setLayoutY(Text_coorY + 60);
 
 
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);

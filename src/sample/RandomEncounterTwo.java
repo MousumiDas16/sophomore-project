@@ -101,13 +101,39 @@ public class RandomEncounterTwo extends Application {
         Enemy BloodPuddle = new Enemy();
         BloodPuddle.setType("bloodyboi");
 
-
+        //popup buttons
         Text popup1 = new Text();
         Text popup2 = new Text();
         Text popup3 = new Text();
         Text popup4 = new Text();
+        //button creation
         Button b1 = new Button();
         b1.setText("1");
+        Button b2 = new Button();
+        b2.setText("2");
+        Button b3 = new Button();
+        b3.setText("3");
+        Button b4 = new Button();
+        b4.setText("4");
+        //button setup
+
+        b1.setPadding(new Insets(0, 20, 0, 20));
+        b2.setPadding(new Insets(0, 20, 0, 20));
+        b3.setPadding(new Insets(0, 20, 0, 20));
+        b4.setPadding(new Insets(0, 20, 0, 20));
+
+        Group butt_Group = new Group();
+        butt_Group.getChildren().addAll(b1, b2, b3, b4);
+
+
+        Bot_UI.getChildren().add(butt_Group);
+        StackPane.setAlignment(butt_Group, Pos.CENTER_RIGHT);
+
+
+        b1.setLayoutY(Text_coorY);
+        b2.setLayoutY(Text_coorY + 20);
+        b3.setLayoutY(Text_coorY + 40);
+        b4.setLayoutY(Text_coorY + 60);
 
 
         //button to use to return to forest
@@ -159,7 +185,8 @@ public class RandomEncounterTwo extends Application {
                             popup4.setText("you took" + gold + " from the BloodPuddle.");
 
 
-                            Bot_UI.setAlignment(weturn, Pos.BOTTOM_CENTER);
+                            Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                            Bot_UI.setAlignment(weturn, Pos.BOTTOM_RIGHT);
                             Bot_UI.getChildren().add(weturn);
 
                         };
@@ -191,8 +218,8 @@ public class RandomEncounterTwo extends Application {
 
 
 
-
-                            Bot_UI.setAlignment(weturn, Pos.BOTTOM_CENTER);
+                            Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                            Bot_UI.setAlignment(weturn, Pos.BOTTOM_RIGHT);
                             Bot_UI.getChildren().add(weturn);
                         }
                         if (hero.getHealth() <= 0) {
@@ -217,8 +244,7 @@ public class RandomEncounterTwo extends Application {
 
         });
         //Negotiate
-        Button b2 = new Button();
-        b2.setText("2");
+
         b2.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -229,9 +255,9 @@ public class RandomEncounterTwo extends Application {
                     popup3.setText("");
                     popup4.setText("");
 
-                    Bot_UI.setAlignment(weturn, Pos.BOTTOM_CENTER);
+                    Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                    Bot_UI.setAlignment(weturn, Pos.BOTTOM_RIGHT);
                     Bot_UI.getChildren().add(weturn);
-
                 }
                 else{
                     if (BloodPuddle.getHealth()> 0){
@@ -260,8 +286,7 @@ public class RandomEncounterTwo extends Application {
         });
 
         //Run AWAYYYYYYYYYYYYYYYYYY
-        Button b3 = new Button();
-        b3.setText("3");
+
         b3.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -271,9 +296,9 @@ public class RandomEncounterTwo extends Application {
                     popup2.setText("");
                     popup3.setText("");
                     popup4.setText("");
-                    Bot_UI.setAlignment(weturn, Pos.BOTTOM_CENTER);
+                    Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                    Bot_UI.setAlignment(weturn, Pos.BOTTOM_RIGHT);
                     Bot_UI.getChildren().add(weturn);
-
                 }
                 else{
                     if(BloodPuddle.getHealth()>0){
@@ -298,8 +323,7 @@ public class RandomEncounterTwo extends Application {
 
         });
         //use potion
-        Button b4 = new Button();
-        b4.setText("4");
+
         b4.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
@@ -353,25 +377,6 @@ public class RandomEncounterTwo extends Application {
         Bot_UI.getChildren().add(popupgroup);
 
 
-        //button setup
-
-        b1.setPadding(new Insets(0, 20, 0, 20));
-        b2.setPadding(new Insets(0, 20, 0, 20));
-        b3.setPadding(new Insets(0, 20, 0, 20));
-        b4.setPadding(new Insets(0, 20, 0, 20));
-
-        Group butt_Group = new Group();
-        butt_Group.getChildren().addAll(b1, b2, b3, b4);
-
-
-        Bot_UI.getChildren().add(butt_Group);
-        StackPane.setAlignment(butt_Group, Pos.CENTER_RIGHT);
-
-
-        b1.setLayoutY(Text_coorY);
-        b2.setLayoutY(Text_coorY + 20);
-        b3.setLayoutY(Text_coorY + 40);
-        b4.setLayoutY(Text_coorY + 60);
 
 
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
