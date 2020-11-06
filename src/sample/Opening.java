@@ -63,7 +63,7 @@ public class Opening extends Application {
                     Line1.setText(words.get(next));
                 }else{
 
-                    Scene s1 = MainMenu.main(x, hero);// next town pic please
+                    Scene s1 = Tavern.main(x, hero);// next town pic please
                     x.setScene(s1);
                 }
 

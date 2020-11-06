@@ -85,8 +85,10 @@ public class WalkingInForest extends Application {
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
         Image img = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/Wizard_gif.gif", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
-        Center_UI.getChildren().add(Center_ImageView);
+        ImageView Character = new ImageView(img2);
+        Center_UI.getChildren().addAll(Center_ImageView,Character);
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, 750, 500);
         PauseTransition pause = new PauseTransition(Duration.seconds(4));

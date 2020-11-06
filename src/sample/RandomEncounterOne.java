@@ -205,7 +205,8 @@ public class RandomEncounterOne extends Application {
 
                        };
                        if (hero.getHealth() <= 0) {
-                           popup3.setText("You have Died :(");
+                           Scene s3 = YouDiedIdiot.main(x, hero);
+                           x.setScene(s3);
                        }
 
 
@@ -236,7 +237,8 @@ public class RandomEncounterOne extends Application {
                            Bot_UI.getChildren().add(weturn);
                        }
                        if (hero.getHealth() <= 0) {
-                           popup3.setText("You have Died :(");
+                           Scene s3 = YouDiedIdiot.main(x, hero);
+                           x.setScene(s3);
                        }
                    }
 
@@ -280,8 +282,10 @@ public class RandomEncounterOne extends Application {
                         hero.setHealth(health2);
                         popup2.setText("The goblin smacks you and does " + SneakAttack + " damage.");
                         if (hero.getHealth()<= 0){
-                            popup3.setText("You have died :(");
+                            Scene s3 = YouDiedIdiot.main(x, hero);
+                            x.setScene(s3);
                         }
+                        popup3.setText("");
                         popup4.setText("");
                     }
 
@@ -321,8 +325,10 @@ public class RandomEncounterOne extends Application {
                         hero.setHealth(health2);
                         popup2.setText("The goblin smacks you and does " + SneakAttack + " damage.");
                         if (hero.getHealth()<= 0){
-                            popup3.setText("You have died :(");
+                            Scene s3 = YouDiedIdiot.main(x, hero);
+                            x.setScene(s3);;
                         }
+                        popup3.setText("");
                         popup4.setText("");
 
                     }
@@ -357,8 +363,10 @@ public class RandomEncounterOne extends Application {
                        hero.setHealth(health2);
                        popup3.setText("The goblin smacks you  and does " + SneakAttack + " damage.");
                        if (hero.getHealth()<= 0){
-                           popup4.setText("You have died :(");
+                           Scene s3 = YouDiedIdiot.main(x, hero);
+                           x.setScene(s3);
                        }
+                       popup4.setText("");
 
                    }
 
