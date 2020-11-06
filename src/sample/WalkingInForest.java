@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sample;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,26 +18,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
-import java.util.ArrayList;
+public class WalkingInForest extends Application {
 
-/**
- * @author Tommy
- */
-public class Tavern extends Application {
-
-    @Override
-    public void start(Stage primaryStage) {
-
-    }
-
-    ////**
-    /// * @param args the command line arguments
-    /// */
-    static int next = 0;
     public static Scene main(Stage x, Player hero) {
-        System.out.println(("Current file: Tavern"));
-
+        System.out.println(("Current file: walkinginforest"));
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -100,65 +82,32 @@ public class Tavern extends Application {
         Left_UI.getChildren().add(Player_Stats);
 
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
-        //enter story here
-        ArrayList<String> words = new ArrayList<>();
-        words.add("Hi i am Jimmy cool codey guy");
-        words.add("Jimmy is now big sad boy.");
-        Text Line1 = new Text();
-        //positioning text
-
-        Bot_UI.getChildren().add(Line1);
-        Line1.setText(words.get(next));
-        Line1.setStroke(Color.BLACK);
-
-
-        //TEXT AND BUTTON's
-
-
-        Button submit = new Button("NEXT");
-        submit.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                next++;
-                if(next <= words.size() -1){
-                    Line1.setText(words.get(next));
-                }else{
-
-                    Scene s1 = CharactersHouse.main(x, hero);
-                    x.setScene(s1);
-                }
-
-
-
-            }
-
-            ;
-
-        });
-
-
-        Bot_UI.getChildren().addAll(submit);
-        Bot_UI.setAlignment(submit,Pos.CENTER_RIGHT);
-//        submit.setTranslateX(charClass.getLayoutX() + 100);
-        submit.setPadding(new Insets(0, 20, 0, 20));
-
-
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Tavern.png", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, 750, 500);
+        PauseTransition pause = new PauseTransition(Duration.seconds(4));
+        pause.setOnFinished(event ->{
+            Scene s1 = null;
+            try {
+                s1 = forest.main(x, hero);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            x.setScene(s1);
 
-
-
-
-
+        });
+        pause.play();
         return S2;
+
+
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
 
     }
 }
-    
-

@@ -27,6 +27,7 @@ public class RandomEncounterOne extends Application {
     public static Scene main(Stage x, Player hero) {
         System.out.println(("Current file: EncounterOne"));
         hero.setHealth(50);
+
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -161,12 +162,7 @@ public class RandomEncounterOne extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = null;// next town pic please
-                try {
-                    s1 = forest.main(x, hero);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                Scene s1 = WalkingInForest.main(x, hero);
                 x.setScene(s1);
 
 

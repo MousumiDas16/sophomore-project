@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.Random;
 
@@ -105,22 +107,28 @@ public class forest extends Application {
         Center_UI.getChildren().add(Center_ImageView);
         root.setCenter(Center_UI);
         Scene S1 = new Scene(root, 750, 500);
-        x.setScene(S1);
+
+
+
 
         System.out.println(("Current file: Forest"));
         Random rand = new Random();
         // loop count from hero
+
         int loop = hero.getLoopcount();
 
 
         while (loop < 3) {
 
-            Thread.sleep(3000);
 
 
 
 
-           int k = rand.nextInt(4);
+
+
+           //int k = rand.nextInt(4);
+            int k = 0;
+
 
             System.out.println("Random number is" + k);
             switch (k) {
