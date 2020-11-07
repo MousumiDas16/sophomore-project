@@ -2,6 +2,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -104,19 +105,24 @@ public class LeaveFirstTown {
         int y = 0;
 
         StackPane Root = new StackPane();
-        Rectangle rec = new Rectangle(750, 500);
-        rec.setFill(Color.BLACK);
-        root.getChildren().add(rec);
+
 
 
         //Jimmy Story
         ArrayList<String> words = new ArrayList<>();
-        words.add("In the Elderbrew tavern, \na mysterious traveling woman \ninforms a young villager about an ancient legend….");
-        words.add("In a cave atop Dragon’s Claw, an old and malformed mountain formation,\nthere rests a blade of unparalleled power.\n"+"The one who finds such a weapon will be renowned\nacross the land and will be made KING!!!\nThe sword is the rightful relic of the Old King and\nhis reincarnates…");
+        words.add("Our brave hero is spotted by the hooded woman the next morning as they setting out.");
+        words.add("?: \"Wait, You!! Are you venturing to Dragon’s Claw? Really…\"");
+        words.add("The woman's robes fall away revealing a tiny ball of spirit beneath.");
+        words.add("Lady Wisp: \"I am the Lady Wisp, the remaining soul of the Sage who once guided\"");
+        words.add("\"the first King.I thought you had the makings of Monarch returned\"");
+        words.add("\"and shared my tale in hopes of this very thing.\"");
+        words.add("\"They left the town together...");
         Text Line1 = new Text();
-        Root.getChildren().add(Line1);
+        //positioning text
+
+        Bot_UI.getChildren().add(Line1);
         Line1.setText(words.get(next));
-        Line1.setStroke(Color.WHEAT);
+        Line1.setStroke(Color.BLACK);
         Button submit = new Button("NEXT");
         submit.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -130,7 +136,7 @@ public class LeaveFirstTown {
                     Scene s1 = WalkingInForest.main(x, hero);// next town pic please
                     x.setScene(s1);
                 }
-
+        //need to have sprite transition when the story demands
 
 
             }
@@ -138,9 +144,11 @@ public class LeaveFirstTown {
             ;
 
         });
+        Bot_UI.getChildren().addAll(submit);
 
-        submit.setTranslateX(Line1.getX()+ 200);
-        Root.getChildren().add(submit);
+        Bot_UI.setAlignment(submit,Pos.CENTER_RIGHT);
+        submit.setPadding(new Insets(0, 20, 0, 20));
+
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
