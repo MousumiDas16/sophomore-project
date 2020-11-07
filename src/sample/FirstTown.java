@@ -23,12 +23,13 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * @author Tommy
  */
 public class FirstTown extends Application {
-
+    static int next = 0;
     @Override
     public void start(Stage primaryStage) {
         Button btn = new Button();
@@ -129,7 +130,28 @@ public class FirstTown extends Application {
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
         Left_UI.setAlignment(heroProfile, Pos.BOTTOM_CENTER);
 
+        //Jimmy's story
+        ArrayList<String> words = new ArrayList<>();
+        words.add("In the Elderbrew tavern, \na mysterious traveling woman \ninforms a young villager about an ancient legend….");
+        words.add("In a cave atop Dragon’s Claw, an old and malformed mountain formation,\nthere rests a blade of unparalleled power.\n"+"The one who finds such a weapon will be renowned\nacross the land and will be made KING!!!\nThe sword is the rightful relic of the Old King and\nhis reincarnates…");
+        Text Line1 = new Text();
+        root.getChildren().add(Line1);
+        Line1.setText(words.get(next));
+        Line1.setStroke(Color.WHEAT);
+        Button submit = new Button("NEXT");
+        submit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                next++;
+                if(next <= words.size() -1){
+                    Line1.setText(words.get(next));
+                }else{
 
+                    Scene s1 = Tavern.main(x, hero);// next town pic please
+                    x.setScene(s1);
+                }
+            };
+        });
         //TEXT AND BUTTON's
 
         Group text_Group = new Group();
@@ -242,7 +264,9 @@ public class FirstTown extends Application {
         Scene S2 = new Scene(root, 750, 500);
         return S2;
 
-    }
+
+
+}
 }
     
 

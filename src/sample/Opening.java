@@ -47,8 +47,8 @@ public class Opening extends Application {
 
 
         ArrayList<String> words = new ArrayList<>();
-        words.add("In the Elderbrew tavern, a mysterious traveling woman informs a young villager about an ancient legend….");
-        words.add("  In a cave atop Dragon’s Claw, an old and malformed mountain formation,\n there rests a blade of unparalleled power.\n"+"The one who finds such a weapon will be renowned\n across the land and will be made KING!!!\n The sword is the rightful relic of the Old King and\n his reincarnates…");
+        words.add("In the Elderbrew tavern, \na mysterious traveling woman \ninforms a young villager about an ancient legend….");
+        words.add("In a cave atop Dragon’s Claw, an old and malformed mountain formation,\nthere rests a blade of unparalleled power.\n"+"The one who finds such a weapon will be renowned\nacross the land and will be made KING!!!\nThe sword is the rightful relic of the Old King and\nhis reincarnates…");
         Text Line1 = new Text();
         root.getChildren().add(Line1);
         Line1.setText(words.get(next));

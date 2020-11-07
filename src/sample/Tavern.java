@@ -102,8 +102,8 @@ public class Tavern extends Application {
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
         //enter story here
         ArrayList<String> words = new ArrayList<>();
-        words.add("Hi i am Jimmy cool codey guy");
-        words.add("Jimmy is now big sad boy.");
+        words.add("Only the King returned can take the weapon.");
+        words.add("Many have tried and many have died in their quest for glory");
         Text Line1 = new Text();
         //positioning text
 
