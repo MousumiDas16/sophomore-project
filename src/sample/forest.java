@@ -28,6 +28,8 @@ public class forest extends Application {
 
 
     public static Scene main(Stage x, Player hero) throws InterruptedException {
+        System.out.println("Current file: forest");
+        hero.setScene("forest");
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -111,7 +113,7 @@ public class forest extends Application {
 
 
 
-        System.out.println(("Current file: Forest"));
+
         Random rand = new Random();
         // loop count from hero
 

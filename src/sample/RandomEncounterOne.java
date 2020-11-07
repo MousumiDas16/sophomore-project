@@ -8,7 +8,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -18,7 +17,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.Random;
 
 
@@ -26,7 +24,7 @@ public class RandomEncounterOne extends Application {
 
     public static Scene main(Stage x, Player hero) {
         System.out.println(("Current file: EncounterOne"));
-        hero.setHealth(50);
+        hero.setClass("wizard");
 
         BorderPane root = new BorderPane();
 
@@ -153,23 +151,81 @@ public class RandomEncounterOne extends Application {
         b3.setLayoutY(Text_coorY + 40);
         b4.setLayoutY(Text_coorY + 60);
 
-        //button to use to return to forest
+        //buttons for before returning to the forest
         Button weturn = new Button();
-        weturn.setText("Return to forest");
-        weturn.setPadding(new Insets(0, 20, 0, 20));
+        weturn.setText("3");
         weturn.setOnAction(new EventHandler<ActionEvent>() {
 
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = WalkingInForest.main(x, hero);
-                x.setScene(s1);
+                if(hero.getScene().equals("forest")){
+                    Scene s1 = WalkingInForest.main(x, hero);
+                    x.setScene(s1);
 
+                }
+
+                else{
+                    //for later use of other towns/paths
+                }
 
             }
 
 
         }  )  ;
+        Button heal = new Button();
+        heal.setText("1");
+        heal.setOnAction(new EventHandler<ActionEvent>() {
+
+
+            @Override
+            public void handle(ActionEvent event) {
+                int pot = hero.getPotions() - 1;
+                hero.setPotions(pot);
+                if ((hero.getHealth()>75)){
+                    int healthboost = 100 - hero.getHealth() ;
+                    int addhealth = hero.getHealth()+healthboost;
+                    hero.setHealth(addhealth);
+                    HealthTXT.setText("Health:"+hero.getHealth());
+                    popup1.setText("You used a potion and healed " + healthboost +" health points.");
+
+                }
+                else{
+                    int addhealth = hero.getHealth() + 25;
+                    hero.setHealth(addhealth);
+                    HealthTXT.setText("Health:"+hero.getHealth());
+                    popup1.setText("You used a potion and healed 25 health points.");
+
+                }
+
+                popup2.setText("");
+                popup3.setText("");
+                popup4.setText("");
+
+
+            }
+
+
+
+        }  )  ;
+        Button Map = new Button();
+        Map.setText("2");
+
+        //secondary button groups
+        weturn.setPadding(new Insets(0, 20, 0, 20));
+        heal.setPadding(new Insets(0, 20, 0, 20));
+        Map.setPadding(new Insets(0, 20, 0, 20));
+        Group secondbuttons = new Group();
+        secondbuttons.getChildren().addAll(heal,Map,weturn);
+        heal.setLayoutY(Text_coorY);
+        Map.setLayoutY(Text_coorY + 20);
+        weturn.setLayoutY(Text_coorY + 40);
+
+
+
+
+
+
         //game buttons
 
         //fight button setup
@@ -180,74 +236,155 @@ public class RandomEncounterOne extends Application {
             @Override
             public void handle(ActionEvent event) {
                 Random rand = new Random();
-               int enemyAttack = Goblin.getAttack()  - hero.getArmor();
-               int PlayerAttack = hero.getStrength()  * rand.nextInt(5);
-               if(hero.getSpeed()>Goblin.getSpeed()) {
-                   if (hero.getHealth() > 0 && Goblin.getHealth() > 0) {
-                       int health = Goblin.getHealth() - PlayerAttack;
-                       Goblin.setHealth(health);
-                       int health2 = hero.getHealth() - enemyAttack;
-                       hero.setHealth(health2);
-                       popup1.setText("You did " + PlayerAttack + " damage.");
-                       popup2.setText("The Goblin did " + enemyAttack + " damage." );
-                       if (Goblin.getHealth() <= 0){
-                           popup3.setText("You have killed The goblin");
-                           double gold = hero.getMoney();
-                           gold = rand.nextInt(200) + gold;
-                           hero.setMoney(gold);
-                           popup4.setText("you took" + gold + " from the goblin.");
+                int enemyAttack = Goblin.getAttack()  - hero.getArmor();
+                int PlayerAttack = hero.getStrength()  * rand.nextInt(5);
 
-                           Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
-                           Bot_UI.setAlignment(weturn, Pos.BOTTOM_RIGHT);
-                           Bot_UI.getChildren().add(weturn);
+                if(hero.getSpeed()>Goblin.getSpeed()) {
+                    if (hero.getHealth() > 0 && Goblin.getHealth() > 0) {
+                        int health = Goblin.getHealth() - PlayerAttack;
+                        Goblin.setHealth(health);
+                        int health2 = hero.getHealth() - enemyAttack;
+                        hero.setHealth(health2);
+                        popup1.setText("You did " + PlayerAttack + " damage.");
+                        popup2.setText("The Goblin did " + enemyAttack + " damage." );
+                        HealthTXT.setText("Health:"+hero.getHealth());
 
+                        if (Goblin.getHealth() <= 0){
+                            popup3.setText("You have killed The goblin");
+                            double gold = hero.getMoney();
+                            int earned = rand.nextInt(200) ;
+                            gold = earned + gold;
+                            hero.setMoney(gold);
+                            popup4.setText("you took" + earned + " from the goblin.");
+                            MoneyTxt.setText(""+ hero.getMoney());
 
+                            Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                            text1.setText("Would you like to heal before traveling?");
+                            text2.setText("would you like to look at the map?");
+                            text3.setText("Would you like to continue traveling?");
+                            text4.setText("");
+                            Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
 
-                       };
-                       if (hero.getHealth() <= 0) {
-                           Scene s3 = YouDiedIdiot.main(x, hero);
-                           x.setScene(s3);
-                       }
-
-
-                   }
-
-
-
-                   }
-               else{
-                   if (hero.getHealth() > 0 && Goblin.getHealth() >0){
-                       int health2 = hero.getHealth() - enemyAttack;
-                       hero.setHealth(health2);
-                       int health = Goblin.getHealth() - PlayerAttack;
-                       Goblin.setHealth(0);
-                       popup1.setText("You did " + PlayerAttack + " damage.");
-                       popup2.setText("The Goblin did " + enemyAttack + " damage." );
-                       if (Goblin.getHealth() <= 0){
-                           popup3.setText("You have killed The goblin");
-                           double gold = hero.getMoney();
-                           gold = rand.nextInt(200) + gold;
-                           hero.setMoney(gold);
-                           popup4.setText("you took" + gold + " from the goblin.");
+                            Bot_UI.getChildren().add(secondbuttons);
 
 
 
-                           Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
-                           Bot_UI.setAlignment(weturn, Pos.BOTTOM_RIGHT);
-                           Bot_UI.getChildren().add(weturn);
-                       }
-                       if (hero.getHealth() <= 0) {
-                           Scene s3 = YouDiedIdiot.main(x, hero);
-                           x.setScene(s3);
-                       }
-                   }
+                        };
+                        if (hero.getHealth() <= 0) {
+                            Scene s3 = YouDiedIdiot.main(x, hero);
+                            x.setScene(s3);
+                        }
+
+
+                    }
 
 
 
+                }
+                else{
+                    if (hero.getHealth() > 0 && Goblin.getHealth() >0){
+                        if (enemyAttack>0 && PlayerAttack>0){
+                            popup1.setText("The Goblin did " + enemyAttack + " damage." );
+                            int health2 = hero.getHealth() - enemyAttack;
+                            hero.setHealth(health2);
+                            HealthTXT.setText("Health:"+hero.getHealth());
+                            if (hero.getHealth()>0){
+                                int health = Goblin.getHealth() - PlayerAttack;
+                                Goblin.setHealth(0);
+                                popup2.setText("You did " + PlayerAttack + " damage.");
+                                if (Goblin.getHealth() <= 0){
+                                    popup3.setText("You have killed The goblin");
+                                    double gold = hero.getMoney();
+                                    int earned = rand.nextInt(200) ;
+                                    gold = earned + gold;
+                                    hero.setMoney(gold);
+                                    popup4.setText("you took" + earned + " from the goblin.");
+                                    MoneyTxt.setText("Money:"+ hero.getMoney());
 
-               }
 
 
+                                    Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                                    text1.setText("Would you like to heal before traveling?");
+                                    text2.setText("would you like to look at the map?");
+                                    text3.setText("Would you like to continue traveling?");
+                                    text4.setText("");
+
+                                    Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
+                                    Bot_UI.getChildren().add(secondbuttons);
+                                }
+
+                            }
+                            if (hero.getHealth()<=0){
+
+                                Scene s3 = YouDiedIdiot.main(x, hero);
+                                x.setScene(s3);
+
+                            }
+
+                        }
+                        else if (enemyAttack==0){
+                            popup1.setText("The goblin attempts to strike you but misses");
+                            if(PlayerAttack> 0){
+                                int health = Goblin.getHealth() - PlayerAttack;
+                                popup2.setText("You did " + PlayerAttack + " damage.");
+                                Goblin.setHealth(health);
+                                if (Goblin.getHealth() <= 0){
+                                    popup3.setText("You have killed The goblin");
+                                    double gold = hero.getMoney();
+                                    gold = rand.nextInt(200) + gold;
+                                    hero.setMoney(gold);
+                                    popup4.setText("you took" + gold + " from the goblin.");
+
+
+
+                                    Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                                    text1.setText("Would you like to heal before traveling?");
+                                    text2.setText("would you like to look at the map?");
+                                    text3.setText("Would you like to continue traveling?");
+                                    text4.setText("");
+                                    Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
+                                    Bot_UI.getChildren().add(secondbuttons);
+                                }
+                            }
+                            else{
+                                popup2.setText("You attempted to hit the goblin but missed");
+                            }
+
+
+                        }
+                        else{
+                            popup1.setText("Your armour defended you from the goblins strike");
+                            if(PlayerAttack> 0){
+                                int health = Goblin.getHealth() - PlayerAttack;
+                                popup2.setText("You did " + PlayerAttack + " damage.");
+                                Goblin.setHealth(health);
+                                if (Goblin.getHealth() <= 0){
+                                    popup3.setText("You have killed The goblin");
+                                    double gold = hero.getMoney();
+                                    gold = rand.nextInt(200) + gold;
+                                    hero.setMoney(gold);
+                                    popup4.setText("you took" + gold + " from the goblin.");
+                                    MoneyTxt.setText(""+hero.getMoney());
+
+
+                                    Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                                    text1.setText("Would you like to heal before traveling?");
+                                    text2.setText("would you like to look at the map?");
+                                    text3.setText("Would you like to continue traveling?");
+                                    text4.setText("");
+                                    Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
+                                    Bot_UI.getChildren().add(secondbuttons);
+
+                                }
+                            }
+                            else{
+                                popup2.setText("you attack and missed");
+                            }
+
+                        }
+                    }
+
+                }
 
 
 
@@ -270,8 +407,12 @@ public class RandomEncounterOne extends Application {
                     popup3.setText("");
                     popup4.setText("");
                     Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
-                    Bot_UI.setAlignment(weturn, Pos.BOTTOM_RIGHT);
-                    Bot_UI.getChildren().add(weturn);
+                    text1.setText("Would you like to heal before traveling?");
+                    text2.setText("would you like to look at the map?");
+                    text3.setText("Would you like to continue traveling?");
+                    text4.setText("");
+                    Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
+                    Bot_UI.getChildren().add(secondbuttons);
                 }
                 else{
                     if (Goblin.getHealth()> 0){
@@ -280,24 +421,32 @@ public class RandomEncounterOne extends Application {
 
                         int health2 = hero.getHealth() - SneakAttack;
                         hero.setHealth(health2);
-                        popup2.setText("The goblin smacks you and does " + SneakAttack + " damage.");
-                        if (hero.getHealth()<= 0){
-                            Scene s3 = YouDiedIdiot.main(x, hero);
-                            x.setScene(s3);
-                        }
-                        popup3.setText("");
-                        popup4.setText("");
-                    }
+                        if (SneakAttack>0){
+                            popup2.setText("The goblin smacks you and does " + SneakAttack + " damage.");
+                            HealthTXT.setText("Health:"+hero.getHealth());
+                            if (hero.getHealth()<= 0){
+                                Scene s3 = YouDiedIdiot.main(x, hero);
+                                x.setScene(s3);
+                            }
+                            popup3.setText("");
+                            popup4.setText("");
 
+                        }
+                        else if(SneakAttack ==0){
+                            popup2.setText("The goblin attempts to smack you");
+                            popup3.setText("He Misses!");
+                            popup4.setText("");
+                        }
+                        else{
+                            popup2.setText("The goblin attempts to smack you");
+                            popup3.setText("Your armour protects you!");
+                            popup4.setText("");
+                        }
+                    }
 
                 }
 
-
-
-
-
             }
-
 
         });
 
@@ -313,23 +462,43 @@ public class RandomEncounterOne extends Application {
                     popup3.setText("");
                     popup4.setText("");
                     Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
-                    Bot_UI.setAlignment(weturn, Pos.BOTTOM_RIGHT);
-                    Bot_UI.getChildren().add(weturn);
+                    text1.setText("Would you like to heal before traveling?");
+                    text2.setText("would you like to look at the map?");
+                    text3.setText("Would you like to continue traveling?");
+                    text4.setText("");
+                    Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
+                    Bot_UI.getChildren().add(secondbuttons);
                 }
                 else{
                     if(Goblin.getHealth()>0){
-                        popup1.setText("The monster caught you");
+                        popup1.setText("The goblin caught you");
                         int SneakAttack = Goblin.getAttack()  - hero.getArmor();
+                        if (SneakAttack>0){
+                            int health2 = hero.getHealth() - SneakAttack;
+                            hero.setHealth(health2);
+                            popup2.setText("The goblin smacks you and does " + SneakAttack + " damage.");
+                            popup3.setText("");
+                            popup4.setText("");
+                        }
+                        else if(SneakAttack== 0) {
+                            popup2.setText("The goblin tried to smack you but misses.");
+                            popup3.setText("");
+                            popup4.setText("");
+                        }
+                        else{
+                            popup2.setText("He attempts to hit you.");
+                            popup3.setText("Your armour blocked the attack.");
+                            popup4.setText("");
 
-                        int health2 = hero.getHealth() - SneakAttack;
-                        hero.setHealth(health2);
-                        popup2.setText("The goblin smacks you and does " + SneakAttack + " damage.");
+                        }
+
+                        HealthTXT.setText("Health:"+hero.getHealth());
                         if (hero.getHealth()<= 0){
                             Scene s3 = YouDiedIdiot.main(x, hero);
                             x.setScene(s3);;
                         }
-                        popup3.setText("");
-                        popup4.setText("");
+
+
 
                     }
 
@@ -347,11 +516,27 @@ public class RandomEncounterOne extends Application {
             @Override
             public void handle(ActionEvent event) {
                 if (hero.getPotions()>0 && Goblin.getHealth()>0){
-                    popup1.setText("You used a potion and healed 25 health points.");
                     int pot = hero.getPotions() - 1;
-                    int phealth = hero.getHealth() + 25;
                     hero.setPotions(pot);
-                    hero.setHealth(phealth);
+                    if ((hero.getHealth()>75)){
+                        int healthboost = 100 - hero.getHealth() ;
+                        int addhealth = hero.getHealth()+healthboost;
+                        hero.setHealth(addhealth);
+                        HealthTXT.setText("Health:"+hero.getHealth());
+                        popup1.setText("You used a potion and healed " + healthboost +" health points.");
+
+                    }
+                    else{
+                        int addhealth = hero.getHealth() + 25;
+                        hero.setHealth(addhealth);
+                        HealthTXT.setText("Health:"+hero.getHealth());
+                        popup1.setText("You used a potion and healed 25 health points.");
+
+                    }
+
+                    popup2.setText("");
+                    popup3.setText("");
+                    popup4.setText("");
                 }
                else{
                    if(Goblin.getHealth()>0){
@@ -359,26 +544,31 @@ public class RandomEncounterOne extends Application {
                        popup2.setText("you stand there in confusion looking for your potion");
                        int SneakAttack = Goblin.getAttack()  - hero.getArmor();
 
-                       int health2 = hero.getHealth() - SneakAttack;
-                       hero.setHealth(health2);
-                       popup3.setText("The goblin smacks you  and does " + SneakAttack + " damage.");
+                       if (SneakAttack>0){
+                           int health2 = hero.getHealth() - SneakAttack;
+                           hero.setHealth(health2);
+                           popup3.setText("The goblin smacks you and does " + SneakAttack + " damage.");
+                       }
+                       else if(SneakAttack== 0) {
+                           popup3.setText("The goblin tried to smack you but misses.");
+                       }
+                       else{
+                           popup3.setText("Your armour defended you from the goblin's attack.");
+
+                       }
+                       HealthTXT.setText("Health:"+hero.getHealth());
                        if (hero.getHealth()<= 0){
                            Scene s3 = YouDiedIdiot.main(x, hero);
                            x.setScene(s3);
                        }
-                       popup4.setText("");
+
 
                    }
 
 
                 }
 
-
-
-
             };
-
-
         });
         //popup button setup
 
@@ -392,12 +582,58 @@ public class RandomEncounterOne extends Application {
         Scene S2 = new Scene(root, 750, 500);
 
 
+        Map.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                Image img1 = new Image("sample/Art/Background/Death_Screen.png", 650, 400, true, true);
+                ImageView Center_ImageView1 = new ImageView(img1);
+                Center_UI.getChildren().removeAll((Center_ImageView));
+                Center_UI.getChildren().add(Center_ImageView1);
+                root.setCenter(Center_UI);
+
+                Bot_UI.getChildren().removeAll(secondbuttons,Map , heal ,weturn);
+                Button GoBack = new Button();
+                GoBack.setText("Go Back");
+                Bot_UI.getChildren().add(GoBack);
+                GoBack.setPadding(new Insets(0, 20, 0, 20));
+                Bot_UI.setAlignment(GoBack, Pos.BOTTOM_RIGHT);
+                popup1.setText("");
+                popup2.setText("");
+                popup3.setText("");
+                popup4.setText("");
+                text1.setText("");
+                text2.setText("");
+                text3.setText("");
+                text4.setText("");
+                GoBack.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        Bot_UI.getChildren().remove(GoBack);
+                        Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
+
+                        Bot_UI.getChildren().add(secondbuttons);
+                        Image img1 = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+                        ImageView Center_ImageView1 = new ImageView(img1);
+                        Center_UI.getChildren().removeAll((Center_ImageView));
+                        Center_UI.getChildren().add(Center_ImageView1);
+                        root.setCenter(Center_UI);
+                        text1.setText("Would you like to heal before traveling?");
+                        text2.setText("would you like to look at the map?");
+                        text3.setText("Would you like to continue traveling?");
+                        text4.setText("");
 
 
+                    }
+
+                }  )  ;
+
+
+            }
+
+        }  )  ;
 
         return S2;
-
-
 
     }
 

@@ -23,6 +23,7 @@ public class Player extends Entity {
     private ArrayList<Image> Pictures = new ArrayList<>();
     //this is for a loop in the forest dont touch pls
     private int loopcount;
+    private String scene;
   
 
     public Player() {
@@ -212,6 +213,19 @@ public class Player extends Entity {
     public void setPotions(int pot){
         Potions = pot;
 
+    }
+    public String getScene(){
+        return scene;
+
+    }
+    public void setScene(String s){
+        scene=s;
+    }
+    public void setStatboost(int s){
+        Statboost = s;
+    }
+    public int getStatboost(){
+        return Statboost;
     }
 
     public int getFood() {
