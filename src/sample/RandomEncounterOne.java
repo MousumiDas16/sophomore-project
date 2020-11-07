@@ -575,9 +575,11 @@ public class RandomEncounterOne extends Application {
 
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Forrest.png", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
-        Center_UI.getChildren().add(Center_ImageView);
+        ImageView Character = new ImageView(img2);
+        Center_UI.getChildren().addAll(Center_ImageView,Character);
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, 750, 500);
 
