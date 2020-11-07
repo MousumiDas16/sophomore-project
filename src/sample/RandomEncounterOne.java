@@ -588,11 +588,9 @@ public class RandomEncounterOne extends Application {
 
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
         StackPane Center_UI = new StackPane();
-<<<<<<< Updated upstream
+
         Image img = new Image("sample/Art/Background/Forrest.png", 650, 400, true, true);
-=======
-        Image img = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
->>>>>>> Stashed changes
+
         Image img2 = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
