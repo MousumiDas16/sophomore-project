@@ -137,10 +137,10 @@ public class FirstTown extends Application {
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
         Left_UI.setAlignment(heroProfile, Pos.BOTTOM_CENTER);
 
-        //Jimmy's story
+        //Jimmy's story for taking to townspeople
         ArrayList<String> words = new ArrayList<>();
-        words.add("In the Elderbrew tavern, \na mysterious traveling woman \ninforms a young villager about an ancient legend….");
-        words.add("In a cave atop Dragon’s Claw, an old and malformed mountain formation,\nthere rests a blade of unparalleled power.\n"+"The one who finds such a weapon will be renowned\nacross the land and will be made KING!!!\nThe sword is the rightful relic of the Old King and\nhis reincarnates…");
+        words.add("");
+        words.add("");
         Text Line1 = new Text();
         root.getChildren().add(Line1);
         Line1.setText(words.get(next));
@@ -154,7 +154,7 @@ public class FirstTown extends Application {
                     Line1.setText(words.get(next));
                 }else{
 
-                    Scene s1 = Tavern.main(x, hero);// next town pic please
+                    Scene s1 = FirstTown.main(x, hero);// next town pic please
                     x.setScene(s1);
                 }
             };
@@ -257,7 +257,7 @@ public class FirstTown extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = Fort1.main(x, hero);// next town pic please
+                Scene s1 = LeaveFirstTown.main(x, hero);// next town pic please
                 x.setScene(s1);
 
 
