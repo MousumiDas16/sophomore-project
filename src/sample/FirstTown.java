@@ -191,7 +191,7 @@ public class FirstTown extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = Shop.main(x, hero); //talk to a random person pic please
+                Scene s1 = WalkingInForest.main(x, hero); //talk to a random person pic please
                 x.setScene(s1);
 
 

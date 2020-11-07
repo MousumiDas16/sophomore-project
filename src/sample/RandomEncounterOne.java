@@ -180,27 +180,40 @@ public class RandomEncounterOne extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                int pot = hero.getPotions() - 1;
-                hero.setPotions(pot);
-                if ((hero.getHealth()>75)){
-                    int healthboost = 100 - hero.getHealth() ;
-                    int addhealth = hero.getHealth()+healthboost;
-                    hero.setHealth(addhealth);
-                    HealthTXT.setText("Health:"+hero.getHealth());
-                    popup1.setText("You used a potion and healed " + healthboost +" health points.");
+                if (hero.getPotions()>0){
+                    int pot = hero.getPotions() - 1;
+                    hero.setPotions(pot);
+                    if ((hero.getHealth()>75)){
+                        int healthboost = 100 - hero.getHealth() ;
+                        int addhealth = hero.getHealth()+healthboost;
+                        hero.setHealth(addhealth);
+                        HealthTXT.setText("Health:"+hero.getHealth());
+                        popup1.setText("You used a potion and healed " + healthboost +" health points.");
 
                 }
+                    else{
+                        int addhealth = hero.getHealth() + 25;
+                        hero.setHealth(addhealth);
+                        HealthTXT.setText("Health:"+hero.getHealth());
+                        popup1.setText("You used a potion and healed 25 health points.");
+                        popup2.setText("");
+                        popup3.setText("");
+                        popup4.setText("");
+
+                    }
+
+                }
+
+
+
                 else{
-                    int addhealth = hero.getHealth() + 25;
-                    hero.setHealth(addhealth);
-                    HealthTXT.setText("Health:"+hero.getHealth());
-                    popup1.setText("You used a potion and healed 25 health points.");
+                    popup1.setText("You do not have any potions. ");
+                    popup2.setText("");
+                    popup3.setText("");
+                    popup4.setText("");
+
 
                 }
-
-                popup2.setText("");
-                popup3.setText("");
-                popup4.setText("");
 
 
             }
@@ -575,14 +588,17 @@ public class RandomEncounterOne extends Application {
 
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
         StackPane Center_UI = new StackPane();
+<<<<<<< Updated upstream
         Image img = new Image("sample/Art/Background/Forrest.png", 650, 400, true, true);
+=======
+        Image img = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+>>>>>>> Stashed changes
         Image img2 = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, 750, 500);
-
 
         Map.setOnAction(new EventHandler<ActionEvent>() {
             @Override
