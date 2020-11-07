@@ -48,7 +48,7 @@ public class MainMenu extends Application {
 
         root.getChildren().add(welcome);
         Scene hello = new Scene(root,750,500);
-        PauseTransition pause = new PauseTransition(Duration.seconds(4));
+        PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
         pause.setOnFinished(event ->{
             root.getChildren().remove(welcome);
             Label q1 = new Label("What is your name?");
