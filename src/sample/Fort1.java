@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sample;
 
 import javafx.application.Application;
@@ -24,11 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/**
- * @author Tommy
- */
-public class FirstTown extends Application {
-
+public class Fort1 extends Application {
     @Override
     public void start(Stage primaryStage) {
         Button btn = new Button();
@@ -56,13 +47,11 @@ public class FirstTown extends Application {
     //  * @param args the command line arguments
     //  */
     public static Scene main(Stage x, Player hero) {
-        System.out.println(("Current file: FirstTown"));
+        System.out.println(("Current file: Fort1"));
 
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
-
-
 
 
         //BOTTOM RECTANGLE
@@ -206,7 +195,7 @@ public class FirstTown extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = Fort1.main(x, hero);// next town pic please
+                Scene s1 = Shop.main(x, hero);// next town pic please
                 x.setScene(s1);
 
 
@@ -235,19 +224,11 @@ public class FirstTown extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, 750, 500);
         return S2;
-
     }
 }
-    
-
-        
-        
-    
-    
-
