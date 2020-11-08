@@ -28,6 +28,7 @@ public class forest extends Application {
 
 
     public static Scene main(Stage x, Player hero) throws InterruptedException {
+
         System.out.println("Current file: forest");
         hero.setScene("forest");
         BorderPane root = new BorderPane();
@@ -116,60 +117,28 @@ public class forest extends Application {
 
 
 
-        Random rand = new Random();
+
         // loop count from hero
 
         int loop = hero.getLoopcount();
 
 
-        while (loop < 3) {
+        if (hero.getLoopcount() < 3) {
+            loop= loop +1;
+            hero.setLoopcount(loop);
+
+            Scene s1 = RandomEncounter.main(x, hero,5);// next town pic please
+            x.setScene(s1);
+            System.out.println("the loop number is" +hero.getLoopcount());
+            return s1;
 
 
 
 
-
-
-
-           //int k = rand.nextInt(4);
-            int k = 0;
-
-
-            System.out.println("Random number is" + k);
-            switch (k) {
-                case 0:
-                    loop= loop +1;
-                    hero.setLoopcount(loop);
-                    System.out.println("loop number is now" + hero.getLoopcount());
-                    System.out.println("made it to case 0");
-                    Scene s3 = RandomEncounterOne.main(x, hero);
-                    x.setScene(s3);
-                    return s3;
-                case 1:
-                    loop= loop +1;
-                    hero.setLoopcount(loop);
-                    System.out.println("loop number is now" + hero.getLoopcount());
-                    System.out.println("made it to case 1");
-                    Scene s4 = RandomEncounterTwo.main(x, hero);
-                    x.setScene(s4);
-                    return s4;
-                case 2:
-                    loop= loop +1;
-                    hero.setLoopcount(loop);
-                    System.out.println("loop number is now" + hero.getLoopcount());
-                    System.out.println("made it to case 2");
-                    Scene s5 = RandomEncounterThree.main(x, hero);
-                    x.setScene(s5);
-                    return s5;
-                case 3:
-                    loop= loop +1;
-                    hero.setLoopcount(loop);
-                    System.out.println("loop number is now" + hero.getLoopcount());
-                    break;
-            }
 
 
         }
-        if(hero.getLoopcount()==3){
+        else if(hero.getLoopcount()==3){
             text1.setText("you made it to the town!!");
             text2.setText("Press continue to enter!");
             text3.setText("");
@@ -202,7 +171,7 @@ public class forest extends Application {
 
 
 
-            hero.setLoopcount(0);
+        hero.setLoopcount(0);
         return S1;
 
         }

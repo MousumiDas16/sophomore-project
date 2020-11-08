@@ -35,6 +35,9 @@ public class Enemy {
     public void setSpeed(int speed) {
         this.Speed = speed;
     }
+    public String getType(){
+        return enemyType;
+    }
 
 
 
@@ -60,7 +63,7 @@ public class Enemy {
                 //   Pictures.add(0,(new Image("sample/Art/Characters/Profile/Wizard_profile (2).png"))); //add goblin pic
 
                 break;
-            case "bloodyboi":
+            case "bloodpuddle":
                 enemyType = "BloodPuddle";
                 Health = 65;
                 Attack = rand.nextInt(35);

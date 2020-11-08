@@ -22,7 +22,7 @@ public class Player extends Entity {
     private String description;
     private ArrayList<Image> Pictures = new ArrayList<>();
     //this is for a loop in the forest dont touch pls
-    private int loopcount;
+    private int loopcount = 0;
     private String scene;
   
 

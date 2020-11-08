@@ -1,6 +1,5 @@
 package sample;
 
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,11 +19,117 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
-public class RandomEncounterTwo extends Application {
+public class RandomEncounter extends Application {
 
-    public static Scene main(Stage x, Player hero) {
-        System.out.println(("Current file: EncounterOne"));
+    public static Scene main(Stage x, Player hero, int a) throws InterruptedException {
+        System.out.println("Current File: Random Encounter");
+        Image background = null;
+        Image enemypic = null;
+        Random rand = new Random();
+        Enemy enemy = new Enemy();
+        int k;
 
+        switch (a){
+            case 0:
+                background = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+                break;
+            case 1:
+                background = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+                break;
+
+            case 2:
+                background = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+                break;
+            case 3:
+                background = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+                break;
+            case 4:
+                if(hero.getScene().equalsIgnoreCase("firsttown")){
+                    background = new Image("sample/Art/Background/Donkey_Town.png", 650, 400, true, true);
+
+                }
+                else if(hero.getScene().equalsIgnoreCase("fort1")){
+                    background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+
+                }
+                k = rand.nextInt(3);
+
+
+
+                System.out.println("Random number is" + k);
+                switch (k) {
+                    case 0:
+                        enemy.setType("goblin");
+                        enemypic = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 100, true, true);
+
+                        System.out.println("enemy goblin");
+                        break;
+
+
+
+                    case 1:
+                        enemy.setType("kobold");
+                        enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
+                        System.out.println("enemy kobold");
+                        break;
+
+                    case 2:
+                        enemy.setType("bloodpuddle");
+                        enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
+                        break;
+
+                    default:
+                        System.out.println("something went wrong in encounter case 4");
+                        break;
+                }
+
+                break;
+            case 5:
+                if(hero.getScene().equalsIgnoreCase("forest")){
+                     background = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+
+                }
+
+
+
+                 k = rand.nextInt(4);
+
+
+
+                System.out.println("Random number is" + k);
+                switch (k) {
+                    case 0:
+                        enemy.setType("goblin");
+                        enemypic = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 100, true, true);
+                        System.out.println("enemy goblin");
+                        break;
+
+
+
+                    case 1:
+                        enemy.setType("kobold");
+                        enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
+                        System.out.println("enemy kobold");
+                        break;
+
+                    case 2:
+                        enemy.setType("bloodpuddle");
+                        enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
+                        break;
+
+                    case 3:
+                        Scene s1 = WalkingInForest.main(x, hero);
+                        x.setScene(s1);
+                        break;
+                }
+
+
+                break;
+            default:
+                background = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+                break;
+        }
+        System.out.println("made it here");
 
         BorderPane root = new BorderPane();
 
@@ -101,9 +206,9 @@ public class RandomEncounterTwo extends Application {
 
         //Attack setup
 
-        Random rand = new Random();
-        Enemy BloodPuddle = new Enemy();
-        BloodPuddle.setType("bloodyboi");
+
+
+
         //pop up creation
 
         Text popup1 = new Text();
@@ -160,9 +265,18 @@ public class RandomEncounterTwo extends Application {
             @Override
             public void handle(ActionEvent event) {
                 if(hero.getScene().equals("forest")){
-                    Scene s1 = WalkingInForest.main(x, hero);
+                    Scene s1 = null;
+                    s1 = WalkingInForest.main(x, hero);
                     x.setScene(s1);
 
+                }
+                else if (hero.getScene().equalsIgnoreCase("firsttown")){
+                    Scene s1 = FirstTown.main(x, hero);
+                    x.setScene(s1);
+                }
+                else if(hero.getScene().equalsIgnoreCase("fort1")){
+                    Scene s1 = Fort1.main(x, hero);
+                    x.setScene(s1);
                 }
 
                 else{
@@ -230,11 +344,11 @@ public class RandomEncounterTwo extends Application {
         Map.setPadding(new Insets(0, 20, 0, 20));
         Group secondbuttons = new Group();
 
-        heal.setLayoutY(text1.getY()-10);
-        Map.setLayoutY(text2.getY()-10);
+        heal.setLayoutY(text1.getY());
+        Map.setLayoutY(text2.getY());
         weturn.setLayoutY(text3.getY());
         secondbuttons.getChildren().addAll(heal,Map,weturn);
-        Bot_UI.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
+        StackPane.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
 
 
 
@@ -250,33 +364,33 @@ public class RandomEncounterTwo extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Random rand = new Random();
-                int enemyAttack = BloodPuddle.getAttack()  - hero.getArmor();
+
+                int enemyAttack = enemy.getAttack()  - hero.getArmor();
                 int PlayerAttack = hero.getStrength()  * rand.nextInt(5);
 
-                if(hero.getSpeed()>BloodPuddle.getSpeed()) {
-                    if (hero.getHealth() > 0 && BloodPuddle.getHealth() > 0) {
-                        int health = BloodPuddle.getHealth() - PlayerAttack;
-                        BloodPuddle.setHealth(health);
+                if(hero.getSpeed()>enemy.getSpeed()) {
+                    if (hero.getHealth() > 0 && enemy.getHealth() > 0) {
+                        int health = enemy.getHealth() - PlayerAttack;
+                        enemy.setHealth(health);
                         int health2 = hero.getHealth() - enemyAttack;
                         hero.setHealth(health2);
                         popup1.setText("You did " + PlayerAttack + " damage.");
-                        popup2.setText("The BloodPuddle did " + enemyAttack + " damage." );
+                        popup2.setText("The enemy did " + enemyAttack + " damage." );
                         HealthTXT.setText("Health:"+hero.getHealth());
 
-                        if (BloodPuddle.getHealth() <= 0){
-                            popup3.setText("You have killed The BloodPuddle");
+                        if (enemy.getHealth() <= 0){
+                            popup3.setText("You have killed the " + enemy.getType());
                             double gold = hero.getMoney();
                             int earned = rand.nextInt(200) ;
                             gold = earned + gold;
                             hero.setMoney(gold);
-                            popup4.setText("you took" + earned + " from the BloodPuddle.");
+                            popup4.setText("you took" + earned + " gold from the "+ enemy.getType() );
                             MoneyTxt.setText(""+ hero.getMoney());
 
                             Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
-                            text1.setText("1)Would you like to heal before traveling?");
+                            text1.setText("1)Would you like to heal before continuing?");
                             text2.setText("2)would you like to look at the map?");
-                            text3.setText("3)Would you like to continue traveling?");
+                            text3.setText("3)Ready to go back?");
                             text4.setText("");
 
 
@@ -297,31 +411,31 @@ public class RandomEncounterTwo extends Application {
 
                 }
                 else{
-                    if (hero.getHealth() > 0 && BloodPuddle.getHealth() >0){
+                    if (hero.getHealth() > 0 && enemy.getHealth() >0){
                         if (enemyAttack>0 && PlayerAttack>0){
-                            popup1.setText("The BloodPuddle did " + enemyAttack + " damage." );
+                            popup1.setText("The enemy did " + enemyAttack + " damage." );
                             int health2 = hero.getHealth() - enemyAttack;
                             hero.setHealth(health2);
                             HealthTXT.setText("Health:"+hero.getHealth());
                             if (hero.getHealth()>0){
-                                int health = BloodPuddle.getHealth() - PlayerAttack;
-                                BloodPuddle.setHealth(health);
+                                int health = enemy.getHealth() - PlayerAttack;
+                                enemy.setHealth(health);
                                 popup2.setText("You did " + PlayerAttack + " damage.");
-                                if (BloodPuddle.getHealth() <= 0){
-                                    popup3.setText("You have killed The BloodPuddle");
+                                if (enemy.getHealth() <= 0){
+                                    popup3.setText("You have killed the " + enemy.getType());
                                     double gold = hero.getMoney();
                                     int earned = rand.nextInt(200) ;
                                     gold = earned + gold;
                                     hero.setMoney(gold);
-                                    popup4.setText("you took" + earned + " from the BloodPuddle.");
+                                    popup4.setText("you took" + earned + " from the " + enemy.getType());
                                     MoneyTxt.setText("Money:"+ hero.getMoney());
 
 
 
                                     Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
-                                    text1.setText("1)Would you like to heal before traveling?");
+                                    text1.setText("1)Would you like to heal before continuing?");
                                     text2.setText("2)would you like to look at the map?");
-                                    text3.setText("3)Would you like to continue traveling?");
+                                    text3.setText("3)Ready to goo back?");
                                     text4.setText("");
 
 
@@ -338,54 +452,54 @@ public class RandomEncounterTwo extends Application {
 
                         }
                         else if (enemyAttack==0){
-                            popup1.setText("The BloodPuddle attempts to strike you but misses");
+                            popup1.setText("The " +enemy.getType() +" attempts to strike you but misses");
                             if(PlayerAttack> 0){
-                                int health = BloodPuddle.getHealth() - PlayerAttack;
+                                int health = enemy.getHealth() - PlayerAttack;
                                 popup2.setText("You did " + PlayerAttack + " damage.");
-                                BloodPuddle.setHealth(health);
-                                if (BloodPuddle.getHealth() <= 0){
-                                    popup3.setText("You have killed The BloodPuddle");
+                                enemy.setHealth(health);
+                                if (enemy.getHealth() <= 0){
+                                    popup3.setText("You have killed the " + enemy.getType());
                                     double gold = hero.getMoney();
                                     gold = rand.nextInt(200) + gold;
                                     hero.setMoney(gold);
-                                    popup4.setText("you took" + gold + " from the BloodPuddle.");
+                                    popup4.setText("you took" + gold + " from the " + enemy.getType());
 
 
 
                                     Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
-                                    text1.setText("Would you like to heal before traveling?");
-                                    text2.setText("would you like to look at the map?");
-                                    text3.setText("Would you like to continue traveling?");
+                                    text1.setText("1) Would you like to heal before continuing?");
+                                    text2.setText("2) would you like to look at the map?");
+                                    text3.setText("3) Ready to go back?");
                                     text4.setText("");
 
                                     Bot_UI.getChildren().add(secondbuttons);
                                 }
                             }
                             else{
-                                popup2.setText("You attempted to hit the BloodPuddle but missed");
+                                popup2.setText("You attempted to hit the "+enemy.getType()+ " but missed");
                             }
 
 
                         }
                         else{
-                            popup1.setText("Your armour defended you from the BloodPuddle's strike");
+                            popup1.setText("Your armour stopped "+ enemy.getType()+"'s strike");
                             if(PlayerAttack> 0){
-                                int health = BloodPuddle.getHealth() - PlayerAttack;
+                                int health = enemy.getHealth() - PlayerAttack;
                                 popup2.setText("You did " + PlayerAttack + " damage.");
-                                BloodPuddle.setHealth(health);
-                                if (BloodPuddle.getHealth() <= 0){
-                                    popup3.setText("You have killed The BloodPuddle");
+                                enemy.setHealth(health);
+                                if (enemy.getHealth() <= 0){
+                                    popup3.setText("You have killed the " + enemy.getType());
                                     double gold = hero.getMoney();
                                     gold = rand.nextInt(200) + gold;
                                     hero.setMoney(gold);
-                                    popup4.setText("you took" + gold + " from the BloodPuddle.");
+                                    popup4.setText("you took" + gold + " from the " + enemy.getType());
                                     MoneyTxt.setText(""+hero.getMoney());
 
 
                                     Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
-                                    text1.setText("1)Would you like to heal before traveling?");
-                                    text2.setText("2)would you like to look at the map?");
-                                    text3.setText("3)Would you like to continue traveling?");
+                                    text1.setText("1) Would you like to heal before continuing?");
+                                    text2.setText("2) would you like to look at the map?");
+                                    text3.setText("3) Ready to continue??");
                                     text4.setText("");
 
                                     Bot_UI.getChildren().add(secondbuttons);
@@ -416,7 +530,7 @@ public class RandomEncounterTwo extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if (hero.getCharisma()>=10 && BloodPuddle.getHealth()>0){
+                if (hero.getCharisma()>=10 && enemy.getHealth()>0){
                     popup1.setText("You have talked your way out of a fight");
                     popup2.setText("");
                     popup3.setText("");
@@ -430,30 +544,36 @@ public class RandomEncounterTwo extends Application {
                     Bot_UI.getChildren().add(secondbuttons);
                 }
                 else{
-                    if (BloodPuddle.getHealth()> 0){
-                        popup1.setText("You angered the BloodPuddle.");
-                        int SneakAttack = BloodPuddle.getAttack()  - hero.getArmor();
+                    if (enemy.getHealth()> 0){
+                        popup1.setText("You angered the enemy.");
+                        int SneakAttack = enemy.getAttack()  - hero.getArmor();
 
                         int health2 = hero.getHealth() - SneakAttack;
                         hero.setHealth(health2);
                         if (SneakAttack>0){
-                            popup2.setText("The BloodPuddle smacks you and does " + SneakAttack + " damage.");
+                            popup2.setText("The "+enemy.getType()+ " smacks you and does " + SneakAttack + " damage.");
                             HealthTXT.setText("Health:"+hero.getHealth());
                             if (hero.getHealth()<= 0){
                                 Scene s3 = YouDiedIdiot.main(x, hero);
                                 x.setScene(s3);
                             }
-                            popup3.setText("");
-                            popup4.setText("");
+                            if (hero.getHealth() < 25) {
+                                popup3.setText("Your health is low!");
+                                popup4.setText("");
+                            }
+                            else {
+                                popup3.setText("");
+                                popup4.setText("");
+                            }
 
                         }
                         else if(SneakAttack ==0){
-                            popup2.setText("The BloodPuddle attempts to smack you");
+                            popup2.setText("The "+enemy.getType()+" attempts to smack you");
                             popup3.setText("He Misses!");
                             popup4.setText("");
                         }
                         else{
-                            popup2.setText("The BloodPuddle attempts to smack you");
+                            popup2.setText("The " +enemy.getType() + " attempts to smack you");
                             popup3.setText("Your armour protects you!");
                             popup4.setText("");
                         }
@@ -471,8 +591,8 @@ public class RandomEncounterTwo extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if( hero.getSpeed()>BloodPuddle.getSpeed() && BloodPuddle.getHealth()>0){
-                    popup1.setText("you were fast enough to out run the BloodPuddle.");
+                if( hero.getSpeed()>enemy.getSpeed() && enemy.getHealth()>0){
+                    popup1.setText("you were fast enough to out run the " +enemy.getType());
                     popup2.setText("");
                     popup3.setText("");
                     popup4.setText("");
@@ -485,18 +605,24 @@ public class RandomEncounterTwo extends Application {
                     Bot_UI.getChildren().add(secondbuttons);
                 }
                 else{
-                    if(BloodPuddle.getHealth()>0){
-                        popup1.setText("The BloodPuddle caught you");
-                        int SneakAttack = BloodPuddle.getAttack()  - hero.getArmor();
+                    if(enemy.getHealth()>0){
+                        popup1.setText("The "+enemy.getType()+" caught you");
+                        int SneakAttack = enemy.getAttack()  - hero.getArmor();
                         if (SneakAttack>0){
                             int health2 = hero.getHealth() - SneakAttack;
                             hero.setHealth(health2);
-                            popup2.setText("The BloodPuddle smacks you and does " + SneakAttack + " damage.");
-                            popup3.setText("");
-                            popup4.setText("");
+                            popup2.setText("The " +enemy.getType()+" smacks you and does " + SneakAttack + " damage.");
+                            if (hero.getHealth() < 25) {
+                                popup3.setText("Your health is low!");
+                                popup4.setText("");
+                            }
+                            else {
+                                popup3.setText("");
+                                popup4.setText("");
+                            }
                         }
                         else if(SneakAttack== 0) {
-                            popup2.setText("The BloodPuddle tried to smack you but misses.");
+                            popup2.setText("The "+enemy.getType()+" tried to smack you but misses.");
                             popup3.setText("");
                             popup4.setText("");
                         }
@@ -530,7 +656,7 @@ public class RandomEncounterTwo extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if (hero.getPotions()>0 && BloodPuddle.getHealth()>0){
+                if (hero.getPotions()>0 && enemy.getHealth()>0){
                     int pot = hero.getPotions() - 1;
                     hero.setPotions(pot);
                     if ((hero.getHealth()>75)){
@@ -554,21 +680,27 @@ public class RandomEncounterTwo extends Application {
                     popup4.setText("");
                 }
                 else{
-                    if(BloodPuddle.getHealth()>0){
+                    if(enemy.getHealth()>0){
                         popup1.setText("You Do not have any potions");
                         popup2.setText("you stand there in confusion looking for your potion");
-                        int SneakAttack = BloodPuddle.getAttack()  - hero.getArmor();
+                        int SneakAttack = enemy.getAttack()  - hero.getArmor();
 
                         if (SneakAttack>0){
                             int health2 = hero.getHealth() - SneakAttack;
                             hero.setHealth(health2);
-                            popup3.setText("The BloodPuddle smacks you and does " + SneakAttack + " damage.");
+                            popup3.setText("The "+enemy.getType()+" smacks you and does " + SneakAttack + " damage.");
+                            if (hero.getHealth() < 25) {
+                                popup4.setText("Your health is low!");
+                            }
+                            else {
+                                popup4.setText("");
+                            }
                         }
                         else if(SneakAttack== 0) {
-                            popup3.setText("The BloodPuddle tried to smack you but misses.");
+                            popup3.setText("The " +enemy.getType()+" tried to smack you but misses.");
                         }
                         else{
-                            popup3.setText("Your armour defended you from the BloodPuddle's attack.");
+                            popup3.setText("Your armour stopped" +enemy.getType()+" 's attack.");
 
                         }
                         HealthTXT.setText("Health:"+hero.getHealth());
@@ -590,11 +722,17 @@ public class RandomEncounterTwo extends Application {
 
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Forrest.png", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 100, true, true);
-        ImageView Center_ImageView = new ImageView(img);
-        ImageView Character = new ImageView(img2);
-        Center_UI.getChildren().addAll(Center_ImageView,Character);
+
+
+        ImageView Center_ImageView = new ImageView(background);
+        ImageView Character = new ImageView(enemypic);
+        Text enemyhealth = new Text();
+        enemyhealth.setText("Health: "+ enemy.getHealth());
+        enemyhealth.setLayoutY(-30);
+        Center_UI.getChildren().addAll(Center_ImageView,Character,enemyhealth);
+        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
+
+
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, 750, 500);
 
@@ -649,11 +787,16 @@ public class RandomEncounterTwo extends Application {
 
         }  )  ;
 
+
         return S2;
 
     }
+
+
+
     @Override
     public void start(Stage primaryStage) {
+
 
     }
 }
