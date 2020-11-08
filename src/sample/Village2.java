@@ -245,6 +245,18 @@ public class Village2 extends Application {
         //leave town
         Button b4 = new Button();
         b4.setText("4");
+        b4.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                Scene s1 = Castle.main(x, hero);// next town pic please
+                x.setScene(s1);
+
+
+            }
+
+
+        });
 
         b1.setPadding(new Insets(0, 20, 0, 20));
         b2.setPadding(new Insets(0, 20, 0, 20));

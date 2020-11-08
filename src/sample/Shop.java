@@ -179,7 +179,8 @@ public class Shop extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = Tavern.main(x,hero); // get a diff image if u want
+                Tavern t=new Tavern();
+                Scene s1 = t.getScene(x,hero); // get a diff image if u want
                 x.setScene(s1);
 
 
