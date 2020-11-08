@@ -24,7 +24,7 @@ public class RandomEncounterTwo extends Application {
 
     public static Scene main(Stage x, Player hero) {
         System.out.println(("Current file: EncounterOne"));
-        hero.setClass("wizard");
+
 
         BorderPane root = new BorderPane();
 
@@ -146,10 +146,10 @@ public class RandomEncounterTwo extends Application {
         StackPane.setAlignment(butt_Group, Pos.CENTER_RIGHT);
 
 
-        b1.setLayoutY(Text_coorY);
-        b2.setLayoutY(Text_coorY + 20);
-        b3.setLayoutY(Text_coorY + 40);
-        b4.setLayoutY(Text_coorY + 60);
+        b1.setLayoutY(text1.getY());
+        b2.setLayoutY(text2.getY());
+        b3.setLayoutY(text3.getY());
+        b4.setLayoutY(text4.getY());
 
         //buttons for before returning to the forest
         Button weturn = new Button();
@@ -229,10 +229,12 @@ public class RandomEncounterTwo extends Application {
         heal.setPadding(new Insets(0, 20, 0, 20));
         Map.setPadding(new Insets(0, 20, 0, 20));
         Group secondbuttons = new Group();
+
+        heal.setLayoutY(text1.getY()-10);
+        Map.setLayoutY(text2.getY()-10);
+        weturn.setLayoutY(text3.getY());
         secondbuttons.getChildren().addAll(heal,Map,weturn);
-        heal.setLayoutY(Text_coorY);
-        Map.setLayoutY(Text_coorY + 20);
-        weturn.setLayoutY(Text_coorY + 40);
+        Bot_UI.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
 
 
 
@@ -272,11 +274,11 @@ public class RandomEncounterTwo extends Application {
                             MoneyTxt.setText(""+ hero.getMoney());
 
                             Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
-                            text1.setText("Would you like to heal before traveling?");
-                            text2.setText("would you like to look at the map?");
-                            text3.setText("Would you like to continue traveling?");
+                            text1.setText("1)Would you like to heal before traveling?");
+                            text2.setText("2)would you like to look at the map?");
+                            text3.setText("3)Would you like to continue traveling?");
                             text4.setText("");
-                            Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
+
 
                             Bot_UI.getChildren().add(secondbuttons);
 
@@ -303,7 +305,7 @@ public class RandomEncounterTwo extends Application {
                             HealthTXT.setText("Health:"+hero.getHealth());
                             if (hero.getHealth()>0){
                                 int health = BloodPuddle.getHealth() - PlayerAttack;
-                                BloodPuddle.setHealth(0);
+                                BloodPuddle.setHealth(health);
                                 popup2.setText("You did " + PlayerAttack + " damage.");
                                 if (BloodPuddle.getHealth() <= 0){
                                     popup3.setText("You have killed The BloodPuddle");
@@ -317,12 +319,12 @@ public class RandomEncounterTwo extends Application {
 
 
                                     Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
-                                    text1.setText("Would you like to heal before traveling?");
-                                    text2.setText("would you like to look at the map?");
-                                    text3.setText("Would you like to continue traveling?");
+                                    text1.setText("1)Would you like to heal before traveling?");
+                                    text2.setText("2)would you like to look at the map?");
+                                    text3.setText("3)Would you like to continue traveling?");
                                     text4.setText("");
 
-                                    Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
+
                                     Bot_UI.getChildren().add(secondbuttons);
                                 }
 
@@ -355,7 +357,7 @@ public class RandomEncounterTwo extends Application {
                                     text2.setText("would you like to look at the map?");
                                     text3.setText("Would you like to continue traveling?");
                                     text4.setText("");
-                                    Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
+
                                     Bot_UI.getChildren().add(secondbuttons);
                                 }
                             }
@@ -381,11 +383,11 @@ public class RandomEncounterTwo extends Application {
 
 
                                     Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
-                                    text1.setText("Would you like to heal before traveling?");
-                                    text2.setText("would you like to look at the map?");
-                                    text3.setText("Would you like to continue traveling?");
+                                    text1.setText("1)Would you like to heal before traveling?");
+                                    text2.setText("2)would you like to look at the map?");
+                                    text3.setText("3)Would you like to continue traveling?");
                                     text4.setText("");
-                                    Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
+
                                     Bot_UI.getChildren().add(secondbuttons);
 
                                 }
@@ -424,7 +426,7 @@ public class RandomEncounterTwo extends Application {
                     text2.setText("would you like to look at the map?");
                     text3.setText("Would you like to continue traveling?");
                     text4.setText("");
-                    Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
+                    Bot_UI.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
                     Bot_UI.getChildren().add(secondbuttons);
                 }
                 else{
@@ -479,7 +481,7 @@ public class RandomEncounterTwo extends Application {
                     text2.setText("would you like to look at the map?");
                     text3.setText("Would you like to continue traveling?");
                     text4.setText("");
-                    Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
+                    Bot_UI.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
                     Bot_UI.getChildren().add(secondbuttons);
                 }
                 else{
@@ -553,7 +555,7 @@ public class RandomEncounterTwo extends Application {
                 }
                 else{
                     if(BloodPuddle.getHealth()>0){
-                        popup1.setText("You do not have any potions");
+                        popup1.setText("You Do not have any potions");
                         popup2.setText("you stand there in confusion looking for your potion");
                         int SneakAttack = BloodPuddle.getAttack()  - hero.getArmor();
 
@@ -588,12 +590,13 @@ public class RandomEncounterTwo extends Application {
 
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Forrest.png", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
-        Center_UI.getChildren().add(Center_ImageView);
+        ImageView Character = new ImageView(img2);
+        Center_UI.getChildren().addAll(Center_ImageView,Character);
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, 750, 500);
-
 
         Map.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -610,7 +613,7 @@ public class RandomEncounterTwo extends Application {
                 GoBack.setText("Go Back");
                 Bot_UI.getChildren().add(GoBack);
                 GoBack.setPadding(new Insets(0, 20, 0, 20));
-                Bot_UI.setAlignment(GoBack, Pos.BOTTOM_RIGHT);
+                Bot_UI.setAlignment(GoBack, Pos.CENTER_RIGHT);
                 popup1.setText("");
                 popup2.setText("");
                 popup3.setText("");
@@ -623,7 +626,7 @@ public class RandomEncounterTwo extends Application {
                     @Override
                     public void handle(ActionEvent event) {
                         Bot_UI.getChildren().remove(GoBack);
-                        Bot_UI.setAlignment(secondbuttons, Pos.BOTTOM_RIGHT);
+                        Bot_UI.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
 
                         Bot_UI.getChildren().add(secondbuttons);
                         Image img1 = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
@@ -631,9 +634,9 @@ public class RandomEncounterTwo extends Application {
                         Center_UI.getChildren().removeAll((Center_ImageView));
                         Center_UI.getChildren().add(Center_ImageView1);
                         root.setCenter(Center_UI);
-                        text1.setText("Would you like to heal before traveling?");
-                        text2.setText("would you like to look at the map?");
-                        text3.setText("Would you like to continue traveling?");
+                        text1.setText("1)Would you like to heal before traveling?");
+                        text2.setText("2)would you like to look at the map?");
+                        text3.setText("3)Would you like to continue traveling?");
                         text4.setText("");
 
 

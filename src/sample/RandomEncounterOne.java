@@ -24,7 +24,7 @@ public class RandomEncounterOne extends Application {
 
     public static Scene main(Stage x, Player hero) {
         System.out.println(("Current file: EncounterOne"));
-        hero.setClass("wizard");
+
 
         BorderPane root = new BorderPane();
 
@@ -305,7 +305,7 @@ public class RandomEncounterOne extends Application {
                             HealthTXT.setText("Health:"+hero.getHealth());
                             if (hero.getHealth()>0){
                                 int health = Goblin.getHealth() - PlayerAttack;
-                                Goblin.setHealth(0);
+                                Goblin.setHealth(health);
                                 popup2.setText("You did " + PlayerAttack + " damage.");
                                 if (Goblin.getHealth() <= 0){
                                     popup3.setText("You have killed The goblin");

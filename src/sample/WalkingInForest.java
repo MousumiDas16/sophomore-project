@@ -23,7 +23,6 @@ import javafx.util.Duration;
 public class WalkingInForest extends Application {
 
     public static Scene main(Stage x, Player hero) {
-        hero.setClass("wizard");
         System.out.println(("Current file: walkinginforest"));
         BorderPane root = new BorderPane();
 
