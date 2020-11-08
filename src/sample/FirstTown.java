@@ -74,6 +74,13 @@ public class FirstTown extends Application {
         root.setBottom(Bot_UI);
         Bot_Rec.setStroke(Color.BLACK);
 
+        //add town 1 image whenever we get it
+        StackPane Center_UI = new StackPane();
+        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
+        ImageView Center_ImageView = new ImageView(img);
+        Center_UI.getChildren().add(Center_ImageView);
+        root.setCenter(Center_UI);
+
         //LEFT RECTANGLE
 
         StackPane Left_UI = new StackPane();
@@ -130,10 +137,10 @@ public class FirstTown extends Application {
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
         Left_UI.setAlignment(heroProfile, Pos.BOTTOM_CENTER);
 
-        //Jimmy's story
+        //Jimmy's story for taking to townspeople
         ArrayList<String> words = new ArrayList<>();
-        words.add("In the Elderbrew tavern, \na mysterious traveling woman \ninforms a young villager about an ancient legend….");
-        words.add("In a cave atop Dragon’s Claw, an old and malformed mountain formation,\nthere rests a blade of unparalleled power.\n"+"The one who finds such a weapon will be renowned\nacross the land and will be made KING!!!\nThe sword is the rightful relic of the Old King and\nhis reincarnates…");
+        words.add("");
+        words.add("");
         Text Line1 = new Text();
         root.getChildren().add(Line1);
         Line1.setText(words.get(next));
@@ -147,7 +154,7 @@ public class FirstTown extends Application {
                     Line1.setText(words.get(next));
                 }else{
 
-                    Scene s1 = Tavern.main(x, hero);// next town pic please
+                    Scene s1 = FirstTown.main(x, hero);// next town pic please
                     x.setScene(s1);
                 }
             };
@@ -172,6 +179,7 @@ public class FirstTown extends Application {
         Bot_UI.getChildren().add(text_Group);
 
         //shop button
+        Group butt_Group = new Group();
         Button b1 = new Button();
         b1.setText("1");
         b1.setOnAction(new EventHandler<ActionEvent>() {
@@ -198,9 +206,30 @@ public class FirstTown extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = Shop.main(x, hero); //get a map picture pls
-                x.setScene(s1);
+                butt_Group.setDisable(true);
+                butt_Group.setVisible(false);
 
+                text_Group.setDisable(true);
+                text_Group.setVisible(false);
+                Image Map = new Image("sample/Art/Background/TempMap.png");
+                ImageView viewMap = new ImageView(Map);
+                root.setCenter(viewMap);
+                Button GoBack = new Button("Stop looking at Map");
+                Bot_UI.getChildren().add(GoBack);
+
+                GoBack.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        root.setCenter(Center_UI);
+                        butt_Group.setDisable(false);
+                        butt_Group.setVisible(true);
+                        text_Group.setDisable(false);
+                        text_Group.setVisible(true);
+                        GoBack.setVisible(false);
+                        GoBack.setDisable(true);
+
+                    }
+                });
 
             }
 
@@ -228,7 +257,7 @@ public class FirstTown extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = Fort1.main(x, hero);// next town pic please
+                Scene s1 = LeaveFirstTown.main(x, hero);// next town pic please
                 x.setScene(s1);
 
 
@@ -242,7 +271,7 @@ public class FirstTown extends Application {
         b3.setPadding(new Insets(0, 20, 0, 20));
         b4.setPadding(new Insets(0, 20, 0, 20));
 
-        Group butt_Group = new Group();
+
         butt_Group.getChildren().addAll(b1, b2, b3, b4);
 
 
@@ -255,12 +284,7 @@ public class FirstTown extends Application {
         b3.setLayoutY(Text_coorY + 40);
         b4.setLayoutY(Text_coorY + 60);
 
-        //add town 1 image whenever we get it
-        StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
-        ImageView Center_ImageView = new ImageView(img);
-        Center_UI.getChildren().add(Center_ImageView);
-        root.setCenter(Center_UI);
+
         Scene S2 = new Scene(root, 750, 500);
         return S2;
 
