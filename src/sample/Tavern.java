@@ -125,7 +125,7 @@ public class Tavern extends Application {
                     Line1.setText(words.get(next));
                 }else{
 
-                    Scene s1 = CharactersHouse.main(x, hero);
+                    Scene s1 = CharacterHouseIntro.main(x, hero);
                     x.setScene(s1);
                 }
 
