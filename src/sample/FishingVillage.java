@@ -52,7 +52,8 @@ public class FishingVillage extends Application {
     //  */
     public static Scene main(Stage x, Player hero) {
         hero.setClass("wizard");
-        System.out.println(("Current file: Fort 2"));
+        System.out.println(("Current file: Fishing Village"));
+        hero.setScene("FishingVillage");
 
         BorderPane root = new BorderPane();
 

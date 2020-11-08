@@ -235,6 +235,7 @@ public class Fort1 extends Application {
 
         Button b3 = new Button();
         b3.setText("3");
+
         b3.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override

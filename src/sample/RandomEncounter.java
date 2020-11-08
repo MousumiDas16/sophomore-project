@@ -46,42 +46,46 @@ public class RandomEncounter extends Application {
             case 4:
                 if(hero.getScene().equalsIgnoreCase("firsttown")){
                     background = new Image("sample/Art/Background/Donkey_Town.png", 650, 400, true, true);
+                    enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
 
                 }
                 else if(hero.getScene().equalsIgnoreCase("fort1")){
                     background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
 
                 }
-                k = rand.nextInt(3);
-
-
-
-                System.out.println("Random number is" + k);
-                switch (k) {
-                    case 0:
-                        enemy.setType("goblin");
-                        enemypic = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 100, true, true);
-
-                        System.out.println("enemy goblin");
-                        break;
-
-
-
-                    case 1:
-                        enemy.setType("kobold");
-                        enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
-                        System.out.println("enemy kobold");
-                        break;
-
-                    case 2:
-                        enemy.setType("bloodpuddle");
-                        enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
-                        break;
-
-                    default:
-                        System.out.println("something went wrong in encounter case 4");
-                        break;
+                else if(hero.getScene().equalsIgnoreCase("fort2")){
+                    background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
                 }
+                else if(hero.getScene().equalsIgnoreCase("Village2")){
+                    background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
+                }
+                else if(hero.getScene().equalsIgnoreCase("Village3")){
+                    background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
+                }
+                else if(hero.getScene().equalsIgnoreCase("Village4")){
+                    background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
+                }
+                else if(hero.getScene().equalsIgnoreCase("Village5")){
+                    background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
+                }
+                else if(hero.getScene().equalsIgnoreCase("FishingVillage")){
+                    background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
+                }
+
+
+
+
+
+
+
+
 
                 break;
             case 5:
@@ -278,6 +282,33 @@ public class RandomEncounter extends Application {
                     Scene s1 = Fort1.main(x, hero);
                     x.setScene(s1);
                 }
+                else if(hero.getScene().equalsIgnoreCase("fort2")){
+                    Scene s1 = Fort2.main(x, hero);
+                    x.setScene(s1);
+                }
+                else if(hero.getScene().equalsIgnoreCase("Village2")){
+                    Scene s1 = Village2.main(x, hero);
+                    x.setScene(s1);
+                }
+                else if(hero.getScene().equalsIgnoreCase("Village3")){
+                    Scene s1 = Village3.main(x, hero);
+                    x.setScene(s1);
+                }
+                else if(hero.getScene().equalsIgnoreCase("village4")){
+                    Scene s1 = Village4.main(x, hero);
+                    x.setScene(s1);
+                }
+                else if(hero.getScene().equalsIgnoreCase("village5")){
+                    Scene s1 = Village5.main(x, hero);
+                    x.setScene(s1);
+                }
+                else if(hero.getScene().equalsIgnoreCase("FishingVillage")){
+                    Scene s1 = Fort1.main(x, hero);
+                    x.setScene(s1);
+                }
+
+
+
 
                 else{
                     //for later use of other towns/paths
