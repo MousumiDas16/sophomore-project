@@ -18,8 +18,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Fort1 extends Application {
+    static int next = 0;
     @Override
     public void start(Stage primaryStage) {
         Button btn = new Button();
@@ -125,6 +127,29 @@ public class Fort1 extends Application {
         Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
         Left_UI.setAlignment(heroProfile, Pos.BOTTOM_CENTER);
 
+        //Story for talking to guards
+        ArrayList<String> words = new ArrayList<>();
+        words.add("\"There are two paths ahead, both equally treacherous.\"");
+        words.add("\"Talk to the fort’s quartermaster, he sells all sorts of goods \nto aid you on your journey!\"");
+
+        Text Line1 = new Text();
+        root.getChildren().add(Line1);
+        Line1.setText(words.get(next));
+        Line1.setStroke(Color.BLACK);
+        Button submit = new Button("NEXT");
+        submit.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                next++;
+                if(next <= words.size() -1){
+                    Line1.setText(words.get(next));
+                }else{
+
+                    Scene s1 = FirstTown.main(x, hero);// next town pic please
+                    x.setScene(s1);
+                }
+            };
+        });
 
         //TEXT AND BUTTON's
 
