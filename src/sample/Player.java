@@ -118,6 +118,7 @@ public class Player extends Entity {
                 Potions = 0; // start with 0
                 Food = 0;
                 Pictures.add(0,(new Image("sample/Art/Characters/Profile/Wizard_profile (2).png")));
+                Pictures.add(1,(new Image("sample/Art/Characters/Wizard_gif.gif",200, 100, true, true)));
                 Statboost = 0; // start with 0
                 description=" Always an intelligent youth, you would read and reread all the books your mother could\n " +
                         "afford. After reading you studied your hometown and observed the other residents as well as\n" +
@@ -142,6 +143,7 @@ public class Player extends Entity {
                 Food = 0;
                 Statboost = 0;
                 Pictures.add(0,(new Image("sample/Art/Characters/Profile/Knight_Profile (2).png")));
+                Pictures.add(1,(new Image("sample/Art/Characters/Knight_gif.gif",200, 100, true, true)));
                 description="Always a strong and energetic child, you spent your youth training your physical prowess\n " +
                         "and sharpening your skills with a sword, until you became a squire. After an upbringing as a \n" +
                         "squire where you accompanied your mentor, Sir Reginald Fellings, you traveled the land seeking\n" +
@@ -162,6 +164,7 @@ public class Player extends Entity {
                 Food = 0;
                 Statboost = 0;
                 Pictures.add(0,(new Image("sample/Art/Characters/Profile/BH_Profile.png")));
+                Pictures.add(1,(new Image("sample/Art/Characters/Merc_gif.gif",200, 100, true, true)));
                 description="Growing up an orphan in the slums of Donkey’s Town, you became an expert pickpocket\n " +
                         "and thief. Being self-taught your confidence grew until one day you stole from the wrong man. \n" +
                         " Edward was another thief but far more experienced, He took you under his wing and you spent \n" +
@@ -183,6 +186,7 @@ public class Player extends Entity {
                 Food = 0;
                 Statboost = 0;
                 Pictures.add(0,(new Image("sample/Art/Characters/Profile/Farmer_Profile.png")));
+                Pictures.add(1,(new Image("sample/Art/Characters/Farmer2_gif.gif",200, 100, true, true)));
                 description="You were born an unremarkable child of unremarkable parents. " +
                         "All your life you toiled\n away at your family's farm, learning the trade from your mother " +
                         "and father. You were faster and braver than most of your peers.\n After the passing of your " +

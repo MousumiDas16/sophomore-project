@@ -114,6 +114,8 @@ public class forest extends Application {
 
 
 
+
+
         Random rand = new Random();
         // loop count from hero
 
@@ -167,30 +169,39 @@ public class forest extends Application {
 
 
         }
-
-
-
-
-
-
-            Button Rest = new Button();
-            Button Continue = new Button();
-            Continue.setText("Continue");
-            Rest.setText("Rest");
-            Rest.setOnAction(new EventHandler<ActionEvent>() {
+        if(hero.getLoopcount()==3){
+            text1.setText("you made it to the town!!");
+            text2.setText("Press continue to enter!");
+            text3.setText("");
+            text4.setText("");
+            Button cont = new Button();
+            cont.setText("continue");
+            cont.setOnAction(new EventHandler<ActionEvent>() {
 
 
                 @Override
                 public void handle(ActionEvent event) {
-                    int f = hero.getFood() - 15;
-                    hero.setFood(f);
-                    int h = hero.getHealth() + 20;
-                    hero.setHealth(h);
+                    Scene s1 = Fort1.main(x, hero);
+                    x.setScene(s1);
+
 
 
                 }
 
-            });
+
+
+            }  )  ;
+
+            Bot_UI.setAlignment(cont, Pos.BOTTOM_RIGHT);
+            Bot_UI.getChildren().add(cont);
+        }
+
+
+
+
+
+
+
             hero.setLoopcount(0);
         return S1;
 

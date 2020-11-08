@@ -10,8 +10,6 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -25,6 +23,7 @@ import javafx.util.Duration;
 public class WalkingInForest extends Application {
 
     public static Scene main(Stage x, Player hero) {
+        hero.setClass("wizard");
         System.out.println(("Current file: walkinginforest"));
         BorderPane root = new BorderPane();
 
@@ -87,15 +86,21 @@ public class WalkingInForest extends Application {
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
         Image img = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 100, true, true);
+        Image img2;
+        img2 = hero.getImage(1);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, 750, 500);
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
-        pause.setOnFinished(event ->{]
-            Scene s1 = forest.main(x, hero);
+        pause.setOnFinished(event ->{
+            Scene s1 = null;
+            try {
+                s1 = forest.main(x, hero);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             x.setScene(s1);
 
         });
