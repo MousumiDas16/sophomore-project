@@ -107,7 +107,7 @@ public class CharactersHouse extends Application {
             @Override
             public void handle(ActionEvent event) {
                 hero.setClass(charClass.getValue());
-                Scene s1 = FirstTown.main(x, hero);// next town pic please
+                Scene s1 = WalkingInForest.main(x, hero);// next town pic please
                 x.setScene(s1);
 
 

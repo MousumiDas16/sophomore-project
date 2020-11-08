@@ -227,6 +227,8 @@ public class RandomEncounter extends Application {
         Text popup2 = new Text();
         Text popup3 = new Text();
         Text popup4 = new Text();
+        popup1.setText("you run into " +enemy.getType());
+        popup2.setText("What will you do?");
 
         Group popupgroup = new Group();
         popupgroup.getChildren().addAll(popup1,popup2,popup3,popup4);
