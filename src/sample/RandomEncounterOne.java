@@ -146,10 +146,10 @@ public class RandomEncounterOne extends Application {
         StackPane.setAlignment(butt_Group, Pos.CENTER_RIGHT);
 
 
-        b1.setLayoutY(Text_coorY);
-        b2.setLayoutY(Text_coorY + 20);
-        b3.setLayoutY(Text_coorY + 40);
-        b4.setLayoutY(Text_coorY + 60);
+        b1.setLayoutY(text1.getY());
+        b2.setLayoutY(text2.getY());
+        b3.setLayoutY(text3.getY());
+        b4.setLayoutY(text4.getY());
 
         //buttons for before returning to the forest
         Button weturn = new Button();
@@ -230,9 +230,9 @@ public class RandomEncounterOne extends Application {
         Map.setPadding(new Insets(0, 20, 0, 20));
         Group secondbuttons = new Group();
 
-        heal.setLayoutY(Text_coorY);
-        Map.setLayoutY(Text_coorY + 20);
-        weturn.setLayoutY(Text_coorY + 40);
+        heal.setLayoutY(text1.getY()-10);
+        Map.setLayoutY(text2.getY()-10);
+        weturn.setLayoutY(text3.getY());
         secondbuttons.getChildren().addAll(heal,Map,weturn);
         Bot_UI.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
 

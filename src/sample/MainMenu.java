@@ -49,8 +49,7 @@ public class MainMenu extends Application {
         root.getChildren().add(welcome);
         Scene hello = new Scene(root,750,500);
         PauseTransition pause = new PauseTransition(Duration.seconds(0.5));
-        pause.setOnFinished(event ->{
-            root.getChildren().remove(welcome);
+        pause.setOnFinished(event ->{ root.getChildren().remove(welcome);
             Label q1 = new Label("What is your name?");
             TextField name = new TextField();
             EventHandler<ActionEvent> eevent = new EventHandler<ActionEvent>() {
@@ -68,6 +67,7 @@ public class MainMenu extends Application {
             root.getChildren().add(text);
 
             name.setLayoutY(y + 20);
+
         });
         pause.play();
 
