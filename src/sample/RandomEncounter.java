@@ -46,36 +46,44 @@ public class RandomEncounter extends Application {
             case 4:
                 if(hero.getScene().equalsIgnoreCase("firsttown")){
                     background = new Image("sample/Art/Background/Donkey_Town.png", 650, 400, true, true);
+                    enemy.setType("guard");
                     enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
 
                 }
                 else if(hero.getScene().equalsIgnoreCase("fort1")){
                     background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemy.setType("guard");
                     enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
 
                 }
                 else if(hero.getScene().equalsIgnoreCase("fort2")){
                     background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemy.setType("guard");
                     enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
                 }
                 else if(hero.getScene().equalsIgnoreCase("Village2")){
                     background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemy.setType("guard");
                     enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
                 }
                 else if(hero.getScene().equalsIgnoreCase("Village3")){
                     background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemy.setType("guard");
                     enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
                 }
                 else if(hero.getScene().equalsIgnoreCase("Village4")){
                     background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemy.setType("guard");
                     enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
                 }
                 else if(hero.getScene().equalsIgnoreCase("Village5")){
                     background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemy.setType("guard");
                     enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
                 }
                 else if(hero.getScene().equalsIgnoreCase("FishingVillage")){
                     background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                    enemy.setType("guard");
                     enemypic = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
                 }
 
