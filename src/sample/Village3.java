@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Fort1 extends Application {
+public class Village3 extends Application {
     static int next = 0;
     @Override
     public void start(Stage primaryStage) {
@@ -49,7 +49,7 @@ public class Fort1 extends Application {
     //  * @param args the command line arguments
     //  */
     public static Scene main(Stage x, Player hero) {
-        System.out.println(("Current file: Fort1"));
+        System.out.println(("Current file: Village 3"));
 
         BorderPane root = new BorderPane();
 
@@ -249,52 +249,8 @@ public class Fort1 extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                butt_Group.setDisable(true);
-                butt_Group.setVisible(false);
-
-                text_Group.setDisable(true);
-                text_Group.setVisible(false);
-
-                Group LORGroup = new Group();
-
-                Text LOR = new Text("Head to the Left for the Fishing Village or Right towards cave 2");
-                Button Right = new Button("Right");
-                Button Left = new Button("Left");
-                Right.setLayoutX(Left.getLayoutY()+200);
-                Left.setLayoutY(LOR.getY()+10);
-                Right.setLayoutY(Left.getLayoutY());
-
-                Left.setPadding(new Insets(0, 20, 0, 20));
-                Right.setPadding(new Insets(0, 20, 0, 20));
-                Left.setOnAction(new EventHandler<ActionEvent>() {
-
-                    @Override
-                    public void handle(ActionEvent event) {
-                        Scene s1 = Village2.main(x, hero); //talk to a random person pic please
-                        x.setScene(s1);
-
-
-                    }
-
-
-                });
-
-                Right.setOnAction(new EventHandler<ActionEvent>() {
-
-                    @Override
-                    public void handle(ActionEvent event) {
-                        Scene s1 = Fort2.main(x, hero); //talk to a random person pic please
-                        x.setScene(s1);
-
-
-                    }
-
-
-                });
-
-                LORGroup.getChildren().addAll(LOR,Right,Left);
-                Bot_UI.getChildren().addAll(LORGroup);
-
+                Scene s1 = Oasis.main(x, hero);// next town pic please
+                x.setScene(s1);
 
 
             }
