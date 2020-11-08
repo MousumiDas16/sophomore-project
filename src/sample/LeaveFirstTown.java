@@ -28,7 +28,7 @@ public class LeaveFirstTown {
 
 
     public static Scene main(Stage x, Player hero) {
-        hero.setClass("wizard");
+
         System.out.println(("Current file: LeaveFirstTown"));
 
         BorderPane root = new BorderPane();
