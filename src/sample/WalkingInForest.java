@@ -10,6 +10,8 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -91,6 +93,13 @@ public class WalkingInForest extends Application {
         Center_UI.getChildren().addAll(Center_ImageView,Character);
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, 750, 500);
+        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        pause.setOnFinished(event ->{]
+            Scene s1 = forest.main(x, hero);
+            x.setScene(s1);
+
+        });
+        pause.play();
 
         return S2;
 

@@ -27,7 +27,7 @@ public class Main extends Application {
         System.out.println(("Current file: Main"));
         hero = new Player();
 
-        Scene s1 = MainMenu.main(primaryStage, hero);
+        Scene s1 = RandomEncounterOne.main(primaryStage, hero);
 
         primaryStage.setTitle("Excalibur's Quest");
         primaryStage.setScene(s1);
