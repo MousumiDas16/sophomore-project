@@ -49,7 +49,7 @@ public class Village2 extends Application {
     //  * @param args the command line arguments
     //  */
     public static Scene main(Stage x, Player hero) {
-        System.out.println(("Current file: Fort1"));
+        System.out.println(("Current file: Village 2"));
 
         BorderPane root = new BorderPane();
 
