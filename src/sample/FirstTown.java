@@ -139,12 +139,13 @@ public class FirstTown extends Application {
 
         //Jimmy's story for taking to townspeople
         ArrayList<String> words = new ArrayList<>();
-        words.add("");
-        words.add("");
+        words.add("\"Good luck on your quest adventurer!\"");
+        words.add("\"Please come back safe… and with that sword!\"");
+        words.add("\"Don’t go forgetting Donkey’s Town now, would ya?\"");
         Text Line1 = new Text();
         root.getChildren().add(Line1);
         Line1.setText(words.get(next));
-        Line1.setStroke(Color.WHEAT);
+        Line1.setStroke(Color.BLACK);
         Button submit = new Button("NEXT");
         submit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
