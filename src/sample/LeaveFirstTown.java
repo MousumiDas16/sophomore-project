@@ -133,7 +133,7 @@ public class LeaveFirstTown {
                     Line1.setText(words.get(next));
                 }else{
 
-                    Scene s1 = WalkingInForest.main(x, hero);// next town pic please
+                    Scene s1 = Fort1.main(x, hero);// next town pic please
                     x.setScene(s1);
                 }
         //need to have sprite transition when the story demands

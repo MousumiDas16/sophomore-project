@@ -94,8 +94,13 @@ public class WalkingInForest extends Application {
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, 750, 500);
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
-        pause.setOnFinished(event ->{]
-            Scene s1 = forest.main(x, hero);
+        pause.setOnFinished(event ->{
+            Scene s1 = null;
+            try {
+                s1 = forest.main(x, hero);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             x.setScene(s1);
 
         });
