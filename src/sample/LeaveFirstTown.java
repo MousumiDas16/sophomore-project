@@ -2,6 +2,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -10,16 +11,20 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class LeaveFirstTown {
     static int next = 0;
+    private  StatsPanelController statController;
 
     public void start(Stage primaryStage) {
 
@@ -27,7 +32,7 @@ public class LeaveFirstTown {
     }
 
 
-    public static Scene main(Stage x, Player hero) {
+    public Scene createScene(Stage x, Player hero) {
         hero.setClass("wizard");
         System.out.println(("Current file: LeaveFirstTown"));
 
@@ -40,7 +45,7 @@ public class LeaveFirstTown {
 
         //BOTTOM RECTANGLE
 
-        Rectangle Bot_Rec = new Rectangle(750, 100);
+        Rectangle Bot_Rec = new Rectangle(AppSettings.screenWidth, AppSettings.screenHeight);
         Bot_Rec.setFill(Color.rgb(211, 211, 211));
         Bot_UI.getChildren().add(Bot_Rec);
         root.setBottom(Bot_UI);
@@ -49,58 +54,24 @@ public class LeaveFirstTown {
         //LEFT RECTANGLE
 
         StackPane Left_UI = new StackPane();
-        Rectangle Left_Rec = new Rectangle(100, 400, Color.rgb(211, 211, 211));
-        Left_Rec.setStroke(Color.BLACK);
+        Rectangle Left_Rec = new Rectangle(AppSettings.leftUIWidth, AppSettings.leftUIHeight,
+                Color.rgb(211, 211, 211));
+        //Left_Rec.setStroke(Color.BLACK);
         root.setLeft(Left_UI);
-        Left_UI.getChildren().add(Left_Rec);
+        Pane newLoadedPane = null;
+        try {
+            URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
+            statController=new StatsPanelController();
+            fxmlLoader.setController(statController);
+            newLoadedPane = fxmlLoader.load();
 
-        //Player STATS ON Side Bar
-
-        Group Player_Stats = new Group();
-        Text NameTXT = new Text("Hero's Name");
-        Text heroName = new Text(hero.getName());
-        Text ClassTXT = new Text("Class: " + hero.getPClass());
-        Text HealthTXT = new Text("Health: " + hero.getHealth());
-        Text MoneyTxt = new Text("Money: " + hero.getMoney());
-        Text PotionsTXT = new Text("Potions: " + hero.getPotions());
-        Text StrengthTXT = new Text("Strength: " + hero.getStrength());
-        Text CharismaTXT = new Text("Charisma: " + hero.getCharisma());
-        Text ArmorTXT = new Text("Armor: " + hero.getArmor());
-        Text SpeedTXT = new Text("Speed: " + hero.getSpeed());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
-        //Adding the Player Image to the Left Rectangle
-
-        ImageView heroProfile = new ImageView(hero.getImage(0));
-        heroProfile.setFitWidth(100);
-        heroProfile.setFitHeight(100);
-
-
-        //Formating the Text
-        NameTXT.setUnderline(true);
-        NameTXT.setY(10);
-        heroName.setY(NameTXT.getY() + 15);
-        ClassTXT.setY(heroName.getY() + 20);
-
-        HealthTXT.setY(ClassTXT.getY() + 40);
-        MoneyTxt.setY(HealthTXT.getY() + 10);
-        PotionsTXT.setY(MoneyTxt.getY() + 10);
-
-        StrengthTXT.setY(PotionsTXT.getY() + 40);
-        CharismaTXT.setY(StrengthTXT.getY() + 10);
-        ArmorTXT.setY(CharismaTXT.getY() + 10);
-        SpeedTXT.setY(ArmorTXT.getY() + 10);
-        //heroProfile.setY(SpeedTXT.getY() + 40);
-
-        //ADDs the Player Stats to the Scene
-        Player_Stats.getChildren().addAll(
-                NameTXT, heroName, ClassTXT, HealthTXT, MoneyTxt, PotionsTXT,
-                StrengthTXT, CharismaTXT, ArmorTXT, SpeedTXT);
-
-        Left_UI.getChildren().addAll(Player_Stats, heroProfile);
-
-        Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
-        Left_UI.setAlignment(heroProfile, Pos.BOTTOM_CENTER);
+        Left_UI.getChildren().add(newLoadedPane);
 
         //
         int y = 0;
@@ -134,7 +105,8 @@ public class LeaveFirstTown {
                     Line1.setText(words.get(next));
                 }else{
 
-                    Scene s1 = WalkingInForest.main(x, hero);// next town pic please
+                    WalkingInForest forest=new WalkingInForest();
+                    Scene s1 = forest.createScene(x, hero);
                     x.setScene(s1);
                 }
         //need to have sprite transition when the story demands
@@ -153,11 +125,12 @@ public class LeaveFirstTown {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", AppSettings.centerUIWidth,
+                AppSettings.centerUIHeight, true, true);
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
         root.setCenter(Center_UI);
-        Scene S2 = new Scene(root, 750, 500);
+        Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
         return S2;
 
 

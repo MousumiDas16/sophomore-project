@@ -3,6 +3,7 @@ package sample;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -11,17 +12,21 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.Random;
 
 public class RandomEncounter extends Application {
+    private  StatsPanelController statController;
 
-    public static Scene main(Stage x, Player hero, int a) throws InterruptedException {
+    public Scene createScene(Stage x, Player hero, int a) throws InterruptedException {
         System.out.println("Current File: Random Encounter");
         Image background = null;
         Image enemypic = null;
@@ -29,31 +34,35 @@ public class RandomEncounter extends Application {
         Enemy enemy = new Enemy();
         int k;
 
-        switch (a){
+        switch (a) {
             case 0:
-                background = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+                background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
+                        AppSettings.screenHeight, true, true);
                 break;
             case 1:
-                background = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+                background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
+                        AppSettings.screenHeight, true, true);
                 break;
 
             case 2:
-                background = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+                background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
+                        AppSettings.screenHeight, true, true);
                 break;
             case 3:
-                background = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+                background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
+                        AppSettings.screenHeight, true, true);
                 break;
             case 4:
-                if(hero.getScene().equalsIgnoreCase("firsttown")){
-                    background = new Image("sample/Art/Background/Donkey_Town.png", 650, 400, true, true);
+                if (hero.getScene().equalsIgnoreCase("firsttown")) {
+                    background = new Image("sample/Art/Background/Donkey_Town.png",
+                            AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
 
-                }
-                else if(hero.getScene().equalsIgnoreCase("fort1")){
-                    background = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+                } else if (hero.getScene().equalsIgnoreCase("fort1")) {
+                    background = new Image("sample/Art/Background/tempFort1.png",
+                            AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
 
                 }
                 k = rand.nextInt(3);
-
 
 
                 System.out.println("Random number is" + k);
@@ -64,7 +73,6 @@ public class RandomEncounter extends Application {
 
                         System.out.println("enemy goblin");
                         break;
-
 
 
                     case 1:
@@ -85,15 +93,13 @@ public class RandomEncounter extends Application {
 
                 break;
             case 5:
-                if(hero.getScene().equalsIgnoreCase("forest")){
-                     background = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+                if (hero.getScene().equalsIgnoreCase("forest")) {
+                    background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
 
                 }
 
 
-
-                 k = rand.nextInt(4);
-
+                k = rand.nextInt(4);
 
 
                 System.out.println("Random number is" + k);
@@ -103,7 +109,6 @@ public class RandomEncounter extends Application {
                         enemypic = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 100, true, true);
                         System.out.println("enemy goblin");
                         break;
-
 
 
                     case 1:
@@ -118,7 +123,8 @@ public class RandomEncounter extends Application {
                         break;
 
                     case 3:
-                        Scene s1 = WalkingInForest.main(x, hero);
+                        WalkingInForest forest=new WalkingInForest();
+                        Scene s1 = forest.createScene(x, hero);
                         x.setScene(s1);
                         break;
                 }
@@ -126,7 +132,7 @@ public class RandomEncounter extends Application {
 
                 break;
             default:
-                background = new Image("sample/Art/Background/Forrest_Walking.png", 650, 400, true, true);
+                background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
                 break;
         }
         System.out.println("made it here");
@@ -138,7 +144,7 @@ public class RandomEncounter extends Application {
 
         //BOTTOM RECTANGLE
 
-        Rectangle Bot_Rec = new Rectangle(750, 100);
+        Rectangle Bot_Rec = new Rectangle(AppSettings.screenWidth, AppSettings.bottomUIHeight);
         Bot_Rec.setFill(Color.rgb(211, 211, 211));
         Bot_UI.getChildren().add(Bot_Rec);
         root.setBottom(Bot_UI);
@@ -149,44 +155,21 @@ public class RandomEncounter extends Application {
         Rectangle Left_Rec = new Rectangle(100, 400, Color.rgb(211, 211, 211));
         Left_Rec.setStroke(Color.BLACK);
         root.setLeft(Left_UI);
-        Left_UI.getChildren().add(Left_Rec);
-        Left_UI.setAlignment(Left_Rec, Pos.TOP_LEFT);
+        Pane newLoadedPane = null;
+        try {
+            URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
+            statController=new StatsPanelController();
+            fxmlLoader.setController(statController);
+            newLoadedPane = fxmlLoader.load();
 
-        //Player STATS
-        Group Player_Stats = new Group();
-        Text NameTXT = new Text("Hero's Name");
-        Text heroName = new Text(hero.getName());
-        Text ClassTXT = new Text("Class: " + hero.getPClass());
-        Text HealthTXT = new Text("Health: " + hero.getHealth());
-        Text MoneyTxt = new Text("Money: " + hero.getMoney());
-        Text PotionsTXT = new Text("Potions: " + hero.getPotions());
-        Text StrengthTXT = new Text("Strength: " + hero.getStrength());
-        Text CharismaTXT = new Text("Charisma: " + hero.getCharisma());
-        Text ArmorTXT = new Text("Armor: " + hero.getArmor());
-        Text SpeedTXT = new Text("Speed: " + hero.getSpeed());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
-        //Formating the Text
-        NameTXT.setUnderline(true);
-        NameTXT.setY(10);
-        heroName.setY(NameTXT.getY() + 15);
-        ClassTXT.setY(heroName.getY() + 20);
+        Left_UI.getChildren().add(newLoadedPane);
 
-        HealthTXT.setY(ClassTXT.getY() + 40);
-        MoneyTxt.setY(HealthTXT.getY() + 10);
-        PotionsTXT.setY(MoneyTxt.getY() + 10);
-
-        StrengthTXT.setY(PotionsTXT.getY() + 40);
-        CharismaTXT.setY(StrengthTXT.getY() + 10);
-        ArmorTXT.setY(CharismaTXT.getY() + 10);
-        SpeedTXT.setY(ArmorTXT.getY() + 10);
-
-
-        Player_Stats.getChildren().addAll(
-                NameTXT, heroName, ClassTXT, HealthTXT, MoneyTxt, PotionsTXT,
-                StrengthTXT, CharismaTXT, ArmorTXT, SpeedTXT);
-
-        Left_UI.getChildren().add(Player_Stats);
         Group text_Group = new Group();
 
         int Text_coorY = 10;
@@ -207,8 +190,6 @@ public class RandomEncounter extends Application {
         //Attack setup
 
 
-
-
         //pop up creation
 
         Text popup1 = new Text();
@@ -217,7 +198,7 @@ public class RandomEncounter extends Application {
         Text popup4 = new Text();
 
         Group popupgroup = new Group();
-        popupgroup.getChildren().addAll(popup1,popup2,popup3,popup4);
+        popupgroup.getChildren().addAll(popup1, popup2, popup3, popup4);
 
         popup1.setY(Text_coorY);
         popup2.setY(Text_coorY + 20);
@@ -264,29 +245,27 @@ public class RandomEncounter extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if(hero.getScene().equals("forest")){
-                    Scene s1 = null;
-                    s1 = WalkingInForest.main(x, hero);
+                if (hero.getScene().equals("forest")) {
+                    WalkingInForest forest=new WalkingInForest();
+                    Scene s1 = forest.createScene(x, hero);
                     x.setScene(s1);
 
-                }
-                else if (hero.getScene().equalsIgnoreCase("firsttown")){
-                    Scene s1 = FirstTown.main(x, hero);
+                } else if (hero.getScene().equalsIgnoreCase("firsttown")) {
+                    FirstTown mytown=new FirstTown();
+                    Scene s1 = mytown.createScene(x, hero);// next town pic please
                     x.setScene(s1);
-                }
-                else if(hero.getScene().equalsIgnoreCase("fort1")){
-                    Scene s1 = Fort1.main(x, hero);
+                } else if (hero.getScene().equalsIgnoreCase("fort1")) {
+                    Fort1 firstFort=new Fort1();
+                    Scene s1 = firstFort.createScene(x, hero);
                     x.setScene(s1);
-                }
-
-                else{
+                } else {
                     //for later use of other towns/paths
                 }
 
             }
 
 
-        }  )  ;
+        });
         Button heal = new Button();
         heal.setText("1");
         heal.setOnAction(new EventHandler<ActionEvent>() {
@@ -294,21 +273,18 @@ public class RandomEncounter extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if (hero.getPotions()>0){
+                if (hero.getPotions() > 0) {
                     int pot = hero.getPotions() - 1;
                     hero.setPotions(pot);
-                    if ((hero.getHealth()>75)){
-                        int healthboost = 100 - hero.getHealth() ;
-                        int addhealth = hero.getHealth()+healthboost;
-                        hero.setHealth(addhealth);
-                        HealthTXT.setText("Health:"+hero.getHealth());
-                        popup1.setText("You used a potion and healed " + healthboost +" health points.");
+                    if ((hero.getHealth() > 75)) {
+                        int healthboost = 100 - hero.getHealth();
+                        int addhealth = hero.getHealth() + healthboost;
+                        statController.updateStats();
 
-                    }
-                    else{
+                    } else {
                         int addhealth = hero.getHealth() + 25;
                         hero.setHealth(addhealth);
-                        HealthTXT.setText("Health:"+hero.getHealth());
+                        statController.updateStats();
                         popup1.setText("You used a potion and healed 25 health points.");
                         popup2.setText("");
                         popup3.setText("");
@@ -316,11 +292,7 @@ public class RandomEncounter extends Application {
 
                     }
 
-                }
-
-
-
-                else{
+                } else {
                     popup1.setText("You do not have any potions. ");
                     popup2.setText("");
                     popup3.setText("");
@@ -333,8 +305,7 @@ public class RandomEncounter extends Application {
             }
 
 
-
-        }  )  ;
+        });
         Button Map = new Button();
         Map.setText("2");
 
@@ -347,12 +318,8 @@ public class RandomEncounter extends Application {
         heal.setLayoutY(text1.getY());
         Map.setLayoutY(text2.getY());
         weturn.setLayoutY(text3.getY());
-        secondbuttons.getChildren().addAll(heal,Map,weturn);
+        secondbuttons.getChildren().addAll(heal, Map, weturn);
         StackPane.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
-
-
-
-
 
 
         //game buttons
@@ -365,29 +332,29 @@ public class RandomEncounter extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                int enemyAttack = enemy.getAttack()  - hero.getArmor();
-                int PlayerAttack = hero.getStrength()  * rand.nextInt(5);
+                int enemyAttack = enemy.getAttack() - hero.getArmor();
+                int PlayerAttack = hero.getStrength() * rand.nextInt(5);
 
-                if(hero.getSpeed()>enemy.getSpeed()) {
+                if (hero.getSpeed() > enemy.getSpeed()) {
                     if (hero.getHealth() > 0 && enemy.getHealth() > 0) {
                         int health = enemy.getHealth() - PlayerAttack;
                         enemy.setHealth(health);
                         int health2 = hero.getHealth() - enemyAttack;
                         hero.setHealth(health2);
                         popup1.setText("You did " + PlayerAttack + " damage.");
-                        popup2.setText("The enemy did " + enemyAttack + " damage." );
-                        HealthTXT.setText("Health:"+hero.getHealth());
+                        popup2.setText("The enemy did " + enemyAttack + " damage.");
+                        statController.updateStats();
 
-                        if (enemy.getHealth() <= 0){
+                        if (enemy.getHealth() <= 0) {
                             popup3.setText("You have killed the " + enemy.getType());
-                            double gold = hero.getMoney();
-                            int earned = rand.nextInt(200) ;
+                            int gold = hero.getMoney();
+                            int earned = rand.nextInt(200);
                             gold = earned + gold;
                             hero.setMoney(gold);
-                            popup4.setText("you took" + earned + " gold from the "+ enemy.getType() );
-                            MoneyTxt.setText(""+ hero.getMoney());
+                            popup4.setText("you took" + earned + " gold from the " + enemy.getType());
+                            statController.updateStats();
 
-                            Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                            Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
                             text1.setText("1)Would you like to heal before continuing?");
                             text2.setText("2)would you like to look at the map?");
                             text3.setText("3)Ready to go back?");
@@ -397,8 +364,8 @@ public class RandomEncounter extends Application {
                             Bot_UI.getChildren().add(secondbuttons);
 
 
-
-                        };
+                        }
+                        ;
                         if (hero.getHealth() <= 0) {
                             Scene s3 = YouDiedIdiot.main(x, hero);
                             x.setScene(s3);
@@ -408,31 +375,28 @@ public class RandomEncounter extends Application {
                     }
 
 
-
-                }
-                else{
-                    if (hero.getHealth() > 0 && enemy.getHealth() >0){
-                        if (enemyAttack>0 && PlayerAttack>0){
-                            popup1.setText("The enemy did " + enemyAttack + " damage." );
+                } else {
+                    if (hero.getHealth() > 0 && enemy.getHealth() > 0) {
+                        if (enemyAttack > 0 && PlayerAttack > 0) {
+                            popup1.setText("The enemy did " + enemyAttack + " damage.");
                             int health2 = hero.getHealth() - enemyAttack;
                             hero.setHealth(health2);
-                            HealthTXT.setText("Health:"+hero.getHealth());
-                            if (hero.getHealth()>0){
+                            statController.updateStats();
+                            if (hero.getHealth() > 0) {
                                 int health = enemy.getHealth() - PlayerAttack;
                                 enemy.setHealth(health);
                                 popup2.setText("You did " + PlayerAttack + " damage.");
-                                if (enemy.getHealth() <= 0){
+                                if (enemy.getHealth() <= 0) {
                                     popup3.setText("You have killed the " + enemy.getType());
-                                    double gold = hero.getMoney();
-                                    int earned = rand.nextInt(200) ;
+                                    int gold = hero.getMoney();
+                                    int earned = rand.nextInt(200);
                                     gold = earned + gold;
                                     hero.setMoney(gold);
                                     popup4.setText("you took" + earned + " from the " + enemy.getType());
-                                    MoneyTxt.setText("Money:"+ hero.getMoney());
+                                    statController.updateStats();
 
 
-
-                                    Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                                    Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
                                     text1.setText("1)Would you like to heal before continuing?");
                                     text2.setText("2)would you like to look at the map?");
                                     text3.setText("3)Ready to goo back?");
@@ -443,30 +407,28 @@ public class RandomEncounter extends Application {
                                 }
 
                             }
-                            if (hero.getHealth()<=0){
+                            if (hero.getHealth() <= 0) {
 
                                 Scene s3 = YouDiedIdiot.main(x, hero);
                                 x.setScene(s3);
 
                             }
 
-                        }
-                        else if (enemyAttack==0){
-                            popup1.setText("The " +enemy.getType() +" attempts to strike you but misses");
-                            if(PlayerAttack> 0){
+                        } else if (enemyAttack == 0) {
+                            popup1.setText("The " + enemy.getType() + " attempts to strike you but misses");
+                            if (PlayerAttack > 0) {
                                 int health = enemy.getHealth() - PlayerAttack;
                                 popup2.setText("You did " + PlayerAttack + " damage.");
                                 enemy.setHealth(health);
-                                if (enemy.getHealth() <= 0){
+                                if (enemy.getHealth() <= 0) {
                                     popup3.setText("You have killed the " + enemy.getType());
-                                    double gold = hero.getMoney();
+                                    int gold = hero.getMoney();
                                     gold = rand.nextInt(200) + gold;
                                     hero.setMoney(gold);
                                     popup4.setText("you took" + gold + " from the " + enemy.getType());
 
 
-
-                                    Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                                    Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
                                     text1.setText("1) Would you like to heal before continuing?");
                                     text2.setText("2) would you like to look at the map?");
                                     text3.setText("3) Ready to go back?");
@@ -474,29 +436,27 @@ public class RandomEncounter extends Application {
 
                                     Bot_UI.getChildren().add(secondbuttons);
                                 }
-                            }
-                            else{
-                                popup2.setText("You attempted to hit the "+enemy.getType()+ " but missed");
+                            } else {
+                                popup2.setText("You attempted to hit the " + enemy.getType() + " but missed");
                             }
 
 
-                        }
-                        else{
-                            popup1.setText("Your armour stopped "+ enemy.getType()+"'s strike");
-                            if(PlayerAttack> 0){
+                        } else {
+                            popup1.setText("Your armour stopped " + enemy.getType() + "'s strike");
+                            if (PlayerAttack > 0) {
                                 int health = enemy.getHealth() - PlayerAttack;
                                 popup2.setText("You did " + PlayerAttack + " damage.");
                                 enemy.setHealth(health);
-                                if (enemy.getHealth() <= 0){
+                                if (enemy.getHealth() <= 0) {
                                     popup3.setText("You have killed the " + enemy.getType());
-                                    double gold = hero.getMoney();
+                                    int gold = hero.getMoney();
                                     gold = rand.nextInt(200) + gold;
                                     hero.setMoney(gold);
                                     popup4.setText("you took" + gold + " from the " + enemy.getType());
-                                    MoneyTxt.setText(""+hero.getMoney());
+                                    statController.updateStats();
 
 
-                                    Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                                    Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
                                     text1.setText("1) Would you like to heal before continuing?");
                                     text2.setText("2) would you like to look at the map?");
                                     text3.setText("3) Ready to continue??");
@@ -505,8 +465,7 @@ public class RandomEncounter extends Application {
                                     Bot_UI.getChildren().add(secondbuttons);
 
                                 }
-                            }
-                            else{
+                            } else {
                                 popup2.setText("you attack and missed");
                             }
 
@@ -514,10 +473,6 @@ public class RandomEncounter extends Application {
                     }
 
                 }
-
-
-
-
 
 
             }
@@ -530,50 +485,46 @@ public class RandomEncounter extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if (hero.getCharisma()>=10 && enemy.getHealth()>0){
+                if (hero.getCharisma() >= 10 && enemy.getHealth() > 0) {
                     popup1.setText("You have talked your way out of a fight");
                     popup2.setText("");
                     popup3.setText("");
                     popup4.setText("");
-                    Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                    Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
                     text1.setText("Would you like to heal before traveling?");
                     text2.setText("would you like to look at the map?");
                     text3.setText("Would you like to continue traveling?");
                     text4.setText("");
                     Bot_UI.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
                     Bot_UI.getChildren().add(secondbuttons);
-                }
-                else{
-                    if (enemy.getHealth()> 0){
+                } else {
+                    if (enemy.getHealth() > 0) {
                         popup1.setText("You angered the enemy.");
-                        int SneakAttack = enemy.getAttack()  - hero.getArmor();
+                        int SneakAttack = enemy.getAttack() - hero.getArmor();
 
                         int health2 = hero.getHealth() - SneakAttack;
                         hero.setHealth(health2);
-                        if (SneakAttack>0){
-                            popup2.setText("The "+enemy.getType()+ " smacks you and does " + SneakAttack + " damage.");
-                            HealthTXT.setText("Health:"+hero.getHealth());
-                            if (hero.getHealth()<= 0){
+                        if (SneakAttack > 0) {
+                            popup2.setText("The " + enemy.getType() + " smacks you and does " + SneakAttack + " damage.");
+                            statController.updateStats();
+                            if (hero.getHealth() <= 0) {
                                 Scene s3 = YouDiedIdiot.main(x, hero);
                                 x.setScene(s3);
                             }
                             if (hero.getHealth() < 25) {
                                 popup3.setText("Your health is low!");
                                 popup4.setText("");
-                            }
-                            else {
+                            } else {
                                 popup3.setText("");
                                 popup4.setText("");
                             }
 
-                        }
-                        else if(SneakAttack ==0){
-                            popup2.setText("The "+enemy.getType()+" attempts to smack you");
+                        } else if (SneakAttack == 0) {
+                            popup2.setText("The " + enemy.getType() + " attempts to smack you");
                             popup3.setText("He Misses!");
                             popup4.setText("");
-                        }
-                        else{
-                            popup2.setText("The " +enemy.getType() + " attempts to smack you");
+                        } else {
+                            popup2.setText("The " + enemy.getType() + " attempts to smack you");
                             popup3.setText("Your armour protects you!");
                             popup4.setText("");
                         }
@@ -591,54 +542,50 @@ public class RandomEncounter extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if( hero.getSpeed()>enemy.getSpeed() && enemy.getHealth()>0){
-                    popup1.setText("you were fast enough to out run the " +enemy.getType());
+                if (hero.getSpeed() > enemy.getSpeed() && enemy.getHealth() > 0) {
+                    popup1.setText("you were fast enough to out run the " + enemy.getType());
                     popup2.setText("");
                     popup3.setText("");
                     popup4.setText("");
-                    Bot_UI.getChildren().removeAll(butt_Group,b1 , b2 ,b3,b4);
+                    Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
                     text1.setText("Would you like to heal before traveling?");
                     text2.setText("would you like to look at the map?");
                     text3.setText("Would you like to continue traveling?");
                     text4.setText("");
                     Bot_UI.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
                     Bot_UI.getChildren().add(secondbuttons);
-                }
-                else{
-                    if(enemy.getHealth()>0){
-                        popup1.setText("The "+enemy.getType()+" caught you");
-                        int SneakAttack = enemy.getAttack()  - hero.getArmor();
-                        if (SneakAttack>0){
+                } else {
+                    if (enemy.getHealth() > 0) {
+                        popup1.setText("The " + enemy.getType() + " caught you");
+                        int SneakAttack = enemy.getAttack() - hero.getArmor();
+                        if (SneakAttack > 0) {
                             int health2 = hero.getHealth() - SneakAttack;
                             hero.setHealth(health2);
-                            popup2.setText("The " +enemy.getType()+" smacks you and does " + SneakAttack + " damage.");
+                            popup2.setText("The " + enemy.getType() + " smacks you and does " + SneakAttack + " damage.");
                             if (hero.getHealth() < 25) {
                                 popup3.setText("Your health is low!");
                                 popup4.setText("");
-                            }
-                            else {
+                            } else {
                                 popup3.setText("");
                                 popup4.setText("");
                             }
-                        }
-                        else if(SneakAttack== 0) {
-                            popup2.setText("The "+enemy.getType()+" tried to smack you but misses.");
+                        } else if (SneakAttack == 0) {
+                            popup2.setText("The " + enemy.getType() + " tried to smack you but misses.");
                             popup3.setText("");
                             popup4.setText("");
-                        }
-                        else{
+                        } else {
                             popup2.setText("He attempts to hit you.");
                             popup3.setText("Your armour blocked the attack.");
                             popup4.setText("");
 
                         }
 
-                        HealthTXT.setText("Health:"+hero.getHealth());
-                        if (hero.getHealth()<= 0){
+                        statController.updateStats();
+                        if (hero.getHealth() <= 0) {
                             Scene s3 = YouDiedIdiot.main(x, hero);
-                            x.setScene(s3);;
+                            x.setScene(s3);
+                            ;
                         }
-
 
 
                     }
@@ -656,21 +603,20 @@ public class RandomEncounter extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if (hero.getPotions()>0 && enemy.getHealth()>0){
+                if (hero.getPotions() > 0 && enemy.getHealth() > 0) {
                     int pot = hero.getPotions() - 1;
                     hero.setPotions(pot);
-                    if ((hero.getHealth()>75)){
-                        int healthboost = 100 - hero.getHealth() ;
-                        int addhealth = hero.getHealth()+healthboost;
+                    if ((hero.getHealth() > 75)) {
+                        int healthboost = 100 - hero.getHealth();
+                        int addhealth = hero.getHealth() + healthboost;
                         hero.setHealth(addhealth);
-                        HealthTXT.setText("Health:"+hero.getHealth());
-                        popup1.setText("You used a potion and healed " + healthboost +" health points.");
+                        statController.updateStats();
+                        popup1.setText("You used a potion and healed " + healthboost + " health points.");
 
-                    }
-                    else{
+                    } else {
                         int addhealth = hero.getHealth() + 25;
                         hero.setHealth(addhealth);
-                        HealthTXT.setText("Health:"+hero.getHealth());
+                        statController.updateStats();
                         popup1.setText("You used a potion and healed 25 health points.");
 
                     }
@@ -678,33 +624,29 @@ public class RandomEncounter extends Application {
                     popup2.setText("");
                     popup3.setText("");
                     popup4.setText("");
-                }
-                else{
-                    if(enemy.getHealth()>0){
+                } else {
+                    if (enemy.getHealth() > 0) {
                         popup1.setText("You Do not have any potions");
                         popup2.setText("you stand there in confusion looking for your potion");
-                        int SneakAttack = enemy.getAttack()  - hero.getArmor();
+                        int SneakAttack = enemy.getAttack() - hero.getArmor();
 
-                        if (SneakAttack>0){
+                        if (SneakAttack > 0) {
                             int health2 = hero.getHealth() - SneakAttack;
                             hero.setHealth(health2);
-                            popup3.setText("The "+enemy.getType()+" smacks you and does " + SneakAttack + " damage.");
+                            popup3.setText("The " + enemy.getType() + " smacks you and does " + SneakAttack + " damage.");
                             if (hero.getHealth() < 25) {
                                 popup4.setText("Your health is low!");
-                            }
-                            else {
+                            } else {
                                 popup4.setText("");
                             }
-                        }
-                        else if(SneakAttack== 0) {
-                            popup3.setText("The " +enemy.getType()+" tried to smack you but misses.");
-                        }
-                        else{
-                            popup3.setText("Your armour stopped" +enemy.getType()+" 's attack.");
+                        } else if (SneakAttack == 0) {
+                            popup3.setText("The " + enemy.getType() + " tried to smack you but misses.");
+                        } else {
+                            popup3.setText("Your armour stopped" + enemy.getType() + " 's attack.");
 
                         }
-                        HealthTXT.setText("Health:"+hero.getHealth());
-                        if (hero.getHealth()<= 0){
+                        statController.updateStats();
+                        if (hero.getHealth() <= 0) {
                             Scene s3 = YouDiedIdiot.main(x, hero);
                             x.setScene(s3);
                         }
@@ -715,21 +657,23 @@ public class RandomEncounter extends Application {
 
                 }
 
-            };
+            }
+
+            ;
         });
         //popup button setup
 
 
-        Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
+
         StackPane Center_UI = new StackPane();
 
 
         ImageView Center_ImageView = new ImageView(background);
         ImageView Character = new ImageView(enemypic);
         Text enemyhealth = new Text();
-        enemyhealth.setText("Health: "+ enemy.getHealth());
+        enemyhealth.setText("Health: " + enemy.getHealth());
         enemyhealth.setLayoutY(-30);
-        Center_UI.getChildren().addAll(Center_ImageView,Character,enemyhealth);
+        Center_UI.getChildren().addAll(Center_ImageView, Character, enemyhealth);
         Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
 
 
@@ -746,7 +690,7 @@ public class RandomEncounter extends Application {
                 Center_UI.getChildren().add(Center_ImageView1);
                 root.setCenter(Center_UI);
 
-                Bot_UI.getChildren().removeAll(secondbuttons,Map , heal ,weturn);
+                Bot_UI.getChildren().removeAll(secondbuttons, Map, heal, weturn);
                 Button GoBack = new Button();
                 GoBack.setText("Go Back");
                 Bot_UI.getChildren().add(GoBack);
@@ -780,18 +724,17 @@ public class RandomEncounter extends Application {
 
                     }
 
-                }  )  ;
+                });
 
 
             }
 
-        }  )  ;
+        });
 
 
         return S2;
 
     }
-
 
 
     @Override

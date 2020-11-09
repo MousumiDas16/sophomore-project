@@ -29,7 +29,7 @@ public class MainMenu extends Application {
     }
 
 
-    public static Scene main(Stage x, Player hero) {
+    public  Scene getScene(Stage x, Player hero) {
         System.out.println(("Current file: MainMenu"));
 
         int y = 0;
@@ -37,12 +37,13 @@ public class MainMenu extends Application {
         StackPane root = new StackPane();
 
 
-        Image img = new Image("sample/Art/Background/Title_Screen.png", 750, 500, true, true);
+        Image img = new Image("sample/Art/Background/Title_Screen.png",
+                AppSettings.screenWidth, AppSettings.screenHeight, true, true);
 
         ImageView welcome = new ImageView(img);
 
         root.getChildren().add(welcome);
-        Scene hello = new Scene(root, 750, 500);
+        Scene hello = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
         PauseTransition pause = new PauseTransition(Duration.seconds(1.2));
         pause.setOnFinished(event -> {
             root.getChildren().remove(welcome);
@@ -60,7 +61,8 @@ public class MainMenu extends Application {
                     if(heroName==null ||heroName=="" ||heroName.length()==0)
                         return;
                     hero.setName(heroName.toUpperCase());
-                    Scene s1 = Opening.main(x, hero);
+                    Opening intro=new Opening();
+                    Scene s1 = intro.getScene(x, hero);
                     x.setScene(s1);
                     System.out.println(hero.getName());
                 }

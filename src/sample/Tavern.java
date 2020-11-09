@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -34,20 +35,16 @@ import java.util.ResourceBundle;
 /**
  * @author Tommy, Mousumi
  */
-public class Tavern extends Application implements Initializable {
+public class Tavern extends Application {
 
-    @FXML
-    private Label lblHeroName;
+    private StatsPanelController statController;
 
     @Override
     public void start(Stage primaryStage) {
 
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        lblHeroName.setText("Hello "+ Main.hero.getName());
-    }
+
 
     ////**
     /// * @param args the command line arguments
@@ -64,7 +61,7 @@ public class Tavern extends Application implements Initializable {
 
         //BOTTOM RECTANGLE
 
-        Rectangle Bot_Rec = new Rectangle(750, 100);
+        Rectangle Bot_Rec = new Rectangle(AppSettings.screenWidth, AppSettings.bottomUIHeight);
         Bot_Rec.setFill(Color.rgb(211, 211, 211));
         Bot_UI.getChildren().add(Bot_Rec);
         root.setBottom(Bot_UI);
@@ -72,15 +69,20 @@ public class Tavern extends Application implements Initializable {
 
         //LEFT RECTANGLE
         StackPane Left_UI = new StackPane();
-        Rectangle Left_Rec = new Rectangle(120, 400, Color.rgb(211, 211, 211));
-        Left_Rec.setStroke(Color.BLACK);
+        Rectangle Left_Rec = new Rectangle(AppSettings.leftUIWidth,
+                AppSettings.leftUIHeight, Color.rgb(211, 211, 211));
+        //Left_Rec.setStroke(Color.BLACK);
         root.setLeft(Left_UI);
         Left_UI.getChildren().add(Left_Rec);
         Left_UI.setAlignment(Left_Rec, Pos.TOP_LEFT);
 
         Pane newLoadedPane = null;
         try {
-            newLoadedPane = FXMLLoader.load(Tavern.class.getResource("./StatsPane.fxml"));
+            URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
+            statController=new StatsPanelController();
+            fxmlLoader.setController(statController);
+            newLoadedPane = fxmlLoader.load();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -131,11 +133,12 @@ public class Tavern extends Application implements Initializable {
 
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
-        Image nxtImage = new Image("sample/Art/Background/Tavern.png", 630, 400, true, true);
+        Image nxtImage = new Image("sample/Art/Background/Tavern.png", AppSettings.centerUIWidth,
+                AppSettings.centerUIHeight, true, true);
         ImageView Center_ImageView = new ImageView(nxtImage);
         Center_UI.getChildren().add(Center_ImageView);
         root.setCenter(Center_UI);
-        Scene S2 = new Scene(root, 750, 500);
+        Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
 
 
         return S2;

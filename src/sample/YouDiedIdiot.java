@@ -11,10 +11,11 @@ public class YouDiedIdiot extends Application {
 
     public static Scene main(Stage x, Player hero) {
         BorderPane root = new BorderPane();
-        Image img = new Image("sample/Art/Background/Death_Screen.png", 750, 500, true, true);
+        Image img = new Image("sample/Art/Background/Death_Screen.png", AppSettings.screenWidth,
+                AppSettings.screenHeight, true, true);
         ImageView deadfool = new ImageView(img);
         root.getChildren().add(deadfool);
-        Scene dead = new Scene(root,750,500);
+        Scene dead = new Scene(root,AppSettings.screenWidth,AppSettings.screenHeight);
         return dead;
     }
 

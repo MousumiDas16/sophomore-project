@@ -8,17 +8,17 @@ public class Player extends Entity {
 
     //Variable Initialization
 
-    private int Health;
-    private double Money;
-    private int Strength;
-    private int Armor;
-    private int Speed;
-    private int Charisma;
+    private int Health=0;
+    private int Money=0;
+    private int Strength=0;
+    private int Armor=0;
+    private int Speed=0;
+    private int Charisma=0;
     private String Class;
-    private int Potions;
-    private int Statboost;
+    private int Potions=0;
+    private int Statboost=0;
     private int Clothes;
-    private int Food;
+    private int Food=0;
     private String description;
     private ArrayList<Image> Pictures = new ArrayList<>();
     //this is for a loop in the forest dont touch pls
@@ -45,8 +45,13 @@ public class Player extends Entity {
     public void addClothes(){
         Clothes++;
     }
-    public void addMoney(double cash){
+    public void addMoney(int cash){
         Money += cash;
+
+    }
+
+    public void deductMoney(int cash){
+        Money -= cash;
 
     }
 
@@ -57,11 +62,11 @@ public class Player extends Entity {
     public String GetName(){
         return Name;
     }
-    public double getMoney() {
+    public int getMoney() {
         return Money;
     }
 
-    public void setMoney(double money) {
+    public void setMoney(int money) {
         Money = money;
     }
 
@@ -117,7 +122,7 @@ public class Player extends Entity {
                 Charisma = 5;//BASELINE 10
                 Potions = 0; // start with 0
                 Food = 0;
-                Pictures.add(0,(new Image("sample/Art/Characters/Profile/Wizard_profile (2).png")));
+                Pictures.add(0,(new Image("sample/Art/Characters/Profile/Wizard_profile (2).png", 100,100,true,true)));
                 Pictures.add(1,(new Image("sample/Art/Characters/Wizard_gif.gif",200, 100, true, true)));
                 Statboost = 0; // start with 0
                 description=" Always an intelligent youth, you would read and reread all the books your mother could\n " +
@@ -163,7 +168,7 @@ public class Player extends Entity {
                 Potions = 0;
                 Food = 0;
                 Statboost = 0;
-                Pictures.add(0,(new Image("sample/Art/Characters/Profile/BH_Profile.png")));
+                Pictures.add(0,(new Image("sample/Art/Characters/Profile/BH_Profile.png", 100,100,true,true)));
                 Pictures.add(1,(new Image("sample/Art/Characters/Merc_gif.gif",200, 100, true, true)));
                 description="Growing up an orphan in the slums of Donkey’s Town, you became an expert pickpocket\n " +
                         "and thief. Being self-taught your confidence grew until one day you stole from the wrong man. \n" +
@@ -185,7 +190,7 @@ public class Player extends Entity {
                 Potions = 0;
                 Food = 0;
                 Statboost = 0;
-                Pictures.add(0,(new Image("sample/Art/Characters/Profile/Farmer_Profile.png")));
+                Pictures.add(0,(new Image("sample/Art/Characters/Profile/Farmer_Profile.png",100,100,true,true)));
                 Pictures.add(1,(new Image("sample/Art/Characters/Farmer2_gif.gif",200, 100, true, true)));
                 description="You were born an unremarkable child of unremarkable parents. " +
                         "All your life you toiled\n away at your family's farm, learning the trade from your mother " +
@@ -208,7 +213,9 @@ public class Player extends Entity {
     }
 
     public Image getImage(int index){
-        return Pictures.get(index);
+        if(Pictures.isEmpty())
+            return  null;
+        return  Pictures.get(index);
     }
 
     public int getPotions() {
@@ -249,5 +256,22 @@ public class Player extends Entity {
     public String getDescription(){
         return description;
     }
+
+    public  void  addPurchaseItem(Item toPurchase){
+        deductMoney(toPurchase.getPrice());
+        Potions+=toPurchase.getPotions();
+        Health+=toPurchase.getHealth();
+        Strength+=toPurchase.getStrength();
+        Armor+=toPurchase.getArmor();
+        Speed+=toPurchase.getSpeed();
+        Charisma+=toPurchase.getCharisma();
+        this.Food+=toPurchase.getFood();
+        this.Statboost+=toPurchase.getStatboost();
+
+
+
+    }
+
+
 }
 

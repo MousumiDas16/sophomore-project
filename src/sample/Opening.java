@@ -39,13 +39,13 @@ public class Opening extends Application {
     }
 
 
-    public static Scene main(Stage x, Player hero) {
+    public Scene getScene(Stage x, Player hero) {
         System.out.println(("Current file: Opening"));
 
         int y = 0;
 
         StackPane root = new StackPane();
-        Rectangle rec = new Rectangle(750, 500);
+        Rectangle rec = new Rectangle(AppSettings.screenWidth, AppSettings.screenHeight);
         rec.setFill(Color.BLACK);
         root.getChildren().add(rec);
 
@@ -86,7 +86,7 @@ public class Opening extends Application {
         nxtView.setTranslateY(Line1.getY()+ 160);
         root.getChildren().add(nxtView);
 
-        Scene S2 = new Scene(root, 750, 500);
+        Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
 
         return S2;
 

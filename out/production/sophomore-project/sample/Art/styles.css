@@ -1,0 +1,5 @@
+.stats-digital
+{
+    -fx-font-family: 'Digital-7';
+    src: url('./digital.ttf');
+}

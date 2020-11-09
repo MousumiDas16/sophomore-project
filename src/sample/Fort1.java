@@ -3,6 +3,7 @@ package sample;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -11,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -18,38 +20,23 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Fort1 extends Application {
     static int next = 0;
+    StatsPanelController statController;
     @Override
     public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
 
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-
-        Scene scene = new Scene(root, 300, 250);
-
-        primaryStage.setTitle("Hello World!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
 
     //
     // /**
     //  * @param args the command line arguments
     //  */
-    public static Scene main(Stage x, Player hero) {
+    public Scene createScene(Stage x, Player hero) {
         System.out.println(("Current file: Fort1"));
         hero.setScene("fort1");
 
@@ -60,7 +47,7 @@ public class Fort1 extends Application {
 
         //BOTTOM RECTANGLE
 
-        Rectangle Bot_Rec = new Rectangle(750, 100);
+        Rectangle Bot_Rec = new Rectangle(AppSettings.screenWidth, AppSettings.bottomUIHeight);
         Bot_Rec.setFill(Color.rgb(211, 211, 211));
         Bot_UI.getChildren().add(Bot_Rec);
         root.setBottom(Bot_UI);
@@ -69,65 +56,38 @@ public class Fort1 extends Application {
         //LEFT RECTANGLE
 
         StackPane Left_UI = new StackPane();
-        Rectangle Left_Rec = new Rectangle(100, 400, Color.rgb(211, 211, 211));
-        Left_Rec.setStroke(Color.BLACK);
+        Rectangle Left_Rec = new Rectangle(AppSettings.leftUIWidth,
+                AppSettings.leftUIHeight, Color.rgb(211, 211, 211));
+        //Left_Rec.setStroke(Color.BLACK);
         root.setLeft(Left_UI);
-        Left_UI.getChildren().add(Left_Rec);
+
+        Pane newLoadedPane = null;
+        try {
+            URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
+            statController=new StatsPanelController();
+            fxmlLoader.setController(statController);
+            newLoadedPane = fxmlLoader.load();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        Left_UI.getChildren().add(newLoadedPane);
+
+
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/tempFort1.png", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/tempFort1.png", AppSettings.centerUIWidth,
+                AppSettings.centerUIHeight, true, true);
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
         root.setCenter(Center_UI);
 
         //Player STATS ON Side Bar
 
-        Group Player_Stats = new Group();
-        Text NameTXT = new Text("Hero's Name");
-        Text heroName = new Text(hero.getName());
-        Text ClassTXT = new Text("Class: " + hero.getPClass());
-        Text HealthTXT = new Text("Health: " + hero.getHealth());
-        Text MoneyTxt = new Text("Money: " + hero.getMoney());
-        Text PotionsTXT = new Text("Potions: " + hero.getPotions());
-        Text StrengthTXT = new Text("Strength: " + hero.getStrength());
-        Text CharismaTXT = new Text("Charisma: " + hero.getCharisma());
-        Text ArmorTXT = new Text("Armor: " + hero.getArmor());
-        Text SpeedTXT = new Text("Speed: " + hero.getSpeed());
-
-
-        //Adding the Player Image to the Left Rectangle
-
-        ImageView heroProfile = new ImageView(hero.getImage(0));
-        heroProfile.setFitWidth(100);
-        heroProfile.setFitHeight(100);
-
-
-        //Formating the Text
-        NameTXT.setUnderline(true);
-        NameTXT.setY(10);
-        heroName.setY(NameTXT.getY() + 15);
-        ClassTXT.setY(heroName.getY() + 20);
-
-        HealthTXT.setY(ClassTXT.getY() + 40);
-        MoneyTxt.setY(HealthTXT.getY() + 10);
-        PotionsTXT.setY(MoneyTxt.getY() + 10);
-
-        StrengthTXT.setY(PotionsTXT.getY() + 40);
-        CharismaTXT.setY(StrengthTXT.getY() + 10);
-        ArmorTXT.setY(CharismaTXT.getY() + 10);
-        SpeedTXT.setY(ArmorTXT.getY() + 10);
-        //heroProfile.setY(SpeedTXT.getY() + 40);
-
-        //ADDs the Player Stats to the Scene
-        Player_Stats.getChildren().addAll(
-                NameTXT, heroName, ClassTXT, HealthTXT, MoneyTxt, PotionsTXT,
-                StrengthTXT, CharismaTXT, ArmorTXT, SpeedTXT);
-
-        Left_UI.getChildren().addAll(Player_Stats, heroProfile);
-
-        Left_UI.setAlignment(Player_Stats, Pos.TOP_CENTER);
-        Left_UI.setAlignment(heroProfile, Pos.BOTTOM_CENTER);
 
         //Story for talking to guards
         ArrayList<String> words = new ArrayList<>();
@@ -147,7 +107,8 @@ public class Fort1 extends Application {
                     Line1.setText(words.get(next));
                 }else{
 
-                    Scene s1 = FirstTown.main(x, hero);// next town pic please
+                    FirstTown mytown=new FirstTown();
+                    Scene s1 = mytown.createScene(x, hero);// next town pic please
                     x.setScene(s1);
                 }
             };
@@ -183,12 +144,8 @@ public class Fort1 extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = null;
-                try {
-                    s1 = ShopUI.main(x, hero);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                Scene s1  = ShopUI.main(x, hero);
+
                 x.setScene(s1);
 
 
@@ -292,7 +249,8 @@ public class Fort1 extends Application {
                                 System.out.println("something broke fam peep first town");
                                 break;
                         }
-                        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
+                        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", AppSettings.centerUIWidth,
+                                AppSettings.centerUIHeight, true, true);
                         Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
                         ImageView Center_ImageView = new ImageView(img);
                         ImageView Character = new ImageView(img2);
@@ -341,7 +299,8 @@ public class Fort1 extends Application {
                     public void handle(ActionEvent event) {
                         Scene s1 = null;
                         try {
-                            s1 = RandomEncounter.main(x, hero,4);
+                            RandomEncounter encounter=new RandomEncounter();
+                            s1 = encounter.createScene(x, hero,4);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -412,7 +371,8 @@ public class Fort1 extends Application {
 
                     @Override
                     public void handle(ActionEvent event) {
-                        Scene s1 = Village2.main(x, hero); //talk to a random person pic please
+                        Village2 village=new Village2();
+                        Scene s1 = village.createScene(x, hero); //talk to a random person pic please
                         x.setScene(s1);
 
 
@@ -425,7 +385,8 @@ public class Fort1 extends Application {
 
                     @Override
                     public void handle(ActionEvent event) {
-                        Scene s1 = Fort2.main(x, hero); //talk to a random person pic please
+                        Fort2 myfort=new Fort2();
+                        Scene s1 = myfort.createScene(x, hero);// next town pic please
                         x.setScene(s1);
 
 

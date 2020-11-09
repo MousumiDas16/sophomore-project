@@ -32,7 +32,7 @@ public class CharacterHouseIntro {
         int y = 0;
 
         StackPane root = new StackPane();
-        Rectangle rec = new Rectangle(750, 500);
+        Rectangle rec = new Rectangle(AppSettings.screenWidth, AppSettings.screenHeight);
         rec.setFill(Color.BLACK);
         root.getChildren().add(rec);
 
@@ -58,7 +58,8 @@ public class CharacterHouseIntro {
                 if (next <= words.size() - 1) {
                     Line1.setText(words.get(next));
                 } else {
-                    Scene s1 = CharactersHouse.main(x, hero);
+                    CharactersHouse house=new CharactersHouse();
+                    Scene s1 = house.createScene(x, hero);
                     x.setScene(s1);
                 }
                 event.consume();
@@ -70,7 +71,7 @@ public class CharacterHouseIntro {
 
         root.getChildren().add(nxtView);
 
-        Scene S2 = new Scene(root, 750, 500);
+        Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
 
         return S2;
 

@@ -26,8 +26,8 @@ public class Main extends Application {
         Main.mainStage = primaryStage;
         System.out.println(("Current file: Main"));
         hero = new Player();
-
-        Scene s1 = Fort1.main(primaryStage, hero);
+        MainMenu firstMenu=new MainMenu();
+        Scene s1 = firstMenu.getScene(primaryStage, hero);
 
         primaryStage.setTitle("Excalibur's Quest");
         primaryStage.setScene(s1);
