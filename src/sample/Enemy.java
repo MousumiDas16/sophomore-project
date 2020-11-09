@@ -83,6 +83,14 @@ public class Enemy {
                 //   Pictures.add(0,(new Image("sample/Art/Characters/Profile/Wizard_profile (2).png"))); //add goblin pic
 
                 break;
+            case "guard":
+                enemyType = "guard";
+                Health = 80;
+                Attack = rand.nextInt(28);
+                Armor = 0;
+                Speed = 11;
+                break;
+
 
 
             default:
