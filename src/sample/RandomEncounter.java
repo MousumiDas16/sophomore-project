@@ -531,9 +531,10 @@ public class RandomEncounter extends Application {
                                 if (enemy.getHealth() <= 0){
                                     popup3.setText("You have killed the " + enemy.getType());
                                     double gold = hero.getMoney();
-                                    gold = rand.nextInt(200) + gold;
+                                    double earned = rand.nextInt(200)
+                                    gold = earned + gold;
                                     hero.setMoney(gold);
-                                    popup4.setText("you took" + gold + " from the " + enemy.getType());
+                                    popup4.setText("you took gold " + earned + " from the " + enemy.getType());
                                     MoneyTxt.setText(""+hero.getMoney());
 
 
