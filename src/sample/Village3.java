@@ -87,8 +87,8 @@ public class Village3 extends Application {
 
         //Story for talking to guards
         ArrayList<String> words = new ArrayList<>();
-        words.add("\"There are two paths ahead, both equally treacherous.\"");
-        words.add("\"Talk to the fort’s quartermaster, he sells all sorts of goods \nto aid you on your journey!\"");
+        words.add("\"beware the sand worms. They are big enough to eat a\nman whole along with his bloody horse.\"");
+        words.add("\"The dessert is dangerous to cross. Make sure to stock\nup on supplies, there may be no help until you\nreach the other side\"");
 
         Text Line1 = new Text();
         root.getChildren().add(Line1);

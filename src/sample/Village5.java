@@ -102,8 +102,8 @@ public class Village5 extends Application {
 
         //Story for talking to guards
         ArrayList<String> words = new ArrayList<>();
-        words.add("\"There are two paths ahead, both equally treacherous.\"");
-        words.add("\"Talk to the fort’s quartermaster, he sells all sorts of goods \nto aid you on your journey!\"");
+        words.add("\"There’s a cave north of here that is a common resting ground for travelers. You might find\nsomething useful there, but you may also find danger.\"");
+        words.add("\"There's a rumor about that castle… they say it’s guarded by a massive hydra.\nI hear hydras are greedy bastards but i’d still be prepared for a fight!\"");
 
         Text Line1 = new Text();
         root.getChildren().add(Line1);

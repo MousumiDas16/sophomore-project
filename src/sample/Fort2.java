@@ -113,8 +113,9 @@ public class Fort2 extends Application {
 
         //Story for talking to guards
         ArrayList<String> words = new ArrayList<>();
-        words.add("\"There are two paths ahead, both equally treacherous.\"");
-        words.add("\"Talk to the fort’s quartermaster, he sells all sorts of goods \nto aid you on your journey!\"");
+        words.add("\"Ahead of here is the Haunted Forrest. There’s rumor\nof a bizarre creature that stalks that place.\"");
+        words.add("\"Be careful when you leave this fort… there’s monsters on the prowl in them woods.\"");
+        words.add("\"Make sure you stock up on supplies before heading out,\nespecially after that run in with the\ntrolls in the cave.\"");
 
         Text Line1 = new Text();
         root.getChildren().add(Line1);

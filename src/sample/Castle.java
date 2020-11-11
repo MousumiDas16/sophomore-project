@@ -86,8 +86,8 @@ public class Castle extends Application {
 
         //Story for talking to guards
         ArrayList<String> words = new ArrayList<>();
-        words.add("\"There are two paths ahead, both equally treacherous.\"");
-        words.add("\"Talk to the fort’s quartermaster, he sells all sorts of goods \nto aid you on your journey!\"");
+        words.add("\"With that reward of yours you might want to see the castle’s shop,\nmight be something useful to a traveler such as yourself.\"");
+        words.add("\"There is nothing but heat and danger in that mysterious old dessert,\nto make things even more strange it ends right at that\nold pyramid as if it was only created to guard that place.\"");
 
         Text Line1 = new Text();
         root.getChildren().add(Line1);

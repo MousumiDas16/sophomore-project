@@ -86,8 +86,8 @@ public class Oasis extends Application {
 
         //Story for talking to guards
         ArrayList<String> words = new ArrayList<>();
-        words.add("\"There are two paths ahead, both equally treacherous.\"");
-        words.add("\"Talk to the fort’s quartermaster, he sells all sorts of goods \nto aid you on your journey!\"");
+        words.add("\"who knew this was here! We should probably restock.\"");
+        words.add("\"We can’t run from whatever is in the pyramid,\nso make sure you are ready before we face it.\"");
 
         Text Line1 = new Text();
         root.getChildren().add(Line1);
@@ -117,7 +117,7 @@ public class Oasis extends Application {
 
         Text text1 = new Text("1) Go to the Shop");
         Text text2 = new Text("2)Check Map");
-        Text text3 = new Text("3) Converse With Locals");
+        Text text3 = new Text("3) Converse With Lady Wisp");
         Text text4 = new Text("4) Leave Town");
         text_Group.getChildren().addAll(text1, text2, text3, text4);
 
@@ -188,7 +188,7 @@ public class Oasis extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = ShopUI.main(x, hero); //talk to a random person pic please
+                Scene s1 = ShopUI.main(x, hero); //talk to Lady Wisp pic please
                 x.setScene(s1);
 
 

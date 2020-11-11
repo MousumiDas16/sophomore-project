@@ -104,8 +104,8 @@ public class Village4 extends Application {
 
         //Story for talking to guards
         ArrayList<String> words = new ArrayList<>();
-        words.add("\"There are two paths ahead, both equally treacherous.\"");
-        words.add("\"Talk to the fort’s quartermaster, he sells all sorts of goods \nto aid you on your journey!\"");
+        words.add("\"The old ruins east of here are infested with bandits… rumor has it they stole a priceless\nartifact from the castle at the foot of Dragon’s Claw\"");
+        words.add("\"Our local shopkeeper has lots of good supplies for ya.\"");
 
         Text Line1 = new Text();
         root.getChildren().add(Line1);

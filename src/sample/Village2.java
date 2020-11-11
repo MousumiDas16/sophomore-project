@@ -103,10 +103,10 @@ public class Village2 extends Application {
 
 
 
-        //Story for talking to guards
+        //Story for talking to townspeople
         ArrayList<String> words = new ArrayList<>();
-        words.add("\"There are two paths ahead, both equally treacherous.\"");
-        words.add("\"Talk to the fort’s quartermaster, he sells all sorts of goods \nto aid you on your journey!\"");
+        words.add("\"Our local shopkeeper has lots of good supplies for ya.\"");
+        words.add("\"That castle sometimes is attacked by monsters, make sure\nyou’re ready to face any that might block your\npath\"");
 
         Text Line1 = new Text();
         root.getChildren().add(Line1);
