@@ -8,19 +8,22 @@ public class Player extends Entity {
 
     //Variable Initialization
 
-    private int Health;
-    private double Money;
-    private int Strength;
-    private int Armor;
-    private int Speed;
-    private int Charisma;
+    private int Health=0;
+    private int Money=0;
+    private int Strength=0;
+    private int Armor=0;
+    private int Speed=0;
+    private int Charisma=0;
     private String Class;
-    private int Potions;
-    private int Statboost;
+    private int Potions=0;
+    private int Statboost=0;
     private int Clothes;
-    private int Food;
+    private int Food=0;
     private String description;
     private ArrayList<Image> Pictures = new ArrayList<>();
+    //this is for a loop in the forest dont touch pls
+    private int loopcount = 0;
+    private String scene;
   
 
     public Player() {
@@ -42,8 +45,13 @@ public class Player extends Entity {
     public void addClothes(){
         Clothes++;
     }
-    public void addMoney(double cash){
+    public void addMoney(int cash){
         Money += cash;
+
+    }
+
+    public void deductMoney(int cash){
+        Money -= cash;
 
     }
 
@@ -54,11 +62,11 @@ public class Player extends Entity {
     public String GetName(){
         return Name;
     }
-    public double getMoney() {
+    public int getMoney() {
         return Money;
     }
 
-    public void setMoney(double money) {
+    public void setMoney(int money) {
         Money = money;
     }
 
@@ -108,12 +116,14 @@ public class Player extends Entity {
                 Class = "Wizard";
                 Health = 100;//BASELINE is 100
                 Money = 500;//BASE LINE 300
-                Strength = 15;//BASELINE 10
+                Strength = 10;//BASELINE 10
                 Armor = 5;//BASELINE 10
                 Speed = 10;//BASELINE 10
                 Charisma = 5;//BASELINE 10
                 Potions = 0; // start with 0
-                Pictures.add(0,(new Image("sample/Art/Characters/Profile/Wizard_profile (2).png")));
+                Food = 0;
+                Pictures.add(0,(new Image("sample/Art/Characters/Profile/Wizard_profile (2).png", 100,100,true,true)));
+                Pictures.add(1,(new Image("sample/Art/Characters/Wizard_gif.gif",200, 100, true, true)));
                 Statboost = 0; // start with 0
                 description=" Always an intelligent youth, you would read and reread all the books your mother could\n " +
                         "afford. After reading you studied your hometown and observed the other residents as well as\n" +
@@ -130,13 +140,15 @@ public class Player extends Entity {
                 Class = "Knight";
                 Health = 100;
                 Money = 400;
-                Strength = 10;
+                Strength = 7;
                 Armor = 15;
                 Speed = 5;
-                Charisma = 10;
-                Potions = 0; 
+                Charisma = 7;
+                Potions = 0;
+                Food = 0;
                 Statboost = 0;
                 Pictures.add(0,(new Image("sample/Art/Characters/Profile/Knight_Profile (2).png")));
+                Pictures.add(1,(new Image("sample/Art/Characters/Knight_gif.gif",200, 100, true, true)));
                 description="Always a strong and energetic child, you spent your youth training your physical prowess\n " +
                         "and sharpening your skills with a sword, until you became a squire. After an upbringing as a \n" +
                         "squire where you accompanied your mentor, Sir Reginald Fellings, you traveled the land seeking\n" +
@@ -149,13 +161,15 @@ public class Player extends Entity {
                 Class = "Mercenary";
                 Health = 100;
                 Money = 800;
-                Strength = 10;
+                Strength = 5;
                 Armor = 10;
                 Speed = 10;
                 Charisma = 15;
                 Potions = 0;
+                Food = 0;
                 Statboost = 0;
-                Pictures.add(0,(new Image("sample/Art/Characters/Profile/BH_Profile.png")));
+                Pictures.add(0,(new Image("sample/Art/Characters/Profile/BH_Profile.png", 100,100,true,true)));
+                Pictures.add(1,(new Image("sample/Art/Characters/Merc_gif.gif",200, 100, true, true)));
                 description="Growing up an orphan in the slums of Donkey’s Town, you became an expert pickpocket\n " +
                         "and thief. Being self-taught your confidence grew until one day you stole from the wrong man. \n" +
                         " Edward was another thief but far more experienced, He took you under his wing and you spent \n" +
@@ -169,13 +183,15 @@ public class Player extends Entity {
                 Class = "peasant";
                 Health = 90;
                 Money = 300;
-                Strength = 10;
+                Strength = 4;
                 Armor = 5;
                 Speed = 15;
                 Charisma = 10;
                 Potions = 0;
+                Food = 0;
                 Statboost = 0;
-                Pictures.add(0,(new Image("sample/Art/Characters/Profile/Farmer_Profile.png")));
+                Pictures.add(0,(new Image("sample/Art/Characters/Profile/Farmer_Profile.png",100,100,true,true)));
+                Pictures.add(1,(new Image("sample/Art/Characters/Farmer2_gif.gif",200, 100, true, true)));
                 description="You were born an unremarkable child of unremarkable parents. " +
                         "All your life you toiled\n away at your family's farm, learning the trade from your mother " +
                         "and father. You were faster and braver than most of your peers.\n After the passing of your " +
@@ -197,15 +213,65 @@ public class Player extends Entity {
     }
 
     public Image getImage(int index){
-        return Pictures.get(index);
+        if(Pictures.isEmpty())
+            return  null;
+        return  Pictures.get(index);
     }
 
     public int getPotions() {
         return Potions;
     }
+    public void setPotions(int pot){
+        Potions = pot;
 
+    }
+    public String getScene(){
+        return scene;
+
+    }
+    public void setScene(String s){
+        scene=s;
+    }
+    public void setStatboost(int s){
+        Statboost = s;
+    }
+    public int getStatboost(){
+        return Statboost;
+    }
+
+    public int getFood() {
+        return Food;
+    }
+    public void setFood(int f){
+        Potions = f;
+    }
+    // this is for forest dont touch please
+    public void setLoopcount(int loop){
+        loopcount = loop;
+
+    }
+    public int getLoopcount(){
+        return loopcount;
+    }
     public String getDescription(){
         return description;
     }
+
+    public  void  addPurchaseItem(Item toPurchase){
+        deductMoney(toPurchase.getPrice());
+        Potions+=toPurchase.getPotions();
+        Health+=toPurchase.getHealth();
+        Strength+=toPurchase.getStrength();
+        Armor+=toPurchase.getArmor();
+        Speed+=toPurchase.getSpeed();
+        Charisma+=toPurchase.getCharisma();
+        this.Food+=toPurchase.getFood();
+        this.Statboost+=toPurchase.getStatboost();
+
+
+
+    }
+
+
 }
 

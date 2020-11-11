@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="120.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane alignment="TOP_RIGHT" prefHeight="363.0" prefWidth="108.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="5.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="64.0" minWidth="10.0" prefWidth="60.0" />
+          <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="48.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="txtMoney" alignment="CENTER_RIGHT" editable="false" maxWidth="60.0" style="-fx-border-color: blue;" text="499" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <font>
+                    <Font name="Verdana" size="12.0" />
+                </font>
+            </TextField>
+             <TextField fx:id="txtHealth" alignment="CENTER_RIGHT" editable="false" maxWidth="60.0" style="-fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="txtSpeed" alignment="CENTER_RIGHT" editable="false" maxWidth="60.0" style="-fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="txtArmor" alignment="CENTER_RIGHT" editable="false" maxWidth="60.0" style="-fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="txtPotion" alignment="CENTER_RIGHT" editable="false" maxWidth="60.0" style="-fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="txtCharisma" alignment="CENTER_RIGHT" editable="false" maxWidth="60.0" style="-fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="txtStrength" alignment="CENTER_RIGHT" editable="false" maxWidth="60.0" style="-fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </TextField>
+             <TextField fx:id="txtFood" alignment="CENTER_RIGHT" editable="false" maxWidth="60.0" style="-fx-border-color: blue;" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </TextField>
+
+            <Label alignment="CENTER_RIGHT" text="Money" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Verdana" size="12.0" />
+               </font>
+            </Label>
+             <Label alignment="CENTER_RIGHT" text="Health" GridPane.rowIndex="3">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </Label>
+             <Label alignment="CENTER_RIGHT" text="Speed" GridPane.rowIndex="4">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </Label>
+             <Label alignment="CENTER_RIGHT" text="Armor" GridPane.rowIndex="5">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </Label>
+             <Label alignment="CENTER_RIGHT" text="Potion" GridPane.rowIndex="6">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </Label>
+             <Label alignment="CENTER_RIGHT" text="Charisma" GridPane.rowIndex="7">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </Label>
+             <Label alignment="CENTER_RIGHT" text="Strength" GridPane.rowIndex="8">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </Label>
+             <Label alignment="CENTER_RIGHT" text="Food" GridPane.rowIndex="9">
+                 <font>
+                     <Font name="Verdana" size="12.0" />
+                 </font>
+             </Label>
+
+            <Label fx:id="lblHeroName" text="Welcome  " textFill="#d70a0a" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="11.0" />
+               </font>
+            </Label>
+             <ImageView fx:id="profileIcon" fitHeight="120.0" fitWidth="120.0" GridPane.rowIndex="10" GridPane.columnSpan="2" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" />
+
+
+
+         </children>
+      </GridPane>
+
+   </children>
+</AnchorPane>
