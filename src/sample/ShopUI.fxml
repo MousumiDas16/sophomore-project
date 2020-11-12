@@ -20,12 +20,12 @@
             <Button fx:id="btnBoost" layoutX="521.0" layoutY="110.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="75.0" prefWidth="100.0" text="Boost ($25)" />
             </children>
         </AnchorPane>
-      <StackPane fx:id="leftUI" prefHeight="400.0" prefWidth="120.0">
+      <StackPane fx:id="leftUI" prefHeight="400.0" prefWidth="100.0">
               <children>
 
               </children>
       </StackPane>
-      <BorderPane fx:id="bottomUI" layoutY="399.0" prefHeight="100.0" prefWidth="772.0" style="-fx-border-color: black;">
+      <BorderPane fx:id="bottomUI" layoutY="399.0" prefHeight="100.0" prefWidth="750.0" style="-fx-border-color: black;">
          <center>
             <Label fx:id="lblPurchaseStatus" prefHeight="42.0" prefWidth="373.0" text="Click buttons above to purchase items" textFill="#071180" BorderPane.alignment="CENTER">
                <font>
