@@ -105,13 +105,9 @@ public class LeaveFirstTown {
                     Line1.setText(words.get(next));
                 }else{
 
-                    Forest forest =new Forest();
+                    WalkingInForest forest = new WalkingInForest();
                     Scene s1 = null;
-                    try {
-                        s1 = forest.createScene(x, hero);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    s1 = forest.createScene(x, hero);
                     x.setScene(s1);
                 }
         //need to have sprite transition when the story demands

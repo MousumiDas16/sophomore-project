@@ -673,9 +673,11 @@ public class RandomEncounter extends Application {
         ImageView Character = new ImageView(enemypic);
         Text enemyhealth = new Text();
         enemyhealth.setText("Health: " + enemy.getHealth());
-        enemyhealth.setLayoutY(-30);
+
         Center_UI.getChildren().addAll(Center_ImageView, Character, enemyhealth);
         Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
+        Center_UI.setAlignment(enemyhealth, Pos.BOTTOM_CENTER);
+        enemyhealth.setLayoutY(-15);
 
 
         root.setCenter(Center_UI);
