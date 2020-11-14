@@ -110,8 +110,8 @@ public class FishingVillage extends Application {
                            }
                        });
 
-        Text text1 = new Text("1)Attack");
-        Text text2 = new Text("2)Pay the toll");
+        Text text1 = new Text("1) Attack");
+        Text text2 = new Text("2) Pay the toll");
         Text text3 = new Text("3) Negotioate ");
         Text text4 = new Text("4) Run Past him");
 
