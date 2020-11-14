@@ -100,8 +100,7 @@ public class CharactersHouse extends Application {
             public void handle(ActionEvent event) {
                 hero.setClass(charClass.getValue());
                 FirstTown town=new FirstTown();
-                WalkingInForest forest = new WalkingInForest();
-                Scene s1 = forest.createScene(x, hero);// next town pic please
+                Scene s1 = town.createScene(x, hero);// next town pic please
                 x.setScene(s1);
 
 

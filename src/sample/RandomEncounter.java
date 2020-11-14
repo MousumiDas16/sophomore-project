@@ -94,7 +94,7 @@ public class RandomEncounter extends Application {
                 break;
             case 5:
                 if (hero.getScene().equalsIgnoreCase("forest")) {
-                    background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
+                    background = new Image("sample/Art/Background/Forrest.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
 
                 }
 
@@ -397,9 +397,9 @@ public class RandomEncounter extends Application {
 
 
                                     Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
-                                    text1.setText("1)Would you like to heal before continuing?");
-                                    text2.setText("2)would you like to look at the map?");
-                                    text3.setText("3)Ready to goo back?");
+                                    text1.setText("1) Would you like to heal before continuing?");
+                                    text2.setText("2) would you like to look at the map?");
+                                    text3.setText("3) Ready to goo back?");
                                     text4.setText("");
 
 

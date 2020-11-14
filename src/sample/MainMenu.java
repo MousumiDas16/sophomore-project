@@ -17,9 +17,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-/**
- * @author Tommy, Mousumi
- */
+
 public class MainMenu extends Application {
 
     @Override
