@@ -94,7 +94,7 @@ public class RandomEncounter extends Application {
                 break;
             case 5:
                 if (hero.getScene().equalsIgnoreCase("forest")) {
-                    background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
+                    background = new Image("sample/Art/Background/Forrest.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
 
                 }
 

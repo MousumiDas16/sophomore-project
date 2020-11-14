@@ -32,9 +32,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-/**
- * @author Tommy, Mousumi
- */
+
 public class Tavern extends Application {
 
     private StatsPanelController statController;
