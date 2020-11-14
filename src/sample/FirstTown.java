@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * @author Tommy, Mousumi
+
  */
 public class FirstTown extends Application {
     static int next = 0;
@@ -329,6 +329,7 @@ public class FirstTown extends Application {
                         secondgroup.setVisible(false);
                         butt_Group.setDisable(false);
                         butt_Group.setVisible(true);
+
 
                         text1.setText("1) Go to the Shop");
                         text2.setText("2) Check Map");
