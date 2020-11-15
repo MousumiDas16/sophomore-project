@@ -36,8 +36,8 @@ public class FishingVillage extends Application {
     //  * @param args the command line arguments
     //  */
     public Scene createScene(Stage x, Player hero) {
-       // hero.setClass("wizard");
-        System.out.println(("Current file: Fort 2"));
+       hero.setScene("FishingVillage");
+        System.out.println(("Current file: Fishing Village"));
 
         BorderPane root = new BorderPane();
 
@@ -94,13 +94,13 @@ public class FishingVillage extends Application {
         Group WHatDotext = new Group();
         Group WhatDobutt = new Group();
 
-        Text Intro = new Text("OI Slag if you wanna wanna  pass yous gotta pay the toll");
+        Text Intro = new Text("OI Slag, Yous not allowed to pass. Bugger off");
         Button go = new Button("Continue");
         go.setOnAction(new EventHandler<ActionEvent>() {
 
                            @Override
                            public void handle(ActionEvent event) {
-                               System.out.println("This Works");
+
                                WhatDo.setVisible(true);
                                WhatDo.setDisable(false);
                                encont.setVisible(false);
@@ -110,42 +110,229 @@ public class FishingVillage extends Application {
                            }
                        });
 
-        Text text1 = new Text("1) Attack");
-        Text text2 = new Text("2) Pay the toll");
-        Text text3 = new Text("3) Negotioate ");
-        Text text4 = new Text("4) Run Past him");
+        Text text1 = new Text("1) Fight Him");
+        Text text2 = new Text("2) Negotiate ");
+        Text text3 = new Text("3) Run Past him ");
+
 
         text1.setY(0);
         text2.setY(text1.getY()+20);
         text3.setY(text2.getY()+20);
-        text4.setY(text3.getY()+20);
+
         Bot_UI.setAlignment(WHatDotext, Pos.TOP_CENTER);
 
-        WHatDotext.getChildren().addAll(text1, text2, text3, text4);
+        WHatDotext.getChildren().addAll(text1, text2, text3 );
 
 
         Button butt1 = new Button("1");
         Button butt2 = new Button("2");
         Button butt3 = new Button("3");
-        Button butt4 = new Button("4");
 
-        butt1.setLayoutY(text1.getY());
-        butt2.setLayoutY(text2.getY());
-        butt3.setLayoutY(text3.getY());
-        butt4.setLayoutY(text4.getY());
+        butt1.setLayoutY(text1.getY()- 10);
+        butt2.setLayoutY(text2.getY()- 10);
+        butt3.setLayoutY(text3.getY()- 10);
         butt1.setLayoutX(100);
+
         butt2.setLayoutX(butt1.getLayoutX());
         butt3.setLayoutX(butt1.getLayoutX());
-        butt4.setLayoutX(butt1.getLayoutX());
-        WhatDobutt.getChildren().addAll(butt1,butt2,butt3,butt4);
+
+        butt1.setPadding(new Insets(0,20,0,20));
+
+        butt2.setPadding(new Insets(0,20,0,20));
+        butt3.setPadding(new Insets(0,20,0,20));
+
+        WhatDobutt.getChildren().addAll(butt1,butt2,butt3);
         Bot_UI.setAlignment(WhatDobutt,Pos.TOP_RIGHT);
 
 
         WhatDo.getChildren().addAll(WHatDotext,WhatDobutt);
 
 
+        //attack
+        butt1.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+
+                RandomEncounter RE = new RandomEncounter();
+                try {
+                    Scene s1 = RE.createScene(x,hero,0);
+                    x.setScene(s1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
 
+
+            }
+        });
+
+
+
+        //Negotioate
+        butt2.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                if((hero.getCharisma() > 10)){
+                    Text fight = new Text("You make a very valid point. Carry on fair traveler");
+                    Button butt = new Button("Continue");
+                    butt.setPadding(new Insets(0,20,0,20));
+                    Group temp = new Group();
+                    temp.getChildren().addAll(fight,butt);
+                    Bot_UI.getChildren().addAll(temp);
+                    fight.setY(0);
+                    butt.setLayoutY(fight.getY() +15);
+
+                    butt.setOnAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+
+                            Village2 RE = new Village2();
+                            Scene s1 = RE.createScene(x,hero);
+                            x.setScene(s1);
+
+
+                        }
+                    });
+
+
+
+                    WHatDotext.setDisable(true);
+                    WHatDotext.setVisible(false);
+                    WhatDobutt.setVisible(false);
+                    WhatDobutt.setDisable(true);
+
+                }else{
+                    Text fight = new Text("Alls you had to do was sod off. Now yous gonna pay for wastin' my time!!");
+                    Button butt = new Button("Fight");
+                    butt.setPadding(new Insets(0,20,0,20));
+                    Group temp = new Group();
+                    temp.getChildren().addAll(fight,butt);
+                    Bot_UI.getChildren().addAll(temp);
+                    fight.setY(0);
+                    butt.setLayoutY(fight.getY() +15);
+
+                    butt.setOnAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+
+                            RandomEncounter RE = new RandomEncounter();
+                            try {
+                                Scene s1 = RE.createScene(x,hero,0);
+                                x.setScene(s1);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+
+
+
+                        }
+                    });
+
+
+
+                    WHatDotext.setDisable(true);
+                    WHatDotext.setVisible(false);
+                    WhatDobutt.setVisible(false);
+                    WhatDobutt.setDisable(true);
+
+
+
+
+                }
+
+
+
+            }
+        });
+
+        //run past them
+        butt3.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                if ((hero.getSpeed() > 10)) {
+
+                    Text fight = new Text("You make a very valid point. Carry on fair traveler");
+                    Button butt = new Button("Continue");
+                    butt.setPadding(new Insets(0,20,0,20));
+                    Group temp = new Group();
+                    temp.getChildren().addAll(fight,butt);
+                    Bot_UI.getChildren().addAll(temp);
+                    fight.setY(0);
+                    butt.setLayoutY(fight.getY() +15);
+
+                    butt.setOnAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+
+                            Village2 RE = new Village2();
+                            Scene s1 = RE.createScene(x,hero);
+                            x.setScene(s1);
+
+
+                        }
+                    });
+
+
+
+                    WHatDotext.setDisable(true);
+                    WHatDotext.setVisible(false);
+                    WhatDobutt.setVisible(false);
+                    WhatDobutt.setDisable(true);
+
+
+
+
+                } else {
+                    Text fight = new Text("And Where do you think your going squirt.");
+                    Button butt = new Button("Fight");
+                    butt.setPadding(new Insets(0, 20, 0, 20));
+                    Group temp = new Group();
+                    temp.getChildren().addAll(fight, butt);
+                    Bot_UI.getChildren().addAll(temp);
+                    fight.setY(0);
+                    butt.setLayoutY(fight.getY() + 15);
+
+                    butt.setOnAction(new EventHandler<ActionEvent>() {
+
+                        @Override
+                        public void handle(ActionEvent event) {
+
+                            RandomEncounter RE = new RandomEncounter();
+                            try {
+                                Scene s1 = RE.createScene(x, hero, 0);
+                                x.setScene(s1);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+
+
+                        }
+                    });
+
+
+                    WHatDotext.setDisable(true);
+                    WHatDotext.setVisible(false);
+                    WhatDobutt.setVisible(false);
+                    WhatDobutt.setDisable(true);
+
+
+                }
+
+
+
+
+
+
+
+
+            }
+        });
 
 
 
