@@ -5,7 +5,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -22,9 +21,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class LeaveFirstTown {
+public class Cave2Cutscene {
     static int next = 0;
-    private  StatsPanelController statController;
+    private StatsPanelController statController;
 
     public void start(Stage primaryStage) {
 
@@ -39,8 +38,6 @@ public class LeaveFirstTown {
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
-
-
 
 
         //BOTTOM RECTANGLE
@@ -62,7 +59,7 @@ public class LeaveFirstTown {
         try {
             URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
             FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
-            statController=new StatsPanelController();
+            statController = new StatsPanelController();
             fxmlLoader.setController(statController);
             newLoadedPane = fxmlLoader.load();
 
@@ -79,16 +76,15 @@ public class LeaveFirstTown {
         StackPane Root = new StackPane();
 
 
-
         //Jimmy Story
         ArrayList<String> words = new ArrayList<>();
-        words.add("Our brave hero is spotted by the hooded woman the next morning as they setting out.");
-        words.add("?: \"Wait, You!! Are you venturing to Dragon’s Claw? Really…\"");
-        words.add("The woman's robes fall away revealing a tiny ball of spirit beneath.");
-        words.add("Lady Wisp: \"I am the Lady Wisp, the remaining soul of the Sage who once guided\"");
-        words.add("\"the first King.I thought you had the makings of Monarch returned\"");
-        words.add("\"and shared my tale in hopes of this very thing.\"");
-        words.add("\"They left the town together...");
+        words.add("The protagonist found the cave empty…");
+        words.add("Lady Wisp: “ We are almost to the end now. I can see the Dragon’s Claw looming in the\n" + "distance. That river is the only thing between us and the Old Castle. Make sure your health is\n"
+        +"good before we try to cross the river.”");
+        words.add("“The castle is home to an ancient guardian of the Sword. From the talk of the villagers we’ve\n" + "encountered it seems there is a massive moat surrounding the castle that’s home to The Hydra, \n");
+        words.add("that old thing is greedy and can be bargained with, but it’s not scared to defend itself either. \n" + "When we reach it you’ll need to decide how to approach.”\n");
+        words.add("“We can’t run from it, so make sure you are ready before we face it.”");
+
         Text Line1 = new Text();
         //positioning text
 
@@ -101,19 +97,16 @@ public class LeaveFirstTown {
             @Override
             public void handle(ActionEvent event) {
                 next++;
-                if(next <= words.size() -1){
+                if (next <= words.size() - 1) {
                     Line1.setText(words.get(next));
-                }else{
+                } else {
 
-
-
-
-                    WalkingInForest forest =new WalkingInForest();
-                    Scene s1 = forest.createScene(x, hero);
-
+                    FishingVillage fishingVillage = new FishingVillage();
+                    Scene s1 = null;
+                    s1 = fishingVillage.createScene(x, hero);
                     x.setScene(s1);
                 }
-        //need to have sprite transition when the story demands
+                //need to have sprite transition when the story demands
 
 
             }
@@ -123,14 +116,13 @@ public class LeaveFirstTown {
         });
         Bot_UI.getChildren().addAll(submit);
 
-        Bot_UI.setAlignment(submit,Pos.CENTER_RIGHT);
+        Bot_UI.setAlignment(submit, Pos.CENTER_RIGHT);
         submit.setPadding(new Insets(0, 20, 0, 20));
-
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Willow_Sprite.gif", 200, 100, true, true);
+        Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);//need cave
+        Image img2 = new Image("sample/Art/Characters/Willow_Sprite.gif", 200, 100, true, true);//
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);
@@ -138,8 +130,5 @@ public class LeaveFirstTown {
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
         return S2;
-
-
-
     }
 }
