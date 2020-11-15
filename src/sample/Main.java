@@ -30,18 +30,18 @@ public class Main extends Application {
         MainMenu firstMenu=new MainMenu();
         Scene s1 = firstMenu.getScene(primaryStage,hero);
 
-        //FishingVillage fv = new FishingVillage();
+        //pyramid fv = new pyramid();
         //Scene s1 = fv.createScene(primaryStage , hero);
 
 
 
 
-        AbandondedCamp ruin = new AbandondedCamp();
+        //AbandondedCamp ruin = new AbandondedCamp();
+        //Scene s1 = ruin.createScene(primaryStage, hero);
 
 
 
-
-        primaryStage.setTitle("Swords of Origin");
+        primaryStage.setTitle("Excalibur's Quest");
         primaryStage.setScene(s1);
         primaryStage.show();
 
