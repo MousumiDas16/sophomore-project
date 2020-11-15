@@ -27,7 +27,7 @@ public class CharacterHouseIntro {
 
 
     public static Scene main(Stage x, Player hero) {
-        System.out.println(("Current file: Opening"));
+        System.out.println(("Current file: Character House Intro"));
 
         int y = 0;
 
@@ -44,7 +44,7 @@ public class CharacterHouseIntro {
         Text Line1 = new Text();
         root.getChildren().add(Line1);
         Line1.setText(words.get(next));
-        Line1.setStroke(Color.WHEAT);
+        Line1.setFill(Color.WHITE);
         Line1.setFont( Font.font("Verdana", FontWeight.BOLD, 18));
 
 

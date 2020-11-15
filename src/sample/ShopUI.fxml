@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ShopUI">
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ShopUI">
     <children>
-        <AnchorPane layoutX="142.0" prefHeight="400.0" prefWidth="630.0" style="-fx-border-color: black;">
+        <AnchorPane layoutX="110.0" prefHeight="400.0" prefWidth="650.0" style="-fx-border-color: black;">
             <children>
                 <Button fx:id="btnFood" layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="75.0" prefWidth="100.0" text="Food ($10)" />
                 <Button fx:id="btnMed" layoutX="150.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="75.0" prefWidth="100.0" text="Medicine ($30)" />
@@ -25,7 +25,7 @@
 
               </children>
       </StackPane>
-      <BorderPane fx:id="bottomUI" layoutY="399.0" prefHeight="100.0" prefWidth="750.0" style="-fx-border-color: black;">
+      <BorderPane fx:id="bottomUI" layoutY="399.0" prefHeight="100.0" prefWidth="760.0" style="-fx-border-color: black;">
          <center>
             <Label fx:id="lblPurchaseStatus" prefHeight="42.0" prefWidth="373.0" text="Click buttons above to purchase items" textFill="#071180" BorderPane.alignment="CENTER">
                <font>
@@ -34,7 +34,7 @@
             </Label>
          </center>
          <right>
-                <Button mnemonicParsing="false" onAction="#handleButtonReturntoTavern" prefHeight="75.0" prefWidth="123.0" text="Back to Tavern" translateX="-10.0" BorderPane.alignment="CENTER" />
+                <Button mnemonicParsing="false" onAction="#handleButtonReturntoTavern" prefHeight="75.0" prefWidth="123.0" text="Exit Shop" translateX="-10.0" BorderPane.alignment="CENTER" />
          </right></BorderPane>
 
     </children>
