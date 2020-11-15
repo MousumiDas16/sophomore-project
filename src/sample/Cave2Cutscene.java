@@ -101,9 +101,9 @@ public class Cave2Cutscene {
                     Line1.setText(words.get(next));
                 } else {
 
-                    FishingVillage fishingVillage = new FishingVillage();
+                    HydraIntro hydra = new HydraIntro();
                     Scene s1 = null;
-                    s1 = fishingVillage.createScene(x, hero);
+                    s1 = hydra.createScene(x, hero);
                     x.setScene(s1);
                 }
                 //need to have sprite transition when the story demands

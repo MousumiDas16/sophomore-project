@@ -97,7 +97,7 @@ public class IntroCave1 {
                     Line1.setText(words.get(next));
                 } else {
 
-                    FishingVillage fishingVillage = new FishingVillage();
+                    FishingVillage fishingVillage = new FishingVillage();//assign it to cave 1 class
                     Scene s1 = null;
                     s1 = fishingVillage.createScene(x, hero);
                     x.setScene(s1);
