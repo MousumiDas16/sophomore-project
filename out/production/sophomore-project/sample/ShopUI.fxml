@@ -8,16 +8,14 @@
     <children>
         <AnchorPane layoutX="142.0" prefHeight="400.0" prefWidth="630.0" style="-fx-border-color: black;">
             <children>
-                <Button fx:id="btnFood" layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="75.0" prefWidth="100.0" text="Food ($10)" />
-                <Button fx:id="btnMed" layoutX="150.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="75.0" prefWidth="100.0" text="Medicine ($30)" />
-                <Button fx:id="btnPotion" layoutX="20.0" layoutY="110.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="75.0" prefWidth="100.0" text="Potion ($50)" />
-                <Button fx:id="btnJewellery" layoutX="150.0" layoutY="110.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="75.0" prefWidth="100.0" text="Jewellery ($60)" />
-                <Button fx:id="btnSword" layoutX="280.0" layoutY="110.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="75.0" prefWidth="100.0" text="Sword ($20)" />
-                <Button fx:id="btnHorse" layoutX="410.0" layoutY="110.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="75.0" prefWidth="100.0" text="Horse ($100)" />
-                <Button fx:id="btnArmor" layoutX="280.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="75.0" prefWidth="100.0" text="Armor ($30)" />
-                <Button fx:id="btnCloth" layoutX="410.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="75.0" prefWidth="100.0" text="Cloth ($25)" />
-                <Button fx:id="btnMap" layoutX="521.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="75.0" prefWidth="100.0" text="Map ($50)" />
-            <Button fx:id="btnBoost" layoutX="521.0" layoutY="110.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="75.0" prefWidth="100.0" text="Boost ($25)" />
+                <Button fx:id="btnchaboost" layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="150.0" text=" Charisma boost ($450)" />
+                <Button fx:id="btnpotion" layoutX="180.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="150.0" text="Potion ($75)" />
+                <Button fx:id="spdboost" layoutX="340.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="150.0" text="Speed boost ($600)" />
+                <Button fx:id="btnArmor" layoutX="20.0" layoutY="200.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="150.0" text="Armour ($400)" />
+                <Button fx:id="btnStrength" layoutX="180.0" layoutY="200.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="150.0" text="Strength boost ($700)" />
+                <Button fx:id="donate" layoutX="340.0" layoutY="200.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="150.0" text="donate ($50)" />
+
+
             </children>
         </AnchorPane>
       <StackPane fx:id="leftUI" prefHeight="400.0" prefWidth="100.0">
@@ -34,7 +32,7 @@
             </Label>
          </center>
          <right>
-                <Button mnemonicParsing="false" onAction="#handleButtonReturntoTavern" prefHeight="75.0" prefWidth="123.0" text="Back to Tavern" translateX="-10.0" BorderPane.alignment="CENTER" />
+                <Button mnemonicParsing="false" onAction="#handleButtonReturntoTavern" prefHeight="75.0" prefWidth="123.0" text="Go back" translateX="-10.0" BorderPane.alignment="CENTER" />
          </right></BorderPane>
 
     </children>

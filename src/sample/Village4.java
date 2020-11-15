@@ -55,6 +55,7 @@ public class Village4 extends Application {
     //  */
     public Scene createScene(Stage x, Player hero) {
         System.out.println(("Current file: Village 4"));
+        hero.setScene("village4");
 
         BorderPane root = new BorderPane();
 

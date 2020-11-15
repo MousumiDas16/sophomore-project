@@ -54,6 +54,7 @@ public class Fort2 extends Application {
     //  */
     public Scene createScene(Stage x, Player hero) {
         System.out.println(("Current file: Fort 2"));
+        hero.setScene("fort2");
 
         BorderPane root = new BorderPane();
 

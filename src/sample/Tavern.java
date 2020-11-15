@@ -51,6 +51,7 @@ public class Tavern extends Application {
 
     public Scene getScene(Stage x, Player hero) {
         System.out.println(("Current file: Tavern"));
+        hero.setScene("tavern");
 
         BorderPane root = new BorderPane();
 

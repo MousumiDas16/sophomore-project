@@ -24,6 +24,11 @@ public class Player extends Entity {
     //this is for a loop in the forest dont touch pls
     private int loopcount = 0;
     private String scene;
+    private int strengthboost;
+    private int Charismaboost;
+    private int Speedboost;
+    private int Armorboost;
+
   
 
     public Player() {
@@ -225,6 +230,7 @@ public class Player extends Entity {
         Potions = pot;
 
     }
+
     public String getScene(){
         return scene;
 
@@ -267,10 +273,15 @@ public class Player extends Entity {
         Charisma+=toPurchase.getCharisma();
         this.Food+=toPurchase.getFood();
         this.Statboost+=toPurchase.getStatboost();
+        strengthboost += toPurchase.getStrengthboost();
+        Charismaboost += toPurchase.getCharismaboost();
+        Speedboost += toPurchase.getSpeedboost();
+        Armorboost += toPurchase.getArmorboost();
 
 
 
     }
+
     public void setAll(){
         Potions = 0;
         Strength = 0;

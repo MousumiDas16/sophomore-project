@@ -1,15 +1,19 @@
 package sample;
 
 public class Item {
-    private int Health=0;
-    private int Price=0;
-    private int Strength=0;
-    private int Armor=0;
-    private int Speed=0;
-    private int Charisma=0;
-    private int Potions=0;
-    private int Statboost=0;
-    private  int Food=0;
+    private int Health = 0;
+    private int Price = 0;
+    private int Strength = 0;
+    private int Armor = 0;
+    private int Speed = 0;
+    private int Charisma = 0;
+    private int Potions = 0;
+    private int Statboost = 0;
+    private int Food = 0;
+    private int strengthboost;
+    private int Charismaboost;
+    private int Speedboost;
+    private int Armorboost;
 
     public int getHealth() {
         return Health;
@@ -58,6 +62,34 @@ public class Item {
     public void setPotions(int potions) {
         Potions = potions;
     }
+    public int getStrengthboost() {
+        return strengthboost;
+    }
+    public void setCharismaboost(int s){
+        Charismaboost = s;
+
+    }
+    public int getCharismaboost() {
+        return Charismaboost;
+    }
+    public void setStrengthboost(int s){
+        strengthboost = s;
+
+    }
+    public int getSpeedboost() {
+        return Armorboost;
+    }
+    public void setSpeedboost(int s){
+        Armorboost = s;
+
+    }
+    public int getArmorboost() {
+        return Armorboost;
+    }
+    public void setArmorboost(int s){
+        Armorboost = s;
+
+    }
 
     public int getStatboost() {
         return Statboost;
@@ -76,7 +108,6 @@ public class Item {
     }
 
 
-
     public int getSpeed() {
         return Speed;
     }
@@ -86,9 +117,7 @@ public class Item {
     }
 
 
-
-
-    public  Item(int health, int price, int armor, int speed, int food, int potion, int charisma, int strength, int boost){
+    public Item(int health, int price, int armor, int speed, int food, int potion, int charisma, int strength, int boost) {
         this.setHealth(health);
         this.setPrice(price);
         this.setArmor(armor);
@@ -101,54 +130,34 @@ public class Item {
 
     }
 
-    public  static Item getItem(String itemName){
+    public static Item getItem(String itemName) {
 
-        if(itemName=="sword"){
-            return  new Item(0,20, 0,0,0,0,0, 40,0);
+        if (itemName == "chaboost") {
+            return new Item(0, 450, 0, 0, 0, 0, 5, 0, 0);
 
-        }
-        else if(itemName=="medicine"){
-            return  new Item(40,30, 0,0,0,0,0, 40,0);
+        } else if (itemName == "potion") {
+            return new Item(0, 75, 0, 0, 0, 0, 0, 0, 0);
 
-        }
-        else if(itemName=="potion"){
-            return  new Item(0,50, 0,0,0,1,0, 40,0);
+        } else if (itemName == "speedboost") {
+            return new Item(0, 600, 0, 5, 0, 0, 0, 0, 0);
 
-        }
-        else if(itemName=="jewellery"){
-            return  new Item(0,60, 0,0,0,0,100, 0,0);
+        } else if (itemName == "armor") {
+            return new Item(0, 400, 5, 0, 0, 0, 0, 0, 0);
 
-        }
-        else if(itemName=="horse"){
-            return  new Item(0,100, 0,50,0,0,0, 0,0);
+        } else if (itemName == "strength") {
+            return new Item(0, 700, 0, 0, 0, 0, 0, 5, 0);
 
-        }
-        else if(itemName=="armor"){
-            return  new Item(0,30, 30,0,0,0,0, 10,0);
+        } else if (itemName == "donate") {
+            return new Item(0, 50, 0, 0, 0, 0, 0, 0, 0);
 
-        }
-        else if(itemName=="cloth"){
-            return  new Item(0,15, 5,0,0,0,10, 0,0);
+
+
+
 
         }
-        else if(itemName=="map"){
-            return  new Item(0,50, 0,50,0,0,0, 0,0);
-
-        }
-        else if(itemName=="food"){
-            return  new Item(0,10, 0,0,20,0,0, 0,0);
-
-        }
-        else if(itemName=="boost"){
-            return  new Item(0,25, 0,0,20,0,0, 0,25);
-
-        }
-        return  null;
+        else
+        return null;
 
 
     }
-
-
-
-
 }
