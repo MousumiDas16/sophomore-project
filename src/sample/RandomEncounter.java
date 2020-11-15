@@ -35,16 +35,17 @@ public class RandomEncounter extends Application {
         int k;
 
         switch (a) {
-            case 0:
-                background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
+            case 0://FishingVillage Fight
+                background = new Image("sample/Art/Background/TEMPfishingVillage.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
+                enemy.setType("fish monster");
                 break;
             case 1:
                 background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 break;
 
-            case 2:
+            case 2://Old Ruins Fight
                 background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 break;
@@ -257,6 +258,10 @@ public class RandomEncounter extends Application {
                 } else if (hero.getScene().equalsIgnoreCase("fort1")) {
                     Fort1 firstFort=new Fort1();
                     Scene s1 = firstFort.createScene(x, hero);
+                    x.setScene(s1);
+                }else if (hero.getScene().equalsIgnoreCase("fishingvillage")) {
+                    Village2 v2 = new Village2();
+                    Scene s1 = v2.createScene(x, hero);
                     x.setScene(s1);
                 } else {
                     //for later use of other towns/paths

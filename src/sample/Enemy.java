@@ -91,6 +91,14 @@ public class Enemy {
                 Speed = 11;
                 break;
 
+            case "fish monster":
+                enemyType = "Fish Monster";
+                Health = 150;
+                Attack = rand.nextInt(50);
+                Armor = 0;
+                Speed = 11;
+                break;
+
 
 
             default:
