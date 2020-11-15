@@ -65,7 +65,7 @@ public class RandomEncounter extends Application {
                 background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 enemy.setType("wendigo");
-                enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
+                enemypic = new Image("sample/Art/Characters/Wendigo.png", 200, 100, true, true);
                 break;
             case 4://Fitst
                 if (hero.getScene().equalsIgnoreCase("firsttown")) {
@@ -275,21 +275,21 @@ public class RandomEncounter extends Application {
                     x.setScene(s1);
 
                 }else if (hero.getScene().equalsIgnoreCase("fishingvillage")) {
-                    Village2 v2 = new Village2();
+                    toVillage2 v2 = new toVillage2();
                     Scene s1 = v2.createScene(x, hero);
                     x.setScene(s1);
                 }else if (hero.getScene().equalsIgnoreCase("Cave1")) {
-                    Fort2 v2 = new Fort2();
+                    toFort2 v2 = new toFort2();
                     Scene s1 = v2.createScene(x, hero);
                     x.setScene(s1);
                 }
                 else if (hero.getScene().equalsIgnoreCase("OldRuins")){
-                    Village5 encounter = new Village5();
+                    toVillage5 encounter = new toVillage5();
                     Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
                     x.setScene(s1);
                 }
                 else if(hero.getScene().equalsIgnoreCase("AbandondedCamp")){
-                    Village4 encounter = new Village4();
+                    toVillage4 encounter = new toVillage4();
                     Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
                     x.setScene(s1);
                 }

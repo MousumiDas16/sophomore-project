@@ -69,7 +69,7 @@ public class toAbandonedCamp {
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(event ->{
             Scene s1 = null;
-            Fort2 newFort= new Fort2();//goes to abandoned camp
+            AbandondedCamp newFort= new AbandondedCamp();//goes to abandoned camp
             s1 = newFort.createScene(x, hero);
             x.setScene(s1);
 
