@@ -33,11 +33,8 @@ public class IntroCave1 {
 
     public Scene createScene(Stage x, Player hero) {
 
-<<<<<<< Updated upstream
-        System.out.println(("Current file: INTROTO CAVE 1"));
-=======
         System.out.println(("Current file: IntroCave1"));
->>>>>>> Stashed changes
+
 
         BorderPane root = new BorderPane();
 
