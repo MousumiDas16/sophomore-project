@@ -271,6 +271,13 @@ public class Player extends Entity {
 
 
     }
+    public void setAll(){
+        Potions = 0;
+        Strength = 0;
+
+
+
+    }
 
 
 }

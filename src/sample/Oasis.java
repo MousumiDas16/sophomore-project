@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Oasis extends Application {
     static int next = 0;
@@ -77,11 +78,17 @@ public class Oasis extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/tempFort1.png", AppSettings.centerUIWidth,
-                AppSettings.centerUIHeight, true, true);
+        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
-        Center_UI.getChildren().add(Center_ImageView);
+        ImageView Character = new ImageView(img2);
+        Center_UI.getChildren().addAll(Center_ImageView,Character);
+        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
         root.setCenter(Center_UI);
+        Button GoBack = new Button("Go back");
+        GoBack.setPadding(new Insets(0, 20, 0, 20));
+        Bot_UI.getChildren().add(GoBack);
+        Bot_UI.setAlignment(GoBack, Pos.CENTER_RIGHT);
 
 
         //Story for talking to guards
@@ -119,6 +126,7 @@ public class Oasis extends Application {
         Text text2 = new Text("2)Check Map");
         Text text3 = new Text("3) Converse With Lady Wisp");
         Text text4 = new Text("4) Leave Town");
+        Text text5 = new Text("");
         text_Group.getChildren().addAll(text1, text2, text3, text4);
 
 
@@ -136,9 +144,57 @@ public class Oasis extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = ShopUI.main(x, hero);
+                text_Group.setDisable(true);
+                text_Group.setVisible(false);
+                butt_Group.setDisable(true);
+                butt_Group.setVisible(false);
 
-                x.setScene(s1);
+                Random rand = new Random();
+                int random = rand.nextInt(3);
+                switch(random){
+                    case 0:
+                        text5.setText(words.get(0));
+                        break;
+
+
+
+                    case 1:
+                        text5.setText(words.get(1));
+                        break;
+                    default:
+                        System.out.println("something broke fam peep first town");
+                        break;
+                }
+                Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
+                Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
+                ImageView Center_ImageView = new ImageView(img);
+                ImageView Character = new ImageView(img2);
+                Center_UI.getChildren().addAll(Center_ImageView,Character);
+                Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
+                root.setCenter(Center_UI);
+                Button GoBack = new Button("Go back");
+                GoBack.setPadding(new Insets(0, 20, 0, 20));
+                Bot_UI.getChildren().add(GoBack);
+                Bot_UI.setAlignment(GoBack, Pos.CENTER_RIGHT);
+
+
+                GoBack.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        text5.setText("");
+                        text_Group.setDisable(false);
+                        text_Group.setVisible(true);
+                        butt_Group.setDisable(true);
+                        butt_Group.setVisible(false);
+
+                        GoBack.setVisible(false);
+                        GoBack.setDisable(true);
+                        Center_UI.getChildren().remove(Character);
+
+
+
+                    }
+                });
 
 
             }

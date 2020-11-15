@@ -76,7 +76,7 @@ public class Fort1 extends Application {
 
         Left_UI.getChildren().add(newLoadedPane);
 
-
+//tempFort1
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
@@ -181,6 +181,7 @@ public class Fort1 extends Application {
                         text_Group.setVisible(true);
                         GoBack.setVisible(false);
                         GoBack.setDisable(true);
+
 
                     }
                 });

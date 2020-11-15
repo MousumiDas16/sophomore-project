@@ -95,11 +95,17 @@ public class Fort2 extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/tempFort1.png", AppSettings.centerUIWidth,
-                AppSettings.centerUIHeight, true, true);
+        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
-        Center_UI.getChildren().add(Center_ImageView);
+        ImageView Character = new ImageView(img2);
+        Center_UI.getChildren().addAll(Center_ImageView,Character);
+        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
         root.setCenter(Center_UI);
+        Button GoBack = new Button("Go back");
+        GoBack.setPadding(new Insets(0, 20, 0, 20));
+        Bot_UI.getChildren().add(GoBack);
+        Bot_UI.setAlignment(GoBack, Pos.CENTER_RIGHT);
 
         //Player STATS ON Side Bar
 

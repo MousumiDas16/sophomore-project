@@ -45,9 +45,14 @@ public class RandomEncounter extends Application {
                         AppSettings.screenHeight, true, true);
                 break;
 
-            case 2://Old Ruins Fight
+
+
+            case 2:
+                //old ruins
+
                 background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
+                enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
                 break;
             case 3:
                 background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
@@ -259,11 +264,20 @@ public class RandomEncounter extends Application {
                     Fort1 firstFort=new Fort1();
                     Scene s1 = firstFort.createScene(x, hero);
                     x.setScene(s1);
+
                 }else if (hero.getScene().equalsIgnoreCase("fishingvillage")) {
                     Village2 v2 = new Village2();
                     Scene s1 = v2.createScene(x, hero);
                     x.setScene(s1);
-                } else {
+                }
+                else if (hero.getScene().equalsIgnoreCase("OldRuins")){
+                    Village5 encounter = new Village5();
+                    Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
+                    x.setScene(s1);
+                }
+
+                else {
+
                     //for later use of other towns/paths
                 }
 

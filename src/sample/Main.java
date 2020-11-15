@@ -26,13 +26,19 @@ public class Main extends Application {
         Main.mainStage = primaryStage;
         System.out.println(("Current file: Main"));
         hero = new Player();
+
         hero.setClass("wizard");
         //MainMenu firstMenu=new MainMenu();
         //Scene s1 = firstMenu.createScene(primaryStage,hero);
 
-        FishingVillage fv = new FishingVillage();
-        Scene s1 = fv.createScene(primaryStage , hero);
+        //FishingVillage fv = new FishingVillage();
+       // Scene s1 = fv.createScene(primaryStage , hero);
 
+
+
+        MainMenu firstMenu=new MainMenu();
+        Village2 ruin = new Village2();
+        Scene s1 = ruin.createScene(primaryStage, hero);
 
 
         primaryStage.setTitle("Excalibur's Quest");
