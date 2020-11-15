@@ -182,7 +182,6 @@ public class Fort1 extends Application {
                         GoBack.setVisible(false);
                         GoBack.setDisable(true);
 
-
                     }
                 });
 
@@ -276,7 +275,6 @@ public class Fort1 extends Application {
                                 secondgroup.setVisible(true);
                                 GoBack.setVisible(false);
                                 GoBack.setDisable(true);
-
 
 
                             }

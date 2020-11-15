@@ -27,17 +27,17 @@ public class Main extends Application {
         System.out.println(("Current file: Main"));
         hero = new Player();
         hero.setClass("wizard");
-        //MainMenu firstMenu=new MainMenu();
-        //Scene s1 = firstMenu.getScene(primaryStage,hero);
+        MainMenu firstMenu=new MainMenu();
+        Scene s1 = firstMenu.getScene(primaryStage,hero);
 
-        //FishingVillage fv = new FishingVillage();
+        //pyramid fv = new pyramid();
         //Scene s1 = fv.createScene(primaryStage , hero);
 
 
 
-        MainMenu firstMenu=new MainMenu();
-        AbandondedCamp ruin = new AbandondedCamp();
-        Scene s1 = ruin.createScene(primaryStage, hero);
+
+        //AbandondedCamp ruin = new AbandondedCamp();
+        //Scene s1 = ruin.createScene(primaryStage, hero);
 
 
 
