@@ -33,7 +33,7 @@ public class IntroSphinxBattle {
 
     public Scene createScene(Stage x, Player hero) {
 
-        System.out.println(("Current file: LeaveFirstTown"));
+        System.out.println(("Current file: IntroSphinxBattle"));
 
         BorderPane root = new BorderPane();
 
@@ -105,9 +105,9 @@ public class IntroSphinxBattle {
 
                     sphinx sphin = new sphinx();
                     Scene s1 = null;
-                    //uncomment them later
-                  //  s1 = sphin.createScene(x, hero);
-                    //x.setScene(s1);
+                    //uncomment later
+                    //s1 = sphin.createScene(x, hero);
+                    x.setScene(s1);
                 }
                 //need to have sprite transition when the story demands
 

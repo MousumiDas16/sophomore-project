@@ -95,8 +95,8 @@ public class Fort2 extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
+        Image img = new Image("sample/Art/Background/Fort_2.PNG", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/guard.png", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);
@@ -237,7 +237,7 @@ public class Fort2 extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Village4 village4=new Village4();
+                toAbandonedCamp village4=new toAbandonedCamp();
                 Scene s1 = village4.createScene(x, hero);// next town pic please
                 x.setScene(s1);
 

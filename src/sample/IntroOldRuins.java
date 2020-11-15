@@ -33,7 +33,7 @@ public class IntroOldRuins {
 
     public Scene createScene(Stage x, Player hero) {
 
-        System.out.println(("Current file: LeaveFirstTown"));
+        System.out.println(("Current file: IntroOldRuins"));
 
         BorderPane root = new BorderPane();
 
@@ -98,9 +98,9 @@ public class IntroOldRuins {
                     Line1.setText(words.get(next));
                 } else {
 
-                    FishingVillage fishingVillage = new FishingVillage();//goes to old ruins 
+                    OldRuins ruins = new OldRuins();//goes to old ruins
                     Scene s1 = null;
-                    s1 = fishingVillage.createScene(x, hero);
+                    s1 = ruins.getScene(x, hero);
                     x.setScene(s1);
                 }
                 //need to have sprite transition when the story demands
@@ -118,7 +118,7 @@ public class IntroOldRuins {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);//need abandoned camp
+        Image img = new Image("sample/Art/Background/Fort_Ruined.PNG", 650, 400, true, true);//need abandoned camp
         Image img2 = new Image("sample/Art/Characters/Goblin.gif", 200, 100, true, true);//need bandit
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);

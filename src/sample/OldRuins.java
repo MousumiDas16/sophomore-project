@@ -74,7 +74,7 @@ public class OldRuins extends Application {
         //TEXT AND BUTTON's
         Group LORGroup = new Group();
 
-        Text LOR = new Text("Head to the Left for the Fishing Village or Right towards cave 2");
+        Text LOR = new Text("Fight or give all your belongings!");
         Button Fight = new Button("Fight");
         Button items = new Button("Give all your items");
         Fight.setLayoutX(items.getLayoutY()+200);
@@ -129,7 +129,7 @@ public class OldRuins extends Application {
 
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
-        Image nxtImage = new Image("sample/Art/Background/Tavern.png", AppSettings.centerUIWidth,
+        Image nxtImage = new Image("sample/Art/Background/Fort_Ruined.PNG", AppSettings.centerUIWidth,
                 AppSettings.centerUIHeight, true, true);
         ImageView Center_ImageView = new ImageView(nxtImage);
         Center_UI.getChildren().add(Center_ImageView);

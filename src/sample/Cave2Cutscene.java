@@ -33,7 +33,7 @@ public class Cave2Cutscene {
 
     public Scene createScene(Stage x, Player hero) {
 
-        System.out.println(("Current file: LeaveFirstTown"));
+        System.out.println(("Current file: Cave2Cutscene"));
 
         BorderPane root = new BorderPane();
 
@@ -83,7 +83,7 @@ public class Cave2Cutscene {
         +"good before we try to cross the river.”");
         words.add("“The castle is home to an ancient guardian of the Sword. From the talk of the villagers we’ve\n" + "encountered it seems there is a massive moat surrounding the castle that’s home to The Hydra, \n");
         words.add("that old thing is greedy and can be bargained with, but it’s not scared to defend itself either. \n" + "When we reach it you’ll need to decide how to approach.”\n");
-        words.add("“We can’t run from it, so make sure you are ready before we face it.”");
+
 
         Text Line1 = new Text();
         //positioning text

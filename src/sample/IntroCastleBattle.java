@@ -33,7 +33,7 @@ public class IntroCastleBattle {
 
     public Scene createScene(Stage x, Player hero) {
 
-        System.out.println(("Current file: LeaveFirstTown"));
+        System.out.println(("Current file: IntroCastleBattle"));
 
         BorderPane root = new BorderPane();
 

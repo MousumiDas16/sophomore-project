@@ -33,7 +33,7 @@ public class HydraIntro {
 
     public Scene createScene(Stage x, Player hero) {
 
-        System.out.println(("Current file: LeaveFirstTown"));
+        System.out.println(("Current file: HydraIntro"));
 
         BorderPane root = new BorderPane();
 
