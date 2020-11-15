@@ -160,7 +160,7 @@ public class Oasis extends Application {
                         System.out.println("something broke fam peep first town");
                         break;
                 }
-                Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
+                Image img = new Image("sample/Art/Background/Desert_Oasis.png", 650, 400, true, true);
                 Image img2 = new Image("sample/Art/Characters/Willow_Sprite.gif", 200, 100, true, true);
                 ImageView Center_ImageView = new ImageView(img);
                 ImageView Character = new ImageView(img2);

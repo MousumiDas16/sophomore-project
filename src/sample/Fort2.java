@@ -119,7 +119,7 @@ public class Fort2 extends Application {
 
         //Story for talking to guards
         ArrayList<String> words = new ArrayList<>();
-        words.add("\"Ahead of here is the Haunted Forrest. There’s rumor\nof a bizarre creature that stalks that place.\"");
+        words.add("\"Ahead of here is the Haunted Forest. There’s rumor\nof a bizarre creature that stalks that place.\"");
         words.add("\"Be careful when you leave this fort… there’s monsters on the prowl in them woods.\"");
         words.add("\"Make sure you stock up on supplies before heading out,\nespecially after that run in with the\ntrolls in the cave.\"");
 
