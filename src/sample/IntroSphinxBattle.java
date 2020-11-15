@@ -103,10 +103,11 @@ public class IntroSphinxBattle {
                     Line1.setText(words.get(next));
                 } else {
 
-                    FishingVillage fishingVillage = new FishingVillage();
+                    sphinx sphin = new sphinx();
                     Scene s1 = null;
-                    s1 = fishingVillage.createScene(x, hero);
-                    x.setScene(s1);
+                    //uncomment them later
+                  //  s1 = sphin.createScene(x, hero);
+                    //x.setScene(s1);
                 }
                 //need to have sprite transition when the story demands
 
