@@ -373,7 +373,7 @@ public class Fort1 extends Application {
 
                     @Override
                     public void handle(ActionEvent event) {
-                        Village2 village=new Village2();
+                        IntroToFishingVillage village=new IntroToFishingVillage();
                         Scene s1 = village.createScene(x, hero); //talk to a random person pic please
                         x.setScene(s1);
 
@@ -387,7 +387,7 @@ public class Fort1 extends Application {
 
                     @Override
                     public void handle(ActionEvent event) {
-                        Fort2 myfort=new Fort2();
+                        IntroCave1 myfort=new IntroCave1();
                         Scene s1 = myfort.createScene(x, hero);// next town pic please
                         x.setScene(s1);
 

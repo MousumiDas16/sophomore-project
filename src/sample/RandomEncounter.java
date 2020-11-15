@@ -39,10 +39,13 @@ public class RandomEncounter extends Application {
                 background = new Image("sample/Art/Background/TEMPfishingVillage.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 enemy.setType("fish monster");
+                enemypic = new Image("sample/Art/Characters/Project_gifs/Arlong.gif",200,100,true,true);
                 break;
-            case 1:
-                background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
+            case 1://Cave 1
+                background = new Image("sample/Art/Background/TEMPbackgroud.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
+                enemy.setType("troll");
+                enemypic = new Image("sample/Art/Characters/TEMPtroll.png",200,100,true,true);
                 break;
 
 
@@ -58,7 +61,7 @@ public class RandomEncounter extends Application {
                 background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 break;
-            case 4:
+            case 4://Fitst
                 if (hero.getScene().equalsIgnoreCase("firsttown")) {
                     background = new Image("sample/Art/Background/Donkey_Town.png",
                             AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
@@ -267,6 +270,10 @@ public class RandomEncounter extends Application {
 
                 }else if (hero.getScene().equalsIgnoreCase("fishingvillage")) {
                     Village2 v2 = new Village2();
+                    Scene s1 = v2.createScene(x, hero);
+                    x.setScene(s1);
+                }else if (hero.getScene().equalsIgnoreCase("Cave1")) {
+                    Fort2 v2 = new Fort2();
                     Scene s1 = v2.createScene(x, hero);
                     x.setScene(s1);
                 }

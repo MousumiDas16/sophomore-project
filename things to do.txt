@@ -8,11 +8,11 @@ cave 1 battle
 other than that normal fight
 (figure out how to remove certian buttons)
 
-cave 2 resting area just like a town
-talk to wisp
-look at map
-heal 
-leave
+
+
+
+
+
 
 villages all same and same(done)
 
@@ -29,15 +29,15 @@ fight
 talk is screaming and attacks
 wendiego
 high speed monster
-intro to abandonded camp
+intro to abandonded camp(Done)
 
-intro to before castle
+intro to before castle(Done)
 before castle fight
 fighting goblin
 run away to village 3
 
 hydra castle
-intro to hydra
+intro to hydra(Done)
 
 hydra battle
 fight pay with everything

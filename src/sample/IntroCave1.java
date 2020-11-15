@@ -33,7 +33,7 @@ public class IntroCave1 {
 
     public Scene createScene(Stage x, Player hero) {
 
-        System.out.println(("Current file: LeaveFirstTown"));
+        System.out.println(("Current file: INTROTO CAVE 1"));
 
         BorderPane root = new BorderPane();
 
@@ -97,7 +97,7 @@ public class IntroCave1 {
                     Line1.setText(words.get(next));
                 } else {
 
-                    FishingVillage fishingVillage = new FishingVillage();//assign it to cave 1 class
+                    Cave1 fishingVillage = new Cave1();
                     Scene s1 = null;
                     s1 = fishingVillage.createScene(x, hero);
                     x.setScene(s1);
@@ -117,8 +117,8 @@ public class IntroCave1 {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Goblin.gif", 200, 100, true, true);
+        Image img = new Image("sample/Art/Background/TEMPbackgroud.png", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/TEMPtroll.png", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);

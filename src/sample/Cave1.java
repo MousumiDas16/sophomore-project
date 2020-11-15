@@ -21,9 +21,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 
-public class FishingVillage extends Application {
+public class Cave1 extends Application {
     static int next = 0;
     private StatsPanelController statController;
     @Override
@@ -36,8 +35,8 @@ public class FishingVillage extends Application {
     //  * @param args the command line arguments
     //  */
     public Scene createScene(Stage x, Player hero) {
-       hero.setScene("FishingVillage");
-        System.out.println(("Current file: Fishing Village"));
+       hero.setScene("Cave1");
+        System.out.println(("Current file: Cave1"));
 
         BorderPane root = new BorderPane();
 
@@ -77,8 +76,8 @@ public class FishingVillage extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Arlong.gif", 200, 100, true, true);
+        Image img = new Image("sample/Art/Background/TEMPbackgroud.png", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/TEMPtroll.png", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);
@@ -92,26 +91,12 @@ public class FishingVillage extends Application {
 
 
 
-        Group encont  = new Group();
+
         Group WhatDo = new Group();
         Group WHatDotext = new Group();
         Group WhatDobutt = new Group();
 
-        Text Intro = new Text("OI Slag, Yous not allowed to pass. Bugger off");
-        Button go = new Button("Continue");
-        go.setOnAction(new EventHandler<ActionEvent>() {
 
-                           @Override
-                           public void handle(ActionEvent event) {
-
-                               WhatDo.setVisible(true);
-                               WhatDo.setDisable(false);
-                               encont.setVisible(false);
-                               encont.setDisable(true);
-
-
-                           }
-                       });
 
         Text text1 = new Text("1) Fight Him");
         Text text2 = new Text("2) Negotiate ");
@@ -159,7 +144,7 @@ public class FishingVillage extends Application {
 
                 RandomEncounter RE = new RandomEncounter();
                 try {
-                    Scene s1 = RE.createScene(x,hero,0);
+                    Scene s1 = RE.createScene(x,hero,1);
                     x.setScene(s1);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -178,7 +163,7 @@ public class FishingVillage extends Application {
             @Override
             public void handle(ActionEvent event) {
                 if((hero.getCharisma() > 10)){
-                    Text fight = new Text("Fine we let you pass, no come back here");
+                    Text fight = new Text("Oh, ye make a good bargainses. Wes leaves");
                     Button butt = new Button("Continue");
                     butt.setPadding(new Insets(0,20,0,20));
                     Group temp = new Group();
@@ -192,7 +177,7 @@ public class FishingVillage extends Application {
                         @Override
                         public void handle(ActionEvent event) {
 
-                            Village2 RE = new Village2();
+                            Fort2 RE = new Fort2();
                             Scene s1 = RE.createScene(x,hero);
                             x.setScene(s1);
 
@@ -208,7 +193,7 @@ public class FishingVillage extends Application {
                     WhatDobutt.setDisable(true);
 
                 }else{
-                    Text fight = new Text("There be no escape for you, you DIE!");
+                    Text fight = new Text("Alls you had to do was sod off. Now yous gonna pay for wastin' my time!!");
                     Button butt = new Button("Fight");
                     butt.setPadding(new Insets(0,20,0,20));
                     Group temp = new Group();
@@ -224,7 +209,7 @@ public class FishingVillage extends Application {
 
                             RandomEncounter RE = new RandomEncounter();
                             try {
-                                Scene s1 = RE.createScene(x,hero,0);
+                                Scene s1 = RE.createScene(x,hero,1);
                                 x.setScene(s1);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
@@ -257,9 +242,9 @@ public class FishingVillage extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if ((hero.getSpeed() > 10)) {
+                if ((hero.getSpeed() > 8)) {
 
-                    Text fight = new Text("You run pass the Fish Man");
+                    Text fight = new Text("You run past the cave trolls");
                     Button butt = new Button("Continue");
                     butt.setPadding(new Insets(0,20,0,20));
                     Group temp = new Group();
@@ -273,7 +258,7 @@ public class FishingVillage extends Application {
                         @Override
                         public void handle(ActionEvent event) {
 
-                            Village2 RE = new Village2();
+                            Fort2 RE = new Fort2();
                             Scene s1 = RE.createScene(x,hero);
                             x.setScene(s1);
 
@@ -308,7 +293,7 @@ public class FishingVillage extends Application {
 
                             RandomEncounter RE = new RandomEncounter();
                             try {
-                                Scene s1 = RE.createScene(x, hero, 0);
+                                Scene s1 = RE.createScene(x, hero, 1);
                                 x.setScene(s1);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
@@ -339,10 +324,10 @@ public class FishingVillage extends Application {
 
 
 
-        encont.getChildren().addAll(Intro,go);
-        Bot_UI.getChildren().addAll(encont,WhatDo);
-        WhatDo.setVisible(false);
-        WhatDo.setDisable(true);
+
+        Bot_UI.getChildren().addAll(WhatDo);
+        //WhatDo.setVisible(false);
+        //WhatDo.setDisable(true);
 
 
         Scene S2 = new Scene(root, 750, 500);

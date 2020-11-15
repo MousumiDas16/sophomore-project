@@ -99,6 +99,14 @@ public class Enemy {
                 Speed = 11;
                 break;
 
+            case "troll":
+                enemyType = "Troll";
+                Health = 250;
+                Attack = rand.nextInt(40);
+                Armor = 0;
+                Speed = 8;
+                break;
+
 
 
             default:
