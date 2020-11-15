@@ -131,14 +131,14 @@ public class Tavern extends Application {
 
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
-        Image nxtImage = new Image("sample/Art/Background/Tavern.png", AppSettings.centerUIWidth,
-                AppSettings.centerUIHeight, true, true);
-        ImageView Center_ImageView = new ImageView(nxtImage);
-        Center_UI.getChildren().add(Center_ImageView);
+        Image img3 = new Image("sample/Art/Background/Tavern.PNG", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/Willow_Sprite_Hood.gif", 200, 100, true, true);
+        ImageView Center_ImageView = new ImageView(img3);
+        ImageView Character = new ImageView(img2);
+        Center_UI.getChildren().addAll(Center_ImageView,Character);
+        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
-
-
         return S2;
 
     }
