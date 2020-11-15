@@ -16,12 +16,12 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
 
-public class toCave1 {
+public class toOasis {
     private StatsPanelController statController;
 
     public Scene createScene(Stage x, Player hero) {
 
-        System.out.println(("Current file: toCave1"));
+        System.out.println(("Current file: toOasis"));
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -57,7 +57,7 @@ public class toCave1 {
 
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Forrest_Walking.png",
+        Image img = new Image("sample/Art/Background/Desert_Oasis.png",
                 AppSettings.centerUIWidth, AppSettings.centerUIHeight, true, true);
         Image img2;
         img2 = hero.getImage(1);
@@ -69,10 +69,8 @@ public class toCave1 {
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(event ->{
             Scene s1 = null;
-
-                IntroCave1 newForest= new IntroCave1();
-                s1 = newForest.createScene(x, hero);//change to cave 1
-
+            Oasis newFort= new Oasis();//goes to abandoned camp
+            s1 = newFort.createScene(x, hero);
             x.setScene(s1);
 
         });

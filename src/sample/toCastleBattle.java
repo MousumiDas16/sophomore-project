@@ -16,12 +16,12 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
 
-public class toCave1 {
+public class toCastleBattle {
     private StatsPanelController statController;
 
     public Scene createScene(Stage x, Player hero) {
 
-        System.out.println(("Current file: toCave1"));
+        System.out.println(("Current file: toCastleBattle"));
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -69,10 +69,8 @@ public class toCave1 {
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(event ->{
             Scene s1 = null;
-
-                IntroCave1 newForest= new IntroCave1();
-                s1 = newForest.createScene(x, hero);//change to cave 1
-
+            IntroCastleBattle newFort= new IntroCastleBattle();//goes to abandoned camp
+            s1 = newFort.createScene(x, hero);
             x.setScene(s1);
 
         });

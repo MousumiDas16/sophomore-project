@@ -251,9 +251,9 @@ public class Fort1 extends Application {
                                 System.out.println("something broke fam peep first town");
                                 break;
                         }
-                        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", AppSettings.centerUIWidth,
+                        Image img = new Image("sample/Art/Background/Fort.PNG", AppSettings.centerUIWidth,
                                 AppSettings.centerUIHeight, true, true);
-                        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
+                        Image img2 = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
                         ImageView Center_ImageView = new ImageView(img);
                         ImageView Character = new ImageView(img2);
                         Center_UI.getChildren().addAll(Center_ImageView,Character);
@@ -360,7 +360,7 @@ public class Fort1 extends Application {
 
                 Group LORGroup = new Group();
 
-                Text LOR = new Text("Head to the Left for the Fishing Village or Right towards cave 2");
+                Text LOR = new Text("Head to the Left for the Fishing Village or Right towards Cave 1");
                 Button Right = new Button("Right");
                 Button Left = new Button("Left");
                 Right.setLayoutX(Left.getLayoutY()+200);
@@ -373,7 +373,7 @@ public class Fort1 extends Application {
 
                     @Override
                     public void handle(ActionEvent event) {
-                        IntroToFishingVillage village=new IntroToFishingVillage();
+                        toFishingVillage village=new toFishingVillage();
                         Scene s1 = village.createScene(x, hero); //talk to a random person pic please
                         x.setScene(s1);
 
@@ -387,7 +387,7 @@ public class Fort1 extends Application {
 
                     @Override
                     public void handle(ActionEvent event) {
-                        IntroCave1 myfort=new IntroCave1();
+                        toCave1 myfort=new toCave1();
                         Scene s1 = myfort.createScene(x, hero);// next town pic please
                         x.setScene(s1);
 
