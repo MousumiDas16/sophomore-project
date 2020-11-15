@@ -473,7 +473,7 @@ public class RandomEncounter extends Application {
                                     Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
                                     text1.setText("1) Would you like to heal before continuing?");
                                     text2.setText("2) would you like to look at the map?");
-                                    text3.setText("3) Ready to goo back?");
+                                    text3.setText("3) Ready to continue?");
                                     text4.setText("");
 
 
@@ -505,7 +505,7 @@ public class RandomEncounter extends Application {
                                     Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
                                     text1.setText("1) Would you like to heal before continuing?");
                                     text2.setText("2) would you like to look at the map?");
-                                    text3.setText("3) Ready to go back?");
+                                    text3.setText("3) Ready to continue?");
                                     text4.setText("");
 
                                     Bot_UI.getChildren().add(secondbuttons);

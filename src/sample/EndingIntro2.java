@@ -21,9 +21,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class IntroSphinxBattle {
+public class EndingIntro2 {
     static int next = 0;
-    private StatsPanelController statController;
+    private  StatsPanelController statController;
 
     public void start(Stage primaryStage) {
 
@@ -33,11 +33,13 @@ public class IntroSphinxBattle {
 
     public Scene createScene(Stage x, Player hero) {
 
-        System.out.println(("Current file: IntroSphinxBattle"));
+        System.out.println(("Current file: EndingIntro2"));
 
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
+
+
 
 
         //BOTTOM RECTANGLE
@@ -59,7 +61,7 @@ public class IntroSphinxBattle {
         try {
             URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
             FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
-            statController = new StatsPanelController();
+            statController=new StatsPanelController();
             fxmlLoader.setController(statController);
             newLoadedPane = fxmlLoader.load();
 
@@ -76,11 +78,12 @@ public class IntroSphinxBattle {
         StackPane Root = new StackPane();
 
 
+
         //Jimmy Story
         ArrayList<String> words = new ArrayList<>();
-        words.add("The protagonist entered the pyramid. Weary of all the traveling they hoped no more conflict would come their way…");
-        
-
+        words.add("Before them sat three swords of different quality stuck into the rock.\nOne final test, huh? Thought the Protagonist");
+        words.add("Lady Wisp: \"Before you pick consider each very carefully as only one is the real Sword of the True King.\nThe others are swords of power as well but beware of them.\"");
+        words.add("\"If one were to wield them, catastrophe would be unleashed upon this land...\"");
         Text Line1 = new Text();
         //positioning text
 
@@ -93,14 +96,16 @@ public class IntroSphinxBattle {
             @Override
             public void handle(ActionEvent event) {
                 next++;
-                if (next <= words.size() - 1) {
+                if(next <= words.size() -1){
                     Line1.setText(words.get(next));
-                } else {
+                }else{
 
-                    pyramid sphinx = new pyramid();
-                    Scene s1 = null;
-                    //uncomment later
-                    s1 = sphinx.createScene(x, hero);
+
+
+
+                    WalkingInForest forest =new WalkingInForest();
+                    Scene s1 = forest.createScene(x, hero);
+
                     x.setScene(s1);
                 }
                 //need to have sprite transition when the story demands
@@ -116,10 +121,11 @@ public class IntroSphinxBattle {
         Bot_UI.setAlignment(submit, Pos.CENTER_RIGHT);
         submit.setPadding(new Insets(0, 20, 0, 20));
 
+
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);// need pyramid interior background
-        Image img2 = new Image("sample/Art/Characters/Sphinx.PNG", 200, 100, true, true);
+        Image img = new Image("sample/Art/Background/CaveTEMP.png", 650, 400, true, true);//needs to be changed to cave
+        Image img2 = new Image("sample/Art/Characters/Willow_Sprite.gif", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);
@@ -127,5 +133,8 @@ public class IntroSphinxBattle {
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
         return S2;
+
+
+
     }
 }
