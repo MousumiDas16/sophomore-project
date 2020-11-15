@@ -139,6 +139,7 @@ public class Village2 extends Application {
         Text text3 = new Text("3) Converse With Locals");
         Text text4 = new Text("4) Leave Town");
         Text text5 = new Text("");
+        Bot_UI.getChildren().add(text5);
         text_Group.getChildren().addAll(text1, text2, text3, text4);
 
 
@@ -243,7 +244,7 @@ public class Village2 extends Application {
                         secondgroup.setDisable(true);
                         secondgroup.setVisible(false);
                         Random rand = new Random();
-                        int random = rand.nextInt(3);
+                        int random = rand.nextInt(2);
                         switch(random){
                             case 0:
                                 text5.setText(words.get(0));

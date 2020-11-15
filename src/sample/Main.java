@@ -35,6 +35,12 @@ public class Main extends Application {
 
 
 
+        MainMenu firstMenu=new MainMenu();
+        AbandondedCamp ruin = new AbandondedCamp();
+        Scene s1 = ruin.createScene(primaryStage, hero);
+
+
+
         primaryStage.setTitle("Excalibur's Quest");
         primaryStage.setScene(s1);
         primaryStage.show();

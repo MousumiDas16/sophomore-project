@@ -44,8 +44,10 @@ public class RandomEncounter extends Application {
             case 1://Cave 1
                 background = new Image("sample/Art/Background/TEMPbackgroud.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
+
                 enemy.setType("troll");
                 enemypic = new Image("sample/Art/Characters/TEMPtroll.png",200,100,true,true);
+
                 break;
 
 
@@ -56,10 +58,14 @@ public class RandomEncounter extends Application {
                 background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
+                enemy.setType("bandit");
                 break;
             case 3:
+                //abandonded camp
                 background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
+                enemy.setType("wendigo");
+                enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
                 break;
             case 4://Fitst
                 if (hero.getScene().equalsIgnoreCase("firsttown")) {
@@ -282,6 +288,11 @@ public class RandomEncounter extends Application {
                     Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
                     x.setScene(s1);
                 }
+                else if(hero.getScene().equalsIgnoreCase("AbandondedCamp")){
+                    Village4 encounter = new Village4();
+                    Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
+                    x.setScene(s1);
+                }
 
                 else {
 
@@ -363,41 +374,78 @@ public class RandomEncounter extends Application {
 
                 if (hero.getSpeed() > enemy.getSpeed()) {
                     if (hero.getHealth() > 0 && enemy.getHealth() > 0) {
-                        int health = enemy.getHealth() - PlayerAttack;
-                        enemy.setHealth(health);
-                        int health2 = hero.getHealth() - enemyAttack;
-                        hero.setHealth(health2);
-                        popup1.setText("You did " + PlayerAttack + " damage.");
-                        popup2.setText("The enemy did " + enemyAttack + " damage.");
-                        statController.updateStats();
+                        if(enemyAttack > 0 && PlayerAttack > 0){
+                            popup1.setText("You did " + PlayerAttack + " damage.");
+                            int health = enemy.getHealth() - PlayerAttack;
+                            enemy.setHealth(health);
+                            if (enemy.getHealth()>0){
+                                int health2 = hero.getHealth() - enemyAttack;
+                                hero.setHealth(health2);
+                                popup2.setText("The enemy did " + enemyAttack + " damage.");
+                                statController.updateStats();
 
-                        if (enemy.getHealth() <= 0) {
-                            popup3.setText("You have killed the " + enemy.getType());
-                            int gold = hero.getMoney();
-                            int earned = rand.nextInt(200);
-                            gold = earned + gold;
-                            hero.setMoney(gold);
-                            popup4.setText("you took" + earned + " gold from the " + enemy.getType());
-                            statController.updateStats();
-
-                            Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
-                            text1.setText("1)Would you like to heal before continuing?");
-                            text2.setText("2)would you like to look at the map?");
-                            text3.setText("3)Ready to go back?");
-                            text4.setText("");
-
-
-                            Bot_UI.getChildren().add(secondbuttons);
-
-
-                        }
-                        ;
-                        if (hero.getHealth() <= 0) {
-                            Scene s3 = YouDiedIdiot.main(x, hero);
-                            x.setScene(s3);
+                            }
                         }
 
+                            else if (PlayerAttack > 0) {
+                            int health = enemy.getHealth() - PlayerAttack;
+                            popup2.setText("You did " + PlayerAttack + " damage.");
+                            enemy.setHealth(health);
 
+
+                            if (enemyAttack == 0) {
+                                popup2.setText("The " + enemy.getType() + " attempts to strike you but misses");
+                                if (enemy.getHealth() <= 0) {
+                                    popup3.setText("You have killed the " + enemy.getType());
+                                    int gold = hero.getMoney();
+                                    gold = rand.nextInt(200) + gold;
+                                    hero.setMoney(gold);
+                                    popup4.setText("you took" + gold + " from the " + enemy.getType());
+
+
+                                    Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
+                                    text1.setText("1) Would you like to heal before continuing?");
+                                    text2.setText("2) would you like to look at the map?");
+                                    text3.setText("3) Ready to go back?");
+                                    text4.setText("");
+
+                                    Bot_UI.getChildren().add(secondbuttons);
+                                }
+                            } else {
+                                popup2.setText("You attempted to hit the " + enemy.getType() + " but missed");
+                            }
+
+
+                        } else {
+                            popup1.setText("Your armour stopped " + enemy.getType() + "'s strike");
+                            if (PlayerAttack > 0) {
+                                int health = enemy.getHealth() - PlayerAttack;
+                                popup2.setText("You did " + PlayerAttack + " damage.");
+                                enemy.setHealth(health);
+                                if (enemy.getHealth() <= 0) {
+                                    popup3.setText("You have killed the " + enemy.getType());
+                                    int gold = hero.getMoney();
+                                    int earned = rand.nextInt(200);
+                                    gold = earned + gold;
+                                    hero.setMoney(gold);
+                                    popup4.setText("you took gold" + gold + " from the " + enemy.getType());
+                                    statController.updateStats();
+
+
+                                    Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
+                                    text1.setText("1) Would you like to heal before continuing?");
+                                    text2.setText("2) would you like to look at the map?");
+                                    text3.setText("3) Ready to continue??");
+                                    text4.setText("");
+
+                                    Bot_UI.getChildren().add(secondbuttons);
+
+                                }
+                            } else {
+                                popup2.setText("you attack and missed");
+                            }
+
+                        }
                     }
 
 

@@ -98,6 +98,21 @@ public class Enemy {
                 Armor = 0;
                 Speed = 11;
                 break;
+            case "bandit":
+                enemyType = "bandit";
+                Health = 100;
+                Attack = rand.nextInt(35);
+                Armor = 0;
+                Speed = 15;
+                break;
+            case "wendigo":
+                enemyType = "wendigo";
+                Health = 170;
+                Attack = rand.nextInt(55);
+                Armor = 0;
+                Speed = 100;
+                break;
+
 
             case "troll":
                 enemyType = "Troll";

@@ -46,7 +46,7 @@ public class Oasis extends Application {
 
         //BOTTOM RECTANGLE
 
-        Rectangle Bot_Rec = new Rectangle(AppSettings.screenWidth, AppSettings.screenHeight);
+        Rectangle Bot_Rec = new Rectangle(AppSettings.screenWidth, AppSettings.bottomUIHeight);
         Bot_Rec.setFill(Color.rgb(211, 211, 211));
         Bot_UI.getChildren().add(Bot_Rec);
         root.setBottom(Bot_UI);
@@ -78,17 +78,11 @@ public class Oasis extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
+        Image img = new Image("sample/Art/Background/tempFort1.png", AppSettings.centerUIWidth,
+                AppSettings.centerUIHeight, true, true);
         ImageView Center_ImageView = new ImageView(img);
-        ImageView Character = new ImageView(img2);
-        Center_UI.getChildren().addAll(Center_ImageView,Character);
-        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
+        Center_UI.getChildren().add(Center_ImageView);
         root.setCenter(Center_UI);
-        Button GoBack = new Button("Go back");
-        GoBack.setPadding(new Insets(0, 20, 0, 20));
-        Bot_UI.getChildren().add(GoBack);
-        Bot_UI.setAlignment(GoBack, Pos.CENTER_RIGHT);
 
 
         //Story for talking to guards
@@ -122,11 +116,12 @@ public class Oasis extends Application {
 
         int Text_coorY = 10;
 
-        Text text1 = new Text("1) Go to the Shop");
-        Text text2 = new Text("2)Check Map");
-        Text text3 = new Text("3) Converse With Lady Wisp");
+        Text text1 = new Text("1) Converse With Lady Wisp");
+        Text text2 = new Text("2) Check Map");
+        Text text3 = new Text("3) Go to shop");
         Text text4 = new Text("4) Leave Town");
         Text text5 = new Text("");
+        Bot_UI.getChildren().add(text5);
         text_Group.getChildren().addAll(text1, text2, text3, text4);
 
 
@@ -150,7 +145,7 @@ public class Oasis extends Application {
                 butt_Group.setVisible(false);
 
                 Random rand = new Random();
-                int random = rand.nextInt(3);
+                int random = rand.nextInt(2);
                 switch(random){
                     case 0:
                         text5.setText(words.get(0));
@@ -166,7 +161,7 @@ public class Oasis extends Application {
                         break;
                 }
                 Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
-                Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
+                Image img2 = new Image("sample/Art/Characters/Willow_Sprite.gif", 200, 100, true, true);
                 ImageView Center_ImageView = new ImageView(img);
                 ImageView Character = new ImageView(img2);
                 Center_UI.getChildren().addAll(Center_ImageView,Character);
@@ -184,8 +179,8 @@ public class Oasis extends Application {
                         text5.setText("");
                         text_Group.setDisable(false);
                         text_Group.setVisible(true);
-                        butt_Group.setDisable(true);
-                        butt_Group.setVisible(false);
+                        butt_Group.setDisable(false);
+                        butt_Group.setVisible(true);
 
                         GoBack.setVisible(false);
                         GoBack.setDisable(true);
