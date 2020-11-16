@@ -384,7 +384,7 @@ public class RandomEncounter extends Application {
                                 int earned = rand.nextInt(200);
                                 gold = earned + gold;
                                 hero.setMoney(gold);
-                                popup4.setText("you took gold " + earned + " from the " + enemy.getType());
+                                popup4.setText("you took " + earned + " gold from the " + enemy.getType());
                                 statController.updateStats();
 
 
