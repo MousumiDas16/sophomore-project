@@ -383,6 +383,10 @@ public class RandomEncounter extends Application {
                                 hero.setHealth(health2);
                                 popup2.setText("The enemy did " + enemyAttack + " damage.");
                                 statController.updateStats();
+                                if(hero.getHealth()<=0){
+                                    Scene s3 = YouDiedIdiot.main(x, hero);
+                                    x.setScene(s3);
+                                }
 
                             }
                         }
