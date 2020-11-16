@@ -78,7 +78,9 @@ public class FishingVillage extends Application {
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
         Image img = new Image("sample/Art/Background/Fishing_Village.PNG", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Arlong.gif", 200, 100, true, true);
+
+        Image img2 = new Image("sample/Art/Characters/Arlong.gif", 200, 400, true, true);
+
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);

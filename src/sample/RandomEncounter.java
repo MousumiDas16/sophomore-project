@@ -36,10 +36,10 @@ public class RandomEncounter extends Application {
 
         switch (a) {
             case 0://FishingVillage Fight
-                background = new Image("sample/Art/Background/TEMPfishingVillage.png", AppSettings.centerUIWidth,
+                background = new Image("sample/Art/Background/Fishing_Village.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 enemy.setType("fish monster");
-                enemypic = new Image("sample/Art/Characters/Project_gifs/Arlong.gif",200,100,true,true);
+                enemypic = new Image("sample/Art/Characters/Arlong.gif", 200, 400, true, true);
                 break;
             case 1://Cave 1
                 background = new Image("sample/Art/Background/TEMPbackgroud.png", AppSettings.centerUIWidth,
@@ -550,15 +550,15 @@ public class RandomEncounter extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if (hero.getCharisma() >= 10 && enemy.getHealth() > 0) {
+                if (hero.getCharisma() >= enemy.getCharisma() && enemy.getHealth() > 0) {
                     popup1.setText("You have talked your way out of a fight");
                     popup2.setText("");
                     popup3.setText("");
                     popup4.setText("");
                     Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
-                    text1.setText("Would you like to heal before traveling?");
-                    text2.setText("would you like to look at the map?");
-                    text3.setText("Would you like to continue traveling?");
+                    text1.setText("1) Would you like to heal before traveling?");
+                    text2.setText("2) would you like to look at the map?");
+                    text3.setText("3) Would you like to continue traveling?");
                     text4.setText("");
                     Bot_UI.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
                     Bot_UI.getChildren().add(secondbuttons);

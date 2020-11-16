@@ -29,8 +29,12 @@ public class Main extends Application {
         hero.setClass("wizard");
 
         MainMenu firstMenu=new MainMenu();
+
         Fort2 camp = new Fort2();
         Scene s1 = firstMenu.getScene(primaryStage, hero);
+
+
+
 
         //FishingVillage fv = new FishingVillage();
         //Scene s1 = fv.createScene(primaryStage , hero);
