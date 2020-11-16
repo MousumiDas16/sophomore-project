@@ -39,7 +39,9 @@ public class Enemy {
         return enemyType;
     }
 
-
+    public int getCharisma(){
+        return Charisma;
+    }
 
 
     public int getArmor() {
@@ -99,7 +101,7 @@ public class Enemy {
                 Attack = rand.nextInt(50);
                 Armor = 0;
                 Speed = 11;
-                Charisma = 15;
+                Charisma = 150;
                 break;
             case "bandit":
                 enemyType = "bandit";
@@ -107,7 +109,7 @@ public class Enemy {
                 Attack = rand.nextInt(35);
                 Armor = 0;
                 Speed = 15;
-                Charisma = 15;
+                Charisma = 150;
                 break;
             case "wendigo":
                 enemyType = "wendigo";
@@ -115,7 +117,7 @@ public class Enemy {
                 Attack = rand.nextInt(55);
                 Armor = 0;
                 Speed = 100;
-                Charisma = 20;
+                Charisma = 200;
                 break;
 
 
@@ -125,9 +127,16 @@ public class Enemy {
                 Attack = rand.nextInt(40);
                 Armor = 0;
                 Speed = 8;
-                Charisma = 15;
+                Charisma = 200;
                 break;
-
+            case "boss gob":
+                enemyType = "Boss Goblin";
+                Health = 250;
+                Attack = rand.nextInt(40);
+                Armor = 0;
+                Speed = 8;
+                Charisma = 200;
+                break;
 
 
             default:
