@@ -28,8 +28,8 @@ public class Main extends Application {
         hero = new Player();
 
         MainMenu firstMenu=new MainMenu();
-        AbandondedCamp camp = new AbandondedCamp();
-        Scene s1 = firstMenu.getScene(primaryStage, hero);
+        Fort2 camp = new Fort2();
+        Scene s1 = camp.createScene(primaryStage, hero);
 
         //FishingVillage fv = new FishingVillage();
         //Scene s1 = fv.createScene(primaryStage , hero);
