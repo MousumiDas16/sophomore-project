@@ -106,10 +106,11 @@ public class RandomEncounter extends Application {
                         break;
                 }
 
-                break;
+
             case 5:
                 if (hero.getScene().equalsIgnoreCase("forest")) {
                     background = new Image("sample/Art/Background/Forrest.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
+                    break;
 
                 }
 
@@ -143,9 +144,15 @@ public class RandomEncounter extends Application {
                         x.setScene(s1);
                         break;
                 }
-
-
+            case 6:
+                background = new Image("sample/Art/Background/Fishing_Village.png", AppSettings.centerUIWidth,
+                        AppSettings.screenHeight, true, true);
+                enemy.setType("boss gob");
+                enemypic = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 400, true, true);
                 break;
+
+
+
             default:
                 background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
                 break;
@@ -384,7 +391,7 @@ public class RandomEncounter extends Application {
                                 int earned = rand.nextInt(200);
                                 gold = earned + gold;
                                 hero.setMoney(gold);
-                                popup4.setText("you took gold " + earned + " from the " + enemy.getType());
+                                popup4.setText("you took " + earned + " gold from the " + enemy.getType());
                                 statController.updateStats();
 
 
