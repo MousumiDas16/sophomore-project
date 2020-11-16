@@ -81,7 +81,7 @@ public class ShopUI extends Application implements Initializable {
             toPurchase=Item.getItem("potion");
         }
         else if(event.getSource().equals(spdboost)){
-            if(speedboost!=0){
+            if(speedboost!=1){
                 toPurchase=Item.getItem("speedboost");
                 speedboost++;
 
@@ -92,8 +92,9 @@ public class ShopUI extends Application implements Initializable {
 
         }
         else if(event.getSource().equals(btnArmor)){
-            if (armorboost != 0){
+            if (armorboost != 1){
                 toPurchase=Item.getItem("armor");
+                armorboost++;
 
             }
             else
@@ -104,7 +105,7 @@ public class ShopUI extends Application implements Initializable {
             toPurchase=Item.getItem("donate");
         }
         else if(event.getSource().equals(btnStrength)){
-            if(strengthboost != 0){
+            if(strengthboost != 1){
                 toPurchase=Item.getItem("strength");
                 strengthboost++;
 
