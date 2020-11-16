@@ -26,10 +26,15 @@ public class Main extends Application {
         Main.mainStage = primaryStage;
         System.out.println(("Current file: Main"));
         hero = new Player();
+        hero.setClass("wizard");
 
         MainMenu firstMenu=new MainMenu();
-        AbandondedCamp camp = new AbandondedCamp();
+
+        Fort2 camp = new Fort2();
         Scene s1 = firstMenu.getScene(primaryStage, hero);
+
+
+
 
         //FishingVillage fv = new FishingVillage();
         //Scene s1 = fv.createScene(primaryStage , hero);
@@ -40,7 +45,7 @@ public class Main extends Application {
 
 
 
-        primaryStage.setTitle("Excalibur's Quest");
+        primaryStage.setTitle("Swords of Origin");
         primaryStage.setScene(s1);
         primaryStage.show();
 
