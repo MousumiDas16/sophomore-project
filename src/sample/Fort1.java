@@ -230,7 +230,7 @@ public class Fort1 extends Application {
                         secondgroup.setDisable(true);
                         secondgroup.setVisible(false);
                         Random rand = new Random();
-                        int random = rand.nextInt(3);
+                        int random = rand.nextInt(2);
                         switch(random){
                             case 0:
                                 text5.setText(words.get(0));
@@ -242,9 +242,7 @@ public class Fort1 extends Application {
                                 text5.setText(words.get(1));
                                 break;
 
-                            case 2:
-                                text5.setText(words.get(2));
-                                break;
+
                             default:
                                 System.out.println("something broke fam peep first town");
                                 break;
