@@ -19,10 +19,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
 public class ShopUI extends Application implements Initializable {
    // private static Player hero;
     private  Stage x;
-
+    static int armorboost= 0;
+    static int speedboost= 0;
+    static int chraismaboost = 0;
+    static int strengthboost= 0;
 
     @FXML
     private StackPane leftUI;
@@ -31,12 +35,13 @@ public class ShopUI extends Application implements Initializable {
     StatsPanelController sController;
 
     @FXML
-    Button btnFood,btnMed, btnPotion, btnJewellery,  btnSword,btnHorse, btnArmor, btnCloth, btnMap,btnBoost;
+    Button btnchaboost,btnpotion, spdboost, btnArmor,  btnStrength,donate;
 
     //Text purchaseStatus = new Text("1) Go to the Shop");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
 
         Pane newLoadedPane = null;
         try {
@@ -58,39 +63,58 @@ public class ShopUI extends Application implements Initializable {
         System.out.println("Init tavern");
     }
 
+
     @FXML
     private void handPurchaseItem(ActionEvent event) {
         Item toPurchase=null;
-        if(event.getSource().equals(btnFood)){
-            toPurchase=Item.getItem("food");
+        if(event.getSource().equals(btnchaboost)){
+            if (chraismaboost==0){
+                toPurchase=Item.getItem("chaboost");
+                ++chraismaboost;
+
+            }
+            else
+                lblPurchaseStatus.setText("You already bought this.");
+
         }
-        else if(event.getSource().equals(btnMed)){
-            toPurchase=Item.getItem("medicine");
-        }
-        else if(event.getSource().equals(btnPotion)){
+        else if(event.getSource().equals(btnpotion)){
             toPurchase=Item.getItem("potion");
         }
+        else if(event.getSource().equals(spdboost)){
+            if(speedboost!=1){
+                toPurchase=Item.getItem("speedboost");
+                speedboost++;
+
+            }
+            else
+                lblPurchaseStatus.setText("You already bought this.");
+
+
+        }
         else if(event.getSource().equals(btnArmor)){
-            toPurchase=Item.getItem("armor");
+            if (armorboost != 1){
+                toPurchase=Item.getItem("armor");
+                armorboost++;
+
+            }
+            else
+                lblPurchaseStatus.setText("You already bought this.");
+
         }
-        else if(event.getSource().equals(btnJewellery)){
-            toPurchase=Item.getItem("jewellery");
+        else if(event.getSource().equals(donate)){
+            toPurchase=Item.getItem("donate");
         }
-        else if(event.getSource().equals(btnSword)){
-            toPurchase=Item.getItem("sword");
+        else if(event.getSource().equals(btnStrength)){
+            if(strengthboost != 1){
+                toPurchase=Item.getItem("strength");
+                strengthboost++;
+
+            }
+            else
+                lblPurchaseStatus.setText("You already bought this.");
+
         }
-        else if(event.getSource().equals(btnHorse)){
-            toPurchase=Item.getItem("horse");
-        }
-        else if(event.getSource().equals(btnCloth)){
-            toPurchase=Item.getItem("cloth");
-        }
-        else if(event.getSource().equals(btnMap)){
-            toPurchase=Item.getItem("map");
-        }
-        else if(event.getSource().equals(btnBoost)){
-            toPurchase=Item.getItem("boost");
-        }
+
         if (toPurchase==null)
             return;
         int itemPrice=toPurchase.getPrice();
@@ -108,9 +132,50 @@ public class ShopUI extends Application implements Initializable {
 
     }
     public void handleButtonReturntoTavern(ActionEvent event){
-        FirstTown tavern= new FirstTown();
-        Scene s1 = tavern.createScene(Main.mainStage  ,Main.hero);// next town pic please
-        Main.mainStage.setScene(s1);
+        if(Main.hero.getScene().equalsIgnoreCase("tavern")){
+            FirstTown tavern= new FirstTown();
+            Scene s1 = tavern.createScene(Main.mainStage  ,Main.hero);// next town pic please
+            Main.mainStage.setScene(s1);
+
+        }
+        else if (Main.hero.getScene().equalsIgnoreCase("fort1")){
+            Fort1 fort= new Fort1();
+            Scene s1 = fort.createScene(Main.mainStage  ,Main.hero);// next town pic please
+            Main.mainStage.setScene(s1);
+        }
+        else if (Main.hero.getScene().equalsIgnoreCase("fort2")){
+            Fort2 fort= new Fort2();
+            Scene s1 = fort.createScene(Main.mainStage  ,Main.hero);// next town pic please
+            Main.mainStage.setScene(s1);
+        }
+        else if (Main.hero.getScene().equalsIgnoreCase("firsttown")){
+            FirstTown town= new FirstTown();
+            Scene s1 = town.createScene(Main.mainStage  ,Main.hero);// next town pic please
+            Main.mainStage.setScene(s1);
+        }
+        else if (Main.hero.getScene().equalsIgnoreCase("village2")){
+            Village2 town= new Village2();
+            Scene s1 = town.createScene(Main.mainStage  ,Main.hero);// next town pic please
+            Main.mainStage.setScene(s1);
+        }
+        else if (Main.hero.getScene().equalsIgnoreCase("village3")){
+            Village3 town= new Village3();
+            Scene s1 = town.createScene(Main.mainStage  ,Main.hero);// next town pic please
+            Main.mainStage.setScene(s1);
+        }
+        else if (Main.hero.getScene().equalsIgnoreCase("village4")){
+            Village4 town= new Village4();
+            Scene s1 = town.createScene(Main.mainStage  ,Main.hero);// next town pic please
+            Main.mainStage.setScene(s1);
+        }
+        else if (Main.hero.getScene().equalsIgnoreCase("village5")){
+            Village5 town= new Village5();
+            Scene s1 = town.createScene(Main.mainStage  ,Main.hero);// next town pic please
+            Main.mainStage.setScene(s1);
+        }
+
+
+
 
     }
 

@@ -70,7 +70,7 @@ public class toHydra {
         pause.setOnFinished(event ->{
             Scene s1 = null;
 
-            Cave2Cutscene cave = new Cave2Cutscene();
+            HydraIntro cave = new HydraIntro();
             s1 = cave.createScene(x, hero);//change to Hydra battle
 
             x.setScene(s1);

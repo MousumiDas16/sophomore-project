@@ -38,7 +38,7 @@ public class Village3 extends Application {
     //  */
     public Scene createScene(Stage x, Player hero) {
         System.out.println(("Current file: Village 3"));
-
+        hero.setScene("village3");
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();

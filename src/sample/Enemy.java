@@ -8,7 +8,7 @@ public class Enemy {
     private int Attack;
     private int Armor;
     private int Speed;
-
+    private int Charisma;
     private String enemyType;
 
     public int getHealth() {
@@ -39,7 +39,9 @@ public class Enemy {
         return enemyType;
     }
 
-
+    public int getCharisma(){
+        return Charisma;
+    }
 
 
     public int getArmor() {
@@ -59,6 +61,7 @@ public class Enemy {
                 Attack = rand.nextInt(20);
                 Armor = 0;
                 Speed = 16;
+                Charisma = 8;
 
                 //   Pictures.add(0,(new Image("sample/Art/Characters/Profile/Wizard_profile (2).png"))); //add goblin pic
 
@@ -69,7 +72,7 @@ public class Enemy {
                 Attack = rand.nextInt(35);
                 Armor = 0;
                 Speed = 8;
-
+                Charisma = 8;
                 //   Pictures.add(0,(new Image("sample/Art/Characters/Profile/Wizard_profile (2).png"))); //add goblin pic
 
                 break;
@@ -79,7 +82,7 @@ public class Enemy {
                 Attack = rand.nextInt(40);
                 Armor = 0;
                 Speed = 11;
-
+                Charisma = 15;
                 //   Pictures.add(0,(new Image("sample/Art/Characters/Profile/Wizard_profile (2).png"))); //add goblin pic
 
                 break;
@@ -89,6 +92,7 @@ public class Enemy {
                 Attack = rand.nextInt(28);
                 Armor = 0;
                 Speed = 11;
+                Charisma = 5;
                 break;
 
             case "fish monster":
@@ -97,6 +101,7 @@ public class Enemy {
                 Attack = rand.nextInt(50);
                 Armor = 0;
                 Speed = 11;
+                Charisma = 150;
                 break;
             case "bandit":
                 enemyType = "bandit";
@@ -104,6 +109,7 @@ public class Enemy {
                 Attack = rand.nextInt(35);
                 Armor = 0;
                 Speed = 15;
+                Charisma = 150;
                 break;
             case "wendigo":
                 enemyType = "wendigo";
@@ -111,6 +117,7 @@ public class Enemy {
                 Attack = rand.nextInt(55);
                 Armor = 0;
                 Speed = 100;
+                Charisma = 200;
                 break;
 
 
@@ -120,8 +127,16 @@ public class Enemy {
                 Attack = rand.nextInt(40);
                 Armor = 0;
                 Speed = 8;
+                Charisma = 200;
                 break;
-
+            case "boss gob":
+                enemyType = "Boss Goblin";
+                Health = 250;
+                Attack = rand.nextInt(40);
+                Armor = 0;
+                Speed = 8;
+                Charisma = 200;
+                break;
 
 
             default:

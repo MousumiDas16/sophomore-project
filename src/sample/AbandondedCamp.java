@@ -91,7 +91,7 @@ public class AbandondedCamp extends Application {
                 Fight.setVisible(false);
                 items.setDisable(true);
                 items.setVisible(false);
-                text2.setText("The windego screams ARGAGAFGERGA");
+                text2.setText("The Wendigo screams ARGAGAFGERGA");
                 Bot_UI.getChildren().add(text2);
                 Button goback = new Button();
                 Bot_UI.getChildren().add(goback);

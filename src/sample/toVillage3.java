@@ -22,6 +22,7 @@ public class toVillage3 {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: toVillage3"));
+
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();

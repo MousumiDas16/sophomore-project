@@ -79,13 +79,7 @@ public class IntroSphinxBattle {
         //Jimmy Story
         ArrayList<String> words = new ArrayList<>();
         words.add("The protagonist entered the pyramid. Weary of all the traveling they hoped no more conflict would come their way…");
-        words.add("Sphinx: “WHO GOES THERE…There…there…there?”\n" + "A loud echoing voice booms of the walls. The sound was coming from deeper inside.");
-        words.add("Sphinx: “Welcome unexpected visitor… I am known as the Sphinx! I had a name other than that\n" +
-                "long ago but, in my solitude, I have since forgotten it. My head only swarms with riddles and\n" +
-                "mysteries now. I have no need for names, so do not bother me with yours.");
-        words.add("Lady Wisp: “Great beast can you not see? This is the true Monarch returned again.”\n");
-        words.add("Sphinx: “Silence creature. I do not care about the bloodline anymore… I live only for games. I\n" + "now know why you dared to come here but know I will not let you pass…\"");
-        words.add("\"unless you answer my riddles correctly. If you do not, I will be done with you and dispose of you as is my purpose.\"");
+        
 
         Text Line1 = new Text();
         //positioning text
@@ -103,10 +97,10 @@ public class IntroSphinxBattle {
                     Line1.setText(words.get(next));
                 } else {
 
-                    sphinx sphin = new sphinx();
+                    pyramid sphinx = new pyramid();
                     Scene s1 = null;
                     //uncomment later
-                    //s1 = sphin.createScene(x, hero);
+                    s1 = sphinx.createScene(x, hero);
                     x.setScene(s1);
                 }
                 //need to have sprite transition when the story demands

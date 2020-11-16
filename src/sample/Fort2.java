@@ -54,6 +54,7 @@ public class Fort2 extends Application {
     //  */
     public Scene createScene(Stage x, Player hero) {
         System.out.println(("Current file: Fort 2"));
+        hero.setScene("fort2");
 
         BorderPane root = new BorderPane();
 
@@ -102,10 +103,10 @@ public class Fort2 extends Application {
         Center_UI.getChildren().addAll(Center_ImageView,Character);
         Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
         root.setCenter(Center_UI);
-        Button GoBack = new Button("Go back");
-        GoBack.setPadding(new Insets(0, 20, 0, 20));
-        Bot_UI.getChildren().add(GoBack);
-        Bot_UI.setAlignment(GoBack, Pos.CENTER_RIGHT);
+        //Button GoBack = new Button("Go back");
+        //GoBack.setPadding(new Insets(0, 20, 0, 20));
+        //Bot_UI.getChildren().add(GoBack);
+        //Bot_UI.setAlignment(GoBack, Pos.CENTER_RIGHT);
 
         //Player STATS ON Side Bar
 
@@ -119,7 +120,7 @@ public class Fort2 extends Application {
 
         //Story for talking to guards
         ArrayList<String> words = new ArrayList<>();
-        words.add("\"Ahead of here is the Haunted Forrest. There’s rumor\nof a bizarre creature that stalks that place.\"");
+        words.add("\"Ahead of here is the Haunted Forest. There’s rumor\nof a bizarre creature that stalks that place.\"");
         words.add("\"Be careful when you leave this fort… there’s monsters on the prowl in them woods.\"");
         words.add("\"Make sure you stock up on supplies before heading out,\nespecially after that run in with the\ntrolls in the cave.\"");
 
@@ -266,7 +267,7 @@ public class Fort2 extends Application {
         b4.setLayoutY(Text_coorY + 60);
 
 
-        Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.leftUIHeight);
+        Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
         return S2;
     }
 }

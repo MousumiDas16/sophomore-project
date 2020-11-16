@@ -51,6 +51,7 @@ public class Tavern extends Application {
 
     public Scene getScene(Stage x, Player hero) {
         System.out.println(("Current file: Tavern"));
+        hero.setScene("tavern");
 
         BorderPane root = new BorderPane();
 
@@ -132,7 +133,7 @@ public class Tavern extends Application {
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
         Image img3 = new Image("sample/Art/Background/Tavern.PNG", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Willow_Sprite_Hood.gif", 200, 100, true, true);
+        Image img2 = new Image("sample/Art/Characters/Willow_Sprite_Hood_Still.PNG", 200, 150, true, true);
         ImageView Center_ImageView = new ImageView(img3);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);

@@ -84,7 +84,7 @@ public class LeaveFirstTown {
         ArrayList<String> words = new ArrayList<>();
         words.add("Our brave hero is spotted by the hooded woman the next morning as they setting out.");
         words.add("?: \"Wait, You!! Are you venturing to Dragon’s Claw? Really…\"");
-        words.add("The woman's robes fall away revealing a tiny ball of spirit beneath.");
+        //words.add("The woman's robes fall away revealing a tiny ball of spirit beneath.");
         words.add("Lady Wisp: \"I am the Lady Wisp, the remaining soul of the Sage who once guided\"");
         words.add("\"the first King.I thought you had the makings of Monarch returned\"");
         words.add("\"and shared my tale in hopes of this very thing.\"");
