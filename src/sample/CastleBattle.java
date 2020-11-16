@@ -22,12 +22,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 
-public class AbandondedCamp extends Application {
+public class CastleBattle extends Application {
 
     public Scene createScene(Stage x, Player hero) {
+        hero.setScene("castlebattle");
+        System.out.println(("Current file: CastleBattle"));
 
-        System.out.println(("Current file: Abandoned Camp"));
-        hero.setScene("AbandondedCamp");
         StackPane Center_UI = new StackPane();
 
         BorderPane root = new BorderPane();
@@ -75,7 +75,7 @@ public class AbandondedCamp extends Application {
         Text LOR = new Text("Fight or negotiate");
         Text text2 = new Text("");
         Button Fight = new Button("Fight");
-        Button items = new Button("Negotiate");
+        Button items = new Button("Run Away");
         Fight.setLayoutX(items.getLayoutY()+200);
         items.setLayoutY(LOR.getY()+10);
         Fight.setLayoutY(items.getLayoutY());
@@ -86,41 +86,10 @@ public class AbandondedCamp extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                LOR.setVisible(false);
-                Fight.setDisable(true);
-                Fight.setVisible(false);
-                items.setDisable(true);
-                items.setVisible(false);
-                text2.setText("The Wendigo screams ARGAGAFGERGA");
-                Bot_UI.getChildren().add(text2);
-                Button goback = new Button();
-                Bot_UI.getChildren().add(goback);
-                goback.setText("Go back");
-                goback.setPadding(new Insets(0, 20, 0, 20));
-                Bot_UI.setAlignment(goback, Pos.BOTTOM_RIGHT);
-                goback.setOnAction(new EventHandler<ActionEvent>() {
-
-                    @Override
-                    public void handle(ActionEvent event) {
-                        LOR.setVisible(true);
-                        Fight.setDisable(false);
-                        Fight.setVisible(true);
-                        items.setDisable(false);
-                        items.setVisible(true);
-                        LOR.setVisible(true);
-                        Bot_UI.getChildren().remove(text2);
-                        goback.setVisible(false);
-                        goback.setDisable(true);
-                        Bot_UI.getChildren().remove(goback);
-
-
-                    }
-                });
-
-
-
-
-
+                Village2 village2 = new Village2();
+                Scene s1 = null;
+                s1 = village2.createScene(x, hero);
+                x.setScene(s1);
             }
 
 
@@ -133,7 +102,7 @@ public class AbandondedCamp extends Application {
                 RandomEncounter encounter = new RandomEncounter();
                 Scene s1 = null; //talk to a random person pic please
                 try {
-                    s1 = encounter.createScene(x, hero,3);
+                    s1 = encounter.createScene(x, hero,6);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

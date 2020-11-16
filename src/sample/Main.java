@@ -30,8 +30,9 @@ public class Main extends Application {
 
         MainMenu firstMenu=new MainMenu();
 
-        Fort2 camp = new Fort2();
+        CastleBattle camp = new CastleBattle();
         Scene s1 = firstMenu.getScene(primaryStage, hero);
+
 
 
 
