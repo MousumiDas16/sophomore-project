@@ -100,8 +100,8 @@ public class Fort2 extends Application {
         Image img2 = new Image("sample/Art/Characters/guard.png", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
-        Center_UI.getChildren().addAll(Center_ImageView);
-
+        Center_UI.getChildren().addAll(Center_ImageView,Character);
+        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
         root.setCenter(Center_UI);
         Button GoBack = new Button("Go back");
         GoBack.setPadding(new Insets(0, 20, 0, 20));
