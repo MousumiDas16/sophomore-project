@@ -192,12 +192,11 @@ public class Fort1 extends Application {
 
         Button b3 = new Button();
         b3.setText("3");
-
         b3.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
-                text1.setText("1) Interact with town.");
+                text1.setText("1) Talk To Towns person.");
                 text2.setText("2) Go looking for trouble");
                 text3.setText("3) return to town");
                 text4.setVisible(false);
@@ -250,12 +249,12 @@ public class Fort1 extends Application {
                                 System.out.println("something broke fam peep first town");
                                 break;
                         }
-                        Image img = new Image("sample/Art/Background/Fort.PNG", AppSettings.centerUIWidth,
-                                AppSettings.centerUIHeight, true, true);
-                        Image img2 = new Image("sample/Art/Characters/Guard#2.png", 200, 100, true, true);
+                        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
+                        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
                         ImageView Center_ImageView = new ImageView(img);
                         ImageView Character = new ImageView(img2);
                         Center_UI.getChildren().addAll(Center_ImageView,Character);
+                        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
                         root.setCenter(Center_UI);
                         Button GoBack = new Button("Go back");
                         GoBack.setPadding(new Insets(0, 20, 0, 20));
@@ -275,6 +274,8 @@ public class Fort1 extends Application {
                                 secondgroup.setVisible(true);
                                 GoBack.setVisible(false);
                                 GoBack.setDisable(true);
+                                Center_UI.getChildren().remove(Character);
+
 
 
                             }
@@ -324,6 +325,7 @@ public class Fort1 extends Application {
                         butt_Group.setDisable(false);
                         butt_Group.setVisible(true);
 
+
                         text1.setText("1) Go to the Shop");
                         text2.setText("2) Check Map");
                         text3.setText("3) Interact with town.");
@@ -340,7 +342,6 @@ public class Fort1 extends Application {
 
 
             }
-
 
         });
         //leave town
