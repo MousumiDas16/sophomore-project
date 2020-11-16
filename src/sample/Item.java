@@ -136,7 +136,7 @@ public class Item {
             return new Item(0, 450, 0, 0, 0, 0, 5, 0, 0);
 
         } else if (itemName == "potion") {
-            return new Item(0, 75, 0, 0, 0, 0, 0, 0, 0);
+            return new Item(0, 75, 0, 0, 0, 1, 0, 0, 0);
 
         } else if (itemName == "speedboost") {
             return new Item(0, 600, 0, 5, 0, 0, 0, 0, 0);

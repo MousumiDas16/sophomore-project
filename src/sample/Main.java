@@ -26,6 +26,7 @@ public class Main extends Application {
         Main.mainStage = primaryStage;
         System.out.println(("Current file: Main"));
         hero = new Player();
+        hero.setClass("wizard");
 
         MainMenu firstMenu=new MainMenu();
         Fort2 camp = new Fort2();
