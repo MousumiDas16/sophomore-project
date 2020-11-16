@@ -100,7 +100,7 @@ public class Enemy {
                 Health = 150;
                 Attack = rand.nextInt(50);
                 Armor = 0;
-                Speed = 11;
+                Speed = 101;
                 Charisma = 150;
                 break;
             case "bandit":
