@@ -98,7 +98,7 @@ public class RandomEncounter extends Application {
 
                     case 2:
                         enemy.setType("bloodpuddle");
-                        enemypic = new Image("sample/Art/Characters/BloodMimic.gif", 200, 100, true, true);
+                        enemypic = new Image("sample/Art/Characters/BloodMimic2.gif", 200, 100, true, true);
                         break;
 
                     default:
