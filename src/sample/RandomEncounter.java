@@ -84,7 +84,7 @@ public class RandomEncounter extends Application {
                 switch (k) {
                     case 0:
                         enemy.setType("goblin");
-                        enemypic = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 100, true, true);
+                        enemypic = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 150, true, true);
 
                         System.out.println("enemy goblin");
                         break;
@@ -92,13 +92,13 @@ public class RandomEncounter extends Application {
 
                     case 1:
                         enemy.setType("kobold");
-                        enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
+                        enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 200, true, true);
                         System.out.println("enemy kobold");
                         break;
 
                     case 2:
                         enemy.setType("bloodpuddle");
-                        enemypic = new Image("sample/Art/Characters/BloodMimic2.gif", 200, 100, true, true);
+                        enemypic = new Image("sample/Art/Characters/BloodMimic2.gif", 200, 300, true, true);
                         break;
 
                     default:
@@ -757,7 +757,7 @@ public class RandomEncounter extends Application {
             @Override
             public void handle(ActionEvent event) {
 
-                Image img1 = new Image("sample/Art/Background/Death_Screen.png", 650, 400, true, true);
+                Image img1 = new Image("sample/Art/Background/TempMap.png", 650, 400, true, true);
                 ImageView Center_ImageView1 = new ImageView(img1);
                 Center_UI.getChildren().removeAll((Center_ImageView));
                 Center_UI.getChildren().add(Center_ImageView1);
