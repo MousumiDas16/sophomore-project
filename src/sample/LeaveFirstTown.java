@@ -130,7 +130,7 @@ public class LeaveFirstTown {
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
         Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Willow_Sprite.gif", 200, 100, true, true);
+        Image img2 = new Image("sample/Art/Characters/Willow_Sprite.gif", 200, 150, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);

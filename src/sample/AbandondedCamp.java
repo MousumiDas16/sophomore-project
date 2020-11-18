@@ -25,7 +25,7 @@ import java.net.URL;
 public class AbandondedCamp extends Application {
 
     public Scene createScene(Stage x, Player hero) {
-        hero.setScene("OldRuins");
+
         System.out.println(("Current file: Abandoned Camp"));
         hero.setScene("AbandondedCamp");
         StackPane Center_UI = new StackPane();
