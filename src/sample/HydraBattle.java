@@ -83,7 +83,7 @@ public class HydraBattle {
             public void handle(ActionEvent event) {
                 hero.setAll();
                 EndingIntro encounter = new EndingIntro();
-                Scene s1 = encounter.main(x, hero); //talk to a random person pic please
+                Scene s1 = encounter.getScene(x, hero); //talk to a random person pic please
                 x.setScene(s1);
 
 

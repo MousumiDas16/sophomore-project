@@ -318,7 +318,7 @@ public class RandomEncounter extends Application {
                 }
                 else if(hero.getScene().equalsIgnoreCase("HydraBattle")){
                     EndingIntro encounter = new EndingIntro();
-                    Scene s1 = encounter.main(x, hero); //talk to a random person pic please
+                    Scene s1 = encounter.getScene(x, hero); //talk to a random person pic please
                     x.setScene(s1);
                 }
                 //Travel mechanics
