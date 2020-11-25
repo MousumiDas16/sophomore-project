@@ -313,6 +313,22 @@ public class RandomEncounter extends Application {
                     Scene s1 = encounter.main(x, hero); //talk to a random person pic please
                     x.setScene(s1);
                 }
+                //Travel mechanics
+                else if (hero.getScene().equalsIgnoreCase("toFishingVillage")) {
+                    toFishingVillage mytown = new toFishingVillage();
+                    Scene s1 = mytown.createScene(x, hero);// next town pic please
+                    x.setScene(s1);
+                }
+                else if (hero.getScene().equalsIgnoreCase("toVillage2")) {
+                    toVillage2 mytown=new toVillage2();
+                    Scene s1 = mytown.createScene(x, hero);// next town pic please
+                    x.setScene(s1);
+                }
+                else if (hero.getScene().equalsIgnoreCase("firsttown")) {
+                    FirstTown mytown=new FirstTown();
+                    Scene s1 = mytown.createScene(x, hero);// next town pic please
+                    x.setScene(s1);
+                }
                 else {
 
                     //for later use of other towns/paths
