@@ -81,9 +81,11 @@ public class EndingIntro2 {
 
         //Jimmy Story
         ArrayList<String> words = new ArrayList<>();
-        words.add("Before them sat three swords of different quality stuck into the rock.\nOne final test, huh? Thought the Protagonist");
-        words.add("Lady Wisp: \"Before you pick consider each very carefully as only one is the real Sword of the True King.\nThe others are swords of power as well but beware of them.\"");
-        words.add("\"If one were to wield them, catastrophe would be unleashed upon this land...\"");
+        words.add("The climb to the top was long and arduous.\nHowever, The Protagonist endured and reached the top of Dragon’s Claw.");
+        words.add("Before them sat three swords of different quality stuck into the rock.\n" +
+                "One final test, huh? Thought the Protagonist\n");
+        words.add("Lady Wisp: “Before you pick, consider each very\ncarefully as only one is the real Sword of the True King.\nThe others are swords of power as well but\nbeware of them. If one were to wield them,\ncatastrophe would be unleashed upon\nthis land.”");
+
         Text Line1 = new Text();
         //positioning text
 
