@@ -89,9 +89,9 @@ public class EndingChoice extends Application {
 
         int Text_coorY = 10;
         //jimmy change these words go go go!
-        Text text1 = new Text("1) Go to the Shop");
-        Text text2 = new Text("2)Check Map");
-        Text text3 = new Text("3) Converse With Locals");
+        Text text1 = new Text("1) A shining sword, with gold hilt and pommel");
+        Text text2 = new Text("2) A vibrant red sword, with a curved blade");
+        Text text3 = new Text("3) A dull gray sword with standard iron hilt ");
 
 
         text_Group.getChildren().addAll(text1, text2, text3);
