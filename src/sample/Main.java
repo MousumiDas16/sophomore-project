@@ -26,12 +26,12 @@ public class Main extends Application {
         Main.mainStage = primaryStage;
         System.out.println(("Current file: Main"));
         hero = new Player();
-
+        hero.setClass("mercenary");
 
         MainMenu firstMenu=new MainMenu();
-
+        HydraIntro hy = new HydraIntro();
         CastleBattle camp = new CastleBattle();
-        Scene s1 = firstMenu.getScene(primaryStage, hero);
+        Scene s1 = hy.createScene(primaryStage, hero);
 
 
 

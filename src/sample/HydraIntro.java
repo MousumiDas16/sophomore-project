@@ -32,7 +32,7 @@ public class HydraIntro {
 
 
     public Scene createScene(Stage x, Player hero) {
-
+        hero.setScene("HydraIntro");
         System.out.println(("Current file: HydraIntro"));
 
         BorderPane root = new BorderPane();
@@ -105,9 +105,9 @@ public class HydraIntro {
                     Line1.setText(words.get(next));
                 } else {
 
-                    FishingVillage fishingVillage = new FishingVillage();//goes to hydra battle
+                    HydraBattle HB = new HydraBattle();//goes to hydra battle
                     Scene s1 = null;
-                    s1 = fishingVillage.createScene(x, hero);
+                    s1 = HB.getScene(x, hero);
                     x.setScene(s1);
                 }
                 //need to have sprite transition when the story demands

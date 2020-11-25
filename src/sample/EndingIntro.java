@@ -25,6 +25,7 @@ public class EndingIntro {
 
 
     public static Scene main(Stage x, Player hero) {
+        hero.setScene("EndingIntro");
         System.out.println(("Current file: EndingIntro"));
 
         int y = 0;

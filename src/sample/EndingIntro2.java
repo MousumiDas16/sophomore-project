@@ -32,7 +32,7 @@ public class EndingIntro2 {
 
 
     public Scene createScene(Stage x, Player hero) {
-
+        hero.setScene("EndingIntro2");
         System.out.println(("Current file: EndingIntro2"));
 
         BorderPane root = new BorderPane();

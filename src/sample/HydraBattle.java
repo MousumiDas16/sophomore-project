@@ -82,8 +82,8 @@ public class HydraBattle {
             @Override
             public void handle(ActionEvent event) {
                 hero.setAll();
-                Village5 encounter = new Village5();
-                Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
+                EndingIntro encounter = new EndingIntro();
+                Scene s1 = encounter.main(x, hero); //talk to a random person pic please
                 x.setScene(s1);
 
 
@@ -123,14 +123,14 @@ public class HydraBattle {
 
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
-        Image nxtImage = new Image("sample/Art/Background/Fishing_Village.png", AppSettings.centerUIWidth,
-                AppSettings.centerUIHeight, true, true);
-        ImageView Center_ImageView = new ImageView(nxtImage);
-        Center_UI.getChildren().add(Center_ImageView);
+        Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);// need castle exterior
+        Image img2 = new Image("sample/Art/Characters/Hydra.png", 200, 400, true, true);//need hydra
+        ImageView Center_ImageView = new ImageView(img);
+        ImageView Character = new ImageView(img2);
+        Center_UI.getChildren().addAll(Center_ImageView,Character);
+        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
-
-
         return S2;
 
     }

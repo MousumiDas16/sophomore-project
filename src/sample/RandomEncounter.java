@@ -112,10 +112,7 @@ public class RandomEncounter extends Application {
                 System.out.println("made to case 5");
                 if (hero.getScene().equalsIgnoreCase("WalkingInForest")) {
                     background = new Image("sample/Art/Background/Forrest.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 
                 }
 

@@ -114,13 +114,20 @@ public class Enemy {
             case "wendigo":
                 enemyType = "wendigo";
                 Health = 270;
-                Attack = rand.nextInt(55);
+                Attack = rand.nextInt(45);
                 Armor = 0;
                 Speed = 100;
                 Charisma = 200;
                 break;
 
-
+            case "hydra":
+                enemyType = "Hydra";
+                Health = 300;
+                Attack = rand.nextInt(55);
+                Armor = 0;
+                Speed = 100;
+                Charisma = 200;
+                break;
             case "troll":
                 enemyType = "Troll";
                 Health = 210;

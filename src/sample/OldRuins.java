@@ -76,7 +76,7 @@ public class OldRuins extends Application {
 
         Text LOR = new Text("Fight or give all your belongings!");
         Button Fight = new Button("Fight");
-        Button items = new Button("Give all your items");
+        Button items = new Button("Give all your things");
         Fight.setLayoutX(items.getLayoutY()+200);
         items.setLayoutY(LOR.getY()+10);
         Fight.setLayoutY(items.getLayoutY());
