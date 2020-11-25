@@ -99,7 +99,7 @@ public class HydraBattle {
                 RandomEncounter encounter = new RandomEncounter();
                 Scene s1 = null; //talk to a random person pic please
                 try {
-                    s1 = encounter.createScene(x, hero,2);
+                    s1 = encounter.createScene(x, hero,7);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -124,7 +124,7 @@ public class HydraBattle {
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
         Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);// need castle exterior
-        Image img2 = new Image("sample/Art/Characters/Hydra.png", 200, 400, true, true);//need hydra
+        Image img2 = new Image("sample/Art/Characters/Hydra.png", 400, 400, true, true);//need hydra
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);

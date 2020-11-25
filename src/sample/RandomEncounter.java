@@ -153,7 +153,12 @@ public class RandomEncounter extends Application {
                 enemy.setType("boss gob");
                 enemypic = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 400, true, true);
                 break;
-
+            case 7:
+                background = new Image("sample/Art/Background/Fishing_Village.png", AppSettings.centerUIWidth,
+                        AppSettings.screenHeight, true, true);
+                enemy.setType("hydra");
+                enemypic = new Image("sample/Art/Characters/Hydra.png", 400, 400, true, true);
+                break;
 
 
             default:
@@ -303,7 +308,11 @@ public class RandomEncounter extends Application {
                     Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
                     x.setScene(s1);
                 }
-
+                else if(hero.getScene().equalsIgnoreCase("HydraBattle")){
+                    EndingIntro encounter = new EndingIntro();
+                    Scene s1 = encounter.main(x, hero); //talk to a random person pic please
+                    x.setScene(s1);
+                }
                 else {
 
                     //for later use of other towns/paths

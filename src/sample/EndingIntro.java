@@ -38,16 +38,16 @@ public class EndingIntro {
 
 
         ArrayList<String> words = new ArrayList<>();
-        words.add("The Protagonist finds the drawbridge down and not a soul around. They enter the castle now a\nderelict colossus of an ancient age. The Old Castle was once the seat of the kings of the Old ");
-        words.add("Lineage. Descendants of the True King, they would be born, live, have families and grow old\nhere in this place. Now the only residents were spiders and mice. ");
-        words.add("A sort of sadness fell over The Protagonist as they entered this oddly familiar place.");
+        words.add("The Protagonist finds the drawbridge down and\nnot a soul around. They enter the castle now a\nderelict colossus of an ancient age. The Old Castle\nwas once the seat of the kings of the Old");
+        words.add("Lineage. Descendants of the True King, they\nwould be born, live, have families and grow old\nhere in this place. Now the only residents were spiders and mice.");
+        words.add("A sort of sadness fell over The Protagonist as\nthey entered this oddly familiar place.");
         words.add("They quickly made their way to the entrance to the Dragon’s Claw.");
-        words.add("The climb to the top was long and arduous. However, The Protagonist endured and reached\nthe top of Dragon’s Claw.");
+        words.add("The climb to the top was long and arduous.\nHowever, The Protagonist endured and reached\nthe top of Dragon’s Claw.");
 
         Text Line1 = new Text();
         root.getChildren().add(Line1);
         Line1.setText(words.get(next));
-        Line1.setStroke(Color.WHEAT);
+        Line1.setFill(Color.WHEAT);
         Line1.setFont( Font.font("Verdana", FontWeight.BOLD, 18));
 
 

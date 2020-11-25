@@ -121,7 +121,7 @@ public class Enemy {
                 break;
 
             case "hydra":
-                enemyType = "Hydra";
+                enemyType = "hydra";
                 Health = 300;
                 Attack = rand.nextInt(55);
                 Armor = 0;
