@@ -46,7 +46,7 @@ public class RandomEncounter extends Application {
                         AppSettings.screenHeight, true, true);
 
                 enemy.setType("troll");
-                enemypic = new Image("sample/Art/Characters/TEMPtroll.png",200,100,true,true);
+                enemypic = new Image("sample/Art/Characters/Ogre.gif",200,100,true,true);
 
                 break;
 

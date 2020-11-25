@@ -119,7 +119,7 @@ public class IntroCave1 {
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
         Image img = new Image("sample/Art/Background/TEMPbackgroud.png", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/TEMPtroll.png", 200, 100, true, true);
+        Image img2 = new Image("sample/Art/Characters/Ogre.gif", 200, 300, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);

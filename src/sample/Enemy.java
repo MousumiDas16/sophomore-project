@@ -123,7 +123,7 @@ public class Enemy {
 
             case "troll":
                 enemyType = "Troll";
-                Health = 250;
+                Health = 210;
                 Attack = rand.nextInt(40);
                 Armor = 0;
                 Speed = 8;
