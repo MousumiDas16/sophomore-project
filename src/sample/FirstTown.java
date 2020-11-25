@@ -257,7 +257,7 @@ public class FirstTown extends Application {
                                 break;
                         }
                         Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
-                        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
+                        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 230, true, true);
                         ImageView Center_ImageView = new ImageView(img);
                         ImageView Character = new ImageView(img2);
                         Center_UI.getChildren().addAll(Center_ImageView,Character);

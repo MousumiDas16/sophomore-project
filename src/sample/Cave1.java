@@ -244,7 +244,7 @@ public class Cave1 extends Application {
             public void handle(ActionEvent event) {
                 if ((hero.getSpeed() > 8)) {
 
-                    Text fight = new Text("You run past the cave trolls");
+                    Text fight = new Text("You run past the cave troll");
                     Button butt = new Button("Continue");
                     butt.setPadding(new Insets(0,20,0,20));
                     Group temp = new Group();

@@ -79,8 +79,8 @@ public class IntroCave1 {
 
         //Jimmy Story
         ArrayList<String> words = new ArrayList<>();
-        words.add("The protagonist arrives at the cave and finds goblins. They are approached by the goblin boss.\n" +
-                "Boss: “Aye ye, what is the likes of yous doing here? We were just minding ours own businesses.\nYou DIEEEEEE!!!!!!”");
+        words.add("The protagonist arrives at the cave and finds a troll. They are approached by the massive creature.\n" +
+                "Boss: “Aye ye, what is the likes of yous doing here? We were just minding ours own businesses.\nYou DIEEEEEE!!!!!!” He seems to believe there is more than one of him...");
 
         Text Line1 = new Text();
         //positioning text
