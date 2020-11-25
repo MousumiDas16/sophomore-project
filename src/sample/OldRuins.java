@@ -127,16 +127,15 @@ public class OldRuins extends Application {
 //        submit.setTranslateX(charClass.getLayoutX() + 100);
 
 
-
         StackPane Center_UI = new StackPane();
-        Image nxtImage = new Image("sample/Art/Background/Fort_Ruined.PNG", AppSettings.centerUIWidth,
-                AppSettings.centerUIHeight, true, true);
-        ImageView Center_ImageView = new ImageView(nxtImage);
-        Center_UI.getChildren().add(Center_ImageView);
+        Image img = new Image("sample/Art/Background/Fort_Ruined.PNG", 650, 400, true, true);//need abandoned camp
+        Image img2 = new Image("sample/Art/Characters/Merc_gif.gif", 200, 100, true, true);//need bandit
+        ImageView Center_ImageView = new ImageView(img);
+        ImageView Character = new ImageView(img2);
+        Center_UI.getChildren().addAll(Center_ImageView,Character);
+        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
-
-
         return S2;
 
     }

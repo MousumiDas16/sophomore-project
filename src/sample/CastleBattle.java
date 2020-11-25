@@ -126,14 +126,15 @@ public class CastleBattle extends Application {
 
         //Adding the tavern image to the current UI
 
-        Image nxtImage = new Image("sample/Art/Background/Tavern.png", AppSettings.centerUIWidth,
-                AppSettings.centerUIHeight, true, true);
-        ImageView Center_ImageView = new ImageView(nxtImage);
-        Center_UI.getChildren().add(Center_ImageView);
+
+        Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/GoblinKing.gif", 200, 100, true, true);
+        ImageView Center_ImageView = new ImageView(img);
+        ImageView Character = new ImageView(img2);
+        Center_UI.getChildren().addAll(Center_ImageView,Character);
+        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
-
-
         return S2;
 
     }
