@@ -112,6 +112,10 @@ public class RandomEncounter extends Application {
                 System.out.println("made to case 5");
                 if (hero.getScene().equalsIgnoreCase("WalkingInForest")) {
                     background = new Image("sample/Art/Background/Forrest.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
                 }
 
@@ -123,20 +127,20 @@ public class RandomEncounter extends Application {
                 switch (k) {
                     case 0:
                         enemy.setType("goblin");
-                        enemypic = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 100, true, true);
+                        enemypic = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 150, true, true);
                         System.out.println("enemy goblin");
                         break;
 
 
                     case 1:
                         enemy.setType("kobold");
-                        enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
+                        enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 200, true, true);
                         System.out.println("enemy kobold");
                         break;
 
                     case 2:
                         enemy.setType("bloodpuddle");
-                        enemypic = new Image("sample/Art/Characters/BloodMimic.gif", 200, 100, true, true);
+                        enemypic = new Image("sample/Art/Characters/BloodMimic.gif", 200, 200, true, true);
                         break;
 
                     case 3:
