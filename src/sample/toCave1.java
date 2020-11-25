@@ -22,6 +22,7 @@ public class toCave1 {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: toCave1"));
+        hero.setScene("tocave1");
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -69,10 +70,12 @@ public class toCave1 {
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(event ->{
             Scene s1 = null;
-
-                IntroCave1 newForest= new IntroCave1();
-                s1 = newForest.createScene(x, hero);//change to cave 1
-
+            Forest forest= new Forest();//goes to abandoned camp
+            try {
+                s1 = forest.createScene(x, hero);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             x.setScene(s1);
 
         });

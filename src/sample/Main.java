@@ -31,7 +31,7 @@ public class Main extends Application {
         MainMenu firstMenu=new MainMenu();
         HydraIntro hy = new HydraIntro();
         CastleBattle camp = new CastleBattle();
-        Scene s1 = hy.createScene(primaryStage, hero);
+        Scene s1 = firstMenu.getScene(primaryStage, hero);
 
 
 

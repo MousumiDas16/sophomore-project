@@ -90,7 +90,7 @@ public class Forest extends Application {
         text3.setY(Text_coorY + 40);
         text4.setY(Text_coorY + 60);
         Bot_UI.getChildren().add(text_Group);
-        Image img = null;
+
         StackPane Center_UI = new StackPane();
 
 
@@ -139,22 +139,62 @@ public class Forest extends Application {
                         x.setScene(s1);
 
                     }else if(hero.getScene().equalsIgnoreCase("ToVillage3")){
-                        Fort1 firstFort=new Fort1();
+                        Village3 firstFort=new Village3();
                         Scene s1 = firstFort.createScene(x, hero);
                         x.setScene(s1);
 
                     }else if(hero.getScene().equalsIgnoreCase("ToVillage4")){
-                        Fort1 firstFort=new Fort1();
+                        Village4 firstFort=new Village4();
                         Scene s1 = firstFort.createScene(x, hero);
                         x.setScene(s1);
 
                     }else if(hero.getScene().equalsIgnoreCase("ToVillage5")){
-                        Fort1 firstFort=new Fort1();
+                        Village5 firstFort=new Village5();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tocave1")){
+                        Cave1 firstFort=new Cave1();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tocave2")){
+                        Cave2Cutscene firstFort=new Cave2Cutscene();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("toFishingVillage")){
+                        FishingVillage firstFort=new FishingVillage();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tofort2")){
+                        Fort2 firstFort=new Fort2();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tohydra")){
+                        HydraIntro firstFort=new HydraIntro();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tooasis")){
+                        Oasis firstFort=new Oasis();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tooldruins")){
+                        OldRuins firstFort=new OldRuins();
+                        Scene s1 = firstFort.getScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tosphinx")){
+                        IntroSphinxBattle firstFort=new IntroSphinxBattle();
                         Scene s1 = firstFort.createScene(x, hero);
                         x.setScene(s1);
 
                     }else if(hero.getScene().equalsIgnoreCase("ToVillage2")){
-                        Fort1 firstFort=new Fort1();
+                        Village2 firstFort=new Village2();
                         Scene s1 = firstFort.createScene(x, hero);
                         x.setScene(s1);
 
@@ -178,13 +218,26 @@ public class Forest extends Application {
         ||hero.getScene().equalsIgnoreCase("tovillage5") || hero.getScene().equalsIgnoreCase("tocave1")
         || hero.getScene().equalsIgnoreCase("tocave2") || hero.getScene().equalsIgnoreCase("tohydra")
         || hero.getScene().equalsIgnoreCase("toabandonedcamp") || hero.getScene().equalsIgnoreCase("tofort2")
-        || hero.getScene().equalsIgnoreCase("tocastlebattle"))  {
-             img = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
+        || hero.getScene().equalsIgnoreCase("tocastlebattle") || hero.getScene().equalsIgnoreCase("ToFishingVillage"))  {
+             Image img = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
                     AppSettings.centerUIHeight, true, true);
+
+            Image img2 = hero.getImage(1);
             ImageView Center_ImageView = new ImageView(img);
+            ImageView Character = new ImageView(img2);
+            Center_UI.getChildren().addAll(Center_ImageView,Character);
+
+            root.setCenter(Center_UI);
         }else if(hero.getScene().equalsIgnoreCase("toOasis") || (hero.getScene().equalsIgnoreCase("toSphinx")) ){
-            img = new Image("sample/Art/Background/Desert_Walking.png", AppSettings.centerUIWidth,
+            Image img = new Image("sample/Art/Background/Desert_Walking.png", AppSettings.centerUIWidth,
                     AppSettings.centerUIHeight, true, true);
+
+            Image img2 = hero.getImage(1);
+            ImageView Center_ImageView = new ImageView(img);
+            ImageView Character = new ImageView(img2);
+            Center_UI.getChildren().addAll(Center_ImageView,Character);
+
+            root.setCenter(Center_UI);
 
         }
 
@@ -197,12 +250,7 @@ public class Forest extends Application {
         hero.setLoopcount(0);
         System.out.println(hero.getLoopcount());
 
-        Image img2 = hero.getImage(1);
-        ImageView Center_ImageView = new ImageView(img);
-        ImageView Character = new ImageView(img2);
-        Center_UI.getChildren().addAll(Center_ImageView,Character);
-        Center_UI.getChildren().add(Center_ImageView);
-        root.setCenter(Center_UI);
+
         Scene S1 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
         return S1;
 

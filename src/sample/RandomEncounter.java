@@ -110,9 +110,17 @@ public class RandomEncounter extends Application {
 
             case 5:
                 System.out.println("made to case 5");
-                if (hero.getScene().equalsIgnoreCase("WalkingInForest")) {
+                if (hero.getScene().equalsIgnoreCase("WalkingInforest") || hero.getScene().equalsIgnoreCase("tovillage2")
+                        || hero.getScene().equalsIgnoreCase("tovillage3") || hero.getScene().equalsIgnoreCase("toVillage4")
+                        ||hero.getScene().equalsIgnoreCase("tovillage5") || hero.getScene().equalsIgnoreCase("tocave1")
+                        || hero.getScene().equalsIgnoreCase("tocave2") || hero.getScene().equalsIgnoreCase("tohydra")
+                        || hero.getScene().equalsIgnoreCase("toabandonedcamp") || hero.getScene().equalsIgnoreCase("tofort2")
+                        || hero.getScene().equalsIgnoreCase("tocastlebattle") || hero.getScene().equalsIgnoreCase("ToFishingVillage"))  {
                     background = new Image("sample/Art/Background/Forrest.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
 
+
+                }else if(hero.getScene().equalsIgnoreCase("toOasis") || (hero.getScene().equalsIgnoreCase("toSphinx"))){
+                background = new Image("sample/Art/Background/Desert.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
 
                 }
 
@@ -137,7 +145,7 @@ public class RandomEncounter extends Application {
 
                     case 2:
                         enemy.setType("bloodpuddle");
-                        enemypic = new Image("sample/Art/Characters/BloodMimic.gif", 200, 200, true, true);
+                        enemypic = new Image("sample/Art/Characters/BloodMimic2.gif", 200, 200, true, true);
                         break;
 
                     case 3:
