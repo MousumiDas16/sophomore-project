@@ -90,14 +90,9 @@ public class Forest extends Application {
         text3.setY(Text_coorY + 40);
         text4.setY(Text_coorY + 60);
         Bot_UI.getChildren().add(text_Group);
-
+        Image img = null;
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
-                AppSettings.centerUIHeight, true, true);
-        ImageView Center_ImageView = new ImageView(img);
-        Center_UI.getChildren().add(Center_ImageView);
-        root.setCenter(Center_UI);
-        Scene S1 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
+
 
 
 
@@ -127,7 +122,7 @@ public class Forest extends Application {
 
         }
         else if(hero.getLoopcount()==3){
-            text1.setText("you made it to the town!!");
+            text1.setText("you made it to the next location!");
             text2.setText("Press continue to enter!");
             text3.setText("");
             text4.setText("");
@@ -138,9 +133,33 @@ public class Forest extends Application {
 
                 @Override
                 public void handle(ActionEvent event) {
-                    Fort1 firstFort=new Fort1();
-                    Scene s1 = firstFort.createScene(x, hero);
-                    x.setScene(s1);
+                    if(hero.getScene().equalsIgnoreCase("WalkingInForest")){
+                        Fort1 firstFort=new Fort1();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("ToVillage3")){
+                        Fort1 firstFort=new Fort1();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("ToVillage4")){
+                        Fort1 firstFort=new Fort1();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("ToVillage5")){
+                        Fort1 firstFort=new Fort1();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("ToVillage2")){
+                        Fort1 firstFort=new Fort1();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }
+
 
 
 
@@ -154,6 +173,21 @@ public class Forest extends Application {
             Bot_UI.getChildren().add(cont);
         }
 
+        if(hero.getScene().equalsIgnoreCase("WalkingInforest") || hero.getScene().equalsIgnoreCase("tovillage2")
+        || hero.getScene().equalsIgnoreCase("tovillage3") || hero.getScene().equalsIgnoreCase("toVillage4")
+        ||hero.getScene().equalsIgnoreCase("tovillage5") || hero.getScene().equalsIgnoreCase("tocave1")
+        || hero.getScene().equalsIgnoreCase("tocave2") || hero.getScene().equalsIgnoreCase("tohydra")
+        || hero.getScene().equalsIgnoreCase("toabandonedcamp") || hero.getScene().equalsIgnoreCase("tofort2")
+        || hero.getScene().equalsIgnoreCase("tocastlebattle"))  {
+             img = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
+                    AppSettings.centerUIHeight, true, true);
+            ImageView Center_ImageView = new ImageView(img);
+        }else if(hero.getScene().equalsIgnoreCase("toOasis") || (hero.getScene().equalsIgnoreCase("toSphinx")) ){
+            img = new Image("sample/Art/Background/Desert_Walking.png", AppSettings.centerUIWidth,
+                    AppSettings.centerUIHeight, true, true);
+
+        }
+
 
 
 
@@ -162,6 +196,14 @@ public class Forest extends Application {
 
         hero.setLoopcount(0);
         System.out.println(hero.getLoopcount());
+
+        Image img2 = hero.getImage(1);
+        ImageView Center_ImageView = new ImageView(img);
+        ImageView Character = new ImageView(img2);
+        Center_UI.getChildren().addAll(Center_ImageView,Character);
+        Center_UI.getChildren().add(Center_ImageView);
+        root.setCenter(Center_UI);
+        Scene S1 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
         return S1;
 
         }

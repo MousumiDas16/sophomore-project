@@ -127,7 +127,7 @@ public class OldRuins extends Application {
 //        submit.setTranslateX(charClass.getLayoutX() + 100);
 
 
-        //Adding the tavern image to the current UI
+
         StackPane Center_UI = new StackPane();
         Image nxtImage = new Image("sample/Art/Background/Fort_Ruined.PNG", AppSettings.centerUIWidth,
                 AppSettings.centerUIHeight, true, true);
