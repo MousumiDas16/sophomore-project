@@ -32,7 +32,7 @@ public class RandomEncounter extends Application {
         Image enemypic = null;
         Random rand = new Random();
         Enemy enemy = new Enemy();
-        int k;
+
 
         switch (a) {
             case 0://FishingVillage Fight
@@ -67,7 +67,7 @@ public class RandomEncounter extends Application {
                 enemy.setType("wendigo");
                 enemypic = new Image("sample/Art/Characters/Wendigo.png", 200, 100, true, true);
                 break;
-            case 4://Fitst
+            case 4://first
                 if (hero.getScene().equalsIgnoreCase("firsttown")) {
                     background = new Image("sample/Art/Background/Donkey_Town.png",
                             AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
@@ -77,7 +77,7 @@ public class RandomEncounter extends Application {
                             AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
 
                 }
-                k = rand.nextInt(3);
+                int k = rand.nextInt(3);
 
 
                 System.out.println("Random number is" + k);
@@ -105,12 +105,13 @@ public class RandomEncounter extends Application {
                         System.out.println("something went wrong in encounter case 4");
                         break;
                 }
+                break;
 
 
             case 5:
-                if (hero.getScene().equalsIgnoreCase("forest")) {
+                System.out.println("made to case 5");
+                if (hero.getScene().equalsIgnoreCase("WalkingInForest")) {
                     background = new Image("sample/Art/Background/Forrest.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
-                    break;
 
                 }
 
@@ -118,7 +119,7 @@ public class RandomEncounter extends Application {
                 k = rand.nextInt(4);
 
 
-                System.out.println("Random number is" + k);
+                System.out.println("Random number is " + k);
                 switch (k) {
                     case 0:
                         enemy.setType("goblin");
@@ -144,6 +145,7 @@ public class RandomEncounter extends Application {
                         x.setScene(s1);
                         break;
                 }
+                break;
             case 6:
                 background = new Image("sample/Art/Background/Fishing_Village.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
@@ -267,7 +269,7 @@ public class RandomEncounter extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if (hero.getScene().equals("forest")) {
+                if (hero.getScene().equals("WalkingInForest")) {
                     WalkingInForest forest=new WalkingInForest();
                     Scene s1 = forest.createScene(x, hero);
                     x.setScene(s1);

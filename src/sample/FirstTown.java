@@ -305,9 +305,9 @@ public class FirstTown extends Application {
 
                     @Override
                     public void handle(ActionEvent event) {
-                        Scene s1 = null;
+                        RandomEncounter encounter =new RandomEncounter();
+                        Scene s1 = null;// next town pic please
                         try {
-                            RandomEncounter encounter=new RandomEncounter();
                             s1 = encounter.createScene(x, hero,4);
                         } catch (InterruptedException e) {
                             e.printStackTrace();

@@ -35,7 +35,7 @@ public class MainMenu extends Application {
         StackPane root = new StackPane();
 
 
-        Image img = new Image("sample/Art/Background/Title_Screen.png",
+        Image img = new Image("sample/Art/Background/Title_Screen (1).png",
                 AppSettings.screenWidth, AppSettings.screenHeight, true, true);
 
         ImageView welcome = new ImageView(img);

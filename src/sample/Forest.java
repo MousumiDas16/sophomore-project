@@ -36,7 +36,7 @@ public class Forest extends Application {
     public Scene createScene(Stage x, Player hero) throws InterruptedException {
 
         System.out.println("Current file: forest");
-        hero.setScene("forest");
+
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -115,7 +115,7 @@ public class Forest extends Application {
             loop= loop +1;
             hero.setLoopcount(loop);
             RandomEncounter encounter =new RandomEncounter();
-            Scene s1 = encounter.createScene(x, hero,4);// next town pic please
+            Scene s1 = encounter.createScene(x, hero,5);// next town pic please
             x.setScene(s1);
             System.out.println("the loop number is" +hero.getLoopcount());
             return s1;
@@ -161,6 +161,7 @@ public class Forest extends Application {
 
 
         hero.setLoopcount(0);
+        System.out.println(hero.getLoopcount());
         return S1;
 
         }
