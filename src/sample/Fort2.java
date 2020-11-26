@@ -125,25 +125,7 @@ public class Fort2 extends Application {
         words.add("\"Be careful when you leave this fort… there’s monsters on the prowl in them woods.\"");
         words.add("\"Make sure you stock up on supplies before heading out,\nespecially after that run in with the\ntrolls in the cave.\"");
 
-        Text Line1 = new Text();
-        root.getChildren().add(Line1);
-        Line1.setText(words.get(next));
-        Line1.setStroke(Color.BLACK);
-        Button submit = new Button("NEXT");
-        submit.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                next++;
-                if(next <= words.size() -1){
-                    Line1.setText(words.get(next));
-                }else{
 
-                    FirstTown mytown=new FirstTown();
-                    Scene s1 = mytown.createScene(x, hero);// next town pic please
-                    x.setScene(s1);
-                }
-            };
-        });
 
         //TEXT AND BUTTON's
 
@@ -156,7 +138,8 @@ public class Fort2 extends Application {
         Text text3 = new Text("3) Converse With Locals");
         Text text4 = new Text("4) Leave Town");
         Text text5 = new Text();
-        text_Group.getChildren().addAll(text1, text2, text3, text4);
+        text_Group.getChildren().addAll(text1, text2, text3, text4 );
+        Bot_UI.getChildren().add(text5);
 
 
         text1.setY(Text_coorY);
@@ -263,12 +246,14 @@ public class Fort2 extends Application {
                         switch(random){
                             case 0:
                                 text5.setText(words.get(0));
+
                                 break;
 
 
 
                             case 1:
                                 text5.setText(words.get(1));
+
                                 break;
 
 

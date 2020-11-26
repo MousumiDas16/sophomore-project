@@ -107,25 +107,7 @@ public class Village5 extends Application {
         words.add("\"There’s a cave north of here that is a common resting ground for travelers. You might find\nsomething useful there, but you may also find danger.\"");
         words.add("\"There's a rumor about that castle… they say it’s guarded by a massive hydra.\nI hear hydras are greedy bastards but i’d still be prepared for a fight!\"");
 
-        Text Line1 = new Text();
-        root.getChildren().add(Line1);
-        Line1.setText(words.get(next));
-        Line1.setStroke(Color.BLACK);
-        Button submit = new Button("NEXT");
-        submit.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                next++;
-                if(next <= words.size() -1){
-                    Line1.setText(words.get(next));
-                }else{
 
-                    FirstTown mytown=new FirstTown();
-                    Scene s1 = mytown.createScene(x, hero);// next town pic please
-                    x.setScene(s1);
-                }
-            };
-        });
 
         //TEXT AND BUTTON's
 
@@ -247,13 +229,16 @@ public class Village5 extends Application {
                         switch(random){
                             case 0:
                                 text5.setText(words.get(0));
+
                                 break;
 
 
 
                             case 1:
                                 text5.setText(words.get(1));
+
                                 break;
+
 
                             default:
                                 System.out.println("something broke fam peep first town");

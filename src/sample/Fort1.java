@@ -94,25 +94,9 @@ public class Fort1 extends Application {
         words.add("\"There are two paths ahead, both equally treacherous.\"");
         words.add("\"Talk to the fort’s quartermaster, he sells all sorts of goods \nto aid you on your journey!\"");
 
-        Text Line1 = new Text();
-        root.getChildren().add(Line1);
-        Line1.setText(words.get(next));
-        Line1.setStroke(Color.BLACK);
-        Button submit = new Button("NEXT");
-        submit.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                next++;
-                if(next <= words.size() -1){
-                    Line1.setText(words.get(next));
-                }else{
 
-                    FirstTown mytown=new FirstTown();
-                    Scene s1 = mytown.createScene(x, hero);// next town pic please
-                    x.setScene(s1);
-                }
-            };
-        });
+
+
 
         //TEXT AND BUTTON's
 
