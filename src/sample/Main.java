@@ -2,6 +2,8 @@ package sample;
 
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.text.*;
@@ -22,6 +24,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws InterruptedException {
+        primaryStage.fullScreenProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> prop, Boolean wasIconified, Boolean isIconified) {
+                System.out.println("ignore fullscreen");
+            }
+        });
 
         Main.mainStage = primaryStage;
         System.out.println(("Current file: Main"));

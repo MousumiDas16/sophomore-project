@@ -21,8 +21,8 @@ public class toVillage2 {
 
     public Scene createScene(Stage x, Player hero) {
 
-        System.out.println(("Current file: EndingChoice"));
-
+        System.out.println(("Current file: toVillage2"));
+        hero.setScene("tovillage2");
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
