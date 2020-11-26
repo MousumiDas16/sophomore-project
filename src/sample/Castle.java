@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Castle extends Application {
     static int next = 0;
@@ -89,24 +90,7 @@ public class Castle extends Application {
         words.add("\"With that reward of yours you might want to see the castle’s shop,\nmight be something useful to a traveler such as yourself.\"");
         words.add("\"There is nothing but heat and danger in that mysterious old dessert,\nto make things even more strange it ends right at that\nold pyramid as if it was only created to guard that place.\"");
 
-        Text Line1 = new Text();
-        root.getChildren().add(Line1);
-        Line1.setText(words.get(next));
-        Line1.setStroke(Color.BLACK);
-        Button submit = new Button("NEXT");
-        submit.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                next++;
-                if(next <= words.size() -1){
-                    Line1.setText(words.get(next));
-                }else{
-                    FirstTown mytown=new FirstTown();
-                    Scene s1 = mytown.createScene(x, hero);// next town pic please
-                    x.setScene(s1);
-                }
-            };
-        });
+
 
         //TEXT AND BUTTON's
 
@@ -118,6 +102,7 @@ public class Castle extends Application {
         Text text2 = new Text("2)Check Map");
         Text text3 = new Text("3) Converse With Locals");
         Text text4 = new Text("4) Leave Town");
+        Text text5 = new Text();
         text_Group.getChildren().addAll(text1, text2, text3, text4);
 
 
@@ -187,14 +172,156 @@ public class Castle extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = ShopUI.main(x, hero); //talk to a random person pic please
-                x.setScene(s1);
+                text1.setText("1) Talk To Towns person.");
+                text2.setText("2) Go looking for trouble");
+                text3.setText("3) return to town");
+                text4.setVisible(false);
+                Button towntalk = new Button();
+
+                butt_Group.setDisable(true);
+                butt_Group.setVisible(false);
+
+                Button findFight = new Button();
+
+                Button BackToTown = new Button();
+
+                Group secondgroup = new Group();
+                secondgroup.getChildren().addAll(findFight,towntalk,BackToTown);
+                Bot_UI.getChildren().add(secondgroup);
+                StackPane.setAlignment(secondgroup, Pos.CENTER_RIGHT);
+
+
+                towntalk.setLayoutY(Text_coorY);
+                findFight.setLayoutY(Text_coorY + 20);
+                BackToTown.setLayoutY(Text_coorY + 40);
+                towntalk.setText("1");
+                towntalk.setOnAction(new EventHandler<ActionEvent>() {
+
+                    @Override
+                    public void handle(ActionEvent event) {
+                        text_Group.setDisable(true);
+                        text_Group.setVisible(false);
+                        butt_Group.setDisable(true);
+                        butt_Group.setVisible(false);
+                        secondgroup.setDisable(true);
+                        secondgroup.setVisible(false);
+                        Random rand = new Random();
+                        int random = rand.nextInt(2);
+                        switch(random){
+                            case 0:
+                                text5.setText(words.get(0));
+
+                                break;
+
+
+
+                            case 1:
+                                text5.setText(words.get(1));
+
+                                break;
+
+
+                            default:
+                                System.out.println("something broke fam peep first town");
+                                break;
+                        }
+                        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
+                        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
+                        ImageView Center_ImageView = new ImageView(img);
+                        ImageView Character = new ImageView(img2);
+                        Center_UI.getChildren().addAll(Center_ImageView,Character);
+                        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
+                        root.setCenter(Center_UI);
+                        Button GoBack = new Button("Go back");
+                        GoBack.setPadding(new Insets(0, 20, 0, 20));
+                        Bot_UI.getChildren().add(GoBack);
+                        Bot_UI.setAlignment(GoBack, Pos.CENTER_RIGHT);
+
+
+                        GoBack.setOnAction(new EventHandler<ActionEvent>() {
+                            @Override
+                            public void handle(ActionEvent event) {
+                                text5.setText("");
+                                text_Group.setDisable(false);
+                                text_Group.setVisible(true);
+                                butt_Group.setDisable(true);
+                                butt_Group.setVisible(false);
+                                secondgroup.setDisable(false);
+                                secondgroup.setVisible(true);
+                                GoBack.setVisible(false);
+                                GoBack.setDisable(true);
+                                Center_UI.getChildren().remove(Character);
+
+
+
+                            }
+                        });
+
+
+                    }
+
+
+
+
+
+
+
+                });
+
+                findFight.setText("2");
+                Random rand = new Random(2);
+                findFight.setOnAction(new EventHandler<ActionEvent>() {
+
+                    @Override
+                    public void handle(ActionEvent event) {
+                        Scene s1 = null;
+                        try {
+                            RandomEncounter encounter=new RandomEncounter();
+                            s1 = encounter.createScene(x, hero,4);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        x.setScene(s1);
+
+
+
+
+
+                    }
+
+
+                });
+                BackToTown.setText("3");
+                BackToTown.setOnAction(new EventHandler<ActionEvent>() {
+
+                    @Override
+                    public void handle(ActionEvent event) {
+                        secondgroup.setDisable(true);
+                        secondgroup.setVisible(false);
+                        butt_Group.setDisable(false);
+                        butt_Group.setVisible(true);
+
+
+                        text1.setText("1) Go to the Shop");
+                        text2.setText("2) Check Map");
+                        text3.setText("3) Interact with town.");
+                        text4.setText("4) Leave Town");
+                        text4.setVisible(true);
+
+                    }
+                });
+
+                towntalk.setPadding(new Insets(0, 20, 0, 20));
+                findFight.setPadding(new Insets(0, 20, 0, 20));
+                BackToTown.setPadding(new Insets(0, 20, 0, 20));
+
 
 
             }
 
 
         });
+
         //leave town
         Button b4 = new Button();
         b4.setText("4");

@@ -149,9 +149,120 @@ public class RandomEncounter extends Application {
                         break;
 
                     case 3:
-                        WalkingInForest forest=new WalkingInForest();
-                        Scene s1 = forest.createScene(x, hero);
-                        x.setScene(s1);
+                        if (hero.getScene().equals("WalkingInForest")) {
+                            WalkingInForest forest=new WalkingInForest();
+                            Scene s1 = forest.createScene(x, hero);
+                            x.setScene(s1);
+
+                        } else if (hero.getScene().equalsIgnoreCase("firsttown")) {
+                            FirstTown mytown=new FirstTown();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        } else if (hero.getScene().equalsIgnoreCase("fort1")) {
+                            Fort1 firstFort=new Fort1();
+                            Scene s1 = firstFort.createScene(x, hero);
+                            x.setScene(s1);
+
+                        }else if (hero.getScene().equalsIgnoreCase("fishingvillage")) {
+                            toVillage2 v2 = new toVillage2();
+                            Scene s1 = v2.createScene(x, hero);
+                            x.setScene(s1);
+                        }else if (hero.getScene().equalsIgnoreCase("Cave1")) {
+                            toFort2 v2 = new toFort2();
+                            Scene s1 = v2.createScene(x, hero);
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("OldRuins")){
+                            toVillage5 encounter = new toVillage5();
+                            Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
+                            x.setScene(s1);
+                        }
+                        else if(hero.getScene().equalsIgnoreCase("AbandondedCamp")){
+                            toVillage4 encounter = new toVillage4();
+                            Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
+                            x.setScene(s1);
+                        }
+                        else if(hero.getScene().equalsIgnoreCase("HydraBattle")){
+                            EndingIntro encounter = new EndingIntro();
+                            Scene s1 = encounter.getScene(x, hero); //talk to a random person pic please
+                            x.setScene(s1);
+                        }
+                        //Travel mechanics
+                        else if (hero.getScene().equalsIgnoreCase("toFishingVillage")) {
+                            toFishingVillage mytown = new toFishingVillage();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("toVillage2")) {
+                            toVillage2 mytown=new toVillage2();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("toCave1")) {
+                            toCave1 mytown=new toCave1();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("toCave2")) {
+                            toCave2 mytown=new toCave2();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("toVillage3")) {
+                            toVillage3 mytown=new toVillage3();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("toVillage4")) {
+                            toVillage4 mytown=new toVillage4();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("toVillage5")) {
+                            toVillage5 mytown=new toVillage5();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("toAbandonedCamp")) {
+                            toAbandonedCamp mytown=new toAbandonedCamp();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("toCastleBattle")) {
+                            toCastleBattle mytown=new toCastleBattle();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("toFort2")) {
+                            toFort2 mytown=new toFort2();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("toHydra")) {
+                            toHydra mytown=new toHydra();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("toOasis")) {
+                            toOasis mytown=new toOasis();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("toOldRuins")) {
+                            toOasis mytown=new toOasis();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+                        else if (hero.getScene().equalsIgnoreCase("toSphinx")) {
+                            toSphinx mytown=new toSphinx();
+                            Scene s1 = mytown.createScene(x, hero);// next town pic please
+                            x.setScene(s1);
+                        }
+
+                        else {
+
+                            //for later use of other towns/paths
+                        }
                         break;
                 }
                 break;
