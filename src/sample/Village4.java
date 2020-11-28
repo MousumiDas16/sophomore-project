@@ -349,7 +349,7 @@ public class Village4 extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Village5 myVillage=new Village5();
+                toOldRuins myVillage=new toOldRuins();
                 Scene s1 = myVillage.createScene(x, hero);// next town pic please
                 x.setScene(s1);
 

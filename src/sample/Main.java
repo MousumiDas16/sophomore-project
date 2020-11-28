@@ -35,7 +35,7 @@ public class Main extends Application {
         System.out.println(("Current file: Main"));
         hero = new Player();
         hero.setClass("mercenary");
-        Village2 fort = new Village2();
+        Castle fort = new Castle();
         MainMenu firstMenu=new MainMenu();
         HydraIntro hy = new HydraIntro();
         CastleBattle camp = new CastleBattle();

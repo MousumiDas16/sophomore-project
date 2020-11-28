@@ -331,7 +331,7 @@ public class Village3 extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Oasis myOasis=new Oasis();
+                toOasis myOasis=new toOasis();
 
                 Scene s1 = myOasis.createScene(x, hero);// next town pic please
                 x.setScene(s1);
