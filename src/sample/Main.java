@@ -35,12 +35,12 @@ public class Main extends Application {
         System.out.println(("Current file: Main"));
         hero = new Player();
         hero.setClass("mercenary");
-        Fort2 fort = new Fort2();
+        EndingIntro fort = new EndingIntro();
         MainMenu firstMenu=new MainMenu();
         HydraIntro hy = new HydraIntro();
         CastleBattle camp = new CastleBattle();
 
-        Scene s1 = fort.createScene(primaryStage, hero);
+        Scene s1 = fort.getScene(primaryStage, hero);
 
 
 
