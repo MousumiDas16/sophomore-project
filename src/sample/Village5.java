@@ -347,7 +347,7 @@ public class Village5 extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Village5 myVillage=new Village5();
+                toCave2 myVillage=new toCave2();
                 Scene s1 = myVillage.createScene(x, hero);// next town pic please
                 x.setScene(s1);
 

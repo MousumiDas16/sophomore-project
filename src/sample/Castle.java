@@ -39,6 +39,7 @@ public class Castle extends Application {
     //  */
     public Scene createScene(Stage x, Player hero) {
         System.out.println(("Current file: Castle"));
+        hero.setScene("CastleBattle");
 
         BorderPane root = new BorderPane();
 
@@ -56,9 +57,9 @@ public class Castle extends Application {
         //LEFT RECTANGLE
 
         StackPane Left_UI = new StackPane();
-        Rectangle Left_Rec = new Rectangle(AppSettings.leftUIWidth, AppSettings.bottomUIHeight,
+        Rectangle Left_Rec = new Rectangle(AppSettings.leftUIWidth, AppSettings.leftUIHeight,
                 Color.rgb(211, 211, 211));
-
+        //Left_Rec.setStroke(Color.BLACK);
         root.setLeft(Left_UI);
         Pane newLoadedPane = null;
         try {
@@ -75,6 +76,7 @@ public class Castle extends Application {
 
         Left_UI.getChildren().add(newLoadedPane);
 
+
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
         Image img = new Image("sample/Art/Background/tempFort1.png", AppSettings.centerUIWidth,
@@ -83,9 +85,11 @@ public class Castle extends Application {
         Center_UI.getChildren().add(Center_ImageView);
         root.setCenter(Center_UI);
 
+        //Player STATS ON Side Bar
 
 
-        //Story for talking to guards
+
+        //Story for talking to townspeople
         ArrayList<String> words = new ArrayList<>();
         words.add("\"With that reward of yours you might want to see the castle’s shop,\nmight be something useful to a traveler such as yourself.\"");
         words.add("\"There is nothing but heat and danger in that mysterious old dessert,\nto make things even more strange it ends right at that\nold pyramid as if it was only created to guard that place.\"");
@@ -102,7 +106,8 @@ public class Castle extends Application {
         Text text2 = new Text("2)Check Map");
         Text text3 = new Text("3) Converse With Locals");
         Text text4 = new Text("4) Leave Town");
-        Text text5 = new Text();
+        Text text5 = new Text("");
+        Bot_UI.getChildren().add(text5);
         text_Group.getChildren().addAll(text1, text2, text3, text4);
 
 
@@ -165,6 +170,7 @@ public class Castle extends Application {
 
 
         });
+
 
         Button b3 = new Button();
         b3.setText("3");
@@ -321,7 +327,6 @@ public class Castle extends Application {
 
 
         });
-
         //leave town
         Button b4 = new Button();
         b4.setText("4");
@@ -329,8 +334,8 @@ public class Castle extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Village3 vill3=new Village3();
-                Scene s1 = vill3.createScene(x, hero);// next town pic please
+                toVillage3 myCastle=new toVillage3();
+                Scene s1 = myCastle.createScene(x, hero);// next town pic please
                 x.setScene(s1);
 
 
@@ -338,7 +343,6 @@ public class Castle extends Application {
 
 
         });
-
 
         b1.setPadding(new Insets(0, 20, 0, 20));
         b2.setPadding(new Insets(0, 20, 0, 20));
@@ -359,7 +363,7 @@ public class Castle extends Application {
         b4.setLayoutY(Text_coorY + 60);
 
 
-        Scene S2 = new Scene(root, AppSettings.centerUIWidth, AppSettings.centerUIHeight);
+        Scene S2 = new Scene(root, 750, 500);
         return S2;
     }
 }
