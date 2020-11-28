@@ -22,6 +22,7 @@ public class toSphinx {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: toSphinx"));
+        hero.setScene("toSphinx");
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -69,8 +70,12 @@ public class toSphinx {
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(event ->{
             Scene s1 = null;
-            IntroSphinxBattle newFort= new IntroSphinxBattle();//goes to abandoned camp
-            s1 = newFort.createScene(x, hero);
+            Forest forest= new Forest();//goes to abandoned camp
+            try {
+                s1 = forest.createScene(x, hero);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             x.setScene(s1);
 
         });

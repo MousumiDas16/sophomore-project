@@ -194,7 +194,7 @@ public class FishingVillage extends Application {
                         @Override
                         public void handle(ActionEvent event) {
 
-                            Village2 RE = new Village2();
+                            toVillage2 RE = new toVillage2();
                             Scene s1 = RE.createScene(x,hero);
                             x.setScene(s1);
 

@@ -91,25 +91,7 @@ public class Village3 extends Application {
         words.add("\"beware the sand worms. They are big enough to eat a\nman whole along with his bloody horse.\"");
         words.add("\"The dessert is dangerous to cross. Make sure to stock\nup on supplies, there may be no help until you\nreach the other side\"");
 
-        Text Line1 = new Text();
-        root.getChildren().add(Line1);
-        Line1.setText(words.get(next));
-        Line1.setStroke(Color.BLACK);
-        Button submit = new Button("NEXT");
-        submit.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                next++;
-                if(next <= words.size() -1){
-                    Line1.setText(words.get(next));
-                }else{
 
-                    FirstTown mytown=new FirstTown();
-                    Scene s1 = mytown.createScene(x, hero);// next town pic please
-                    x.setScene(s1);
-                }
-            };
-        });
 
         //TEXT AND BUTTON's
 
@@ -231,13 +213,16 @@ public class Village3 extends Application {
                         switch(random){
                             case 0:
                                 text5.setText(words.get(0));
+
                                 break;
 
 
 
                             case 1:
                                 text5.setText(words.get(1));
+
                                 break;
+
 
                             default:
                                 System.out.println("something broke fam peep first town");

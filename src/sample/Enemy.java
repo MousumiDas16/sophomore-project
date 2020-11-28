@@ -97,7 +97,7 @@ public class Enemy {
 
             case "fish monster":
                 enemyType = "Fish Monster";
-                Health = 150;
+                Health = 250;
                 Attack = rand.nextInt(50);
                 Armor = 0;
                 Speed = 101;
@@ -105,7 +105,7 @@ public class Enemy {
                 break;
             case "bandit":
                 enemyType = "bandit";
-                Health = 100;
+                Health = 250;
                 Attack = rand.nextInt(35);
                 Armor = 0;
                 Speed = 15;
@@ -113,17 +113,24 @@ public class Enemy {
                 break;
             case "wendigo":
                 enemyType = "wendigo";
-                Health = 170;
-                Attack = rand.nextInt(55);
+                Health = 270;
+                Attack = rand.nextInt(45);
                 Armor = 0;
                 Speed = 100;
                 Charisma = 200;
                 break;
 
-
+            case "hydra":
+                enemyType = "hydra";
+                Health = 300;
+                Attack = rand.nextInt(55);
+                Armor = 0;
+                Speed = 100;
+                Charisma = 200;
+                break;
             case "troll":
                 enemyType = "Troll";
-                Health = 250;
+                Health = 210;
                 Attack = rand.nextInt(40);
                 Armor = 0;
                 Speed = 8;

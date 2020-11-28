@@ -167,7 +167,7 @@ public class Player extends Entity {
                 Health = 100;
                 Money = 800;
                 Strength = 5;
-                Armor = 10;
+                Armor = 8;
                 Speed = 10;
                 Charisma = 15;
                 Potions = 0;
@@ -284,7 +284,7 @@ public class Player extends Entity {
 
     public void setAll(){
         Potions = 0;
-        Strength = 0;
+        Money = 0;
 
 
 

@@ -22,6 +22,7 @@ public class toHydra {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: toHydra"));
+        hero.setScene("tohydra");
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -69,12 +70,13 @@ public class toHydra {
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(event ->{
             Scene s1 = null;
-
-            HydraIntro cave = new HydraIntro();
-            s1 = cave.createScene(x, hero);//change to Hydra battle
-
+            Forest forest= new Forest();//goes to abandoned camp
+            try {
+                s1 = forest.createScene(x, hero);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             x.setScene(s1);
-
         });
         pause.play();
 

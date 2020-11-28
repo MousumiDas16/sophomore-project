@@ -59,9 +59,7 @@ public class Opening extends Application {
         Text Line1 = new Text();
         root.getChildren().add(Line1);
         Line1.setText(words.get(next));
-      //  Line1.set
-       // Line1.setStroke(Color.WHITE);
-        Line1.setFill(Color.WHITE);
+        Line1.setFill(Color.WHEAT);
         Line1.setFont( Font.font("Verdana", FontWeight.BOLD, 18));
 
 

@@ -257,7 +257,7 @@ public class FirstTown extends Application {
                                 break;
                         }
                         Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
-                        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
+                        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 230, true, true);
                         ImageView Center_ImageView = new ImageView(img);
                         ImageView Character = new ImageView(img2);
                         Center_UI.getChildren().addAll(Center_ImageView,Character);
@@ -305,9 +305,9 @@ public class FirstTown extends Application {
 
                     @Override
                     public void handle(ActionEvent event) {
-                        Scene s1 = null;
+                        RandomEncounter encounter =new RandomEncounter();
+                        Scene s1 = null;// next town pic please
                         try {
-                            RandomEncounter encounter=new RandomEncounter();
                             s1 = encounter.createScene(x, hero,4);
                         } catch (InterruptedException e) {
                             e.printStackTrace();

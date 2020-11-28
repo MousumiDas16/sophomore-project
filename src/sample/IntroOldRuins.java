@@ -79,7 +79,7 @@ public class IntroOldRuins {
         //Jimmy Story
         ArrayList<String> words = new ArrayList<>();
         words.add("The protagonist is stopped by a mighty outlaw.");
-        words.add("Outlaw: “You’re gonna give me every last thing you own or you’ll be dead quicker than you can say ‘oof’”");
+        words.add("Outlaw: “You’re gonna give me every last item you own or you’ll be dead quicker than you can say ‘oof’”");
         words.add("Lady Wisp: “No! you’ll be handing over that precious item you stole from that\nold castle or the true monarch will destroy you, filthy degenerate!”\n");
         words.add("Outlaw: “That spirit just cost you all the sympathy I had… now hand over the\ngoods or we’ll get this dance started. Heheheh!”\n");
         Text Line1 = new Text();
@@ -119,7 +119,7 @@ public class IntroOldRuins {
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
         Image img = new Image("sample/Art/Background/Fort_Ruined.PNG", 650, 400, true, true);//need abandoned camp
-        Image img2 = new Image("sample/Art/Characters/Goblin.gif", 200, 100, true, true);//need bandit
+        Image img2 = new Image("sample/Art/Characters/Merc_gif.gif", 200, 100, true, true);//need bandit
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);

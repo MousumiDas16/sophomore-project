@@ -23,6 +23,7 @@ public class WalkingInForest extends Application {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: walkinginforest"));
+        hero.setScene("WalkingInForest");
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
