@@ -350,7 +350,7 @@ public class Village2 extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Castle myCastle=new Castle();
+                toCastleBattle myCastle=new toCastleBattle();
                 Scene s1 = myCastle.createScene(x, hero);// next town pic please
                 x.setScene(s1);
 

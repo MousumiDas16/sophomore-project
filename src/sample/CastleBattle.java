@@ -86,7 +86,7 @@ public class CastleBattle extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Village2 village2 = new Village2();
+                Village3 village2 = new Village3();
                 Scene s1 = null;
                 s1 = village2.createScene(x, hero);
                 x.setScene(s1);
