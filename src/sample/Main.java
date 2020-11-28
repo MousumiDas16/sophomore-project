@@ -40,7 +40,7 @@ public class Main extends Application {
         HydraIntro hy = new HydraIntro();
         CastleBattle camp = new CastleBattle();
 
-        Scene s1 = fort.getScene(primaryStage, hero);
+        Scene s1 = firstMenu.getScene(primaryStage, hero);
 
 
 
