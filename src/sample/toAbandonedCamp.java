@@ -22,7 +22,7 @@ public class toAbandonedCamp {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: toAbandonedCamp"));
-        hero.setScene("toabandondedcamp");
+        hero.setScene("toAbandonedCamp");
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();

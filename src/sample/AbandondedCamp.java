@@ -157,7 +157,7 @@ public class AbandondedCamp extends Application {
 
         //Adding the tavern image to the current UI
 
-        Image nxtImage = new Image("sample/Art/Background/Tavern.png", AppSettings.centerUIWidth,
+        Image nxtImage = new Image("sample/Art/Background/Forrest.png", AppSettings.centerUIWidth,
                 AppSettings.centerUIHeight, true, true);
         ImageView Center_ImageView = new ImageView(nxtImage);
         Center_UI.getChildren().add(Center_ImageView);

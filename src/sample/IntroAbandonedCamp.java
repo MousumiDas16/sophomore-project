@@ -97,7 +97,7 @@ public class IntroAbandonedCamp {
                     Line1.setText(words.get(next));
                 } else {
 
-                    FishingVillage fishingVillage = new FishingVillage();
+                    AbandondedCamp fishingVillage = new AbandondedCamp();
                     Scene s1 = null;
                     s1 = fishingVillage.createScene(x, hero);
                     x.setScene(s1);
@@ -117,8 +117,8 @@ public class IntroAbandonedCamp {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Wendigo.PNG", 200, 100, true, true);
+        Image img = new Image("sample/Art/Background/Forrest.PNG", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/Wendigo.PNG", 300, 300, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);
