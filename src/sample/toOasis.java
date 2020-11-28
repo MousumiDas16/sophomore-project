@@ -22,6 +22,7 @@ public class toOasis {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: toOasis"));
+        hero.setScene("tooasis");
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -69,10 +70,13 @@ public class toOasis {
         PauseTransition pause = new PauseTransition(Duration.seconds(2));
         pause.setOnFinished(event ->{
             Scene s1 = null;
-            Oasis newFort= new Oasis();//goes to abandoned camp
-            s1 = newFort.createScene(x, hero);
+            Forest forest= new Forest();//goes to abandoned camp
+            try {
+                s1 = forest.createScene(x, hero);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             x.setScene(s1);
-
         });
         pause.play();
 

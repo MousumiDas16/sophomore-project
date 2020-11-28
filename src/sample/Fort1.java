@@ -94,25 +94,9 @@ public class Fort1 extends Application {
         words.add("\"There are two paths ahead, both equally treacherous.\"");
         words.add("\"Talk to the fort’s quartermaster, he sells all sorts of goods \nto aid you on your journey!\"");
 
-        Text Line1 = new Text();
-        root.getChildren().add(Line1);
-        Line1.setText(words.get(next));
-        Line1.setStroke(Color.BLACK);
-        Button submit = new Button("NEXT");
-        submit.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                next++;
-                if(next <= words.size() -1){
-                    Line1.setText(words.get(next));
-                }else{
 
-                    FirstTown mytown=new FirstTown();
-                    Scene s1 = mytown.createScene(x, hero);// next town pic please
-                    x.setScene(s1);
-                }
-            };
-        });
+
+
 
         //TEXT AND BUTTON's
 
@@ -247,8 +231,8 @@ public class Fort1 extends Application {
                                 System.out.println("something broke fam peep first town");
                                 break;
                         }
-                        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
-                        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
+                        Image img = new Image("sample/Art/Background/Fort.png", 650, 400, true, true);
+                        Image img2 = new Image("sample/Art/Characters/guard.png", 200, 100, true, true);
                         ImageView Center_ImageView = new ImageView(img);
                         ImageView Character = new ImageView(img2);
                         Center_UI.getChildren().addAll(Center_ImageView,Character);

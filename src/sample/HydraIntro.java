@@ -32,7 +32,7 @@ public class HydraIntro {
 
 
     public Scene createScene(Stage x, Player hero) {
-
+        hero.setScene("HydraIntro");
         System.out.println(("Current file: HydraIntro"));
 
         BorderPane root = new BorderPane();
@@ -105,9 +105,9 @@ public class HydraIntro {
                     Line1.setText(words.get(next));
                 } else {
 
-                    FishingVillage fishingVillage = new FishingVillage();//goes to hydra battle
+                    HydraBattle HB = new HydraBattle();//goes to hydra battle
                     Scene s1 = null;
-                    s1 = fishingVillage.createScene(x, hero);
+                    s1 = HB.getScene(x, hero);
                     x.setScene(s1);
                 }
                 //need to have sprite transition when the story demands
@@ -126,7 +126,7 @@ public class HydraIntro {
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
         Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);// need castle exterior
-        Image img2 = new Image("sample/Art/Characters/", 200, 100, true, true);//need hydra
+        Image img2 = new Image("sample/Art/Characters/Hydra.png", 400, 400, true, true);//need hydra
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);

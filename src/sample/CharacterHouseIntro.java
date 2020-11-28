@@ -44,7 +44,7 @@ public class CharacterHouseIntro {
         Text Line1 = new Text();
         root.getChildren().add(Line1);
         Line1.setText(words.get(next));
-        Line1.setStroke(Color.WHEAT);
+        Line1.setFill(Color.WHEAT);
         Line1.setFont( Font.font("Verdana", FontWeight.BOLD, 18));
 
 
