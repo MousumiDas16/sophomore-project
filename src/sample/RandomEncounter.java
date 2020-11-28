@@ -65,7 +65,7 @@ public class RandomEncounter extends Application {
                 background = new Image("sample/Art/Background/Forrest.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 enemy.setType("wendigo");
-                enemypic = new Image("sample/Art/Characters/Wendigo.png", 400, 400, true, true);
+                enemypic = new Image("sample/Art/Characters/Wendigo.png", 300, 300, true, true);
                 break;
             case 4://first
                 if (hero.getScene().equalsIgnoreCase("firsttown")) {
