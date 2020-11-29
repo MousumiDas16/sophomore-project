@@ -42,6 +42,7 @@ public class Oasis extends Application {
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
+        hero.setScene("Oasis");
 
 
         //BOTTOM RECTANGLE
@@ -90,25 +91,7 @@ public class Oasis extends Application {
         words.add("\"who knew this was here! We should probably restock.\"");
         words.add("\"We can’t run from whatever is in the pyramid,\nso make sure you are ready before we face it.\"");
 
-        Text Line1 = new Text();
-        root.getChildren().add(Line1);
-        Line1.setText(words.get(next));
-        Line1.setStroke(Color.BLACK);
-        Button submit = new Button("NEXT");
-        submit.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                next++;
-                if(next <= words.size() -1){
-                    Line1.setText(words.get(next));
-                }else{
 
-                    FirstTown mytown=new FirstTown();
-                    Scene s1 = mytown.createScene(x, hero);// next town pic please
-                    x.setScene(s1);
-                }
-            };
-        });
 
         //TEXT AND BUTTON's
 
