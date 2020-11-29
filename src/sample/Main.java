@@ -38,10 +38,9 @@ public class Main extends Application {
         EndingIntro fort = new EndingIntro();
         MainMenu firstMenu=new MainMenu();
         HydraIntro hy = new HydraIntro();
-        pyramid pyr = new pyramid();
-        Oasis camp = new Oasis();
+        OldRuins camp = new OldRuins();
         Village2 vill = new Village2();
-        Scene s1 = firstMenu.getScene(primaryStage, hero);
+        Scene s1 = camp.getScene(primaryStage, hero);
 
 
 
