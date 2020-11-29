@@ -221,8 +221,9 @@ public class Forest extends Application {
         || hero.getScene().equalsIgnoreCase("tovillage3") || hero.getScene().equalsIgnoreCase("toVillage4")
         ||hero.getScene().equalsIgnoreCase("tovillage5") || hero.getScene().equalsIgnoreCase("tocave1")
         || hero.getScene().equalsIgnoreCase("tocave2") || hero.getScene().equalsIgnoreCase("tohydra")
-        ||  hero.getScene().equalsIgnoreCase("tofort2")
-        || hero.getScene().equalsIgnoreCase("tocastlebattle") || hero.getScene().equalsIgnoreCase("ToFishingVillage"))  {
+        ||  hero.getScene().equalsIgnoreCase("tofort2") ||(hero.getScene().equalsIgnoreCase("ToAbandonedCamp"))
+        || hero.getScene().equalsIgnoreCase("tocastlebattle") ||
+                (hero.getScene().equalsIgnoreCase("tooldruins"))  ||hero.getScene().equalsIgnoreCase("ToFishingVillage"))  {
              Image img = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
                     AppSettings.centerUIHeight, true, true);
 

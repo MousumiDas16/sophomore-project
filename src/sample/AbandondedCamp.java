@@ -27,7 +27,7 @@ public class AbandondedCamp extends Application {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: Abandoned Camp"));
-        hero.setScene("AbandondedCamp");
+        hero.setScene("AbandonedCamp");
         StackPane Center_UI = new StackPane();
 
         BorderPane root = new BorderPane();

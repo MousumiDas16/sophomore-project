@@ -146,7 +146,8 @@ public class RandomEncounter extends Application {
                         ||hero.getScene().equalsIgnoreCase("tovillage5") || hero.getScene().equalsIgnoreCase("tocave1")
                         || hero.getScene().equalsIgnoreCase("tocave2") || hero.getScene().equalsIgnoreCase("tohydra")
                         || hero.getScene().equalsIgnoreCase("toAbandonedCamp") || hero.getScene().equalsIgnoreCase("tofort2")
-                        || hero.getScene().equalsIgnoreCase("tocastlebattle") || hero.getScene().equalsIgnoreCase("ToFishingVillage"))  {
+                        || hero.getScene().equalsIgnoreCase("tocastlebattle") || hero.getScene().equalsIgnoreCase("ToFishingVillage")
+                || hero.getScene().equalsIgnoreCase("tooldruins"))  {
                     background = new Image("sample/Art/Background/Forrest.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
 
 
@@ -280,7 +281,7 @@ public class RandomEncounter extends Application {
                             x.setScene(s1);
                         }
                         else if (hero.getScene().equalsIgnoreCase("toOldRuins")) {
-                            toOasis mytown=new toOasis();
+                            toOldRuins mytown=new toOldRuins();
                             Scene s1 = mytown.createScene(x, hero);// next town pic please
                             x.setScene(s1);
                         }
@@ -525,7 +526,7 @@ public class RandomEncounter extends Application {
                     x.setScene(s1);
                 }
                 else if (hero.getScene().equalsIgnoreCase("toOldRuins")) {
-                    toOasis mytown=new toOasis();
+                    toOldRuins mytown=new toOldRuins();
                     Scene s1 = mytown.createScene(x, hero);// next town pic please
                     x.setScene(s1);
                 }
