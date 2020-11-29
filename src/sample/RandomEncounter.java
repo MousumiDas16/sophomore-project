@@ -302,7 +302,7 @@ public class RandomEncounter extends Application {
                 background = new Image("sample/Art/Background/Fishing_Village.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 enemy.setType("boss gob");
-                enemypic = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 400, true, true);
+                enemypic = new Image("sample/Art/Characters/GoblinKing.gif", 300, 300, true, true);
                 break;
             case 7:
                 background = new Image("sample/Art/Background/Fishing_Village.png", AppSettings.centerUIWidth,
