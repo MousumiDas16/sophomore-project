@@ -57,7 +57,7 @@ public class RandomEncounter extends Application {
 
                 background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
-                enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
+                enemypic = new Image("sample/Art/Characters/Bandit.gif", 200, 400, true, true);
                 enemy.setType("bandit");
                 break;
             case 3:
