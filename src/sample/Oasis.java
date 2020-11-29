@@ -238,7 +238,7 @@ public class Oasis extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                pyramid myCastle=new pyramid();
+                toSphinx myCastle=new toSphinx();
                 Scene s1 = myCastle.createScene(x, hero);// next town pic please
                 x.setScene(s1);
 

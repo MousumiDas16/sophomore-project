@@ -95,7 +95,7 @@ public class pyramid extends Application {
         Left_UI.getChildren().add(newLoadedPane);
 
         //Character Pictures
-        Image sphinx = new Image("sample/Art/Characters/Sphinx.png",300,300,true,true);
+        Image sphinx = new Image("sample/Art/Characters/Sphinx.png",400,400,true,true);
         Image wisp = new Image("sample/Art/Characters/Willow_Sprite.gif",100,200,true,true);
         ImageView view = new ImageView(sphinx);
 
