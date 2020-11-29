@@ -34,7 +34,7 @@ public class Thanks {
 
 
         ArrayList<String> words = new ArrayList<>();
-        words.add("     Thanks for Playing!\n" +
+        words.add("   Thanks for Playing!\n" +
                 "       We love you");
 
         Text Line1 = new Text();

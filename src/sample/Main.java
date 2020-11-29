@@ -40,7 +40,7 @@ public class Main extends Application {
         HydraIntro hy = new HydraIntro();
         OldRuins camp = new OldRuins();
         Village2 vill = new Village2();
-        Scene s1 = camp.getScene(primaryStage, hero);
+        Scene s1 = hy.createScene(primaryStage, hero);
 
 
 
