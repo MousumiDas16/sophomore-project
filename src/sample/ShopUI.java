@@ -172,6 +172,10 @@ public class ShopUI extends Application implements Initializable {
             Village5 town= new Village5();
             Scene s1 = town.createScene(Main.mainStage  ,Main.hero);// next town pic please
             Main.mainStage.setScene(s1);
+        }else if (Main.hero.getScene().equalsIgnoreCase("Oasis")){
+            Oasis town= new Oasis();
+            Scene s1 = town.createScene(Main.mainStage  ,Main.hero);// next town pic please
+            Main.mainStage.setScene(s1);
         }
 
 

@@ -463,6 +463,10 @@ public class RandomEncounter extends Application {
                     EndingIntro encounter = new EndingIntro();
                     Scene s1 = encounter.getScene(x, hero); //talk to a random person pic please
                     x.setScene(s1);
+                }else if(hero.getScene().equalsIgnoreCase("castleBattle")){
+                    toVillage3 encounter = new toVillage3();
+                    Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
+                    x.setScene(s1);
                 }
                 //Travel mechanics
                 else if (hero.getScene().equalsIgnoreCase("toFishingVillage")) {

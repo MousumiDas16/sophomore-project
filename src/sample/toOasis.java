@@ -58,7 +58,7 @@ public class toOasis {
 
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Desert_Oasis.png",
+        Image img = new Image("sample/Art/Background/Desert_Walking.png",
                 AppSettings.centerUIWidth, AppSettings.centerUIHeight, true, true);
         Image img2;
         img2 = hero.getImage(1);

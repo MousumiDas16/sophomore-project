@@ -78,7 +78,7 @@ public class Oasis extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/tempFort1.png", AppSettings.centerUIWidth,
+        Image img = new Image("sample/Art/Background/Desert_Oasis.png", AppSettings.centerUIWidth,
                 AppSettings.centerUIHeight, true, true);
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
@@ -239,7 +239,8 @@ public class Oasis extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = ShopUI.main(x, hero); //talk to Lady Wisp pic please
+                Scene s1 = ShopUI.main(x, hero);
+
                 x.setScene(s1);
 
 
