@@ -57,7 +57,7 @@ public class Ending2 {
                 if (next <= words.size() - 1) {
                     Line1.setText(words.get(next));
                 } else {
-                    EndingIntro2 house=new EndingIntro2();
+                    Thanks house=new Thanks();
                     Scene s1 = house.createScene(x, hero);
                     x.setScene(s1);
                 }
