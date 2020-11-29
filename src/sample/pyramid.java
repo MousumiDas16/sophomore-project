@@ -66,7 +66,7 @@ public class pyramid extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", AppSettings.centerUIWidth,
+        Image img = new Image("sample/Art/Background/Pyramid.PNG", AppSettings.centerUIWidth,
                 AppSettings.centerUIHeight, true, true);
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
