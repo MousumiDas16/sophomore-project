@@ -110,7 +110,7 @@ public class Forest extends Application {
             loop= loop +1;
             hero.setLoopcount(loop);
             RandomEncounter encounter =new RandomEncounter();
-            Scene s1 = encounter.createScene(x, hero,4);// next town pic please
+            Scene s1 = encounter.createScene(x, hero,5);// next town pic please
             x.setScene(s1);
             System.out.println("the loop number is" +hero.getLoopcount());
             return s1;

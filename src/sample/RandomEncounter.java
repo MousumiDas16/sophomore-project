@@ -141,7 +141,7 @@ public class RandomEncounter extends Application {
 
             case 5:
                 System.out.println("made to case 5");
-                if (hero.getScene().equalsIgnoreCase("WalkingInforest") || hero.getScene().equalsIgnoreCase("tovillage2")
+                if (hero.getScene().equalsIgnoreCase("walkinginforest") || hero.getScene().equalsIgnoreCase("tovillage2")
                         || hero.getScene().equalsIgnoreCase("tovillage3") || hero.getScene().equalsIgnoreCase("toVillage4")
                         ||hero.getScene().equalsIgnoreCase("tovillage5") || hero.getScene().equalsIgnoreCase("tocave1")
                         || hero.getScene().equalsIgnoreCase("tocave2") || hero.getScene().equalsIgnoreCase("tohydra")
@@ -426,7 +426,7 @@ public class RandomEncounter extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if (hero.getScene().equals("WalkingInForest")) {
+                if (hero.getScene().equals("walkinginforest")) {
                     WalkingInForest forest=new WalkingInForest();
                     Scene s1 = forest.createScene(x, hero);
                     x.setScene(s1);
