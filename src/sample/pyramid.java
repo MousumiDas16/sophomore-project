@@ -161,7 +161,9 @@ public class pyramid extends Application {
                     Line1.setText(words.get(next));
 
                 }else{
-                    System.out.println("WE MADE IT HERE next = " + next);
+                    EndingIntro end = new EndingIntro();
+                    Scene s1 = end.getScene(x,hero);
+                    x.setScene(s1);
                 }
             };
         });
