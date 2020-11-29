@@ -202,8 +202,11 @@ public class Forest extends Application {
                         IntroAbandonedCamp firstFort=new IntroAbandonedCamp();
                         Scene s1 = firstFort.createScene(x, hero);
                         x.setScene(s1);
+                    }else if(hero.getScene().equalsIgnoreCase("ToCastleBattle")) {
+                        IntroCastleBattle firstFort = new IntroCastleBattle();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
                     }
-
 
 
 
