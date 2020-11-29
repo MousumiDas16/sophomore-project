@@ -105,7 +105,7 @@ public class EndingIntro2 {
 
 
 
-                    WalkingInForest forest =new WalkingInForest();
+                    EndingChoice forest =new EndingChoice();
                     Scene s1 = forest.createScene(x, hero);
 
                     x.setScene(s1);
