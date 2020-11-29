@@ -118,7 +118,7 @@ public class IntroCastleBattle {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Castle_Goblin.PNG", 650, 400, true, true);
         Image img2 = new Image("sample/Art/Characters/GoblinKing.gif", 300, 300, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);

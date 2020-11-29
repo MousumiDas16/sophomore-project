@@ -127,7 +127,7 @@ public class CastleBattle extends Application {
         //Adding the tavern image to the current UI
 
 
-        Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Castle_Goblin.PNG", 650, 400, true, true);
         Image img2 = new Image("sample/Art/Characters/GoblinKing.gif", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);

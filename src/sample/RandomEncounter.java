@@ -299,13 +299,13 @@ public class RandomEncounter extends Application {
                 }
                 break;
             case 6:
-                background = new Image("sample/Art/Background/Fishing_Village.png", AppSettings.centerUIWidth,
+                background = new Image("sample/Art/Background/Castle_Goblin.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 enemy.setType("boss gob");
                 enemypic = new Image("sample/Art/Characters/GoblinKing3c.png", 300, 300, true, true);
                 break;
             case 7:
-                background = new Image("sample/Art/Background/Fishing_Village.png", AppSettings.centerUIWidth,
+                background = new Image("sample/Art/Background/Castle_Hydra.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 enemy.setType("hydra");
                 enemypic = new Image("sample/Art/Characters/Hydra.png", 400, 400, true, true);
