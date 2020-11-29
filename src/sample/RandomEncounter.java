@@ -55,7 +55,7 @@ public class RandomEncounter extends Application {
             case 2:
                 //old ruins
 
-                background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
+                background = new Image("sample/Art/Background/Fort_Ruined.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 enemypic = new Image("sample/Art/Characters/Bandit1.gif", 200, 400, true, true);
                 enemy.setType("bandit");
@@ -250,7 +250,7 @@ public class RandomEncounter extends Application {
                             Scene s1 = mytown.createScene(x, hero);// next town pic please
                             x.setScene(s1);
                         }
-                        else if (hero.getScene().equalsIgnoreCase("toVillage5")) {
+                        else if (hero.getScene().equalsIgnoreCase("tovillage5")) {
                             toVillage5 mytown=new toVillage5();
                             Scene s1 = mytown.createScene(x, hero);// next town pic please
                             x.setScene(s1);
@@ -498,7 +498,9 @@ public class RandomEncounter extends Application {
                     toVillage4 mytown=new toVillage4();
                     Scene s1 = mytown.createScene(x, hero);// next town pic please
                     x.setScene(s1);
-                }
+                }///
+
+
                 else if (hero.getScene().equalsIgnoreCase("toVillage5")) {
                     toVillage5 mytown=new toVillage5();
                     Scene s1 = mytown.createScene(x, hero);// next town pic please

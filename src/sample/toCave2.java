@@ -22,6 +22,7 @@ public class toCave2 {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: toCave2"));
+        hero.setScene("tocave2");
 
         BorderPane root = new BorderPane();
 
