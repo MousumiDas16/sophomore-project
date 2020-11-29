@@ -42,6 +42,7 @@ public class Oasis extends Application {
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
+        hero.setScene("Oasis");
 
 
         //BOTTOM RECTANGLE
@@ -78,7 +79,7 @@ public class Oasis extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/tempFort1.png", AppSettings.centerUIWidth,
+        Image img = new Image("sample/Art/Background/Desert_Oasis.png", AppSettings.centerUIWidth,
                 AppSettings.centerUIHeight, true, true);
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
@@ -90,25 +91,7 @@ public class Oasis extends Application {
         words.add("\"who knew this was here! We should probably restock.\"");
         words.add("\"We can’t run from whatever is in the pyramid,\nso make sure you are ready before we face it.\"");
 
-        Text Line1 = new Text();
-        root.getChildren().add(Line1);
-        Line1.setText(words.get(next));
-        Line1.setStroke(Color.BLACK);
-        Button submit = new Button("NEXT");
-        submit.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                next++;
-                if(next <= words.size() -1){
-                    Line1.setText(words.get(next));
-                }else{
 
-                    FirstTown mytown=new FirstTown();
-                    Scene s1 = mytown.createScene(x, hero);// next town pic please
-                    x.setScene(s1);
-                }
-            };
-        });
 
         //TEXT AND BUTTON's
 
@@ -239,7 +222,8 @@ public class Oasis extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Scene s1 = ShopUI.main(x, hero); //talk to Lady Wisp pic please
+                Scene s1 = ShopUI.main(x, hero);
+
                 x.setScene(s1);
 
 
@@ -254,7 +238,7 @@ public class Oasis extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                pyramid myCastle=new pyramid();
+                toSphinx myCastle=new toSphinx();
                 Scene s1 = myCastle.createScene(x, hero);// next town pic please
                 x.setScene(s1);
 

@@ -66,7 +66,7 @@ public class pyramid extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", AppSettings.centerUIWidth,
+        Image img = new Image("sample/Art/Background/Pyramid.PNG", AppSettings.centerUIWidth,
                 AppSettings.centerUIHeight, true, true);
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
@@ -95,7 +95,7 @@ public class pyramid extends Application {
         Left_UI.getChildren().add(newLoadedPane);
 
         //Character Pictures
-        Image sphinx = new Image("sample/Art/Characters/Sphinx.png",300,300,true,true);
+        Image sphinx = new Image("sample/Art/Characters/Sphinx.png",400,400,true,true);
         Image wisp = new Image("sample/Art/Characters/Willow_Sprite.gif",100,200,true,true);
         ImageView view = new ImageView(sphinx);
 
