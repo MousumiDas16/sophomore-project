@@ -30,7 +30,7 @@ public class EndingChoice extends Application {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: Village 2"));
-        hero.setScene("village2");
+        hero.setScene("Ending Choice");
 
         BorderPane root = new BorderPane();
 
