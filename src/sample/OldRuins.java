@@ -88,7 +88,7 @@ public class OldRuins extends Application {
             @Override
             public void handle(ActionEvent event) {
                 hero.setAll();
-                Village5 encounter = new Village5();
+                toVillage5 encounter = new toVillage5();
                 Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
                 x.setScene(s1);
 
