@@ -177,7 +177,7 @@ public class Cave1 extends Application {
                         @Override
                         public void handle(ActionEvent event) {
 
-                            Fort2 RE = new Fort2();
+                            toFort2 RE = new toFort2();
                             Scene s1 = RE.createScene(x,hero);
                             x.setScene(s1);
 
@@ -258,7 +258,7 @@ public class Cave1 extends Application {
                         @Override
                         public void handle(ActionEvent event) {
 
-                            Fort2 RE = new Fort2();
+                            toFort2 RE = new toFort2();
                             Scene s1 = RE.createScene(x,hero);
                             x.setScene(s1);
 
