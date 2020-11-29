@@ -38,9 +38,9 @@ public class Main extends Application {
         EndingIntro fort = new EndingIntro();
         MainMenu firstMenu=new MainMenu();
         HydraIntro hy = new HydraIntro();
-        CastleBattle camp = new CastleBattle();
+        OldRuins camp = new OldRuins();
         Village2 vill = new Village2();
-        Scene s1 = camp.createScene(primaryStage, hero);
+        Scene s1 = camp.getScene(primaryStage, hero);
 
 
 
