@@ -39,7 +39,7 @@ public class Castle extends Application {
     //  */
     public Scene createScene(Stage x, Player hero) {
         System.out.println(("Current file: Castle"));
-        hero.setScene("CastleBattle");
+        hero.setScene("Castle");
 
         BorderPane root = new BorderPane();
 
