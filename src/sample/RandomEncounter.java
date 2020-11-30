@@ -439,8 +439,32 @@ public class RandomEncounter extends Application {
                     Fort1 firstFort=new Fort1();
                     Scene s1 = firstFort.createScene(x, hero);
                     x.setScene(s1);
-
-                }else if (hero.getScene().equalsIgnoreCase("fishingvillage")) {
+                }else if (hero.getScene().equalsIgnoreCase("fort2")) {
+                    Fort2 firstFort = new Fort2();
+                    Scene s1 = firstFort.createScene(x, hero);
+                    x.setScene(s1);
+                }else if (hero.getScene().equalsIgnoreCase("village2")) {
+                    Village2 firstFort = new Village2();
+                    Scene s1 = firstFort.createScene(x, hero);
+                    x.setScene(s1);
+                }else if (hero.getScene().equalsIgnoreCase("village3")) {
+                    Village3 firstFort = new Village3();
+                    Scene s1 = firstFort.createScene(x, hero);
+                    x.setScene(s1);
+                }else if (hero.getScene().equalsIgnoreCase("village4")) {
+                    Village4 firstFort = new Village4();
+                    Scene s1 = firstFort.createScene(x, hero);
+                    x.setScene(s1);
+                }else if (hero.getScene().equalsIgnoreCase("village5")) {
+                    Village5 firstFort = new Village5();
+                    Scene s1 = firstFort.createScene(x, hero);
+                    x.setScene(s1);
+                }else if (hero.getScene().equalsIgnoreCase("Castle")) {
+                    Castle firstFort = new Castle();
+                    Scene s1 = firstFort.createScene(x, hero);
+                    x.setScene(s1);
+                }
+                else if (hero.getScene().equalsIgnoreCase("fishingvillage")) {
                     toVillage2 v2 = new toVillage2();
                     Scene s1 = v2.createScene(x, hero);
                     x.setScene(s1);
@@ -464,7 +488,7 @@ public class RandomEncounter extends Application {
                     Scene s1 = encounter.getScene(x, hero); //talk to a random person pic please
                     x.setScene(s1);
                 }else if(hero.getScene().equalsIgnoreCase("castleBattle")){
-                    toVillage3 encounter = new toVillage3();
+                    Castle encounter = new Castle();
                     Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
                     x.setScene(s1);
                 }
