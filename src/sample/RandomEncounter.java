@@ -42,11 +42,11 @@ public class RandomEncounter extends Application {
                 enemypic = new Image("sample/Art/Characters/Arlong.gif", 200, 400, true, true);
                 break;
             case 1://Cave 1
-                background = new Image("sample/Art/Background/TEMPbackgroud.png", AppSettings.centerUIWidth,
+                background = new Image("sample/Art/Background/Cave.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
 
                 enemy.setType("troll");
-                enemypic = new Image("sample/Art/Characters/Ogre.gif",200,400,true,true);
+                enemypic = new Image("sample/Art/Characters/Ogre.gif",400,400,true,true);
 
                 break;
 
@@ -87,20 +87,20 @@ public class RandomEncounter extends Application {
                             AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
                 }
                 else if (hero.getScene().equalsIgnoreCase("Village3")){
-                    background = new Image("sample/Art/Background/Town_2.png",
+                    background = new Image("sample/Art/Background/Summerville.png",
                             AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
                 }
                 else if(hero.getScene().equalsIgnoreCase("Village4")){
-                    background = new Image("sample/Art/Background/Town_2.png",
+                    background = new Image("sample/Art/Background/Geistadt_.png",
                             AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
                 }
                 else if(hero.getScene().equalsIgnoreCase("Village5")){
-                    background = new Image("sample/Art/Background/Town_2.png",
+                    background = new Image("sample/Art/Background/Ye_Olde_Village.png",
                             AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
                 }
                 //Travel mechanics
                 else if (hero.getScene().equalsIgnoreCase("Castle")) {
-                    background = new Image("sample/Art/Background/tempFort1.png",
+                    background = new Image("sample/Art/Background/Castle_Courtyard.png",
                             AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
                 }
                 else if (hero.getScene().equalsIgnoreCase("FishingVillage")) {
@@ -130,6 +130,7 @@ public class RandomEncounter extends Application {
                     case 2:
                         enemy.setType("bloodpuddle");
                         enemypic = new Image("sample/Art/Characters/BloodMimic2.gif", 200, 300, true, true);
+                        System.out.println("enemy bloodpuddle");
                         break;
 
                     default:

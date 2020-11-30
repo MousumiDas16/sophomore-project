@@ -70,12 +70,12 @@ public class EndingChoice extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Pyramid.png", 650, 400, true, true);//needs to be changed to cave
-        Image img2 = new Image("sample/Art/3_sword.png", 400, 400, true, true);
+        Image img = new Image("sample/Art/Background/Cave_With_Swords.png", 650, 400, true, true);//needs to be changed to cave
+
         ImageView Center_ImageView = new ImageView(img);
-        ImageView Character = new ImageView(img2);
-        Center_UI.getChildren().addAll(Center_ImageView,Character);
-        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
+
+        Center_UI.getChildren().addAll(Center_ImageView);
+
         root.setCenter(Center_UI);
 
         //Player STATS ON Side Bar

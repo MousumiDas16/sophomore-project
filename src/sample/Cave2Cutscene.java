@@ -121,7 +121,7 @@ public class Cave2Cutscene {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);//need cave
+        Image img = new Image("sample/Art/Background/Cave.png", 650, 400, true, true);//need cave
         Image img2 = new Image("sample/Art/Characters/Willow_Sprite.gif", 200, 200, true, true);//
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);

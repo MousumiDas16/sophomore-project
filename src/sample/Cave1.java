@@ -76,7 +76,7 @@ public class Cave1 extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/TEMPbackgroud.png", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Cave.png", 650, 400, true, true);
         Image img2 = new Image("sample/Art/Characters/Ogre.gif", 300, 300, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
