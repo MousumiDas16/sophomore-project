@@ -262,7 +262,7 @@ public class Fort2 extends Application {
                                 break;
                         }
                         Image img = new Image("sample/Art/Background/Fort_2.png", 650, 400, true, true);
-                        Image img2 = new Image("sample/Art/Characters/guard.png", 200, 100, true, true);
+                        Image img2 = new Image("sample/Art/Characters/guard.png", 200, 200, true, true);
                         ImageView Center_ImageView = new ImageView(img);
                         ImageView Character = new ImageView(img2);
                         Center_UI.getChildren().addAll(Center_ImageView,Character);
