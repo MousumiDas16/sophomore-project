@@ -918,7 +918,7 @@ public class RandomEncounter extends Application {
                     //text2.setText("2) would you like to look at the map?");
                     //text3.setText("3) Would you like to continue traveling?");
                     //text4.setText("");
-                    Bot_UI.setAlignment(secondbuttons, Pos.TOP_LEFT);
+                    Bot_UI.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
                     Bot_UI.getChildren().add(secondbuttons);
                 } else {
                     if (enemy.getHealth() > 0) {
@@ -966,7 +966,7 @@ public class RandomEncounter extends Application {
             @Override
             public void handle(ActionEvent event) {
                 if (hero.getSpeed() > enemy.getSpeed() && enemy.getHealth() > 0) {
-                    popup1.setText("you were fast enough to out run the " + enemy.getType());
+                    popup1.setText("you were fast enough to out run the\n" + enemy.getType());
                     popup2.setText("");
                     popup3.setText("");
                     popup4.setText("");
@@ -975,7 +975,7 @@ public class RandomEncounter extends Application {
                     //text2.setText("would you like to look at the map?");
                     //text3.setText("Would you like to continue traveling?");
                     //text4.setText("");
-                    Bot_UI.setAlignment(secondbuttons, Pos.TOP_LEFT);
+                    Bot_UI.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
                     Bot_UI.getChildren().add(secondbuttons);
                 } else {
                     if (enemy.getHealth() > 0) {
