@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -78,16 +79,16 @@ public class HydraIntro {
 
         //Jimmy Story
         ArrayList<String> words = new ArrayList<>();
-        words.add("Outside the old castle the Protagonist found the Hydra waiting in the moat that protects the bridge.\n");
-        words.add("Hydra: “Welcomeeee, I can smell the oooold blood in youuuu. You must seek the mountain\nI protecttttt, and its secret…. Yesssss?”\n");
-        words.add("The Hydra is immense, far to great to slay it all, the Protagonist must here the creature out or\n" +
+        words.add("Outside the old castle the Protagonist found the Hydra\nwaiting in the moat that protects the bridge.\n");
+        words.add("Hydra: “Welcomeeee, I can smell the oooold blood in youuuu.\nYou must seek the mountain\nI protecttttt, and its secret…. Yesssss?”\n");
+        words.add("The Hydra is immense, far to great to slay it all,\nthe Protagonist must here the creature out or\n" +
                 "surely face demise.\n");
-        words.add("Hydra: “By my respect for your lineageeeee, I will give youuuuu a choice. If you can cut one of \n" +
-                "my heads off, I’lllll let you passssss. A true Monarch would be able to vanquish one head of \n" +
-                "mine surely. But, a true Monarch would also know to sacrifice their wealth for their kingdom, for\n");
-        words.add("their peoplllllle. Everyone has a price, even one as great as I. I’ll accept everything you own but \n" +
-                "your horse and weapons as they serve me no purpossssssee. I cannot guarantee you won’t \n" +
-                "need these items at the Dragon’s Claw but that is my offer. Tempting….yessssss?”\n");
+        words.add("Hydra: “By my respect for your lineageeeee,\nI will give youuuuu a choice. If you can cut one of \nmy heads off, I’lllll let you passssss.");
+        words.add("A true Monarch would be able to vanquish one head of mine surely.\n" +
+                "But, a true Monarch would also know to sacrifice their wealth for their kingdom, for\n");
+        words.add("their peoplllllle. Everyone has a price, even one\nas great as I. I’ll accept everything you own but \n");
+        words.add("your horse and weapons as they serve me no purpossssssee.\nI cannot guarantee you won’t \n" +
+                "need these items at the Dragon’s Claw but that is my offer.\nTempting….yessssss?”\n");
 
         Text Line1 = new Text();
         //positioning text
@@ -95,33 +96,32 @@ public class HydraIntro {
         Bot_UI.getChildren().add(Line1);
         Line1.setText(words.get(next));
         Line1.setStroke(Color.BLACK);
-        Button submit = new Button("NEXT");
-        submit.setOnAction(new EventHandler<ActionEvent>() {
 
-            @Override
-            public void handle(ActionEvent event) {
+        Image imgNext = new Image("sample/Art/Background/arrow.png", 70, 70, true, true);
+        ImageView nxtView = new ImageView(imgNext);
+        nxtView.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            public void handle(MouseEvent event) {
                 next++;
-                if (next <= words.size() - 1) {
+                if(next <= words.size() -1){
                     Line1.setText(words.get(next));
-                } else {
-
-                    HydraBattle HB = new HydraBattle();//goes to hydra battle
+                }else{
+                    HydraBattle fishingVillage = new HydraBattle();
                     Scene s1 = null;
-                    s1 = HB.getScene(x, hero);
+                    s1 = fishingVillage.getScene(x, hero);
                     x.setScene(s1);
                 }
                 //need to have sprite transition when the story demands
-
-
+                event.consume();
             }
 
-            ;
-
         });
-        Bot_UI.getChildren().addAll(submit);
 
-        Bot_UI.setAlignment(submit, Pos.CENTER_RIGHT);
-        submit.setPadding(new Insets(0, 20, 0, 20));
+        nxtView.setTranslateX(Line1.getX()+280);
+
+        Bot_UI.getChildren().addAll(nxtView);
+
+
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
