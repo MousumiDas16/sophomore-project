@@ -36,7 +36,7 @@ public class LeaveFirstTown {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: LeaveFirstTown"));
-
+        hero.setScene("LeaveFirstTown");
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -126,7 +126,7 @@ public class LeaveFirstTown {
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
         Image img1 = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Willow_Sprite.gif", 200, 150, true, true);
+        Image img2 = new Image("sample/Art/Characters/Willow_Sprite.gif", 200, 200, true, true);
         ImageView Center_ImageView = new ImageView(img1);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);

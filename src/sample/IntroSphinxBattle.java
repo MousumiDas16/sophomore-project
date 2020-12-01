@@ -79,7 +79,7 @@ public class IntroSphinxBattle {
 
         //Jimmy Story
         ArrayList<String> words = new ArrayList<>();
-        words.add("The protagonist entered the pyramid. Weary of all the traveling they hoped no more conflict would come their way…");
+        words.add("The protagonist entered the pyramid. Weary of all the traveling\nthey hoped no more conflict would come their way…");
         
 
         Text Line1 = new Text();

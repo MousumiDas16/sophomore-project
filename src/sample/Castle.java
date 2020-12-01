@@ -235,7 +235,7 @@ public class Castle extends Application {
                                 break;
                         }
                         Image img = new Image("sample/Art/Background/Castle_Courtyard.png", 650, 400, true, true);
-                        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
+                        Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 200, true, true);
                         ImageView Center_ImageView = new ImageView(img);
                         ImageView Character = new ImageView(img2);
                         Center_UI.getChildren().addAll(Center_ImageView,Character);

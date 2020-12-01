@@ -80,7 +80,7 @@ public class IntroCastleBattle {
         //Jimmy Story
         ArrayList<String> words = new ArrayList<>();
         words.add("The protagonist arrived at the castle only to find it surrounded by monsters");
-        words.add("Lady Wisp: “Ahh! Brave hero we must do something, if we don’t the castle might fall to those monsters!”");
+        words.add("Lady Wisp: “Ahh! Brave hero we must do something,\nif we don’t the castle might fall to those monsters!”");
         words.add("Monster’s Boss: “What a pathetic traveler, you look as though you might piss yourself\njust from the sight of me! Boys! I’ll handle this runt MYSELF!”");
 
         Text Line1 = new Text();

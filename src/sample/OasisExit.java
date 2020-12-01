@@ -35,7 +35,7 @@ public class OasisExit {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: OasisExit"));
-
+        hero.setScene("OasisExit");
         BorderPane root = new BorderPane();
 
         StackPane Bot_UI = new StackPane();
@@ -43,7 +43,7 @@ public class OasisExit {
 
         //BOTTOM RECTANGLE
 
-        Rectangle Bot_Rec = new Rectangle(AppSettings.screenWidth, AppSettings.screenHeight);
+        Rectangle Bot_Rec = new Rectangle(AppSettings.screenWidth, AppSettings.bottomUIHeight);
         Bot_Rec.setFill(Color.rgb(211, 211, 211));
         Bot_UI.getChildren().add(Bot_Rec);
         root.setBottom(Bot_UI);
@@ -101,7 +101,7 @@ public class OasisExit {
                     Line1.setText(words.get(next));
                 } else {
 
-                    WalkingInForest forest = new WalkingInForest();
+                    toSphinx forest = new toSphinx();
                     Scene s1 = forest.createScene(x, hero);
                     x.setScene(s1);
                 }
@@ -121,10 +121,12 @@ public class OasisExit {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", AppSettings.centerUIWidth,
-                AppSettings.centerUIHeight, true, true);
-        ImageView Center_ImageView = new ImageView(img);
-        Center_UI.getChildren().add(Center_ImageView);
+        Image img1 = new Image("sample/Art/Background/Desert_Oasis.png", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/Willow_Sprite.gif", 200, 200, true, true);
+        ImageView Center_ImageView = new ImageView(img1);
+        ImageView Character = new ImageView(img2);
+        Center_UI.getChildren().addAll(Center_ImageView,Character);
+        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
         root.setCenter(Center_UI);
         Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
         return S2;
