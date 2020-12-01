@@ -47,7 +47,7 @@ public class RandomEncounter extends Application {
                         AppSettings.screenHeight, true, true);
 
                 enemy.setType("troll");
-                enemypic = new Image("sample/Art/Characters/Ogre.gif",400,400,true,true);
+                enemypic = new Image("sample/Art/Characters/Ogre.gif",300,300,true,true);
 
                 break;
 
@@ -1097,7 +1097,7 @@ public class RandomEncounter extends Application {
        // enemyhealth.setText("Health: " + enemy.getHealth());
 
         Center_UI.getChildren().addAll(Center_ImageView, Character);
-        Center_UI.setAlignment(Character, Pos.CENTER);
+        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
 
 
 
