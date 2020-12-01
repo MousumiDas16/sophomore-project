@@ -102,7 +102,7 @@ public class Cave2Cutscene {
                 if(next <= words.size() -1){
                     Line1.setText(words.get(next));
                 }else{
-                    HydraIntro hydra = new HydraIntro();
+                    toHydra hydra = new toHydra();
                     Scene s1 = null;
                     s1 = hydra.createScene(x, hero);
                     x.setScene(s1);

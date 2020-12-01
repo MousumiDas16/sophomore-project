@@ -192,8 +192,8 @@ public class Forest extends Application {
                         x.setScene(s1);
 
                     }else if(hero.getScene().equalsIgnoreCase("tooldruins")){
-                        OldRuins firstFort=new OldRuins();
-                        Scene s1 = firstFort.getScene(x, hero);
+                        IntroOldRuins firstFort=new IntroOldRuins();
+                        Scene s1 = firstFort.createScene(x, hero);
                         x.setScene(s1);
 
                     }else if(hero.getScene().equalsIgnoreCase("tosphinx")){
