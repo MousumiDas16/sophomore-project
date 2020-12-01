@@ -99,9 +99,9 @@ public class IntroOldRuins {
                 if(next <= words.size() -1){
                     Line1.setText(words.get(next));
                 }else{
-                    OldRuins ruins = new OldRuins();//goes to old ruins
+                    IntroOldRuins ruins = new IntroOldRuins();//goes to old ruins
                     Scene s1 = null;
-                    s1 = ruins.getScene(x, hero);
+                    s1 = ruins.createScene(x, hero);
                     x.setScene(s1);
                 }
                 //need to have sprite transition when the story demands
@@ -119,7 +119,7 @@ public class IntroOldRuins {
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
         Image img = new Image("sample/Art/Background/Fort_Ruined.PNG", 650, 400, true, true);//need abandoned camp
-        Image img2 = new Image("sample/Art/Characters/Merc_gif.gif", 200, 100, true, true);//need bandit
+        Image img2 = new Image("sample/Art/Characters/Bandit2.png", 200, 100, true, true);//need bandit
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);

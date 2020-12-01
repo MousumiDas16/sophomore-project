@@ -34,13 +34,16 @@ public class Main extends Application {
         Main.mainStage = primaryStage;
         System.out.println(("Current file: Main"));
         hero = new Player();
-        hero.setClass("knight");
+        hero.setClass("mercenary");
+
         EndingIntro fort = new EndingIntro();
         MainMenu firstMenu=new MainMenu();
         RandomEncounter encounter=new RandomEncounter();
         HydraIntro hy = new HydraIntro();
         OldRuins camp = new OldRuins();
         Village2 vill = new Village2();
+        IntroSphinxBattle c1 = new IntroSphinxBattle();
+        toOasis oas = new toOasis();
         Scene s1 = firstMenu.getScene(primaryStage, hero);
 
 
