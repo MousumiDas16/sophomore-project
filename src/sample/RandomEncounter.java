@@ -384,7 +384,7 @@ public class RandomEncounter extends Application {
 
 
         //pop up creation
-        Font statFont=Font.font("Verdana",14);
+        Font statFont=Font.font("Verdana",12);
         Text popup1 = new Text();
         Text popup2 = new Text();
         Text popup3 = new Text();
@@ -733,7 +733,7 @@ public class RandomEncounter extends Application {
                 if (hero.getSpeed() > enemy.getSpeed()) {
                     if (hero.getHealth() > 0 && enemy.getHealth() > 0) {
                         if (enemyAttack > 0 && PlayerAttack > 0) {
-                            popup1.setText("you  did " + PlayerAttack + " damage.");
+                            popup1.setText("You  did " + PlayerAttack + " damage.");
                             int health = enemy.getHealth() - PlayerAttack;
                             enemy.setHealth(health);
                             if (enemy.getHealth() <= 0) {
@@ -742,7 +742,7 @@ public class RandomEncounter extends Application {
                                 int earned = rand.nextInt(200);
                                 gold = earned + gold;
                                 hero.setMoney(gold);
-                                popup4.setText("you took " + earned + " gold from the " + enemy.getType());
+                                popup4.setText("You took " + earned + " gold from the " + enemy.getType());
                                 statController.updateStats();
 
 
@@ -760,7 +760,7 @@ public class RandomEncounter extends Application {
                             else if (enemy.getHealth() > 0) {
                                 int health2 = hero.getHealth() - enemyAttack;
                                 hero.setHealth(health2);
-                                popup2.setText("the"+enemy.getType() +" did " + enemyAttack + " damage.");
+                                popup2.setText("The"+enemy.getType() +" did " + enemyAttack + " damage.");
                                 statController.updateStats();
 
 
@@ -774,7 +774,7 @@ public class RandomEncounter extends Application {
 
                         }
                         else if (PlayerAttack == 0) {
-                            popup1.setText("You  attempt to attack but miss");
+                            popup1.setText("You  attempt to attack but miss.");
                             if (enemyAttack > 0) {
                                 int health = hero.getHealth() - enemyAttack;
                                 popup2.setText("The "  +enemy.getType() + " did " + enemyAttack + " damage");
@@ -814,7 +814,7 @@ public class RandomEncounter extends Application {
                                     int earned = rand.nextInt(200);
                                     gold = earned + gold;
                                     hero.setMoney(gold);
-                                    popup4.setText("you took " + earned + " gold from the " + enemy.getType());
+                                    popup4.setText("You took " + earned + " gold from the " + enemy.getType());
                                     statController.updateStats();
 
 
@@ -848,7 +848,7 @@ public class RandomEncounter extends Application {
                                     int earned = rand.nextInt(200);
                                     gold = earned + gold;
                                     hero.setMoney(gold);
-                                    popup4.setText("you took " + earned + " gold from the " + enemy.getType());
+                                    popup4.setText("You took " + earned + " gold from the " + enemy.getType());
 
 
                                     Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
@@ -876,7 +876,7 @@ public class RandomEncounter extends Application {
                                     int earned = rand.nextInt(200);
                                     gold = earned + gold;
                                     hero.setMoney(gold);
-                                    popup4.setText("you took " + earned + " gold from the " + enemy.getType());
+                                    popup4.setText("You took " + earned + " gold from the " + enemy.getType());
                                     statController.updateStats();
 
 
@@ -890,7 +890,7 @@ public class RandomEncounter extends Application {
 
                                 }
                             } else {
-                                popup2.setText("you attack and missed");
+                                popup2.setText("You attack and missed");
                             }
 
                         }
@@ -967,7 +967,7 @@ public class RandomEncounter extends Application {
             @Override
             public void handle(ActionEvent event) {
                 if (hero.getSpeed() > enemy.getSpeed() && enemy.getHealth() > 0) {
-                    popup1.setText("you were fast enough to out run the\n" + enemy.getType());
+                    popup1.setText("You were fast enough to out run the\n" + enemy.getType());
                     popup2.setText("");
                     popup3.setText("");
                     popup4.setText("");
@@ -1051,7 +1051,7 @@ public class RandomEncounter extends Application {
                 } else {
                     if (enemy.getHealth() > 0) {
                         popup1.setText("You Do not have any potions");
-                        popup2.setText("you stand there in confusion looking for your potion");
+                        popup2.setText("You stand there in confusion looking for your potion");
                         int SneakAttack = enemy.getAttack() - hero.getArmor();
 
                         if (SneakAttack > 0) {
