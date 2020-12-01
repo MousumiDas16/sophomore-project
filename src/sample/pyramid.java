@@ -95,8 +95,8 @@ public class pyramid extends Application {
         Left_UI.getChildren().add(newLoadedPane);
 
         //Character Pictures
-        Image sphinx = new Image("sample/Art/Characters/Sphinx.png",400,400,true,true);
-        Image wisp = new Image("sample/Art/Characters/Willow_Sprite.gif",100,200,true,true);
+        Image sphinx = new Image("sample/Art/Characters/Sphinx.png",450,450,true,true);
+        Image wisp = new Image("sample/Art/Characters/Willow_Sprite.gif",150,150,true,true);
         ImageView view = new ImageView(sphinx);
 
         Center_UI.getChildren().add(view);
@@ -125,9 +125,9 @@ public class pyramid extends Application {
         words.add("\"Riddle 1: “I have six faces yet wear no makeup, I have twenty-one eyes but cannot see.\nWhat am I?” \"");
         words.add("\"Correct \"");
         words.add("\"Riddle 2: “I am not alive, but I grow. I do not have lungs, but I must have air.\nI do not have a mouth, but I can drown. What am I \"");
-        words.add("\"Correct \"");
+        words.add("\"Correct! Very good. \"");
         words.add("\"I am one color, but not one size. I am here when it is sunny, but not when it rains. \nI do no harm and feel no pain. I am always on the bottom, but I can fly. What am I? \"");
-        words.add("\"Correct \"");
+        words.add("\"Correct. Excellent, HAHAHA! \"");
         words.add("\"Well done… perhaps you are the true Monarch. I  am pleased. As promised the way is clear, congratulations visitor. \"");
         words.add("\" End of String\"");
 
