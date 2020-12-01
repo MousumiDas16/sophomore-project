@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -87,33 +88,33 @@ public class IntroAbandonedCamp {
         Bot_UI.getChildren().add(Line1);
         Line1.setText(words.get(next));
         Line1.setStroke(Color.BLACK);
-        Button submit = new Button("NEXT");
-        submit.setOnAction(new EventHandler<ActionEvent>() {
 
-            @Override
-            public void handle(ActionEvent event) {
+        Image imgNext = new Image("sample/Art/Background/arrow.png", 100, 100, true, true);
+        ImageView nxtView = new ImageView(imgNext);
+        nxtView.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            public void handle(MouseEvent event) {
                 next++;
-                if (next <= words.size() - 1) {
+                if(next <= words.size() -1){
                     Line1.setText(words.get(next));
-                } else {
-
+                }else{
                     AbandondedCamp fishingVillage = new AbandondedCamp();
                     Scene s1 = null;
                     s1 = fishingVillage.createScene(x, hero);
                     x.setScene(s1);
                 }
                 //need to have sprite transition when the story demands
-
-
+                event.consume();
             }
 
-            ;
-
         });
-        Bot_UI.getChildren().addAll(submit);
 
-        Bot_UI.setAlignment(submit, Pos.CENTER_RIGHT);
-        submit.setPadding(new Insets(0, 20, 0, 20));
+        nxtView.setTranslateX(Line1.getX()+280);
+
+        Bot_UI.getChildren().addAll(nxtView);
+
+
+
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();

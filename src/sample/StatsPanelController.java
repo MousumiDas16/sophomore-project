@@ -16,13 +16,13 @@ public class StatsPanelController implements Initializable {
     @FXML
     private ImageView profileIcon;
     @FXML
-    private TextField txtMoney,txtHealth,txtSpeed, txtArmor, txtPotion,txtCharisma, txtStrength,txtFood;
+    private TextField txtMoney,txtHealth,txtSpeed, txtArmor, txtPotion,txtCharisma, txtStrength;
     CommonInitializer initializer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initializer=new CommonInitializer(lblHeroName,txtMoney,txtHealth,txtSpeed,txtArmor,
-                txtPotion,txtCharisma,txtStrength,txtFood,profileIcon);
+                txtPotion,txtCharisma,txtStrength,profileIcon);
         initializer.updateStats();
 
     }

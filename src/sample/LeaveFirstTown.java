@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -95,43 +96,38 @@ public class LeaveFirstTown {
         Bot_UI.getChildren().add(Line1);
         Line1.setText(words.get(next));
         Line1.setStroke(Color.BLACK);
-        Button submit = new Button("NEXT");
-        submit.setOnAction(new EventHandler<ActionEvent>() {
 
-            @Override
-            public void handle(ActionEvent event) {
+        Image imgNext = new Image("sample/Art/Background/arrow.png", 100, 100, true, true);
+        ImageView nxtView = new ImageView(imgNext);
+        nxtView.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+            public void handle(MouseEvent event) {
                 next++;
                 if(next <= words.size() -1){
                     Line1.setText(words.get(next));
                 }else{
-
-
-
-
                     WalkingInForest forest =new WalkingInForest();
                     Scene s1 = forest.createScene(x, hero);
 
                     x.setScene(s1);
                 }
-        //need to have sprite transition when the story demands
-
-
+                //need to have sprite transition when the story demands
+                event.consume();
             }
 
-            ;
-
         });
-        Bot_UI.getChildren().addAll(submit);
 
-        Bot_UI.setAlignment(submit,Pos.CENTER_RIGHT);
-        submit.setPadding(new Insets(0, 20, 0, 20));
+        nxtView.setTranslateX(Line1.getX()+280);
+
+        Bot_UI.getChildren().addAll(nxtView);
+
 
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
+        Image img1 = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
         Image img2 = new Image("sample/Art/Characters/Willow_Sprite.gif", 200, 150, true, true);
-        ImageView Center_ImageView = new ImageView(img);
+        ImageView Center_ImageView = new ImageView(img1);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);
         Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);

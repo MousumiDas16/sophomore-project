@@ -63,8 +63,8 @@ public class Opening extends Application {
         Line1.setFont( Font.font("Verdana", FontWeight.BOLD, 18));
 
 
-        Image img = new Image("sample/Art/Background/arrow.png", 100, 100, true, true);
-        ImageView nxtView = new ImageView(img);
+        Image imgNext = new Image("sample/Art/Background/arrow.png", 100, 100, true, true);
+        ImageView nxtView = new ImageView(imgNext);
         nxtView.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent event) {

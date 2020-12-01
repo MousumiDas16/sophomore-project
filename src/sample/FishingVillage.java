@@ -16,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -100,6 +101,8 @@ public class FishingVillage extends Application {
         Group WhatDobutt = new Group();
 
         Text Intro = new Text("OI Slag, Yous not allowed to pass. Bugger off");
+        Intro.setStroke(Color.BLACK);
+        Intro.setFont(Font.font("Verdana",16));
         Button go = new Button("Continue");
         go.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -342,6 +345,7 @@ public class FishingVillage extends Application {
 
 
         encont.getChildren().addAll(Intro,go);
+        go.setTranslateY(Intro.getY()+30);
         Bot_UI.getChildren().addAll(encont,WhatDo);
         WhatDo.setVisible(false);
         WhatDo.setDisable(true);

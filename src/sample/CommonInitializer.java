@@ -10,11 +10,11 @@ import javafx.scene.image.ImageView;
 
 public class CommonInitializer {
     private Label lblHeroName;
-    private TextField txtMoney,txtHealth,txtSpeed, txtArmor, txtPotion,txtCharisma, txtStrength,txtFood;
+    private TextField txtMoney,txtHealth,txtSpeed, txtArmor, txtPotion,txtCharisma, txtStrength;
     private ImageView profileIcon;
     final Font f = Font.loadFont("file:./Art/digital.ttf", 12);
     public  CommonInitializer(Label lblHeroName, TextField txtMoney, TextField txtHealth,TextField txtSpeed,TextField txtArmor,
-                              TextField txtPotion,TextField txtCharisma, TextField txtStrength, TextField txtFood, ImageView profileIcon){
+                              TextField txtPotion,TextField txtCharisma, TextField txtStrength,  ImageView profileIcon){
 
         this.txtMoney=txtMoney;
         this.txtHealth=txtHealth;
@@ -24,7 +24,7 @@ public class CommonInitializer {
         this.txtCharisma=txtCharisma;
         this.txtStrength=txtStrength;
         this.lblHeroName=lblHeroName;
-        this.txtFood=txtFood;
+        //this.txtFood=txtFood;
         this.profileIcon=profileIcon;
 
 
@@ -55,8 +55,8 @@ public class CommonInitializer {
         txtStrength.setFont(f);
         txtStrength.setText(String.valueOf(Main.hero.getStrength()));
 
-        txtFood.setFont(f);
-        txtFood.setText(String.valueOf(Main.hero.getFood()));
+       // txtFood.setFont(f);
+        //txtFood.setText(String.valueOf(Main.hero.getFood()));
         Image profileImage=Main.hero.getImage(0);
         if(profileImage!=null)
             profileIcon.setImage(profileImage);

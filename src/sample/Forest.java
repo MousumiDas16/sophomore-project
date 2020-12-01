@@ -11,11 +11,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -122,11 +124,106 @@ public class Forest extends Application {
 
         }
         else if(hero.getLoopcount()==3){
-            text1.setText("you made it to the next location!");
-            text2.setText("Press continue to enter!");
+            text1.setText("Well done! You  have made it to the next location!");
+            text2.setText("Do you dare to enter?");
             text3.setText("");
             text4.setText("");
-            Button cont = new Button();
+
+            Font verdana=Font.font ("Verdana", 16);
+            text1.setFont(verdana);
+            text1.setStroke(Color.BLACK);
+            text2.setFont(verdana);
+            text2.setStroke(Color.BLACK);
+
+            Image imgNext = new Image("sample/Art/Background/entry-door.png", 60, 60, true, true);
+            ImageView nxtView = new ImageView(imgNext);
+            nxtView.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+                    if(hero.getScene().equalsIgnoreCase("WalkingInForest")){
+                        Fort1 firstFort=new Fort1();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("ToVillage3")){
+                        Village3 firstFort=new Village3();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("ToVillage4")){
+                        Village4 firstFort=new Village4();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("ToVillage5")){
+                        Village5 firstFort=new Village5();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tocave1")){
+                        Cave1 firstFort=new Cave1();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tocave2")){
+                        Cave2Cutscene firstFort=new Cave2Cutscene();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("toFishingVillage")){
+                        FishingVillage firstFort=new FishingVillage();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tofort2")){
+                        Fort2 firstFort=new Fort2();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tohydra")){
+                        HydraIntro firstFort=new HydraIntro();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tooasis")){
+                        Oasis firstFort=new Oasis();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tooldruins")){
+                        OldRuins firstFort=new OldRuins();
+                        Scene s1 = firstFort.getScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("tosphinx")){
+                        IntroSphinxBattle firstFort=new IntroSphinxBattle();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("ToVillage2")){
+                        Village2 firstFort=new Village2();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+
+                    }else if(hero.getScene().equalsIgnoreCase("ToAbandonedCamp")){
+                        IntroAbandonedCamp firstFort=new IntroAbandonedCamp();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+                    }else if(hero.getScene().equalsIgnoreCase("ToCastleBattle")) {
+                        IntroCastleBattle firstFort = new IntroCastleBattle();
+                        Scene s1 = firstFort.createScene(x, hero);
+                        x.setScene(s1);
+                    }
+
+
+
+
+                }
+            });
+
+
+              /*  Button cont = new Button();
             cont.setText("continue");
             cont.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -214,10 +311,13 @@ public class Forest extends Application {
 
 
 
-            }  )  ;
+            }  )  ;*/
 
-            Bot_UI.setAlignment(cont, Pos.BOTTOM_RIGHT);
-            Bot_UI.getChildren().add(cont);
+            nxtView.setTranslateX(text1.getX()+300);
+            nxtView.setTranslateY(text1.getY()-25);
+
+            //Bot_UI.setAlignment(cont, Pos.BOTTOM_RIGHT);
+            Bot_UI.getChildren().add(nxtView);
         }
 
         if(hero.getScene().equalsIgnoreCase("WalkingInforest") || hero.getScene().equalsIgnoreCase("tovillage2")
