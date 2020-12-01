@@ -40,7 +40,7 @@ public class Main extends Application {
         MainMenu firstMenu=new MainMenu();
         RandomEncounter encounter=new RandomEncounter();
         HydraIntro hy = new HydraIntro();
-        OldRuins camp = new OldRuins();
+        toOldRuins camp = new toOldRuins();
         Village2 vill = new Village2();
         IntroSphinxBattle c1 = new IntroSphinxBattle();
         toOasis oas = new toOasis();
