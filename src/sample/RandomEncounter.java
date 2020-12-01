@@ -658,13 +658,14 @@ public class RandomEncounter extends Application {
                     if ((hero.getHealth() > 75)) {
                         int healthboost = 100 - hero.getHealth();
                         int addhealth = hero.getHealth() + healthboost;
+                        hero.setHealth(addhealth);
                         statController.updateStats();
 
                     } else {
                         int addhealth = hero.getHealth() + 25;
                         hero.setHealth(addhealth);
                         statController.updateStats();
-                        popup1.setText("You used a potion and healed 25 health points.");
+                        popup1.setText("You used a potion and healed\n25 health points.");
                         popup2.setText("");
                         popup3.setText("");
                         popup4.setText("");
@@ -1034,13 +1035,13 @@ public class RandomEncounter extends Application {
                         int addhealth = hero.getHealth() + healthboost;
                         hero.setHealth(addhealth);
                         statController.updateStats();
-                        popup1.setText("You used a potion and healed " + healthboost + " health points.");
+                        popup1.setText("You used a potion and healed\n" + healthboost + " health points.");
 
                     } else {
                         int addhealth = hero.getHealth() + 25;
                         hero.setHealth(addhealth);
                         statController.updateStats();
-                        popup1.setText("You used a potion and healed 25 health points.");
+                        popup1.setText("You used a potion and healed\n25 health points.");
 
                     }
 
