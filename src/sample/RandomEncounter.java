@@ -16,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -355,32 +356,47 @@ public class RandomEncounter extends Application {
         Group text_Group = new Group();
 
         int Text_coorY = 10;
+        Font verdana= Font.font("Verdana",16);
 
-        Text text1 = new Text("1) Attack");
-        Text text2 = new Text("2) Negotiate ");
-        Text text3 = new Text("3) RUNNNN");
-        Text text4 = new Text("4) Use Health Potion");
-        text_Group.getChildren().addAll(text1, text2, text3, text4);
+       // Text text1 = new Text("1) Attack");
+        //text1.setFont(verdana);
+        //text1.setStroke(Color.BLACK);
+        //Text text2 = new Text("2) Negotiate ");
+        //text1.setFont(verdana);
+        //text1.setStroke(Color.BLACK);
+       // Text text3 = new Text("3) RUNNNN");
+        //text1.setFont(verdana);
+        //text1.setStroke(Color.BLACK);
+        //Text text4 = new Text("4) Use Health Potion");
+        //text1.setFont(verdana);
+        //text1.setStroke(Color.BLACK);
+
+        //text_Group.getChildren().addAll(text1, text2, text3, text4);
 
 
-        text1.setY(Text_coorY);
-        text2.setY(Text_coorY + 20);
-        text3.setY(Text_coorY + 40);
-        text4.setY(Text_coorY + 60);
-        Bot_UI.getChildren().add(text_Group);
+       // text1.setY(Text_coorY);
+        //text2.setY(Text_coorY + 20);
+        //text3.setY(Text_coorY + 40);
+        //text4.setY(Text_coorY + 60);
+        //Bot_UI.getChildren().add(text_Group);
 
         //Attack setup
 
 
         //pop up creation
-
+        Font statFont=Font.font("Verdana",14);
         Text popup1 = new Text();
         Text popup2 = new Text();
         Text popup3 = new Text();
         Text popup4 = new Text();
+        popup1.setFont(statFont);
+        popup2.setFont(statFont);
+        popup3.setFont(statFont);
+        popup4.setFont(statFont);
 
         Group popupgroup = new Group();
         popupgroup.getChildren().addAll(popup1, popup2, popup3, popup4);
+        popupgroup.setTranslateX(10);
 
         popup1.setY(Text_coorY);
         popup2.setY(Text_coorY + 20);
@@ -390,18 +406,59 @@ public class RandomEncounter extends Application {
 
 
         Bot_UI.getChildren().add(popupgroup);
+        Font larger=Font.font(16);
+
+        int Text_coorX=100;
         //button creation
         Button b1 = new Button();
-        b1.setText("1");
+        b1.setText("Attack");
+        b1.setFont(larger);
+        Image imgAttack = new Image("sample/Art/Background/attack.png", 40, 40, true, true);
+        ImageView attackView = new ImageView(imgAttack);
+        b1.setGraphic(attackView);
+        b1.setTranslateY(Text_coorY);
+        b1.setLayoutX(-200);
+        //b1.setTranslateX(Text_coorX);
+        b1.setPrefWidth(160);
+        b1.setPrefHeight(50);
+
+
         Button b2 = new Button();
-        b2.setText("2");
+        b2.setText("Negotiate");
+        b2.setFont(larger);
+        Image imgNegotiate = new Image("sample/Art/Background/negotiate.png", 40, 40, true, true);
+        ImageView negotiateView = new ImageView(imgNegotiate);
+        b2.setGraphic(negotiateView);
+        b2.setTranslateY(Text_coorY+50);
+        b2.setLayoutX(-200);
+        b2.setPrefWidth(160);
+        b2.setPrefHeight(45);
+
         Button b3 = new Button();
-        b3.setText("3");
+        b3.setText("Run");
+        b3.setFont(larger);
+        Image imgRun = new Image("sample/Art/Background/run.png", 40, 40, true, true);
+        ImageView runView = new ImageView(imgRun);
+        b3.setGraphic(runView);
+        b3.setTranslateY(Text_coorY);
+        b3.setLayoutX(-30);
+        b3.setPrefWidth(160);
+        b3.setPrefHeight(50);
+
         Button b4 = new Button();
-        b4.setText("4");
+        b4.setText("Heal");
+        b4.setFont(larger);
+        Image imgHeal = new Image("sample/Art/Background/heal.png", 35, 35, true, true);
+        ImageView healView = new ImageView(imgHeal);
+        b4.setGraphic(healView);
+        b4.setTranslateY(Text_coorY+50);
+        b4.setLayoutX(b3.getLayoutX());
+        b4.setPrefWidth(160);
+        b4.setPrefHeight(45);
         //button setup
 
         b1.setPadding(new Insets(0, 20, 0, 20));
+        //b1.set
         b2.setPadding(new Insets(0, 20, 0, 20));
         b3.setPadding(new Insets(0, 20, 0, 20));
         b4.setPadding(new Insets(0, 20, 0, 20));
@@ -410,18 +467,24 @@ public class RandomEncounter extends Application {
         butt_Group.getChildren().addAll(b1, b2, b3, b4);
 
 
+
         Bot_UI.getChildren().add(butt_Group);
-        StackPane.setAlignment(butt_Group, Pos.CENTER_RIGHT);
+        butt_Group.setTranslateX(-30);
+        StackPane.setAlignment(butt_Group, Pos.TOP_RIGHT);
 
 
-        b1.setLayoutY(text1.getY());
-        b2.setLayoutY(text2.getY());
-        b3.setLayoutY(text3.getY());
-        b4.setLayoutY(text4.getY());
+        //b1.setLayoutY(text1.getY());
+        //b2.setLayoutY(text2.getY());
+        //b3.setLayoutY(text3.getY());
+        //b4.setLayoutY(text4.getY());
 
         //buttons for before returning to the forest
         Button weturn = new Button();
-        weturn.setText("3");
+        weturn.setText("Continue...");
+        weturn.setFont(larger);
+        weturn.setPrefWidth(160);
+        weturn.setPrefHeight(45);
+        //weturn.setGraphic(runView);
         weturn.setOnAction(new EventHandler<ActionEvent>() {
 
 
@@ -577,7 +640,13 @@ public class RandomEncounter extends Application {
 
         });
         Button heal = new Button();
-        heal.setText("1");
+        heal.setText("Heal");
+        heal.setFont(larger);
+        heal.setPrefWidth(160);
+        heal.setPrefHeight(45);
+
+        heal.setGraphic(healView);
+        //heal.setText("1");
         heal.setOnAction(new EventHandler<ActionEvent>() {
 
 
@@ -617,7 +686,17 @@ public class RandomEncounter extends Application {
 
         });
         Button Map = new Button();
-        Map.setText("2");
+        Map.setText("Map");
+        Image imgMap = new Image("sample/Art/Background/map.png", 40, 40, true, true);
+        ImageView mapView = new ImageView(imgMap);
+        Map.setGraphic(mapView);
+        Map.setPrefWidth(160);
+        Map.setPrefHeight(45);
+
+        Image imgArrow = new Image("sample/Art/Background/arrow.png", 40, 40, true, true);
+        ImageView arrowView = new ImageView(imgArrow);
+        weturn.setGraphic(arrowView);
+
 
         //secondary button groups
         weturn.setPadding(new Insets(0, 20, 0, 20));
@@ -625,11 +704,16 @@ public class RandomEncounter extends Application {
         Map.setPadding(new Insets(0, 20, 0, 20));
         Group secondbuttons = new Group();
 
-        heal.setLayoutY(text1.getY());
-        Map.setLayoutY(text2.getY());
-        weturn.setLayoutY(text3.getY());
+        heal.setLayoutY(10);
+        heal.setLayoutX(-260);
+        Map.setLayoutY(60);
+        Map.setLayoutX(-260);
+        //weturn.setLayoutX();
+        weturn.setLayoutY(10);
+
         secondbuttons.getChildren().addAll(heal, Map, weturn);
-        StackPane.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
+        secondbuttons.setTranslateX(-30);
+        StackPane.setAlignment(secondbuttons, Pos.TOP_RIGHT);
 
 
         //game buttons
@@ -662,10 +746,10 @@ public class RandomEncounter extends Application {
 
 
                                 Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
-                                text1.setText("1) Would you like to heal before continuing?");
-                                text2.setText("2) would you like to look at the map?");
-                                text3.setText("3) Ready to continue?");
-                                text4.setText("");
+                                //text1.setText("1) Would you like to heal before continuing?");
+                                //text2.setText("2) would you like to look at the map?");
+                                //text3.setText("3) Ready to continue?");
+                                //text4.setText("");
 
 
                                 Bot_UI.getChildren().add(secondbuttons);
@@ -734,10 +818,10 @@ public class RandomEncounter extends Application {
 
 
                                     Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
-                                    text1.setText("1) Would you like to heal before continuing?");
-                                    text2.setText("2) would you like to look at the map?");
-                                    text3.setText("3) Ready to continue?");
-                                    text4.setText("");
+                                    //text1.setText("1) Would you like to heal before continuing?");
+                                    //text2.setText("2) would you like to look at the map?");
+                                    //text3.setText("3) Ready to continue?");
+                                    //text4.setText("");
 
 
                                     Bot_UI.getChildren().add(secondbuttons);
@@ -767,10 +851,10 @@ public class RandomEncounter extends Application {
 
 
                                     Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
-                                    text1.setText("1) Would you like to heal before continuing?");
-                                    text2.setText("2) would you like to look at the map?");
-                                    text3.setText("3) Ready to continue?");
-                                    text4.setText("");
+                                    //text1.setText("1) Would you like to heal before continuing?");
+                                    //text2.setText("2) would you like to look at the map?");
+                                    //text3.setText("3) Ready to continue?");
+                                    //text4.setText("");
 
                                     Bot_UI.getChildren().add(secondbuttons);
                                 }
@@ -796,10 +880,10 @@ public class RandomEncounter extends Application {
 
 
                                     Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
-                                    text1.setText("1) Would you like to heal before continuing?");
-                                    text2.setText("2) would you like to look at the map?");
-                                    text3.setText("3) Ready to continue??");
-                                    text4.setText("");
+                                    //text1.setText("1) Would you like to heal before continuing?");
+                                    //text2.setText("2) would you like to look at the map?");
+                                    //text3.setText("3) Ready to continue??");
+                                    //text4.setText("");
 
                                     Bot_UI.getChildren().add(secondbuttons);
 
@@ -830,11 +914,11 @@ public class RandomEncounter extends Application {
                     popup3.setText("");
                     popup4.setText("");
                     Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
-                    text1.setText("1) Would you like to heal before traveling?");
-                    text2.setText("2) would you like to look at the map?");
-                    text3.setText("3) Would you like to continue traveling?");
-                    text4.setText("");
-                    Bot_UI.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
+                    //text1.setText("1) Would you like to heal before traveling?");
+                    //text2.setText("2) would you like to look at the map?");
+                    //text3.setText("3) Would you like to continue traveling?");
+                    //text4.setText("");
+                    Bot_UI.setAlignment(secondbuttons, Pos.TOP_LEFT);
                     Bot_UI.getChildren().add(secondbuttons);
                 } else {
                     if (enemy.getHealth() > 0) {
@@ -887,11 +971,11 @@ public class RandomEncounter extends Application {
                     popup3.setText("");
                     popup4.setText("");
                     Bot_UI.getChildren().removeAll(butt_Group, b1, b2, b3, b4);
-                    text1.setText("Would you like to heal before traveling?");
-                    text2.setText("would you like to look at the map?");
-                    text3.setText("Would you like to continue traveling?");
-                    text4.setText("");
-                    Bot_UI.setAlignment(secondbuttons, Pos.CENTER_RIGHT);
+                    //text1.setText("Would you like to heal before traveling?");
+                    //text2.setText("would you like to look at the map?");
+                    //text3.setText("Would you like to continue traveling?");
+                    //text4.setText("");
+                    Bot_UI.setAlignment(secondbuttons, Pos.TOP_LEFT);
                     Bot_UI.getChildren().add(secondbuttons);
                 } else {
                     if (enemy.getHealth() > 0) {
@@ -1013,7 +1097,7 @@ public class RandomEncounter extends Application {
        // enemyhealth.setText("Health: " + enemy.getHealth());
 
         Center_UI.getChildren().addAll(Center_ImageView, Character);
-        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
+        Center_UI.setAlignment(Character, Pos.CENTER);
 
 
 
@@ -1033,6 +1117,13 @@ public class RandomEncounter extends Application {
                 Bot_UI.getChildren().removeAll(secondbuttons, Map, heal, weturn);
                 Button GoBack = new Button();
                 GoBack.setText("Go Back");
+                GoBack.setPrefHeight(50);
+                GoBack.setPrefWidth(200);
+                Image imgArrow2 = new Image("sample/Art/Background/arrow.png", 40, 40, true, true);
+                ImageView arrowView2 = new ImageView(imgArrow2);
+
+                GoBack.setGraphic(arrowView2);
+                GoBack.setTranslateX(-30);
                 Bot_UI.getChildren().add(GoBack);
                 GoBack.setPadding(new Insets(0, 20, 0, 20));
                 Bot_UI.setAlignment(GoBack, Pos.CENTER_RIGHT);
@@ -1040,10 +1131,10 @@ public class RandomEncounter extends Application {
                 popup2.setText("");
                 popup3.setText("");
                 popup4.setText("");
-                text1.setText("");
-                text2.setText("");
-                text3.setText("");
-                text4.setText("");
+                //text1.setText("");
+                //text2.setText("");
+                //text3.setText("");
+                //text4.setText("");
                 GoBack.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
@@ -1056,10 +1147,10 @@ public class RandomEncounter extends Application {
                         Center_UI.getChildren().removeAll((Center_ImageView));
                         Center_UI.getChildren().add(Center_ImageView1);
                         root.setCenter(Center_UI);
-                        text1.setText("1)Would you like to heal before traveling?");
-                        text2.setText("2)would you like to look at the map?");
-                        text3.setText("3)Would you like to continue traveling?");
-                        text4.setText("");
+                        //text1.setText("1)Would you like to heal before traveling?");
+                        //text2.setText("2)would you like to look at the map?");
+                        //text3.setText("3)Would you like to continue traveling?");
+                        //text4.setText("");
 
 
                     }

@@ -34,9 +34,10 @@ public class Main extends Application {
         Main.mainStage = primaryStage;
         System.out.println(("Current file: Main"));
         hero = new Player();
-        hero.setClass("mercenary");
+        hero.setClass("knight");
         EndingIntro fort = new EndingIntro();
         MainMenu firstMenu=new MainMenu();
+        RandomEncounter encounter=new RandomEncounter();
         HydraIntro hy = new HydraIntro();
         OldRuins camp = new OldRuins();
         Village2 vill = new Village2();
@@ -47,7 +48,7 @@ public class Main extends Application {
 
 
         //FishingVillage fv = new FishingVillage();
-        //Scene s1 = fv.createScene(primaryStage , hero);
+        //Scene s1 = encounter.createScene(primaryStage , hero,2);
 
 
 

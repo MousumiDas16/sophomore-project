@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -51,12 +53,41 @@ public class ShopUI extends Application implements Initializable {
             fxmlLoader.setController(sController);
             newLoadedPane = fxmlLoader.load();
 
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
 
         leftUI.getChildren().add(newLoadedPane);
+        Image imgArmor = new Image("sample/Art/Background/armor.png", 50, 50, true, true);
+        ImageView armorView = new ImageView(imgArmor);
+        btnArmor.setGraphic(armorView);
+
+        Image imgSpeed = new Image("sample/Art/Background/speed.png", 50, 50, true, true);
+        ImageView SpeedView = new ImageView(imgSpeed);
+        spdboost.setGraphic(SpeedView);
+
+
+        Image imgStrength = new Image("sample/Art/Background/strength.png", 50, 50, true, true);
+        ImageView strengthView = new ImageView(imgStrength);
+        btnStrength.setGraphic(strengthView);
+
+
+        Image imgPotion = new Image("sample/Art/Background/potion.png", 50, 50, true, true);
+        ImageView potionView = new ImageView(imgPotion);
+        btnpotion.setGraphic(potionView);
+
+
+        Image imgcha = new Image("sample/Art/Background/charisma.png", 50, 50, true, true);
+        ImageView chaView = new ImageView(imgcha);
+        btnchaboost.setGraphic(chaView);
+
+        Image imgdonate = new Image("sample/Art/Background/donate.png", 50, 50, true, true);
+        ImageView donateView = new ImageView(imgdonate);
+        donate.setGraphic(donateView);
+
+
 
 
 

@@ -16,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -117,7 +118,7 @@ public class Village4 extends Application {
         int Text_coorY = 10;
 
         Text text1 = new Text("1) Go to the Shop");
-        Text text2 = new Text("2)Check Map");
+        Text text2 = new Text("2) Check Map");
         Text text3 = new Text("3) Converse With Locals");
         Text text4 = new Text("4) Leave Town");
         Text text5 = new Text("");
@@ -366,6 +367,14 @@ public class Village4 extends Application {
 
 
         butt_Group.getChildren().addAll(b1, b2, b3, b4);
+
+        butt_Group.setTranslateX(-20);
+
+        Font txtFont= Font.font("Verdana",14);
+        text1.setFont(txtFont);
+        text2.setFont(txtFont);
+        text3.setFont(txtFont);
+        text4.setFont(txtFont);
 
 
         Bot_UI.getChildren().add(butt_Group);

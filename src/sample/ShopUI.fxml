@@ -4,16 +4,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ShopUI">
+<AnchorPane prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ShopUI">
     <children>
         <AnchorPane layoutX="142.0" prefHeight="400.0" prefWidth="630.0" style="-fx-border-color: black;">
             <children>
-                <Button fx:id="btnchaboost" layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="150.0" text=" Charisma boost ($450)" />
-                <Button fx:id="btnpotion" layoutX="180.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="150.0" text="Potion ($75)" />
-                <Button fx:id="spdboost" layoutX="340.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="150.0" text="Speed boost ($600)" />
-                <Button fx:id="btnArmor" layoutX="20.0" layoutY="200.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="150.0" text="Armour ($400)" />
-                <Button fx:id="btnStrength" layoutX="180.0" layoutY="200.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="150.0" text="Strength boost ($700)" />
-                <Button fx:id="donate" layoutX="340.0" layoutY="200.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="150.0" text="donate ($50)" />
+                <Button fx:id="btnchaboost" layoutX="20.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="180.0" text=" Charisma ($450)" />
+                <Button fx:id="btnpotion" layoutX="210.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="180.0" text="Potion ($75)" />
+                <Button fx:id="spdboost" layoutX="400.0" layoutY="15.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="180.0" text="Speed ($600)" />
+                <Button fx:id="btnArmor" layoutX="20.0" layoutY="200.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="180.0" text="Armour ($400)" />
+                <Button fx:id="btnStrength" layoutX="210.0" layoutY="200.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="180.0" text="Strength ($700)" />
+                <Button fx:id="donate" layoutX="400.0" layoutY="200.0" mnemonicParsing="false" onAction="#handPurchaseItem" prefHeight="120.0" prefWidth="180.0" text="Donate ($50)" />
 
 
             </children>

@@ -16,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -265,6 +266,14 @@ public class Oasis extends Application {
         b2.setLayoutY(Text_coorY + 20);
         b3.setLayoutY(Text_coorY + 40);
         b4.setLayoutY(Text_coorY + 60);
+
+        butt_Group.setTranslateX(-20);
+
+        Font txtFont= Font.font("Verdana",14);
+        text1.setFont(txtFont);
+        text2.setFont(txtFont);
+        text3.setFont(txtFont);
+        text4.setFont(txtFont);
 
 
         Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
