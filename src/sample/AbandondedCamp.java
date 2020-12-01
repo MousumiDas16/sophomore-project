@@ -27,7 +27,7 @@ public class AbandondedCamp extends Application {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: Abandoned Camp"));
-        hero.setScene("AbandondedCamp");
+        hero.setScene("AbandonedCamp");
         StackPane Center_UI = new StackPane();
 
         BorderPane root = new BorderPane();
@@ -157,7 +157,7 @@ public class AbandondedCamp extends Application {
 
         //Adding the tavern image to the current UI
 
-        Image nxtImage = new Image("sample/Art/Background/Tavern.png", AppSettings.centerUIWidth,
+        Image nxtImage = new Image("sample/Art/Background/Forrest.png", AppSettings.centerUIWidth,
                 AppSettings.centerUIHeight, true, true);
         ImageView Center_ImageView = new ImageView(nxtImage);
         Center_UI.getChildren().add(Center_ImageView);

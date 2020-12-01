@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 /**
- * @author Tommy, Mousumi
+ *
  */
 public class Opening extends Application {
     static int next = 0;

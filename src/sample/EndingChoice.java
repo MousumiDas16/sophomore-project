@@ -30,7 +30,7 @@ public class EndingChoice extends Application {
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: Village 2"));
-        hero.setScene("village2");
+        hero.setScene("Ending Choice");
 
         BorderPane root = new BorderPane();
 
@@ -70,10 +70,12 @@ public class EndingChoice extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/tempFort1.png", AppSettings.centerUIWidth,
-                AppSettings.centerUIHeight, true, true);
+        Image img = new Image("sample/Art/Background/Cave_With_Swords.png", 650, 400, true, true);//needs to be changed to cave
+
         ImageView Center_ImageView = new ImageView(img);
-        Center_UI.getChildren().add(Center_ImageView);
+
+        Center_UI.getChildren().addAll(Center_ImageView);
+
         root.setCenter(Center_UI);
 
         //Player STATS ON Side Bar
@@ -91,7 +93,7 @@ public class EndingChoice extends Application {
         //jimmy change these words go go go!
         Text text1 = new Text("1) A shining sword, with gold hilt and pommel");
         Text text2 = new Text("2) A vibrant red sword, with a curved blade");
-        Text text3 = new Text("3) A dull gray sword with standard iron hilt ");
+        Text text3 = new Text("3) A dull gray sword with standard gold hilt ");
 
 
         text_Group.getChildren().addAll(text1, text2, text3);
@@ -174,7 +176,7 @@ public class EndingChoice extends Application {
 
 
 
-        Scene S2 = new Scene(root, 750, 500);
+        Scene S2 = new Scene(root, AppSettings.screenWidth, AppSettings.screenHeight);
         return S2;
     }
 

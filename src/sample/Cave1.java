@@ -76,8 +76,8 @@ public class Cave1 extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/TEMPbackgroud.png", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Ogre.gif", 200, 300, true, true);
+        Image img = new Image("sample/Art/Background/Cave.png", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/Ogre.gif", 300, 300, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);
@@ -177,7 +177,7 @@ public class Cave1 extends Application {
                         @Override
                         public void handle(ActionEvent event) {
 
-                            Fort2 RE = new Fort2();
+                            toFort2 RE = new toFort2();
                             Scene s1 = RE.createScene(x,hero);
                             x.setScene(s1);
 
@@ -258,7 +258,7 @@ public class Cave1 extends Application {
                         @Override
                         public void handle(ActionEvent event) {
 
-                            Fort2 RE = new Fort2();
+                            toFort2 RE = new toFort2();
                             Scene s1 = RE.createScene(x,hero);
                             x.setScene(s1);
 

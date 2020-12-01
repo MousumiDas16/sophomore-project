@@ -133,7 +133,7 @@ public class Enemy {
                 Health = 210;
                 Attack = rand.nextInt(40);
                 Armor = 0;
-                Speed = 8;
+                Speed = 16;
                 Charisma = 200;
                 break;
             case "boss gob":

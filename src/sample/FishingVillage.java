@@ -179,7 +179,7 @@ public class FishingVillage extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                if((hero.getCharisma() > 10)){
+                if((hero.getCharisma() > 19)){
                     Text fight = new Text("Fine we let you pass, no come back here");
                     Button butt = new Button("Continue");
                     butt.setPadding(new Insets(0,20,0,20));

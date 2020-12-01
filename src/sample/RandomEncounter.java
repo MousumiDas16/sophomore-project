@@ -42,11 +42,11 @@ public class RandomEncounter extends Application {
                 enemypic = new Image("sample/Art/Characters/Arlong.gif", 200, 400, true, true);
                 break;
             case 1://Cave 1
-                background = new Image("sample/Art/Background/TEMPbackgroud.png", AppSettings.centerUIWidth,
+                background = new Image("sample/Art/Background/Cave.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
 
                 enemy.setType("troll");
-                enemypic = new Image("sample/Art/Characters/Ogre.gif",200,100,true,true);
+                enemypic = new Image("sample/Art/Characters/Ogre.gif",400,400,true,true);
 
                 break;
 
@@ -55,17 +55,17 @@ public class RandomEncounter extends Application {
             case 2:
                 //old ruins
 
-                background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
+                background = new Image("sample/Art/Background/Fort_Ruined.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
-                enemypic = new Image("sample/Art/Characters/Kobalt_Gif2.gif", 200, 100, true, true);
+                enemypic = new Image("sample/Art/Characters/Bandit2.png", 150, 250, true, true);
                 enemy.setType("bandit");
                 break;
             case 3:
                 //abandonded camp
-                background = new Image("sample/Art/Background/Forrest_Walking.png", AppSettings.centerUIWidth,
+                background = new Image("sample/Art/Background/Forrest.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 enemy.setType("wendigo");
-                enemypic = new Image("sample/Art/Characters/Wendigo.png", 200, 100, true, true);
+                enemypic = new Image("sample/Art/Characters/Wendigo.png", 300, 300, true, true);
                 break;
             case 4://first
                 if (hero.getScene().equalsIgnoreCase("firsttown")) {
@@ -73,10 +73,41 @@ public class RandomEncounter extends Application {
                             AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
 
                 } else if (hero.getScene().equalsIgnoreCase("fort1")) {
-                    background = new Image("sample/Art/Background/tempFort1.png",
+                    background = new Image("sample/Art/Background/Fort.png",
                             AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
 
+
+
+                }else if (hero.getScene().equalsIgnoreCase("Fort2")) {
+                    background = new Image("sample/Art/Background/Fort_2.png",
+                            AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
+
+                }else if (hero.getScene().equalsIgnoreCase("Village2")) {
+                    background = new Image("sample/Art/Background/Town_2.png",
+                            AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
                 }
+                else if (hero.getScene().equalsIgnoreCase("Village3")){
+                    background = new Image("sample/Art/Background/Summerville.png",
+                            AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
+                }
+                else if(hero.getScene().equalsIgnoreCase("Village4")){
+                    background = new Image("sample/Art/Background/Geistadt_.png",
+                            AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
+                }
+                else if(hero.getScene().equalsIgnoreCase("Village5")){
+                    background = new Image("sample/Art/Background/Ye_Olde_Village.png",
+                            AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
+                }
+                //Travel mechanics
+                else if (hero.getScene().equalsIgnoreCase("Castle")) {
+                    background = new Image("sample/Art/Background/Castle_Courtyard.png",
+                            AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
+                }
+                else if (hero.getScene().equalsIgnoreCase("FishingVillage")) {
+                    background = new Image("sample/Art/Background/Fishing_Village.png",
+                            AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
+                }
+
                 int k = rand.nextInt(3);
 
 
@@ -99,6 +130,7 @@ public class RandomEncounter extends Application {
                     case 2:
                         enemy.setType("bloodpuddle");
                         enemypic = new Image("sample/Art/Characters/BloodMimic2.gif", 200, 300, true, true);
+                        System.out.println("enemy bloodpuddle");
                         break;
 
                     default:
@@ -110,12 +142,13 @@ public class RandomEncounter extends Application {
 
             case 5:
                 System.out.println("made to case 5");
-                if (hero.getScene().equalsIgnoreCase("WalkingInforest") || hero.getScene().equalsIgnoreCase("tovillage2")
+                if (hero.getScene().equalsIgnoreCase("WalkingInForest") || hero.getScene().equalsIgnoreCase("tovillage2")
                         || hero.getScene().equalsIgnoreCase("tovillage3") || hero.getScene().equalsIgnoreCase("toVillage4")
                         ||hero.getScene().equalsIgnoreCase("tovillage5") || hero.getScene().equalsIgnoreCase("tocave1")
                         || hero.getScene().equalsIgnoreCase("tocave2") || hero.getScene().equalsIgnoreCase("tohydra")
-                        || hero.getScene().equalsIgnoreCase("toabandonedcamp") || hero.getScene().equalsIgnoreCase("tofort2")
-                        || hero.getScene().equalsIgnoreCase("tocastlebattle") || hero.getScene().equalsIgnoreCase("ToFishingVillage"))  {
+                        || hero.getScene().equalsIgnoreCase("toAbandonedCamp") || hero.getScene().equalsIgnoreCase("tofort2")
+                        || hero.getScene().equalsIgnoreCase("tocastlebattle") || hero.getScene().equalsIgnoreCase("ToFishingVillage")
+                || hero.getScene().equalsIgnoreCase("tooldruins"))  {
                     background = new Image("sample/Art/Background/Forrest.png", AppSettings.centerUIWidth, AppSettings.screenHeight, true, true);
 
 
@@ -218,7 +251,7 @@ public class RandomEncounter extends Application {
                             Scene s1 = mytown.createScene(x, hero);// next town pic please
                             x.setScene(s1);
                         }
-                        else if (hero.getScene().equalsIgnoreCase("toVillage5")) {
+                        else if (hero.getScene().equalsIgnoreCase("tovillage5")) {
                             toVillage5 mytown=new toVillage5();
                             Scene s1 = mytown.createScene(x, hero);// next town pic please
                             x.setScene(s1);
@@ -249,7 +282,7 @@ public class RandomEncounter extends Application {
                             x.setScene(s1);
                         }
                         else if (hero.getScene().equalsIgnoreCase("toOldRuins")) {
-                            toOasis mytown=new toOasis();
+                            toOldRuins mytown=new toOldRuins();
                             Scene s1 = mytown.createScene(x, hero);// next town pic please
                             x.setScene(s1);
                         }
@@ -267,13 +300,13 @@ public class RandomEncounter extends Application {
                 }
                 break;
             case 6:
-                background = new Image("sample/Art/Background/Fishing_Village.png", AppSettings.centerUIWidth,
+                background = new Image("sample/Art/Background/Castle_Goblin.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 enemy.setType("boss gob");
-                enemypic = new Image("sample/Art/Characters/Goblin_gif.gif", 200, 400, true, true);
+                enemypic = new Image("sample/Art/Characters/GoblinKing3c.png", 300, 300, true, true);
                 break;
             case 7:
-                background = new Image("sample/Art/Background/Fishing_Village.png", AppSettings.centerUIWidth,
+                background = new Image("sample/Art/Background/Castle_Hydra.png", AppSettings.centerUIWidth,
                         AppSettings.screenHeight, true, true);
                 enemy.setType("hydra");
                 enemypic = new Image("sample/Art/Characters/Hydra.png", 400, 400, true, true);
@@ -407,8 +440,32 @@ public class RandomEncounter extends Application {
                     Fort1 firstFort=new Fort1();
                     Scene s1 = firstFort.createScene(x, hero);
                     x.setScene(s1);
-
-                }else if (hero.getScene().equalsIgnoreCase("fishingvillage")) {
+                }else if (hero.getScene().equalsIgnoreCase("fort2")) {
+                    Fort2 firstFort = new Fort2();
+                    Scene s1 = firstFort.createScene(x, hero);
+                    x.setScene(s1);
+                }else if (hero.getScene().equalsIgnoreCase("village2")) {
+                    Village2 firstFort = new Village2();
+                    Scene s1 = firstFort.createScene(x, hero);
+                    x.setScene(s1);
+                }else if (hero.getScene().equalsIgnoreCase("village3")) {
+                    Village3 firstFort = new Village3();
+                    Scene s1 = firstFort.createScene(x, hero);
+                    x.setScene(s1);
+                }else if (hero.getScene().equalsIgnoreCase("village4")) {
+                    Village4 firstFort = new Village4();
+                    Scene s1 = firstFort.createScene(x, hero);
+                    x.setScene(s1);
+                }else if (hero.getScene().equalsIgnoreCase("village5")) {
+                    Village5 firstFort = new Village5();
+                    Scene s1 = firstFort.createScene(x, hero);
+                    x.setScene(s1);
+                }else if (hero.getScene().equalsIgnoreCase("Castle")) {
+                    Castle firstFort = new Castle();
+                    Scene s1 = firstFort.createScene(x, hero);
+                    x.setScene(s1);
+                }
+                else if (hero.getScene().equalsIgnoreCase("fishingvillage")) {
                     toVillage2 v2 = new toVillage2();
                     Scene s1 = v2.createScene(x, hero);
                     x.setScene(s1);
@@ -422,7 +479,7 @@ public class RandomEncounter extends Application {
                     Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
                     x.setScene(s1);
                 }
-                else if(hero.getScene().equalsIgnoreCase("AbandondedCamp")){
+                else if(hero.getScene().equalsIgnoreCase("AbandonedCamp")){
                     toVillage4 encounter = new toVillage4();
                     Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
                     x.setScene(s1);
@@ -430,6 +487,10 @@ public class RandomEncounter extends Application {
                 else if(hero.getScene().equalsIgnoreCase("HydraBattle")){
                     EndingIntro encounter = new EndingIntro();
                     Scene s1 = encounter.getScene(x, hero); //talk to a random person pic please
+                    x.setScene(s1);
+                }else if(hero.getScene().equalsIgnoreCase("castleBattle")){
+                    Castle encounter = new Castle();
+                    Scene s1 = encounter.createScene(x, hero); //talk to a random person pic please
                     x.setScene(s1);
                 }
                 //Travel mechanics
@@ -462,7 +523,9 @@ public class RandomEncounter extends Application {
                     toVillage4 mytown=new toVillage4();
                     Scene s1 = mytown.createScene(x, hero);// next town pic please
                     x.setScene(s1);
-                }
+                }///
+
+
                 else if (hero.getScene().equalsIgnoreCase("toVillage5")) {
                     toVillage5 mytown=new toVillage5();
                     Scene s1 = mytown.createScene(x, hero);// next town pic please
@@ -494,7 +557,7 @@ public class RandomEncounter extends Application {
                     x.setScene(s1);
                 }
                 else if (hero.getScene().equalsIgnoreCase("toOldRuins")) {
-                    toOasis mytown=new toOasis();
+                    toOldRuins mytown=new toOldRuins();
                     Scene s1 = mytown.createScene(x, hero);// next town pic please
                     x.setScene(s1);
                 }

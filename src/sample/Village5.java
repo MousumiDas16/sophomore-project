@@ -81,7 +81,7 @@ public class Village5 extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/tempFort1.png",
+        Image img = new Image("sample/Art/Background/Ye_Olde_Village.png",
                 AppSettings.centerUIWidth, AppSettings.centerUIHeight, true, true);
         ImageView Center_ImageView = new ImageView(img);
         Center_UI.getChildren().add(Center_ImageView);
@@ -244,7 +244,7 @@ public class Village5 extends Application {
                                 System.out.println("something broke fam peep first town");
                                 break;
                         }
-                        Image img = new Image("sample/Art/Background/Donkey_Town.PNG", 650, 400, true, true);
+                        Image img = new Image("sample/Art/Background/Ye_Olde_Village.png", 650, 400, true, true);
                         Image img2 = new Image("sample/Art/Characters/Townsperson.png", 200, 100, true, true);
                         ImageView Center_ImageView = new ImageView(img);
                         ImageView Character = new ImageView(img2);
@@ -347,7 +347,7 @@ public class Village5 extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Village5 myVillage=new Village5();
+                toCave2 myVillage=new toCave2();
                 Scene s1 = myVillage.createScene(x, hero);// next town pic please
                 x.setScene(s1);
 

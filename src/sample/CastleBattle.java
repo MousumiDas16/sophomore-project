@@ -86,7 +86,7 @@ public class CastleBattle extends Application {
 
             @Override
             public void handle(ActionEvent event) {
-                Village2 village2 = new Village2();
+                toVillage3 village2 = new toVillage3();
                 Scene s1 = null;
                 s1 = village2.createScene(x, hero);
                 x.setScene(s1);
@@ -127,7 +127,7 @@ public class CastleBattle extends Application {
         //Adding the tavern image to the current UI
 
 
-        Image img = new Image("sample/Art/Background/TEMPfishingVillage.PNG", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Castle_Goblin.PNG", 650, 400, true, true);
         Image img2 = new Image("sample/Art/Characters/GoblinKing.gif", 200, 100, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);

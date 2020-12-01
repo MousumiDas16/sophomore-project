@@ -98,11 +98,11 @@ public class Fort2 extends Application {
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
         Image img = new Image("sample/Art/Background/Fort_2.PNG", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/guard.png", 200, 100, true, true);
+
         ImageView Center_ImageView = new ImageView(img);
-        ImageView Character = new ImageView(img2);
-        Center_UI.getChildren().addAll(Center_ImageView,Character);
-        Center_UI.setAlignment(Character, Pos.BOTTOM_CENTER);
+
+        Center_UI.getChildren().addAll(Center_ImageView);
+        Center_UI.setAlignment( Pos.BOTTOM_CENTER);
         root.setCenter(Center_UI);
         //Button GoBack = new Button("Go back");
         //GoBack.setPadding(new Insets(0, 20, 0, 20));
@@ -261,8 +261,8 @@ public class Fort2 extends Application {
                                 System.out.println("something broke fam peep first town");
                                 break;
                         }
-                        Image img = new Image("sample/Art/Background/Fort.png", 650, 400, true, true);
-                        Image img2 = new Image("sample/Art/Characters/guard.png", 200, 100, true, true);
+                        Image img = new Image("sample/Art/Background/Fort_2.png", 650, 400, true, true);
+                        Image img2 = new Image("sample/Art/Characters/guard.png", 200, 200, true, true);
                         ImageView Center_ImageView = new ImageView(img);
                         ImageView Character = new ImageView(img2);
                         Center_UI.getChildren().addAll(Center_ImageView,Character);
