@@ -38,7 +38,7 @@ public class Ending3 {
         words.add("The sword came loose easily, as if it\nhad been wanting to be pulled from the stone.\nThe Protagonist felt no different.");
         words.add("Lady Wisp: “Congratulations, Your Grace.\nYou have been reunited with your true weapon,\nThe Sword of the King! Truly, the sword is not magical,");
         words.add("to pick it shows that you embody the virtues the\nFirst King held in high regard. That is nothing\nmore than an old steel sword, and it was his but has wasted away\nin these centuries since his last heir’s death.”");
-        words.add("The True Monarch descended the Dragon’s Claw\nand sat their rightful throne, in the Old Castle.\nThey then began their work to unite the kingdom and return it to glory…");
+        words.add("The True Monarch descended the Dragon’s Claw\nand sat their rightful throne, in the Old Castle.\nThey then began their work to unite the kingdom\nand return it to glory…");
 
         Text Line1 = new Text();
         root.getChildren().add(Line1);
