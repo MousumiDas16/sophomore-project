@@ -82,7 +82,7 @@ public class Cave2Cutscene {
         words.add("The protagonist found the cave empty…");
         words.add("Lady Wisp: “ We are almost to the end now. I can see the Dragon’s Claw looming\nin the " + "distance. That river is the only thing between us and the Old Castle. Make\nsure your health is"
         +" good before we try to cross the river.”");
-        words.add("“The castle is home to an ancient guardian of the Sword. From the talk of the villagers\nwe've " + "encountered it seems there is a massive moat surrounding the castle that’s home to\nThe Hydra \n");
+        words.add("“The castle is home to an ancient guardian of the Sword. From the talk of the villagers\nwe've " + "encountered it seems there is a massive moat surrounding\nthe castle that’s home to The Hydra \n");
         words.add("that old thing is greedy and can be bargained with, but it’s not scared to defend itself. \n" + "When we reach it you’ll need to decide how to approach.”\n");
 
 

@@ -81,7 +81,7 @@ public class IntroOldRuins {
         ArrayList<String> words = new ArrayList<>();
         words.add("The protagonist is stopped by a mighty outlaw.");
         words.add("Outlaw: “You’re gonna give me every last item you own or\nyou’ll be dead quicker than you can say ‘oof’”");
-        words.add("Lady Wisp: “No! you’ll be handing over that precious item you stole from that\nold castle or the true monarch will destroy you, filthy degenerate!”\n");
+        words.add("Lady Wisp: “No! you’ll be the one saying oof,\nwhen the true monarch destroys you, filthy degenerate!”\n");
         words.add("Outlaw: “That spirit just cost you all the sympathy I had… now hand over the\ngoods or we’ll get this dance started. Heheheh!”\n");
         Text Line1 = new Text();
         //positioning text

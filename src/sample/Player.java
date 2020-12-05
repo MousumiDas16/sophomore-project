@@ -60,6 +60,7 @@ public class Player extends Entity {
 
     }
 
+
     public void SetName(String n){
         this.Name = n;
 
