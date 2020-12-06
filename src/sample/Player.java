@@ -197,7 +197,7 @@ public class Player extends Entity {
                 Food = 0;
                 Statboost = 0;
                 Pictures.add(0,(new Image("sample/Art/Characters/Profile/Farmer_Profile.png",100,100,true,true)));
-                Pictures.add(1,(new Image("sample/Art/Characters/Farmer2_gif.gif",200, 100, true, true)));
+                Pictures.add(1,(new Image("sample/Art/Characters/Donkey_Actual.png",200, 100, true, true)));
                 description="You were born an unremarkable child of unremarkable parents. " +
                         "All your life you toiled\n away at your family's farm, learning the trade from your mother " +
                         "and father. You were faster and braver than most of your peers.\n After the passing of your " +

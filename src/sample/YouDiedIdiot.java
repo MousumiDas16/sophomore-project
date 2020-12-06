@@ -11,7 +11,7 @@ public class YouDiedIdiot extends Application {
 
     public static Scene main(Stage x, Player hero) {
         BorderPane root = new BorderPane();
-        Image img = new Image("sample/Art/Background/Death_Screen.png", AppSettings.screenWidth,
+        Image img = new Image("sample/Art/Background/Death_Screen_Full.png", AppSettings.screenWidth,
                 AppSettings.screenHeight, true, true);
         ImageView deadfool = new ImageView(img);
         root.getChildren().add(deadfool);

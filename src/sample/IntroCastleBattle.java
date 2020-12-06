@@ -91,7 +91,7 @@ public class IntroCastleBattle {
         Line1.setText(words.get(next));
         Line1.setStroke(Color.BLACK);
 
-        Image imgNext = new Image("sample/Art/Background/arrow.png", 100, 100, true, true);
+        Image imgNext = new Image("sample/Art/Background/arrow.png", 70, 70, true, true);
         ImageView nxtView = new ImageView(imgNext);
         nxtView.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
