@@ -119,8 +119,8 @@ public class IntroSphinxBattle {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Pyramid.PNG", 650, 400, true, true);// need pyramid interior background
-        Image img2 = new Image("sample/Art/Characters/Sphinx.PNG", 450, 450, true, true);
+        Image img = new Image("sample/Art/Background/Pyramid.png", 650, 400, true, true);// need pyramid interior background
+        Image img2 = new Image("sample/Art/Characters/Sphinx.png", 450, 450, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);
