@@ -645,7 +645,7 @@ public class RandomEncounter extends Application {
                             else if (enemy.getHealth() > 0) {
                                 int health2 = hero.getHealth() - enemyAttack;
                                 hero.setHealth(health2);
-                                popup2.setText("The"+enemy.getType() +" did " + enemyAttack + " damage.");
+                                popup2.setText("The "+enemy.getType() +" did " + enemyAttack + " damage.");
                                 statController.updateStats();
                                 popup3.setText("");
                                 popup4.setText("");
