@@ -34,9 +34,9 @@ public class Main extends Application {
         Main.mainStage = primaryStage;
         System.out.println(("Current file: Main"));
         hero = new Player();
-        hero.setClass("mercenary");
-        hero.setName("Player");
-        hero.setPotions(10);
+        //hero.setClass("mercenary");
+        //hero.setName("Player");
+        //hero.setPotions(10);
         EndingIntro fort = new EndingIntro();
         MainMenu firstMenu=new MainMenu();
         RandomEncounter encounter=new RandomEncounter();
@@ -45,7 +45,7 @@ public class Main extends Application {
         Village2 vill = new Village2();
         IntroSphinxBattle c1 = new IntroSphinxBattle();
         toOasis oas = new toOasis();
-        Scene s1 = vill.createScene(primaryStage, hero);
+        Scene s1 = firstMenu.getScene(primaryStage, hero);
 
 
 

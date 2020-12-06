@@ -77,8 +77,9 @@ public class Tavern extends Application {
 
         Pane newLoadedPane = null;
         try {
-            URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
-            FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
+            URL fxmlUrl = Tavern.class.getResource("StatsPane.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(fxmlUrl);
             statController=new StatsPanelController();
             fxmlLoader.setController(statController);
             newLoadedPane = fxmlLoader.load();
@@ -133,7 +134,7 @@ public class Tavern extends Application {
         //Adding the tavern image to the current UI
         StackPane Center_UI = new StackPane();
         Image img3 = new Image("sample/Art/Background/Tavern.PNG", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Willow_Sprite_Hood_Still.PNG", 200, 150, true, true);
+        Image img2 = new Image("sample/Art/Characters/Willow_Sprite_Hood_Still.png", 200, 150, true, true);
         ImageView Center_ImageView = new ImageView(img3);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);

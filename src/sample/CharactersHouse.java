@@ -32,7 +32,7 @@ import java.util.ResourceBundle;
  */
 public class CharactersHouse extends Application {
 
-    private StatsPanelController statConroller;
+    private StatsPanelController statController;
 
     @Override
     public void start(Stage primaryStage) {
@@ -70,10 +70,11 @@ public class CharactersHouse extends Application {
 
         Pane newLoadedPane = null;
         try {
-            URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
-            FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
-            statConroller=new StatsPanelController();
-            fxmlLoader.setController(statConroller);
+            URL fxmlUrl = CharactersHouse.class.getResource("StatsPane.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(fxmlUrl);
+            statController=new StatsPanelController();
+            fxmlLoader.setController(statController);
             newLoadedPane = fxmlLoader.load();
 
         } catch (IOException e) {

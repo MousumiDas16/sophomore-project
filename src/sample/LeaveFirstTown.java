@@ -61,8 +61,9 @@ public class LeaveFirstTown {
         root.setLeft(Left_UI);
         Pane newLoadedPane = null;
         try {
-            URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
-            FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
+            URL fxmlUrl = LeaveFirstTown.class.getResource("StatsPane.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(fxmlUrl);
             statController=new StatsPanelController();
             fxmlLoader.setController(statController);
             newLoadedPane = fxmlLoader.load();

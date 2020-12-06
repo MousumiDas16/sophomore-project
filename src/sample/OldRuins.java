@@ -27,6 +27,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class OldRuins extends Application {
+    StatsPanelController statController;
 
     public Scene getScene(Stage x, Player hero) {
         hero.setScene("OldRuins");
@@ -56,9 +57,10 @@ public class OldRuins extends Application {
 
         Pane newLoadedPane = null;
         try {
-            URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
-            FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
-            StatsPanelController statController=new StatsPanelController();
+            URL fxmlUrl = Tavern.class.getResource("StatsPane.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(fxmlUrl);
+            statController=new StatsPanelController();
             fxmlLoader.setController(statController);
             newLoadedPane = fxmlLoader.load();
 

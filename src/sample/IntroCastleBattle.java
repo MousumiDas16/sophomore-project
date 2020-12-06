@@ -58,9 +58,10 @@ public class IntroCastleBattle {
         root.setLeft(Left_UI);
         Pane newLoadedPane = null;
         try {
-            URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
-            FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
-            statController = new StatsPanelController();
+            URL fxmlUrl = Tavern.class.getResource("StatsPane.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(fxmlUrl);
+            statController=new StatsPanelController();
             fxmlLoader.setController(statController);
             newLoadedPane = fxmlLoader.load();
 
@@ -117,7 +118,7 @@ public class IntroCastleBattle {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Castle_Goblin.PNG", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Castle_Goblin.png", 650, 400, true, true);
         Image img2 = new Image("sample/Art/Characters/GoblinKing3c.png", 300, 300, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);

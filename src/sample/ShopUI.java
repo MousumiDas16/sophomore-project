@@ -47,8 +47,9 @@ public class ShopUI extends Application implements Initializable {
 
         Pane newLoadedPane = null;
         try {
-            URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
+            URL fxmlUrl = ShopUI.class.getResource("StatsPane.fxml");
             FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
+            fxmlLoader.setLocation(fxmlUrl);
             sController=new StatsPanelController();
             fxmlLoader.setController(sController);
             newLoadedPane = fxmlLoader.load();
@@ -237,7 +238,11 @@ public class ShopUI extends Application implements Initializable {
     public static Scene main(Stage primaryStage, Player hero) {
         Parent root = null;
         try {
-            root = FXMLLoader.load(ShopUI.class.getResource("./ShopUI.fxml"));
+            URL fxmlUrl = ShopUI.class.getResource("ShopUI.fxml");
+            FXMLLoader qqq = new FXMLLoader(fxmlUrl);
+            qqq.setLocation(fxmlUrl);
+
+            root = qqq.load();
         } catch (IOException e) {
             e.printStackTrace();
         }

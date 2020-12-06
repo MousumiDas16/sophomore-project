@@ -63,8 +63,9 @@ public class FishingVillage extends Application {
 
         Pane newLoadedPane = null;
         try {
-            URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
-            FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
+            URL fxmlUrl = Tavern.class.getResource("StatsPane.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(fxmlUrl);
             statController=new StatsPanelController();
             fxmlLoader.setController(statController);
             newLoadedPane = fxmlLoader.load();
@@ -78,7 +79,7 @@ public class FishingVillage extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Fishing_Village.PNG", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Fishing_Village.png", 650, 400, true, true);
 
         Image img2 = new Image("sample/Art/Characters/Arlong.gif", 200, 400, true, true);
 

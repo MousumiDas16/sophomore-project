@@ -23,6 +23,7 @@ import java.net.URL;
 
 public class HydraBattle {
     public Scene getScene(Stage x, Player hero) {
+        StatsPanelController statController;
         hero.setScene("HydraBattle");
         System.out.println(("Current file: HydraBattle"));
 
@@ -50,9 +51,10 @@ public class HydraBattle {
 
         Pane newLoadedPane = null;
         try {
-            URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
-            FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
-            StatsPanelController statController=new StatsPanelController();
+            URL fxmlUrl = Tavern.class.getResource("StatsPane.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(fxmlUrl);
+            statController=new StatsPanelController();
             fxmlLoader.setController(statController);
             newLoadedPane = fxmlLoader.load();
 

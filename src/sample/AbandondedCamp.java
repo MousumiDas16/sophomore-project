@@ -24,6 +24,8 @@ import java.net.URL;
 
 public class AbandondedCamp extends Application {
 
+    StatsPanelController statController;
+
     public Scene createScene(Stage x, Player hero) {
 
         System.out.println(("Current file: Abandoned Camp"));
@@ -54,9 +56,10 @@ public class AbandondedCamp extends Application {
 
         Pane newLoadedPane = null;
         try {
-            URL fxmlUrl = Tavern.class.getResource("./StatsPane.fxml");
-            FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
-            StatsPanelController statController=new StatsPanelController();
+            URL fxmlUrl = Tavern.class.getResource("StatsPane.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(fxmlUrl);
+            statController=new StatsPanelController();
             fxmlLoader.setController(statController);
             newLoadedPane = fxmlLoader.load();
 
