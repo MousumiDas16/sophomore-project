@@ -126,7 +126,7 @@ public class HydraIntro {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Castle_Hydra.PNG", 650, 400, true, true);// need castle exterior
+        Image img = new Image("sample/Art/Background/Castle_Hydra.png", 650, 400, true, true);// need castle exterior
         Image img2 = new Image("sample/Art/Characters/Hydra.png", 400, 400, true, true);//need hydra
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);

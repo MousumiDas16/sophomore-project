@@ -99,7 +99,7 @@ public class Fort2 extends Application {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Fort_2.PNG", 650, 400, true, true);
+        Image img = new Image("sample/Art/Background/Fort_2.png", 650, 400, true, true);
 
         ImageView Center_ImageView = new ImageView(img);
 

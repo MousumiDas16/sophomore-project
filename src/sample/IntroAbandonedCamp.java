@@ -119,8 +119,8 @@ public class IntroAbandonedCamp {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Forrest.PNG", 650, 400, true, true);
-        Image img2 = new Image("sample/Art/Characters/Wendigo.PNG", 300, 300, true, true);
+        Image img = new Image("sample/Art/Background/Forrest.png", 650, 400, true, true);
+        Image img2 = new Image("sample/Art/Characters/Wendigo.png", 300, 300, true, true);
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
         Center_UI.getChildren().addAll(Center_ImageView,Character);

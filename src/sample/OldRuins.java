@@ -130,7 +130,7 @@ public class OldRuins extends Application {
 
 
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Fort_Ruined.PNG", 650, 400, true, true);//need abandoned camp
+        Image img = new Image("sample/Art/Background/Fort_Ruined.png", 650, 400, true, true);//need abandoned camp
 
         ImageView Center_ImageView = new ImageView(img);
 

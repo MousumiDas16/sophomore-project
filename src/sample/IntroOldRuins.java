@@ -119,7 +119,7 @@ public class IntroOldRuins {
 
         //add town 1 image whenever we get it
         StackPane Center_UI = new StackPane();
-        Image img = new Image("sample/Art/Background/Fort_Ruined.PNG", 650, 400, true, true);//need abandoned camp
+        Image img = new Image("sample/Art/Background/Fort_Ruined.png", 650, 400, true, true);//need abandoned camp
         Image img2 = new Image("sample/Art/Characters/Bandit2.png", 250, 250, true, true);//need bandit
         ImageView Center_ImageView = new ImageView(img);
         ImageView Character = new ImageView(img2);
