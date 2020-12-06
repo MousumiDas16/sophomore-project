@@ -94,7 +94,7 @@ public class EndingIntro2 {
         Line1.setText(words.get(next));
         Line1.setStroke(Color.BLACK);
 
-        Image img = new Image("sample/Art/Background/arrow.png", 100, 100, true, true);
+        Image img = new Image("sample/Art/Background/arrow.png", 70, 70, true, true);
         ImageView nxtView = new ImageView(img);
         nxtView.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
